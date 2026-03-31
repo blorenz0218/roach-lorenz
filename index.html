@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roach & Lorenz | HUD/FHA Multifamily Mortgage Origination</title>
+  <meta name="description" content="Roach & Lorenz is a HUD/FHA multifamily mortgage origination team with $2B+ in closed transactions. Pacific Northwest, Mountain West, and nationwide."/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0b1829;
+      color: #e2ddd4;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── CSS VARIABLES ── */
+    :root {
+      --navy:        #0b1829;
+      --navy-mid:    #102035;
+      --navy-light:  #162d47;
+      --navy-card:   #0f2338;
+      --gold:        #c9a84c;
+      --gold-light:  #e2c070;
+      --gold-dim:    rgba(201,168,76,0.15);
+      --gold-border: rgba(201,168,76,0.22);
+      --text:        #e2ddd4;
+      --text-muted:  #7d97b0;
+      --text-soft:   #a8bccf;
+      --white:       #ffffff;
+    }
+
+    /* ── UTILITY ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    /* ════════════════════════════════════
+       NAV
+    ════════════════════════════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(11,24,41,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      border: none;
+      padding: 11px 22px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 0 24px; }
+    }
+
+    /* ════════════════════════════════════
+       HERO
+    ════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 80px;
+      background: var(--navy);
+    }
+    /* Geometric background texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          -45deg,
+          transparent,
+          transparent 60px,
+          rgba(201,168,76,0.025) 60px,
+          rgba(201,168,76,0.025) 61px
+        );
+      pointer-events: none;
+    }
+    /* Gold radial glow */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.1s;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 4.5vw, 58px);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--text);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.25s;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-soft);
+      max-width: 520px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.55s;
+    }
+    .btn-primary {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      border: none;
+      padding: 16px 32px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      padding: 16px 32px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* Hero sidebar card */
+    .hero-card {
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      padding: 36px 32px;
+      position: relative;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .hero-card-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .hero-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .hero-stat-row:last-of-type { border-bottom: none; }
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+    .hero-stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .hero-stat-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+      text-align: right;
+    }
+    .hero-card-divider {
+      height: 1px;
+      background: var(--gold-border);
+      margin: 20px 0;
+    }
+    .hero-card-note {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 24px; }
+      .hero-card { max-width: 480px; }
+    }
+
+    /* ════════════════════════════════════
+       TRUST BAR
+    ════════════════════════════════════ */
+    .trust-bar {
+      background: var(--navy-mid);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+      padding: 0;
+    }
+    .trust-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .trust-item {
+      padding: 28px 32px;
+      border-right: 1px solid var(--gold-border);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .trust-item:last-child { border-right: none; }
+    .trust-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .trust-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .trust-bar-inner { grid-template-columns: 1fr 1fr; }
+      .trust-item:nth-child(2) { border-right: none; }
+      .trust-item:nth-child(3) { border-top: 1px solid var(--gold-border); }
+      .trust-item:nth-child(4) { border-top: 1px solid var(--gold-border); border-right: none; }
+    }
+
+    /* ════════════════════════════════════
+       DIFFERENTIATOR SECTION
+    ════════════════════════════════════ */
+    .edge {
+      padding: 100px 0;
+      background: var(--navy);
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 20px; height: 1px;
+      background: var(--gold);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      max-width: 560px;
+      margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-sub {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-soft);
+      max-width: 560px;
+      margin-bottom: 56px;
+    }
+    .edge-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--gold-border);
+      border: 1px solid var(--gold-border);
+    }
+    .edge-item {
+      background: var(--navy-card);
+      padding: 36px 32px;
+      transition: background 0.2s;
+    }
+    .edge-item:hover { background: var(--navy-light); }
+    .edge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold-border);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .edge-title {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .edge-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .edge-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════════════════
+       LOAN PRODUCTS
+    ════════════════════════════════════ */
+    .products {
+      padding: 100px 0;
+      background: var(--navy-mid);
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 0;
+    }
+    .product-card {
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      padding: 40px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .product-card:hover { border-color: var(--gold); }
+    .product-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: var(--gold);
+    }
+    .product-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      padding-left: 16px;
+    }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      padding-left: 16px;
+    }
+    .product-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      padding-left: 16px;
+    }
+    .product-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+      padding-left: 16px;
+    }
+    .product-specs {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+      padding-left: 16px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 13px;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-label { color: var(--text-muted); }
+    .spec-val { color: var(--text); font-weight: 500; }
+    .product-features {
+      margin-top: 20px;
+      padding-left: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .feature-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      padding: 5px 12px;
+    }
+    @media (max-width: 768px) {
+      .products-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════════════════
+       TEAM
+    ════════════════════════════════════ */
+    .team {
+      padding: 100px 0;
+      background: var(--navy);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .team-card {
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .team-card:hover { border-color: rgba(201,168,76,0.5); }
+    .team-card::before {
+      content: '';
+      position: absolute;
+      bottom: -60px; right: -60px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .team-initial {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--navy-light);
+      border: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .team-photo-placeholder {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: var(--navy-light);
+      border: 2px solid var(--gold-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-photo-placeholder::before {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--navy-card);
+      border: 2px solid var(--gold-border);
+    }
+    .team-photo-placeholder::after {
+      content: '';
+      position: absolute;
+      top: 24px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--navy-card);
+      border: 2px solid var(--gold-border);
+    }
+    .team-photo-label {
+      position: absolute;
+      bottom: 8px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      z-index: 1;
+    }
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .team-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .team-bio {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-soft);
+      margin-bottom: 28px;
+    }
+    .team-stats {
+      display: flex;
+      gap: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gold-border);
+    }
+    .team-stat { }
+    .team-stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .team-stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .team-email {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .team-email:hover { color: var(--gold-light); }
+    .team-quote {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-left: 2px solid var(--gold);
+      background: rgba(201,168,76,0.05);
+      font-size: 13px;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .team-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════════════════
+       PROCESS
+    ════════════════════════════════════ */
+    .process {
+      padding: 100px 0;
+      background: var(--navy-mid);
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 10%;
+      width: 80%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-border), var(--gold-border), transparent);
+    }
+    .process-step {
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-dot {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--navy-card);
+      border: 2px solid var(--gold-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    @media (max-width: 768px) {
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .process-steps::before { display: none; }
+    }
+
+    /* ════════════════════════════════════
+       RESOURCES / WHITE PAPERS
+    ════════════════════════════════════ */
+    .resources {
+      padding: 100px 0;
+      background: var(--navy);
+    }
+    .resources-coming {
+      margin-top: 56px;
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .resources-coming::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .resources-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+    .resources-coming h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .resources-coming p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 28px;
+    }
+    .resources-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .topic-tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--navy-light);
+      border: 1px solid var(--gold-border);
+      padding: 8px 16px;
+    }
+
+    /* ════════════════════════════════════
+       CONTACT
+    ════════════════════════════════════ */
+    .contact {
+      padding: 100px 0;
+      background: var(--navy-mid);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .contact-intro {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text-soft);
+      margin-bottom: 36px;
+    }
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact-detail-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .contact-detail-val {
+      font-size: 15px;
+      color: var(--text);
+    }
+    /* FORM */
+    .contact-form {
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      padding: 40px 36px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    .form-group select option { background: var(--navy-light); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-submit {
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      border: none;
+      padding: 16px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: var(--gold-light); }
+    .form-disclaimer {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 14px;
+      font-style: italic;
+    }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid var(--gold-border);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--gold-border);
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+    .footer-brand-block {}
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+    .footer-nav {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-disclaimer {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      font-style: italic;
+      opacity: 0.7;
+    }
+    @media (max-width: 768px) {
+      .footer-inner { padding: 0 24px; }
+      .footer-top { flex-direction: column; }
+    }
+
+    /* ════════════════════════════════════
+       SECONDARY PROGRAM CARDS
+    ════════════════════════════════════ */
+    .products-primary-label,
+    .products-secondary-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 56px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .secondary-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--gold-border);
+      border: 1px solid var(--gold-border);
+    }
+    .secondary-card {
+      background: var(--navy-card);
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .secondary-card:hover { background: var(--navy-light); }
+    .secondary-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px;
+      cursor: pointer;
+      gap: 24px;
+    }
+    .secondary-card-left { flex-shrink: 0; }
+    .secondary-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .secondary-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .secondary-card-right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .secondary-specs-inline {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .secondary-spec {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      width: 140px;
+      flex-shrink: 0;
+    }
+    .secondary-spec-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .secondary-spec-val {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .expand-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-border);
+      padding: 8px 16px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .expand-btn:hover { background: rgba(201,168,76,0.25); }
+    .expand-icon {
+      font-size: 14px;
+      line-height: 1;
+      transition: transform 0.25s ease;
+      display: inline-block;
+    }
+    .secondary-card.is-open .expand-icon { transform: rotate(45deg); }
+    .secondary-card.is-open .expand-label { content: 'Close'; }
+    .secondary-card-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+      padding: 0 28px;
+      border-top: 0px solid var(--gold-border);
+    }
+    .secondary-card.is-open .secondary-card-body {
+      max-height: 400px;
+      padding: 24px 28px;
+      border-top: 1px solid var(--gold-border);
+    }
+    .secondary-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+    }
+    .secondary-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .secondary-cta {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+    .secondary-cta:hover { color: var(--gold-light); }
+    @media (max-width: 768px) {
+      .secondary-card-header { flex-direction: column; align-items: flex-start; }
+      .secondary-card-right { justify-content: flex-start; }
+      .secondary-specs-inline { gap: 16px; }
+    }
+
+    /* ════════════════════════════════════
+       WHITE PAPER CARDS
+    ════════════════════════════════════ */
+    .wp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .wp-card {
+      background: var(--navy-card);
+      border: 1px solid var(--gold-border);
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .wp-card:hover { border-color: var(--gold); }
+    .wp-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .wp-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .wp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+    .wp-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    .wp-card-bottom {
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--gold-border);
+    }
+    .wp-read {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .wp-read:hover { color: var(--gold-light); }
+    @media (max-width: 900px) {
+      .wp-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .wp-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── SCROLL OFFSET FOR FIXED NAV ── */
+    section[id], div[id] {
+      scroll-margin-top: 80px;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Roach <span>&</span> Lorenz</a>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#resources">Resources</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Start a Deal</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">HUD/FHA Multifamily Specialists</div>
+      <h1>We've sat on <em>both sides</em> of the HUD desk.</h1>
+      <p class="hero-sub">Roach &amp; Lorenz combines deep borrower relationships with genuine underwriting expertise — so your deal is structured right the first time, and closes with fewer surprises.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start Your Deal</a>
+        <a href="#products" class="btn-outline">Our Loan Programs</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">At a Glance</div>
+      <div class="hero-stat-row">
+        <div>
+          <div class="hero-stat-label">Combined Volume</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="hero-stat-val">$2B+</div>
+          <div class="hero-stat-sub">HUD/FHA Transactions</div>
+        </div>
+      </div>
+      <div class="hero-stat-row">
+        <div>
+          <div class="hero-stat-label">Years in HUD/FHA</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="hero-stat-val">20+</div>
+          <div class="hero-stat-sub">Combined Experience</div>
+        </div>
+      </div>
+      <div class="hero-stat-row">
+        <div>
+          <div class="hero-stat-label">Lender Status</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="hero-stat-val">HUD/FHA</div>
+          <div class="hero-stat-sub">Nationwide</div>
+        </div>
+      </div>
+      <div class="hero-card-divider"></div>
+      <p class="hero-card-note">"Wim and Brian are the rare team that can tell you on day one whether your deal will work — and exactly why."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+  <div class="trust-bar-inner" style="grid-template-columns: repeat(5, 1fr);">
+    <div class="trust-item">
+      <div class="trust-val">Non-Recourse</div>
+      <div class="trust-label">No personal guaranty required</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-val">35–40 Yr</div>
+      <div class="trust-label">Fully amortizing terms</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-val">100%</div>
+      <div class="trust-label">Firm commitment success rate</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-val">Assumable</div>
+      <div class="trust-label">Transferable at sale</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-val">Nationwide</div>
+      <div class="trust-label">PNW, Mountain West & beyond</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DIFFERENTIATOR / EDGE ── -->
+<section class="edge" id="edge">
+  <div class="container">
+    <div class="section-eyebrow">Why Roach &amp; Lorenz</div>
+    <h2 class="section-title">The underwriter's edge — applied to <em>origination.</em></h2>
+    <p class="section-sub">Most originators sell the loan. We engineer it. Brian's background as a Senior Underwriter means we know exactly how HUD evaluates a deal — and we build your application accordingly.</p>
+    <div class="edge-grid">
+      <div class="edge-item">
+        <div class="edge-num">01</div>
+        <div class="edge-title">Underwriter-Led Structuring</div>
+        <p class="edge-desc">Brian spent years on the HUD/FHA underwriting desk before moving to originations. We know what makes HUD approve — and what gets a deal kicked back. Your application is built right the first time.</p>
+      </div>
+      <div class="edge-item">
+        <div class="edge-num">02</div>
+        <div class="edge-title">$2B+ in Closed Transactions</div>
+        <p class="edge-desc">Wim has closed approximately $1.5B in HUD/FHA loans. Brian has underwritten ~$500M. This team has seen nearly every deal type, market, and complication the program can throw at you.</p>
+      </div>
+      <div class="edge-item">
+        <div class="edge-num">03</div>
+        <div class="edge-title">Deep Regional Relationships</div>
+        <p class="edge-desc">Wim has built lasting borrower relationships across the Pacific Northwest and Mountain West over more than a decade — the kind of trust that only comes from consistently closing complex deals.</p>
+      </div>
+      <div class="edge-item">
+        <div class="edge-num">04</div>
+        <div class="edge-title">Honest Pre-Screening</div>
+        <p class="edge-desc">We'll tell you quickly if your deal won't work — and why. No wasted months. Our underwriting background means we can give you a real read on feasibility before you're invested.</p>
+      </div>
+      <div class="edge-item">
+        <div class="edge-num">05</div>
+        <div class="edge-title">Centennial Retains Servicing</div>
+        <p class="edge-desc">Many lenders sell the servicing after closing — meaning you end up with a servicer you never met. Centennial Mortgage services the loans it closes. The relationship doesn't end at endorsement.</p>
+      </div>
+      <div class="edge-item">
+        <div class="edge-num">06</div>
+        <div class="edge-title">Independent, Focused & Yours</div>
+        <p class="edge-desc">Centennial Mortgage is not a big bank with a HUD department buried three levels deep — it's an independent lender that focuses on HUD. And when you work with Wim and Brian, that relationship is ours. It travels with us, not with the institution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-eyebrow">Loan Programs</div>
+    <h2 class="section-title">The right HUD product for <em>your deal.</em></h2>
+    <p class="section-sub">Our primary focus is the 223(f) and 221(d)(4) programs, but we originate across the full HUD/FHA multifamily product suite. If your deal doesn't fit the standard box, ask us — there's often a program that works.</p>
+
+    <!-- PRIMARY PROGRAMS -->
+    <div class="products-primary-label">Primary Programs</div>
+    <div class="products-grid" style="margin-top: 16px;">
+      <div class="product-card">
+        <div class="product-tag">HUD Section 223(f)</div>
+        <div class="product-name">Acquisition & Refinance</div>
+        <div class="product-subtitle">Stabilized Multifamily Properties</div>
+        <p class="product-desc">The 223(f) program provides long-term, fixed-rate, non-recourse permanent financing for the acquisition or refinance of existing stabilized multifamily properties. It is one of the most borrower-friendly loan structures available in commercial real estate.</p>
+        <div class="product-specs">
+          <div class="spec-row"><span class="spec-label">Max LTV (Market Rate)</span><span class="spec-val">83.3%</span></div>
+          <div class="spec-row"><span class="spec-label">Max LTV (Affordable)</span><span class="spec-val">87%</span></div>
+          <div class="spec-row"><span class="spec-label">Loan Term</span><span class="spec-val">Up to 35 years</span></div>
+          <div class="spec-row"><span class="spec-label">Amortization</span><span class="spec-val">Fully amortizing</span></div>
+          <div class="spec-row"><span class="spec-label">Typical Timeline</span><span class="spec-val">~5 months</span></div>
+          <div class="spec-row"><span class="spec-label">Recourse</span><span class="spec-val">Non-recourse</span></div>
+        </div>
+        <div class="product-features">
+          <span class="feature-tag">Assumable</span>
+          <span class="feature-tag">Fixed Rate</span>
+          <span class="feature-tag">No personal guaranty</span>
+          <span class="feature-tag">Supplemental loans available</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-tag">HUD Section 221(d)(4)</div>
+        <div class="product-name">New Construction</div>
+        <div class="product-subtitle">Ground-Up & Substantial Rehabilitation</div>
+        <p class="product-desc">The 221(d)(4) program finances the construction or substantial rehabilitation of multifamily housing. It converts to a permanent loan at certificate of occupancy — one loan from groundbreaking through the life of the asset.</p>
+        <div class="product-specs">
+          <div class="spec-row"><span class="spec-label">Max LTC (Market Rate)</span><span class="spec-val">85%</span></div>
+          <div class="spec-row"><span class="spec-label">Max LTC (Affordable)</span><span class="spec-val">87%</span></div>
+          <div class="spec-row"><span class="spec-label">Loan Term</span><span class="spec-val">Up to 40 years</span></div>
+          <div class="spec-row"><span class="spec-label">Amortization</span><span class="spec-val">Fully amortizing</span></div>
+          <div class="spec-row"><span class="spec-label">Typical Timeline</span><span class="spec-val">~11 months to close</span></div>
+          <div class="spec-row"><span class="spec-label">Recourse</span><span class="spec-val">Non-recourse</span></div>
+        </div>
+        <div class="product-features">
+          <span class="feature-tag">Construction-to-perm</span>
+          <span class="feature-tag">Fixed Rate</span>
+          <span class="feature-tag">Davis-Bacon applies</span>
+          <span class="feature-tag">Assumable at stabilization</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECONDARY PROGRAMS -->
+    <div class="products-secondary-label">Additional Programs</div>
+    <div class="secondary-grid">
+
+      <!-- 223(a)(7) -->
+      <div class="secondary-card">
+        <div class="secondary-card-header" onclick="toggleSecondary(this)">
+          <div class="secondary-card-left">
+            <div class="secondary-tag">HUD Section 223(a)(7)</div>
+            <div class="secondary-name">FHA Loan Refinance</div>
+          </div>
+          <div class="secondary-card-right">
+            <div class="secondary-specs-inline">
+              <span class="secondary-spec"><span class="secondary-spec-label">Use</span><span class="secondary-spec-val">Refi existing FHA loan</span></span>
+              <span class="secondary-spec"><span class="secondary-spec-label">Term</span><span class="secondary-spec-val">Up to 12 yrs remaining</span></span>
+              <span class="secondary-spec"><span class="secondary-spec-label">Recourse</span><span class="secondary-spec-val">Non-recourse</span></span>
+            </div>
+            <button class="expand-btn" aria-expanded="false">
+              <span class="expand-label">Details</span>
+              <span class="expand-icon">＋</span>
+            </button>
+          </div>
+        </div>
+        <div class="secondary-card-body">
+          <p class="secondary-desc">The 223(a)(7) program allows borrowers with an existing FHA-insured mortgage to refinance into a new FHA loan — typically to lower the interest rate or extend the term. It is one of the fastest HUD loan products to close, with a streamlined review process since the property and borrower are already in the FHA system. No new appraisal is required in most cases.</p>
+          <div class="secondary-features">
+            <span class="feature-tag">Streamlined process</span>
+            <span class="feature-tag">No new appraisal required</span>
+            <span class="feature-tag">Rate reduction</span>
+            <span class="feature-tag">Non-recourse</span>
+          </div>
+          <a href="#contact" class="secondary-cta">Ask us about this program →</a>
+        </div>
+      </div>
+
+      <!-- Interest Rate Reduction / Loan Modification -->
+      <div class="secondary-card">
+        <div class="secondary-card-header" onclick="toggleSecondary(this)">
+          <div class="secondary-card-left">
+            <div class="secondary-tag">HUD Interest Rate Reduction</div>
+            <div class="secondary-name">Loan Modification</div>
+          </div>
+          <div class="secondary-card-right">
+            <div class="secondary-specs-inline">
+              <span class="secondary-spec"><span class="secondary-spec-label">Use</span><span class="secondary-spec-val">Modify existing FHA loan</span></span>
+              <span class="secondary-spec"><span class="secondary-spec-label">Outcome</span><span class="secondary-spec-val">Lower rate or restructure</span></span>
+              <span class="secondary-spec"><span class="secondary-spec-label">Recourse</span><span class="secondary-spec-val">Non-recourse</span></span>
+            </div>
+            <button class="expand-btn" aria-expanded="false">
+              <span class="expand-label">Details</span>
+              <span class="expand-icon">＋</span>
+            </button>
+          </div>
+        </div>
+        <div class="secondary-card-body">
+          <p class="secondary-desc">An Interest Rate Reduction or Loan Modification allows existing FHA-insured borrowers to restructure their loan terms — most commonly to reduce the interest rate and lower debt service on a property that may be experiencing stress. This is a workout tool as much as a financing tool, and can be a valuable option for borrowers who need relief without triggering a full refinance.</p>
+          <div class="secondary-features">
+            <span class="feature-tag">Existing FHA loans only</span>
+            <span class="feature-tag">Debt service relief</span>
+            <span class="feature-tag">No full refi required</span>
+          </div>
+          <a href="#contact" class="secondary-cta">Ask us about this program →</a>
+        </div>
+      </div>
+
+      <!-- 241(a) -->
+      <div class="secondary-card">
+        <div class="secondary-card-header" onclick="toggleSecondary(this)">
+          <div class="secondary-card-left">
+            <div class="secondary-tag">HUD Section 241(a)</div>
+            <div class="secondary-name">Supplemental Loan</div>
+          </div>
+          <div class="secondary-card-right">
+            <div class="secondary-specs-inline">
+              <span class="secondary-spec"><span class="secondary-spec-label">Use</span><span class="secondary-spec-val">Capital improvements</span></span>
+              <span class="secondary-spec"><span class="secondary-spec-label">Requirement</span><span class="secondary-spec-val">Existing FHA mortgage</span></span>
+              <span class="secondary-spec"><span class="secondary-spec-label">Recourse</span><span class="secondary-spec-val">Non-recourse</span></span>
+            </div>
+            <button class="expand-btn" aria-expanded="false">
+              <span class="expand-label">Details</span>
+              <span class="expand-icon">＋</span>
+            </button>
+          </div>
+        </div>
+        <div class="secondary-card-body">
+          <p class="secondary-desc">The 241(a) program provides a supplemental FHA-insured loan on a property that already has an existing FHA mortgage. It is typically used to finance capital improvements, energy efficiency upgrades, or other property enhancements that add value without requiring a full refinance of the underlying loan. The supplemental loan is subordinate to the existing FHA mortgage.</p>
+          <div class="secondary-features">
+            <span class="feature-tag">Subordinate to existing FHA loan</span>
+            <span class="feature-tag">Capital improvements</span>
+            <span class="feature-tag">Non-recourse</span>
+            <span class="feature-tag">Fixed rate</span>
+          </div>
+          <a href="#contact" class="secondary-cta">Ask us about this program →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-eyebrow">The Team</div>
+    <h2 class="section-title">Two specialists. <em>One team.</em></h2>
+    <p class="section-sub">Wim brings the relationships and origination experience. Brian brings the underwriting depth. Together, your deal gets the full picture from day one.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <span class="team-photo-label">Photo</span>
+        </div>
+        <div class="team-name">Wim Roach</div>
+        <div class="team-title">VP, Originations</div>
+        <p class="team-bio">Wim has been originating HUD/FHA multifamily loans since March 2014, building a track record of approximately $1.5 billion in closed transactions across the Pacific Northwest, Mountain West, and beyond. His borrower relationships are built on a simple foundation: honest deal counsel, consistent follow-through, and a deep knowledge of the HUD process from start to finish.</p>
+        <blockquote class="team-quote">"[Testimonial placeholder — Wim's borrower quote here.]"</blockquote>
+        <div class="team-stats">
+          <div class="team-stat">
+            <div class="team-stat-val">$1.5B+</div>
+            <div class="team-stat-label">Closed Volume</div>
+          </div>
+          <div class="team-stat">
+            <div class="team-stat-val">11+</div>
+            <div class="team-stat-label">Years HUD/FHA</div>
+          </div>
+        </div>
+        <a href="/cdn-cgi/l/email-protection#2b5c59444a48436b484e455f4e4545424a474644595f4c4a4c4e05484446" class="team-email"><span class="__cf_email__" data-cfemail="b6c1c4d9d7d5def6d5d3d8c2d3d8d8dfd7dadbd9c4c2d1d7d1d398d5d9db">[email&#160;protected]</span></a>
+      </div>
+      <div class="team-card">
+        <div class="team-photo-placeholder">
+          <span class="team-photo-label">Photo</span>
+        </div>
+        <div class="team-name">Brian Lorenz</div>
+        <div class="team-title">VP, Originations</div>
+        <p class="team-bio">Brian spent the early part of his career as a Senior Underwriter at a leading HUD/FHA multifamily lender, where he underwrote approximately $500 million in HUD/FHA multifamily loans. That experience — understanding exactly how HUD evaluates credit, market, and physical risk — is the foundation of how Roach &amp; Lorenz structures every deal. He joined Centennial Mortgage as Vice President of Originations, bringing his underwriting perspective directly to the borrower relationship.</p>
+        <blockquote class="team-quote">"Brian came up as an underwriter. He knows exactly what HUD is going to ask — before they ask it."</blockquote>
+        <div class="team-stats">
+          <div class="team-stat">
+            <div class="team-stat-val">~$500M</div>
+            <div class="team-stat-label">Underwritten</div>
+          </div>
+          <div class="team-stat">
+            <div class="team-stat-val">10+</div>
+            <div class="team-stat-label">Years HUD/FHA</div>
+          </div>
+        </div>
+        <a href="/cdn-cgi/l/email-protection#6406080b16010a1e2407010a10010a0a0d0508090b1610030503014a070b09" class="team-email"><span class="__cf_email__" data-cfemail="395b55564b5c5743795a5c574d5c575750585554564b4d5e585e5c175a5654">[email&#160;protected]</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS ── -->
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-eyebrow">How We Work</div>
+    <h2 class="section-title">From first call to <em>HUD endorsement.</em></h2>
+    <p class="section-sub">A straightforward four-step process — no surprises, no wasted time. We tell you early if a deal won't work, and we execute hard when it will.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-dot">1</div>
+        <div class="step-title">Deal Screening</div>
+        <p class="step-desc">We review your property, financials, and goals. Within days, you'll have a clear picture of feasibility, likely loan sizing, and realistic timeline — typically ~5 months for a 223(f) and ~11 months for a 221(d)(4) from application to close.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">2</div>
+        <div class="step-title">Application & Structuring</div>
+        <p class="step-desc">We assemble the HUD application with precision — anticipating the questions before they're asked. Our underwriting background means we know exactly what HUD needs and what actually moves a deal forward, not just what's on the checklist.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">3</div>
+        <div class="step-title">HUD Review</div>
+        <p class="step-desc">We stay close through the MAP underwriting review, responding promptly to HUD feedback and keeping you informed at every stage. A clean submission means fewer RFIs and a smoother path through review.</p>
+      </div>
+      <div class="process-step">
+        <div class="step-dot">4</div>
+        <div class="step-title">Closing & Endorsement</div>
+        <p class="step-desc">Coordination through firm commitment, closing, and HUD endorsement. We've guided $2B+ worth of deals across the finish line and know how to navigate the final stretch without unnecessary delays.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESOURCES ── -->
+<section class="resources" id="resources">
+  <div class="container">
+    <div class="section-eyebrow">Resources</div>
+    <h2 class="section-title">HUD/FHA insights from <em>practitioners.</em></h2>
+    <p class="section-sub">We're building a library of practical white papers and guides written from the inside — not marketing copy, but real guidance on how to navigate the HUD process.</p>
+    <div class="wp-grid">
+
+      <!-- 221(d)(4) Timeline -->
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 221(d)(4)</div>
+          <div class="wp-title">HUD 221(d)(4) Timeline: How Long Does the Process Take?</div>
+          <p class="wp-desc">A step-by-step guide to the construction loan process — Concept Meeting through Initial Closing — including common delays and how to compress the schedule.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="whitepaper-221d4-timeline.html" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <!-- BSPRA -->
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 221(d)(4)</div>
+          <div class="wp-title">BSPRA Explained: Builder and Sponsor Profit and Risk Allowance</div>
+          <p class="wp-desc">How BSPRA works in the HUD 221(d)(4) program, how it affects the LTC mortgage calculation, and how it compares to SPRA.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="whitepaper-bspra.html" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <!-- 241(a) -->
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 241(a)</div>
+          <div class="wp-title">HUD 241(a) Supplemental Loan: 90% LTC Construction Financing</div>
+          <p class="wp-desc">How Section 241(a) allows ground-up construction of additional units at 90% LTC on top of an existing HUD mortgage — with no Davis-Bacon requirement if the underlying loan is a 223(f).</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="whitepaper-241a.html" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <!-- 5 Reasons -->
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD/FHA Process</div>
+          <div class="wp-title">5 Reasons HUD Multifamily Loans Get Delayed — And How to Avoid Them</div>
+          <p class="wp-desc">The five most common reasons HUD/FHA multifamily loan closings are delayed — incomplete submissions, environmental issues, report shelf lives, appraisal problems, and PCNA findings.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="White_Paper_5_Reasons_HUD_Deals_Stall.html" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <!-- 223(f) Checklist -->
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 223(f)</div>
+          <div class="wp-title">HUD 223(f) Documentation Requirements Compared to Fannie Mae &amp; Freddie Mac</div>
+          <p class="wp-desc">A side-by-side comparison of HUD 223(f) due diligence requirements versus Fannie Mae, Freddie Mac, and life company lenders.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="223f_checklist_white_paper.html" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Tell us about <em>your deal.</em></h2>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">Whether you have a deal ready to go or you're just starting to evaluate your options, we're happy to spend 20 minutes walking through feasibility. No obligation — just a straight answer from people who know the program.</p>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Team</span>
+          <span class="contact-detail-val">Roach &amp; Lorenz</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Lender</span>
+          <span class="contact-detail-val">Centennial Mortgage, Inc.</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Headquarters</span>
+          <span class="contact-detail-val">Boise, ID &amp; Wenatchee, WA</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Coverage</span>
+          <span class="contact-detail-val">Nationwide — HUD/FHA Programs</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Wim Roach</span>
+          <span class="contact-detail-val"><a href="/cdn-cgi/l/email-protection#b6c1c4d9d7d5def6d5d3d8c2d3d8d8dfd7dadbd9c4c2d1d7d1d398d5d9db" style="color:var(--text);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text)'"><span class="__cf_email__" data-cfemail="9ee9ecf1fffdf6defdfbf0eafbf0f0f7fff2f3f1eceaf9fff9fbb0fdf1f3">[email&#160;protected]</span></a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-detail-label">Brian Lorenz</span>
+          <span class="contact-detail-val"><a href="/cdn-cgi/l/email-protection#f0929c9f82959e8ab093959e84959e9e99919c9d9f828497919795de939f9d" style="color:var(--text);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text)'"><span class="__cf_email__" data-cfemail="43212f2c31262d390320262d37262d2d2a222f2e2c3137242224266d202c2e">[email&#160;protected]</span></a></span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="John"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="john@company.com"/>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="(555) 000-0000"/>
+        </div>
+        <div class="form-group">
+          <label>Property Location</label>
+          <input type="text" placeholder="City, State"/>
+        </div>
+        <button class="form-submit">Submit Inquiry</button>
+        <p class="form-disclaimer">Your information is confidential and will only be used to respond to your inquiry. We typically respond within one business day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-brand">Roach <span>&</span> Lorenz</div>
+        <div class="footer-tagline">HUD/FHA Multifamily Origination</div>
+      </div>
+      <ul class="footer-nav">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#team">Team</a></li>
+             <li><a href="#process">Process</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-disclaimer">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This website is for informational purposes only and does not constitute a commitment to lend. Roach &amp; Lorenz is the origination team of Wim Roach and Brian Lorenz, operating under Centennial Mortgage, Inc.</p>
+  </div>
+</footer>
+
+<script>
+  function toggleSecondary(header) {
+    const card = header.closest('.secondary-card');
+    const btn = header.querySelector('.expand-btn');
+    const label = header.querySelector('.expand-label');
+    const isOpen = card.classList.contains('is-open');
+    document.querySelectorAll('.secondary-card.is-open').forEach(c => {
+      c.classList.remove('is-open');
+      c.querySelector('.expand-btn').setAttribute('aria-expanded', 'false');
+      c.querySelector('.expand-label').textContent = 'Details';
+    });
+    if (!isOpen) {
+      card.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      label.textContent = 'Close';
+    }
+  }
+</script>
+
+</body>
+</html>
