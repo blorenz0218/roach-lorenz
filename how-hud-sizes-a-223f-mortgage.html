@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3Y2SPVQSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H3Y2SPVQSK');
+  </script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How HUD Sizes a 223(f) Multifamily Mortgage | Roach & Lorenz</title>
+  <meta name="description" content="A former Senior HUD Underwriter explains how HUD 223(f) loan proceeds are determined — LTV, DSCR, statutory limits, and the cost-of-refinance floor — with an interactive sizing tool embedded in the article."/>
+  <meta name="author" content="Brian Lorenz and Wim Roach"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="keywords" content="HUD 223f loan sizing, HUD 223(f) loan amount, HUD multifamily DSCR, HUD LTV 223f, HUD mortgage sizing calculator, FHA 223f loan proceeds, MAP lender multifamily, HUD NOI underwriting, Centennial Mortgage HUD, Brian Lorenz HUD underwriter"/>
+  <link rel="canonical" href="https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="How HUD Sizes a 223(f) Multifamily Mortgage"/>
+  <meta property="og:description" content="A former Senior HUD Underwriter explains the multiple independent tests HUD uses to size a 223(f) loan — and why the binding constraint shifts depending on where interest rates are."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage"/>
+  <meta property="og:image" content="https://roachlorenz.com/assets/og-223f-sizing.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="HUD 223(f) Loan Sizing — Roach & Lorenz"/>
+  <meta property="og:site_name" content="Roach & Lorenz"/>
+  <meta property="article:published_time" content="2025-04-01T00:00:00Z"/>
+  <meta property="article:modified_time" content="2025-04-01T00:00:00Z"/>
+  <meta property="article:author" content="Brian Lorenz"/>
+  <meta property="article:author" content="Wim Roach"/>
+  <meta property="article:section" content="HUD/FHA Multifamily Financing"/>
+  <meta property="article:tag" content="HUD 223(f)"/>
+  <meta property="article:tag" content="Loan Sizing"/>
+  <meta property="article:tag" content="DSCR"/>
+  <meta property="article:tag" content="LTV"/>
+  <meta property="article:tag" content="Multifamily Mortgage"/>
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="How HUD Sizes a 223(f) Multifamily Mortgage"/>
+  <meta name="twitter:description" content="A former Senior HUD Underwriter explains the multiple independent tests HUD uses to size a 223(f) loan — and why the binding constraint shifts depending on where rates are."/>
+  <meta name="twitter:image" content="https://roachlorenz.com/assets/og-223f-sizing.png"/>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage"
+    },
+    "headline": "How HUD Sizes a 223(f) Multifamily Mortgage",
+    "description": "A former Senior HUD Underwriter explains how HUD 223(f) loan proceeds are determined — LTV, DSCR, statutory limits, and the cost-of-refinance floor — with an interactive sizing tool embedded in the article.",
+    "image": "https://roachlorenz.com/assets/og-223f-sizing.png",
+    "datePublished": "2025-04-01T00:00:00Z",
+    "dateModified": "2025-04-01T00:00:00Z",
+    "wordCount": "3200",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Brian Lorenz",
+        "jobTitle": "VP, Originations",
+        "worksFor": { "@type": "Organization", "name": "Centennial Mortgage, Inc.", "url": "https://roachlorenz.com" },
+        "description": "Former Senior HUD Underwriter with 10+ years in HUD/FHA multifamily mortgage origination and underwriting."
+      },
+      {
+        "@type": "Person",
+        "name": "Wim Roach",
+        "jobTitle": "VP, Originations",
+        "worksFor": { "@type": "Organization", "name": "Centennial Mortgage, Inc.", "url": "https://roachlorenz.com" }
+      }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Roach & Lorenz",
+      "url": "https://roachlorenz.com",
+      "logo": { "@type": "ImageObject", "url": "https://roachlorenz.com/assets/logo.png" }
+    },
+    "about": [
+      { "@type": "Thing", "name": "HUD Section 223(f) Mortgage Insurance" },
+      { "@type": "Thing", "name": "HUD Multifamily Loan Sizing" },
+      { "@type": "Thing", "name": "Debt Service Coverage Ratio" },
+      { "@type": "Thing", "name": "HUD MAP Lender" }
+    ],
+    "keywords": "HUD 223f, HUD 223(f) loan sizing, FHA multifamily, DSCR, LTV, loan sizing calculator, MAP lender, multifamily mortgage, HUD underwriting, Centennial Mortgage"
+  }
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does HUD size a 223(f) loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HUD sizes a 223(f) loan using multiple independent tests — LTV, DSCR, statutory per-unit limits, and a cost-of-refinance floor — and the actual loan amount is the lowest result across all of them. The LTV test is based on 87% of appraised value. The DSCR test converts NOI at 1.15x minimum coverage into maximum allowable debt service, then back-solves for loan amount using the note rate and amortization term. The statutory test applies per-unit dollar limits adjusted for local market factors. The cost-of-refinance floor requires the loan to be at least the greater of 80% LTV or the total cost of the transaction."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the maximum LTV on a HUD 223(f) loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The HUD 223(f) maximum LTV is 87% for market-rate acquisitions and refinances. For cash-out refinances, the maximum drops to 80% LTV. These limits compare favorably to Fannie Mae and Freddie Mac, which typically cap out at 75% LTV for similar assets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What DSCR does HUD require for a 223(f) loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HUD requires a minimum DSCR of 1.15x for market-rate properties under the 223(f) program. HUD uses a Debt Service NOI for DSCR calculation — not the market NOI used for valuation. The Debt Service NOI applies a vacancy assumption of at least 7% and uses actual, audited operating expenses rather than normalized or pro-forma figures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Market NOI and Debt Service NOI in HUD underwriting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "HUD uses two separate NOI figures. Market NOI is used for the appraisal and determines value — and therefore the LTV test. Debt Service NOI is a more conservative figure used for the DSCR test; it applies a minimum 7% vacancy and uses actual operating expenses rather than normalized ones. The gap between these two figures is often where deals run into DSCR constraints."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the interest rate affect how much a HUD 223(f) loan sizes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — rate sensitivity lives entirely in the DSCR test. Once HUD converts NOI to a maximum debt service figure (NOI divided by 1.15), that dollar amount is converted to a loan amount using standard mortgage math — based on the note rate and 35-year amortization. A higher rate produces a higher payment per dollar borrowed, which means a smaller loan for the same debt service budget. In high-rate environments, the LTV test often produces more proceeds than the DSCR test, making LTV the binding constraint."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: #0b1829; color: #e2ddd4; -webkit-font-smoothing: antialiased; }
+    :root {
+      --navy: #0b1829; --navy-mid: #102035; --navy-light: #162d47; --navy-card: #0f2338;
+      --gold: #c9a84c; --gold-light: #e2c070; --gold-dim: rgba(201,168,76,0.12); --gold-border: rgba(201,168,76,0.22);
+      --text: #e2ddd4; --text-muted: #7d97b0; --text-soft: #a8bccf;
+    }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(11,24,41,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gold-border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-brand span { color: var(--gold); }
+    .nav-back { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+    .nav-back::before { content: '←'; font-size: 13px; }
+    .nav-cta { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold); border: none; padding: 10px 20px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+    @media (max-width: 600px) { .nav-inner { padding: 0 20px; } .nav-cta { display: none; } }
+
+    /* FLOATING CALCULATOR BUTTON */
+    .float-calc-btn {
+      position: fixed;
+      top: 64px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-4px);
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: min(920px, calc(100% - 80px));
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: var(--gold);
+      border: none;
+      padding: 13px 22px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.35);
+      opacity: 0;
+      transition: opacity 0.35s ease, background 0.2s;
+      pointer-events: none;
+    }
+    .float-calc-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .float-calc-btn:hover { background: var(--gold-light); }
+    .float-calc-btn svg { flex-shrink: 0; }
+    .float-calc-btn.past-calc { opacity: 0; pointer-events: none; }
+    @media (max-width: 600px) {
+      .float-calc-btn { width: calc(100% - 40px); font-size: 10px; padding: 11px 16px; }
+    }
+
+    /* PAGE WRAPPER */
+    .page-wrapper { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 600px) { .page-wrapper { padding: 0 20px; } }
+
+    /* COVER */
+    .cover { padding: 120px 0 80px; border-bottom: 1px solid var(--gold-border); position: relative; overflow: hidden; }
+    .cover::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,168,76,0.018) 60px, rgba(201,168,76,0.018) 61px); pointer-events: none; }
+    .cover::after { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
+    .cover-inner { position: relative; z-index: 1; }
+    .cover-series { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 8px 16px; }
+    .cover-series-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .cover h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; line-height: 1.1; color: var(--text); max-width: 700px; margin-bottom: 10px; }
+    .cover h1 em { font-style: italic; color: var(--gold); }
+    .cover-subtitle { font-family: 'Playfair Display', serif; font-size: clamp(15px, 2vw, 19px); font-weight: 400; font-style: italic; color: var(--text-muted); margin-bottom: 32px; }
+    .cover-rule { width: 56px; height: 2px; background: var(--gold); margin-bottom: 28px; }
+    .cover-lede { font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--text-soft); max-width: 660px; margin-bottom: 40px; }
+    .cover-meta { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .cover-authors { display: flex; gap: 20px; flex-wrap: wrap; }
+    .cover-author { display: flex; align-items: center; gap: 10px; }
+    .author-initial { width: 36px; height: 36px; border-radius: 50%; background: var(--navy-light); border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .author-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .author-role { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+    .cover-divider { width: 1px; height: 36px; background: var(--gold-border); }
+    .cover-pub { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+
+    /* LAYOUT */
+    .doc-layout { display: grid; grid-template-columns: 1fr 260px; gap: 56px; padding: 64px 0 80px; align-items: start; }
+    @media (max-width: 820px) { .doc-layout { grid-template-columns: 1fr; } .doc-sidebar { display: none; } }
+
+    /* SIDEBAR */
+    .doc-sidebar { position: sticky; top: 88px; }
+    .sidebar-box { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 24px; margin-bottom: 20px; position: relative; }
+    .sidebar-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .sidebar-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list li a { display: flex; align-items: baseline; gap: 8px; font-size: 12px; color: var(--text-muted); text-decoration: none; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04); transition: color 0.2s; line-height: 1.4; }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--gold); }
+    .toc-num { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--gold-border); flex-shrink: 0; }
+    .sidebar-stat { display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sidebar-stat:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-stat-val { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--gold); }
+    .sidebar-stat-label { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+    .sidebar-cta { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold); text-align: center; padding: 14px; text-decoration: none; transition: background 0.2s; }
+    .sidebar-cta:hover { background: var(--gold-light); }
+
+    /* BODY COPY */
+    .intro-graf { font-size: 17px; font-weight: 300; line-height: 1.8; color: var(--text-soft); margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--gold-border); }
+    .intro-graf strong { color: var(--text); font-weight: 500; }
+
+    /* Section blocks */
+    .section-block { margin-bottom: 64px; padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.06); scroll-margin-top: 88px; }
+    .section-block:last-of-type { border-bottom: none; }
+
+    .section-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 28px; }
+    .section-number { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--gold-border); line-height: 1; flex-shrink: 0; margin-top: -4px; }
+    .section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: var(--text); line-height: 1.2; }
+    .section-title em { color: var(--gold); font-style: italic; }
+
+    p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-soft); margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+    p strong { color: var(--text); font-weight: 500; }
+
+    /* Callout / info box */
+    .callout { background: var(--navy-light); border-left: 3px solid var(--gold); padding: 20px 24px; margin: 28px 0; }
+    .callout p { font-size: 13.5px !important; margin-bottom: 0 !important; line-height: 1.75 !important; }
+    .callout p strong { color: var(--text) !important; font-weight: 500 !important; }
+
+    /* Spec table */
+    .spec-table-wrap { overflow-x: auto; margin: 28px 0; }
+    .spec-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .spec-table th { font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); background: var(--navy-card); padding: 12px 16px; text-align: left; border-bottom: 1.5px solid var(--gold); }
+    .spec-table td { padding: 11px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-soft); font-weight: 300; line-height: 1.5; vertical-align: top; }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-table tr:hover td { background: rgba(255,255,255,0.015); }
+    .td-label { color: var(--text); font-weight: 500; white-space: nowrap; }
+    .td-val { color: var(--gold); font-weight: 500; }
+
+    /* Example box */
+    .example-box { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 28px 32px; margin: 28px 0; position: relative; overflow: hidden; }
+    .example-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .example-label { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .example-box p { font-size: 13.5px !important; font-weight: 300 !important; line-height: 1.75 !important; color: var(--text-soft) !important; margin-bottom: 12px !important; }
+    .example-box p:last-child { margin-bottom: 0 !important; }
+    .example-box p strong { color: var(--text) !important; font-weight: 500 !important; }
+    .example-math { font-family: 'DM Sans', monospace; font-size: 13px; font-weight: 400; color: var(--text-soft); background: rgba(0,0,0,0.2); padding: 10px 14px; margin: 10px 0; border-left: 2px solid var(--gold-border); }
+    .example-math strong { color: var(--gold); }
+
+    /* Check list */
+    .check-list { list-style: none; margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
+    .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--text-soft); }
+    .check-list li::before { content: '→'; color: var(--gold); font-size: 12px; flex-shrink: 0; padding-top: 1px; }
+    .check-list li strong { color: var(--text); font-weight: 500; }
+
+    /* ============================================================
+       CALCULATOR
+    ============================================================ */
+    .calculator-wrap { margin: 0 0 64px; scroll-margin-top: 88px; }
+    .calc-header { margin-bottom: 28px; }
+    .calc-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .calc-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--text); }
+    .calc-header h2 em { color: var(--gold); font-style: italic; }
+    .calc-lede { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--text-muted); max-width: 600px; margin-top: 12px; }
+
+    .calc-card { background: var(--navy-card); border: 1px solid var(--gold-border); position: relative; overflow: hidden; }
+    .calc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
+
+    .calc-body { padding: 36px 36px 32px; }
+    @media (max-width: 600px) { .calc-body { padding: 24px 20px; } }
+
+    .calc-section-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--gold-border); }
+
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; margin-bottom: 32px; }
+    @media (max-width: 600px) { .calc-grid { grid-template-columns: 1fr; } }
+    .calc-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    @media (max-width: 680px) { .calc-grid-3 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 460px) { .calc-grid-3 { grid-template-columns: 1fr; } }
+
+    .calc-field { display: flex; flex-direction: column; gap: 6px; }
+    .calc-field label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--text); }
+    .calc-field .field-note { font-size: 10.5px; font-weight: 300; color: var(--text-muted); margin-top: 2px; line-height: 1.4; }
+    .calc-field .field-note a { color: var(--gold); text-decoration: none; }
+    .calc-field .field-note a:hover { text-decoration: underline; }
+    .calc-field input, .calc-field select {
+      background: var(--navy-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 0;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 10px 14px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .calc-field input:focus, .calc-field select:focus { border-color: var(--gold); }
+    .calc-field input::placeholder { color: var(--text-muted); font-weight: 300; }
+
+    .input-prefix-wrap { position: relative; }
+    .input-prefix { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--text-muted); pointer-events: none; }
+    .input-prefix-wrap input { padding-left: 26px; }
+    .input-suffix-wrap { position: relative; }
+    .input-suffix { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--text-muted); pointer-events: none; }
+    .input-suffix-wrap input { padding-right: 28px; }
+
+    .calc-divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 8px 0 28px; }
+
+    .calc-submit-row { display: flex; justify-content: flex-start; padding-top: 4px; }
+    .btn-calc { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--navy); background: var(--gold); border: none; padding: 16px 36px; cursor: pointer; transition: background 0.2s; }
+    .btn-calc:hover { background: var(--gold-light); }
+
+    /* Results */
+    .calc-results { display: none; padding: 0 36px 36px; }
+    @media (max-width: 600px) { .calc-results { padding: 0 20px 24px; } }
+    .calc-results.visible { display: block; }
+
+    .results-divider { border: none; border-top: 1px solid var(--gold-border); margin-bottom: 28px; }
+    .results-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+
+    .results-constraints { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
+    @media (max-width: 600px) { .results-constraints { grid-template-columns: 1fr; } }
+
+    .constraint-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.06); padding: 18px 20px; position: relative; }
+    .constraint-card.binding { border-color: var(--gold); background: rgba(201,168,76,0.07); }
+    .constraint-card.binding::before { content: 'BINDING'; position: absolute; top: -1px; right: -1px; font-size: 8px; font-weight: 700; letter-spacing: 0.18em; color: var(--navy); background: var(--gold); padding: 3px 8px; }
+    .constraint-name { font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+    .constraint-amount { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .constraint-card.binding .constraint-amount { color: var(--gold); }
+    .constraint-detail { font-size: 11px; color: var(--text-muted); font-weight: 300; }
+
+    .results-summary { background: var(--navy-mid); border: 1px solid var(--gold-border); padding: 20px 24px; margin-bottom: 20px; }
+    .summary-headline { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .summary-headline span { color: var(--gold); }
+    .summary-explain { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+
+    .results-flags { margin-bottom: 20px; }
+    .flag-item { display: flex; align-items: flex-start; gap: 10px; font-size: 12.5px; font-weight: 300; color: var(--text-muted); padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); line-height: 1.5; }
+    .flag-item:last-child { border-bottom: none; }
+    .flag-icon { font-size: 13px; flex-shrink: 0; padding-top: 1px; }
+
+    .results-disclaimer { font-size: 11px; font-weight: 300; color: var(--text-muted); line-height: 1.65; font-style: italic; margin-bottom: 20px; opacity: 0.8; }
+
+    .results-cta { background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 18px 22px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .results-cta-text { font-size: 13px; font-weight: 400; color: var(--text-soft); }
+    .results-cta-link { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy); background: var(--gold); padding: 12px 22px; text-decoration: none; white-space: nowrap; transition: background 0.2s; }
+    .results-cta-link:hover { background: var(--gold-light); }
+
+    /* Closing */
+    .closing { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 40px 36px; position: relative; overflow: hidden; margin-top: 56px; }
+    .closing::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .closing h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: var(--text); margin-bottom: 16px; }
+    .closing h2 em { font-style: italic; color: var(--gold); }
+    .closing p { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--text-soft); margin-bottom: 24px; max-width: 600px; }
+    .closing-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold); border: none; padding: 14px 28px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); background: transparent; border: 1px solid var(--gold-border); padding: 14px 28px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* FOOTER */
+    footer { background: var(--navy); border-top: 1px solid var(--gold-border); padding: 40px 0 28px; }
+    .footer-inner { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--gold-border); flex-wrap: wrap; gap: 24px; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+    .footer-brand span { color: var(--gold); }
+    .footer-tagline { font-size: 12px; color: var(--text-muted); font-style: italic; margin-top: 4px; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; align-items: center; }
+    .footer-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-disclaimer { font-size: 11px; line-height: 1.7; color: var(--text-muted); font-style: italic; opacity: 0.7; }
+    @media (max-width: 600px) { .footer-inner { padding: 0 20px; } .footer-top { flex-direction: column; } }
+
+    @media print {
+      nav { display: none !important; }
+      body { background: white; color: #1a1a1a; }
+      .doc-layout { grid-template-columns: 1fr !important; }
+      .doc-sidebar { display: none !important; }
+      :root { --navy: white; --navy-mid: #f4f4f4; --navy-card: #f8f8f8; --text: #111; --text-soft: #3a3a3a; --text-muted: #666; --gold: #8a6820; --gold-border: rgba(138,104,32,0.3); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="Wim Roach & Brian Lorenz — HUD/FHA Multifamily Origination">Wim Roach <span>&</span> Brian Lorenz</a>
+    <a href="index.html#resources" class="nav-back" aria-label="Back to all resources">All Resources</a>
+    <a href="index.html#contact" class="nav-cta" aria-label="Contact Roach & Lorenz">Start a Deal</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<div class="page-wrapper">
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-series">
+        <div class="cover-series-dot"></div>
+        Wim Roach &amp; Brian Lorenz — HUD/FHA Practitioner Series
+      </div>
+      <h1>How HUD Sizes a <em>223(f) Multifamily Mortgage</em></h1>
+      <div class="cover-subtitle">A Former Senior HUD Underwriter Explains the Methodology</div>
+      <div class="cover-rule"></div>
+      <p class="cover-lede">When borrowers ask us how large a HUD 223(f) loan can get, the honest answer is: it depends on which of four independent tests is binding. HUD doesn't size a mortgage the way a conventional lender does — it runs multiple constraints simultaneously, and the loan is the lowest result across all of them. This article walks through each test, explains the math behind it, and covers why the binding constraint shifts as interest rates move. There's also a sizing tool at the bottom where you can play around with the math.</p>
+      <div class="cover-meta">
+        <div class="cover-authors">
+          <div class="cover-author">
+            <div class="author-initial">B</div>
+            <div class="author-info">
+              <div class="author-name">Brian Lorenz</div>
+              <div class="author-role">VP, Originations — Former Senior HUD Underwriter</div>
+            </div>
+          </div>
+          <div class="cover-author">
+            <div class="author-initial">W</div>
+            <div class="author-info">
+              <div class="author-name">Wim Roach</div>
+              <div class="author-role">VP, Originations</div>
+            </div>
+          </div>
+        </div>
+        <div class="cover-divider"></div>
+        <div class="cover-pub">
+          <div>Centennial Mortgage, Inc.</div>
+          <div>Published April 2025</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-layout">
+
+    <!-- MAIN BODY -->
+    <article class="doc-body">
+
+      <p class="intro-graf">I spent years on the underwriting side of HUD before moving into originations, and I've built the Excel underwriting models for nearly every lender I've worked for — including one of the top 20 largest banks in the country — which means I've run these calculations several hundred times from the inside. One of the most persistent misconceptions I encounter is that borrowers — and sometimes brokers — treat HUD loan sizing as a single-variable problem. They'll say "the property is worth $20 million, so at 80% we should get $16 million." That may or may not be right. The 80% LTV figure is one ceiling. There are three others that can cut below it, and in a high-rate environment the one that actually binds often has nothing to do with value.</p>
+
+      <!-- SECTION 1: PROGRAM OVERVIEW -->
+      <div class="section-block" id="program-overview">
+        <div class="section-header">
+          <div class="section-number">01</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Program Parameters</div>
+            <h2 class="section-title">The 223(f) at a Glance — <em>and How It Compares</em></h2>
+          </div>
+        </div>
+
+        <p>The HUD 223(f) program provides FHA mortgage insurance for the acquisition or refinance of existing multifamily properties — no construction involved. It's a 35-year fully amortizing loan at a fixed rate, non-recourse to the sponsors.</p>
+
+        <p>The headline parameters on the loan itself compare well to FNMA and Freddie. For market-rate acquisitions and refinances, HUD allows up to 87% LTV against a 1.15x minimum DSCR. For cash-out refinances the LTV ceiling drops to 80%. Fannie and Freddie are typically capped at 75% LTV for comparable deals — so at the LTV level alone, HUD is structurally more aggressive.</p>
+
+        <div class="spec-table-wrap">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>HUD 223(f)</th>
+                <th>FNMA / Freddie</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="td-label">Max LTV — Standard</td><td class="td-val">87%</td><td>75%</td></tr>
+              <tr><td class="td-label">Max LTV — Cash-Out</td><td class="td-val">80%</td><td>70–75%</td></tr>
+              <tr><td class="td-label">Min DSCR</td><td class="td-val">1.15x</td><td>1.25x</td></tr>
+              <tr><td class="td-label">Loan Term</td><td class="td-val">35 years</td><td>5–12 years</td></tr>
+              <tr><td class="td-label">Amortization</td><td class="td-val">35 years</td><td>30 years (up to 35)</td></tr>
+              <tr><td class="td-label">Recourse</td><td class="td-val">Non-recourse</td><td>Non-recourse (with carveouts)</td></tr>
+              <tr><td class="td-label">Rate Structure</td><td class="td-val">Fixed</td><td>Fixed or floating</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>While HUD's longer timeline earns its reputation, these parameters explain why sponsors who can absorb that timeline are often better served by the 223(f) than by agency alternatives. The 35-year amortization also has a direct effect on sizing — we'll cover that in the DSCR section.</p>
+      </div>
+
+      <!-- SECTION 2: NOI -->
+      <div class="section-block" id="two-nois">
+        <div class="section-header">
+          <div class="section-number">02</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">A Critical Distinction</div>
+            <h2 class="section-title">Market NOI vs. <em>Debt Service NOI</em></h2>
+          </div>
+        </div>
+
+        <p>Before walking through the four sizing tests, it's worth explaining a distinction that catches borrowers off guard: HUD uses two separate NOI figures, and they feed different parts of the analysis.</p>
+
+        <p><strong>Market NOI</strong> is what the property stabilizes to at market occupancy with normalized operating expenses. This is the NOI the third-party appraiser develops alongside the appraiser's sales comp valuation, and it drives the LTV calculation. That is, Market NOI divided by the cap rate equals the appraised value, and the LTV tests apply to that value.</p>
+
+        <p><strong>Debt Service NOI</strong> is generally a more conservative figure that HUD derives from analyzing the property's actual operating history and the appraiser's NOI to determine what the project's actual expected NOI will be. In addition, HUD requires that the vacancy be 7% for market-rate deals (can be lower if affordable), even if the actual vacancy is lower. It also applies the actual annual replacement reserve escrow amount as determined by the Property Capital Needs Assessment (as opposed to the $250/unit escrow the appraiser generally puts in). While the Market NOI feeds the LTV loan amounts, this Debt Service NOI feeds into the DSCR test directly.</p>
+
+        <p>The sizing tool later in this article has separate input fields for Market NOI and Debt Service NOI. If you're working from preliminary estimates and haven't separated these yet, use the same figure in both fields to start — but understand that HUD's Debt Service NOI will almost always be lower than your underwritten market NOI once third-party reports are in.</p>
+      </div>
+
+      <!-- SECTION 3: LTV TEST -->
+      <div class="section-block" id="ltv-test">
+        <div class="section-header">
+          <div class="section-number">03</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Constraint One</div>
+            <h2 class="section-title">The LTV Test — <em>Value-Driven Ceiling</em></h2>
+          </div>
+        </div>
+
+        <p>The LTV test is the most intuitive of the four constraints. HUD commissions an independent appraisal, which establishes market value. The appraiser applies a market cap rate to the stabilized Market NOI to help derive value, and the 87% LTV ceiling is applied to that appraised value.</p>
+
+        <div class="example-box">
+          <div class="example-label">Illustrative Example — LTV Test</div>
+          <p><strong>Market NOI:</strong> $1,200,000 &nbsp;|&nbsp; <strong>Cap Rate:</strong> 5.50%</p>
+          <div class="example-math">Value = $1,200,000 / 0.055 = <strong>$21,818,182</strong></div>
+          <div class="example-math">LTV Maximum (87%) = $21,818,182 × 0.87 = <strong>$18,981,818</strong></div>
+          <p>The LTV test produces a maximum mortgage of approximately <strong>$18.98 million</strong>. We'll carry this figure into the DSCR example below.</p>
+        </div>
+
+        <p>Because Market NOI drives value, cap rate assumption has a significant effect on the LTV-constrained loan amount. A 25-basis-point difference in cap rate on a $1.2 million NOI deal moves value by roughly $1 million — and the LTV ceiling translates that directly into proceeds. This is one reason HUD's third-party appraisal matters so much and why we spend time discussing cap rate selection with borrowers before their appraisal engagement.</p>
+      </div>
+
+      <!-- SECTION 4: DSCR TEST -->
+      <div class="section-block" id="dscr-test">
+        <div class="section-header">
+          <div class="section-number">04</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Constraint Two</div>
+            <h2 class="section-title">The DSCR Test — <em>Where Rate Sensitivity Lives</em></h2>
+          </div>
+        </div>
+
+        <p>The DSCR test is where interest rate assumptions have their entire effect on sizing. The mechanics are a bit different from how most lenders describe them, and there's a quirk worth understanding.</p>
+
+        <p>The way HUD actually sizes the DSCR-constrained loan is to multiply the Debt Service NOI by 87%. That result is the maximum allowable annual debt service — covering P&amp;I, MIP, and all. The industry shorthand is "1.15x DSCR," which is how most originators and borrowers describe the requirement. But 1 / 0.87 equals approximately 1.149, which rounds to 1.15 — so the 1.15x figure is a convenient approximation of the same underlying calculation.</p>
+
+        <p>To convert that debt service budget into a loan amount, you divide by the annual loan constant. The loan constant is the sum of three components: the interest rate, the annual MIP rate, and the amortization rate. The amortization rate is the annual principal repayment per dollar of loan balance at a given rate and term — it's what's left of the annual P&amp;I payment after stripping out the interest component. At 5.00% on a 35-year term, the amortization rate is approximately 1.056%. Add the 0.25% MIP and the 5.00% interest rate and the full loan constant is approximately 6.306%. Divide the DS NOI × 0.87 figure by that constant and you have the DSCR-constrained loan amount.</p>
+
+        <div class="example-box">
+          <div class="example-label">Illustrative Example — DSCR Test</div>
+          <p><strong>Debt Service NOI:</strong> $1,080,000 &nbsp;|&nbsp; <strong>Rate:</strong> 5.00% &nbsp;|&nbsp; <strong>Amortization:</strong> 35 years &nbsp;|&nbsp; <strong>MIP:</strong> 0.25%/yr</p>
+          <div class="example-math">Max Annual Debt Service (P&amp;I + MIP) = $1,080,000 × 0.87 = <strong>$939,600</strong></div>
+          <div class="example-math">Amortization rate (at 5.00%, 35yr) = annual P&amp;I per $1 − 5.00% = <strong>1.056%</strong></div>
+          <div class="example-math">Loan Constant = 5.00% (interest) + 0.25% (MIP) + 1.056% (amortization) = <strong>6.306%</strong></div>
+          <div class="example-math">DSCR Loan Amount = $939,600 / 0.06306 = <strong>$14,900,000</strong></div>
+          <p>The DSCR test at 5.00% produces a maximum mortgage of approximately <strong>$14.9 million</strong> — well below the <strong>$18.98 million</strong> LTV ceiling from the prior example. LTV is not the binding constraint here.</p>
+          <p>At 3.00%, the amortization rate drops to roughly 0.762%, producing a loan constant of approximately 4.012%. The same $939,600 debt service budget supports a loan of roughly <strong>$19.3 million</strong> — which exceeds the LTV ceiling and makes LTV the binding constraint instead. The crossover point where DSCR and LTV produce the same loan is around 3.12% at these assumptions. Below that rate, further rate decreases stop moving proceeds.</p>
+        </div>
+
+        <p>The 35-year amortization term is part of why HUD's DSCR test can produce more proceeds than agency lenders at equivalent rates. A 30-year amortization on the same loan amount produces a higher monthly P&amp;I, which consumes more of the debt service budget. The longer HUD amortization schedules a lower monthly constant, stretching a given NOI to support a larger balance. Combined with the 1.15x minimum versus the 1.25x Fannie/Freddie minimum, the cumulative effect on proceeds can be substantial — particularly on lower-NOI deals.</p>
+
+        <div class="callout">
+          <p><strong>Rate environment and the binding constraint:</strong> In a low-rate environment, the DSCR test frequently produces a higher loan amount than the LTV ceiling, making LTV the binding constraint and making rate changes below a threshold mostly irrelevant to proceeds. In a higher-rate environment, DSCR bites first. If you're sizing a deal at 6.00% and re-running it at 5.00%, the proceeds difference often runs $1–2 million on a mid-market property — the entire difference lives in the DSCR test.</p>
+        </div>
+      </div>
+
+      <!-- SECTION 5: STATUTORY TEST -->
+      <div class="section-block" id="statutory-test">
+        <div class="section-header">
+          <div class="section-number">05</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Constraint Three</div>
+            <h2 class="section-title">The HUD Statutory Mortgage Limit — <em>Per-Unit Dollar Caps</em></h2>
+          </div>
+        </div>
+
+        <p>The third constraint is the one borrowers are least familiar with: HUD publishes statutory per-unit mortgage limits by bedroom count that establish an absolute dollar ceiling on the loan, independent of both value and income. These limits exist because HUD mortgage insurance is a federal program with congressional authorization tied to specific loan ceiling amounts.</p>
+
+        <p>The base limits are set by statute and adjusted upward via a High Cost Percentage (HCP) factor — currently 270% uniformly across all markets. HUD adds 100% of the appraised land value to the statutory ceiling and 100% of the cost of building space that is not attributable to residential use — referred to as "Cost Not Attributable." This includes commercial square footage, standalone community buildings, hallways, and other non-residential components.</p>
+
+        <div class="example-box">
+          <div class="example-label">Illustrative Example — Statutory Test (Elevator Building)</div>
+          <p>Using elevator per-unit base limits (approximate; confirm current figures with HUD) and the same property from the LTV example (appraised value $21,818,182):</p>
+          <div class="example-math">1-BR: ~$86,835 &nbsp;|&nbsp; 2-BR: ~$106,477 &nbsp;|&nbsp; 3-BR: ~$133,357 &nbsp;|&nbsp; 4+BR: ~$150,791 &nbsp;|&nbsp; 0-BR: ~$78,368</div>
+          <p>A 100-unit elevator property with 60 one-bedroom and 40 two-bedroom units would calculate as:</p>
+          <div class="example-math">(60 × $86,835 × 2.70) + (40 × $106,477 × 2.70) = $14,067,270 + $11,499,516 = <strong>$25,566,786</strong></div>
+          <p>Adding Cost Not Attributable (10% of appraised value) and 100% of land value:</p>
+          <div class="example-math">Cost Not Attributable = $21,818,182 × 10% = <strong>$2,181,818</strong></div>
+          <div class="example-math">Statutory Maximum = $25,566,786 + $2,181,818 + $2,000,000 (land) = <strong>$29,748,604</strong></div>
+        </div>
+
+        <p>In practice, the statutory limit rarely constrains a 223(f). The deals where it bites are not large-unit properties in average markets — they are properties in very high-rent metros like Manhattan or San Francisco, where both the LTV and DSCR tests would otherwise produce a very large loan. In those markets the income and value support an outsized mortgage, and the statutory per-unit cap is what ultimately cuts the number. The reason this happens infrequently even in high-cost markets is that land values in those same metros tend to be substantial, and adding 100% of land value to the statutory ceiling pushes the limit high enough that it doesn't bind. It is worth running the test, but it should not drive early-stage deal decisions in most markets.</p>
+      </div>
+
+      <!-- SECTION 6: COST OF REFINANCE -->
+      <div class="section-block" id="cost-of-refinance">
+        <div class="section-header">
+          <div class="section-number">06</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Constraint Four</div>
+            <h2 class="section-title">The Cost-of-Refinance Criterion — <em>How HUD Handles Cash-Out</em></h2>
+          </div>
+        </div>
+
+        <p>The fourth criterion works differently from the first three, and it's frequently misunderstood. It isn't simply a floor that the loan has to clear — it's the mechanism HUD uses to govern whether a refinance produces cash-out, and if it does, it caps the LTV at 80%.</p>
+
+        <p>Here's how it works: this criterion sizes the loan at the greater of 80% LTV or the total cost of the refinance transaction. The cost of refinance includes the existing debt payoff, any prepayment penalty, required repairs, replacement reserve escrow deposits, third-party report costs, lender fees, HUD fees, and legal costs.</p>
+
+        <p>If the cost of refinancing is less than 80% LTV — meaning the property has enough equity that even at 80% the proceeds exceed what it costs to close — the loan produces cash-out. The borrower walks away from closing with funds in excess of the transaction costs. This is the normal refinance outcome on a well-valued, low-debt property.</p>
+
+        <p>If the cost of refinancing exceeds 80% LTV, HUD will size the loan to exactly cover those costs — but only up to the 87% LTV ceiling from Criterion One. A refinance where the gross loan lands between the cost of refinance and 87% LTV produces no cash-out but also doesn't require the borrower to bring cash to closing. A refinance where even 87% LTV isn't enough to cover the cost of refinancing is called a cash-in refinance — the borrower has to contribute funds at closing to make the deal work, which is uncommon but possible on heavily leveraged assets with significant repair needs.</p>
+
+        <p>The practical interaction between Criterion One (87% LTV) and this criterion is that <strong>HUD has a built-in 80% LTV cash-out cap</strong>. If a deal is producing cash-out, the loan cannot exceed 80% of appraised value — the moment the cost of refinance is fully covered and there's money left over, the applicable LTV ceiling drops from 87% to 80%. Borrowers sometimes ask why HUD caps cash-out at a lower LTV than a standard refinance — this is why. The 87% ceiling is reserved for deals where the proceeds are consumed by the transaction itself.</p>
+
+        <p>The sizing tool below includes fields for existing debt payoff, prepayment penalty, and estimated repair escrow so you can model where this criterion lands relative to the upper constraints.</p>
+      </div>
+
+      <!-- SECTION 7: WHICH CONSTRAINT BINDS -->
+      <div class="section-block" id="binding-constraint">
+        <div class="section-header">
+          <div class="section-number">07</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Putting It Together</div>
+            <h2 class="section-title">Which Test Bites — <em>and When</em></h2>
+          </div>
+        </div>
+
+        <p>The actual loan amount is the lowest result across all four tests. In practice, the pattern runs roughly like this:</p>
+
+        <ul class="check-list">
+          <li><strong>High-rate environments (roughly 5.50%+):</strong> The DSCR test typically produces the lowest number. The same NOI budget supports a smaller loan at higher rates, so DSCR bites before LTV. Improving the DSCR test means increasing Debt Service NOI — rent increases, expense control, lease-up — rather than re-appraising.</li>
+          <li><strong>Low-rate environments (roughly below 3.50%):</strong> DSCR often produces more proceeds than LTV, making the LTV ceiling the binding constraint. In that environment, the loan is effectively a multiple of appraised value, and rate changes below a threshold barely move the needle on sizing.</li>
+          <li><strong>Very high-rent markets:</strong> The statutory limit can cut the loan when income and value would otherwise support a very large mortgage — Manhattan, San Francisco, and similar metros. In most markets it is not a factor.</li>
+          <li><strong>Deals with cash-out potential:</strong> When the cost of refinancing comes in below 80% LTV, the loan produces cash-out — and HUD caps that at 80% LTV rather than the standard 87%. Understanding where the cost-of-refinance criterion lands early tells you whether you're looking at a cash-out refinance or a transaction-cost-covering refinance, and which LTV ceiling actually applies.</li>
+        </ul>
+
+        <p>There's no universal answer for which test will bind on your deal — it depends on the interplay of value, NOI, rate, unit mix, and the cost of getting the transaction done. The tool below is designed to give you a quick read on all four before you engage third-party reports.</p>
+      </div>
+
+      <!-- CALCULATOR -->
+      <div class="calculator-wrap" id="sizing-tool">
+        <div class="calc-header">
+          <div class="calc-eyebrow">Interactive Tool</div>
+          <h2>Run the Numbers <em>on Your Deal</em></h2>
+          <p class="calc-lede">Enter your assumptions below. By the time you've read through the sections above, you understand what each input is doing and how to play around with the numbers. Have fun — none of the results are a commitment or underwriting from us. Call us if you want a real quote.</p>
+        </div>
+
+        <div class="calc-card">
+          <div class="calc-body">
+
+            <!-- NOI & VALUE -->
+            <div class="calc-section-label">Income & Valuation</div>
+            <div class="calc-grid">
+              <div class="calc-field">
+                <label for="market-noi">Market NOI</label>
+                <div class="input-prefix-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" inputmode="numeric" id="market-noi" placeholder="1,200,000" class="dollar-input"/>
+                </div>
+                <span class="field-note">Stabilized NOI used for appraisal / LTV test</span>
+              </div>
+              <div class="calc-field">
+                <label for="ds-noi">Debt Service NOI</label>
+                <div class="input-prefix-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" inputmode="numeric" id="ds-noi" placeholder="1,080,000" class="dollar-input"/>
+                </div>
+                <span class="field-note">Conservative NOI for DSCR test — typically lower than Market NOI (see Section 02)</span>
+              </div>
+              <div class="calc-field">
+                <label for="cap-rate">Assumed Cap Rate</label>
+                <div class="input-suffix-wrap">
+                  <span class="input-suffix">%</span>
+                  <input type="number" id="cap-rate" placeholder="5.50" min="1" max="20" step="0.05"/>
+                </div>
+                <span class="field-note">Used with Market NOI to determine appraised value</span>
+              </div>
+              <div class="calc-field">
+                <label for="property-type">Property Type</label>
+                <select id="property-type">
+                  <option value="market">Market Rate</option>
+                  <option value="affordable">Affordable</option>
+                </select>
+                <span class="field-note">Affects LTV and DSCR multipliers (87% market / 90% affordable)</span>
+              </div>
+            </div>
+
+            <hr class="calc-divider"/>
+
+            <!-- RATE & COST OF REFINANCE -->
+            <div class="calc-section-label">Rate & Cost of Refinance</div>
+            <div class="calc-grid">
+              <div class="calc-field">
+                <label for="interest-rate">Assumed Interest Rate</label>
+                <div class="input-suffix-wrap">
+                  <span class="input-suffix">%</span>
+                  <input type="number" id="interest-rate" placeholder="X.XX" min="1" max="15" step="0.05"/>
+                </div>
+                <span class="field-note"><a href="index.html#contact">Contact us for current rate guidance →</a> This is your assumption, not a quote.</span>
+              </div>
+              <div class="calc-field">
+                <label for="existing-debt">Existing Debt Payoff</label>
+                <div class="input-prefix-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" inputmode="numeric" id="existing-debt" placeholder="0" class="dollar-input"/>
+                </div>
+                <span class="field-note">Outstanding principal balance to be retired at closing</span>
+              </div>
+              <div class="calc-field">
+                <label for="prepay-penalty">Prepayment Penalty</label>
+                <div class="input-prefix-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" inputmode="numeric" id="prepay-penalty" placeholder="0" class="dollar-input"/>
+                </div>
+                <span class="field-note">Estimated prepayment premium on existing debt</span>
+              </div>
+              <div class="calc-field">
+                <label for="repair-escrow">Estimated Repair Cost</label>
+                <div class="input-prefix-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" inputmode="numeric" id="repair-escrow" placeholder="0" class="dollar-input"/>
+                </div>
+                <span class="field-note">Cost of repairs identified by PCNA. Included in cost-of-refinance calculation (see Section 06). Enter 0 if unknown.</span>
+              </div>
+            </div>
+            <p style="font-size:11px; color: var(--text-muted); margin: -12px 0 28px; font-weight: 300;">Third-party report costs, legal fees, and HUD/lender fees are estimated and included in the cost-of-refinance calculation automatically.</p>
+
+            <hr class="calc-divider"/>
+
+            <!-- STATUTORY INPUTS -->
+            <div class="calc-section-label">Unit Mix, Building Type & Land Value — HUD Statutory Limit</div>
+            <div class="calc-grid" style="margin-bottom: 16px;">
+              <div class="calc-field">
+                <label for="elevator">Building Type</label>
+                <select id="elevator">
+                  <option value="non-elevator">Non-Elevator</option>
+                  <option value="elevator">Elevator</option>
+                </select>
+                <span class="field-note">Elevator buildings have higher per-unit statutory limits</span>
+              </div>
+            </div>
+            <div class="calc-grid calc-grid-3">
+              <div class="calc-field">
+                <label for="units-0br"># of Studio / 0-BR Units</label>
+                <input type="number" id="units-0br" placeholder="0" min="0" step="1"/>
+              </div>
+              <div class="calc-field">
+                <label for="units-1br"># of 1-Bedroom Units</label>
+                <input type="number" id="units-1br" placeholder="0" min="0" step="1"/>
+              </div>
+              <div class="calc-field">
+                <label for="units-2br"># of 2-Bedroom Units</label>
+                <input type="number" id="units-2br" placeholder="0" min="0" step="1"/>
+              </div>
+              <div class="calc-field">
+                <label for="units-3br"># of 3-Bedroom Units</label>
+                <input type="number" id="units-3br" placeholder="0" min="0" step="1"/>
+              </div>
+              <div class="calc-field">
+                <label for="units-4br"># of 4+ Bedroom Units</label>
+                <input type="number" id="units-4br" placeholder="0" min="0" step="1"/>
+              </div>
+              <div class="calc-field">
+                <label for="land-value">Land Value</label>
+                <div class="input-prefix-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" inputmode="numeric" id="land-value" placeholder="0" class="dollar-input"/>
+                </div>
+                <span class="field-note">100% of land value is added to the statutory ceiling</span>
+              </div>
+            </div>
+            <p style="font-size:11px; color: var(--text-muted); margin-bottom: 28px; font-weight: 300;">HCP factor of 270% applied uniformly per current HUD guidelines. Cost Not Attributable estimated at 10% of appraised value.</p>
+
+            <hr class="calc-divider"/>
+
+            <div class="calc-submit-row">
+              <button class="btn-calc" onclick="runSizing()">Calculate Hypothetical Loan Amount Based on Your Numbers</button>
+            </div>
+          </div><!-- /calc-body -->
+
+          <!-- RESULTS -->
+          <div class="calc-results" id="calc-results">
+            <hr class="results-divider"/>
+            <div style="padding: 0 36px 0;">
+              <div class="results-label">Hypothetical Loan Amounts — Based on Your Numbers</div>
+
+              <div class="results-constraints" id="constraint-cards"></div>
+
+              <div class="results-summary" id="results-summary"></div>
+
+              <div class="results-flags" id="results-flags"></div>
+
+              <p class="results-disclaimer" id="results-disclaimer"></p>
+
+              <div class="results-cta">
+                <div class="results-cta-text">Ready to run your deal against real numbers?</div>
+                <a href="index.html#contact" class="results-cta-link">Talk to the Team →</a>
+              </div>
+            </div>
+          </div><!-- /calc-results -->
+
+        </div><!-- /calc-card -->
+      </div><!-- /calculator-wrap -->
+
+      <!-- CLOSING -->
+      <div class="closing">
+        <h2>We Can Size Your Deal <em>the Right Way</em></h2>
+        <p>The numbers above give you a reasonable sense of which constraint is likely to bite and what range to plan around. It doesn't replace us doing a proper sizing — where we look at real financials, rent rolls, market data, etc. to get a real, thorough understanding of all these inputs.</p>
+        <p>If you have a deal you'd like to run through a more detailed preliminary analysis — with current rate guidance, market-specific HCP factors, and an honest read on deal structure — we're happy to spend 30 minutes on it.</p>
+        <div class="closing-actions">
+          <a href="index.html#contact" class="btn-primary">Talk to the Team</a>
+          <a href="index.html#products" class="btn-outline">View Loan Programs</a>
+        </div>
+      </div>
+
+    </article><!-- /doc-body -->
+
+    <!-- SIDEBAR -->
+    <aside class="doc-sidebar">
+      <div class="sidebar-box">
+        <div class="sidebar-label">In This Article</div>
+        <ul class="toc-list">
+          <li><a href="#program-overview"><span class="toc-num">01</span> The 223(f) at a Glance</a></li>
+          <li><a href="#two-nois"><span class="toc-num">02</span> Market NOI vs. Debt Service NOI</a></li>
+          <li><a href="#ltv-test"><span class="toc-num">03</span> The LTV Test</a></li>
+          <li><a href="#dscr-test"><span class="toc-num">04</span> The DSCR Test</a></li>
+          <li><a href="#statutory-test"><span class="toc-num">05</span> The Statutory Limit</a></li>
+          <li><a href="#cost-of-refinance"><span class="toc-num">06</span> The Cost-of-Refinance Criterion</a></li>
+          <li><a href="#binding-constraint"><span class="toc-num">07</span> Which Test Bites — and When</a></li>
+          <li><a href="#sizing-tool"><span class="toc-num">→</span> Interactive Sizing Tool</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-label">223(f) At a Glance</div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">87% LTV</div>
+          <div class="sidebar-stat-label">Standard acquisitions & refinances (80% cash-out)</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">1.15x</div>
+          <div class="sidebar-stat-label">Minimum DSCR — vs. 1.25x for FNMA/Freddie</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">35 yrs</div>
+          <div class="sidebar-stat-label">Full amortization — no balloon</div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-label">About This Team</div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">$2B+</div>
+          <div class="sidebar-stat-label">Combined HUD/FHA closed volume</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">20+</div>
+          <div class="sidebar-stat-label">Years combined HUD/FHA experience</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">MAP</div>
+          <div class="sidebar-stat-label">Approved lender — all 50 states</div>
+        </div>
+      </div>
+
+      <a href="index.html#contact" class="sidebar-cta">Discuss Your Project →</a>
+    </aside>
+
+  </div><!-- /doc-layout -->
+</div><!-- /page-wrapper -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Wim Roach <span>&</span> Brian Lorenz</div>
+        <div class="footer-tagline">HUD/FHA Multifamily Origination</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="index.html#process">Process</a></li>
+        <li><a href="index.html#resources">Resources</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-disclaimer">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This article and sizing tool are for informational and illustrative purposes only. All tool outputs are preliminary estimates based on user-entered assumptions and do not constitute a commitment to lend, a loan application, or underwriting analysis. Statutory limits, HCP factors, DSCR requirements, and LTV ceilings are subject to HUD guidelines and individual transaction review. Contact Roach &amp; Lorenz directly for current rate guidance and deal-specific analysis. Roach &amp; Lorenz is the origination team of Wim Roach and Brian Lorenz, operating under Centennial Mortgage, Inc.</p>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// HUD 223(f) SIZING CALCULATOR
+// ============================================================
+
+var LIMITS = {
+  'non-elevator': { '0br': 67188, '1br': 74427, '2br': 88903, '3br': 109580, '4br': 124056 },
+  'elevator':     { '0br': 78368, '1br': 86835, '2br': 106477, '3br': 133357, '4br': 150791 }
+};
+var HCP = 2.70;
+
+function fmt(n) {
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+function getVal(id) {
+  return parseFloat(document.getElementById(id).value.replace(/,/g, '')) || 0;
+}
+function getInt(id) {
+  return parseInt(document.getElementById(id).value) || 0;
+}
+function getStr(id) {
+  return document.getElementById(id).value;
+}
+
+// Attach comma formatter to all dollar inputs
+window.addEventListener('load', function () {
+  document.querySelectorAll('.dollar-input').forEach(function (el) {
+    el.addEventListener('input', function () {
+      var caret = this.selectionStart;
+      var before = this.value.length;
+      var digits = this.value.replace(/[^0-9]/g, '');
+      if (!digits) { this.value = ''; return; }
+      this.value = parseInt(digits, 10).toLocaleString('en-US');
+      var after = this.value.length;
+      var newPos = caret + (after - before);
+      this.setSelectionRange(Math.max(0, newPos), Math.max(0, newPos));
+    });
+  });
+});
+
+function runSizing() {
+  var marketNOI    = getVal('market-noi');
+  var dsNOI        = getVal('ds-noi');
+  var capRate      = getVal('cap-rate');
+  var propType     = getStr('property-type');
+  var rate         = getVal('interest-rate');
+  var existingDebt = getVal('existing-debt');
+  var prepayPen    = getVal('prepay-penalty');
+  var repairs      = getVal('repair-escrow');
+  var elevator     = getStr('elevator');
+  var units0br     = getInt('units-0br');
+  var units1br     = getInt('units-1br');
+  var units2br     = getInt('units-2br');
+  var units3br     = getInt('units-3br');
+  var units4br     = getInt('units-4br');
+  var landValue    = getVal('land-value');
+
+  var thirdParty   = 35000;
+  var legalFees    = 45000;
+  var hudLenderPct = 0.015;
+
+  var flags = [];
+  var totalUnits = units0br + units1br + units2br + units3br + units4br;
+
+  if (!marketNOI || !dsNOI || !capRate || !rate) {
+    alert('Please enter at least Market NOI, Debt Service NOI, Cap Rate, and Interest Rate to calculate.');
+    return;
+  }
+  if (capRate <= 0 || capRate > 20) {
+    flags.push({ icon: '⚠️', text: 'Cap rate appears outside a normal range — verify input.' });
+  }
+  if (dsNOI > marketNOI) {
+    flags.push({ icon: '⚠️', text: "Debt Service NOI exceeds Market NOI. HUD's Debt Service NOI is typically lower than Market NOI due to minimum vacancy floor and actual expense basis." });
+  }
+  if (totalUnits === 0) {
+    flags.push({ icon: 'ℹ️', text: 'No unit count entered — Statutory Limit not calculated. Add unit mix to complete the analysis.' });
+  }
+
+  var multiplier = propType === 'affordable' ? 0.90 : 0.87;
+  var ltvPct = (multiplier * 100).toFixed(0);
+
+  // Constraint 1: LTV
+  var appraisedValue = marketNOI / (capRate / 100);
+  var ltvMax = multiplier * appraisedValue;
+
+  // Constraint 2: DSCR
+  var incomeForDS = dsNOI * multiplier;
+  var rMonthly = (rate / 100) / 12;
+  var nMonths = 420;
+  var monthlyPiPerDollar = rMonthly === 0
+    ? 1 / nMonths
+    : (rMonthly * Math.pow(1 + rMonthly, nMonths)) / (Math.pow(1 + rMonthly, nMonths) - 1);
+  var amortRate = monthlyPiPerDollar * 12 - (rate / 100);
+  var loanConstant = (rate / 100) + 0.0025 + amortRate;
+  var dscrMax = incomeForDS / loanConstant;
+
+  // Constraint 3: Refi Cost / 80% LTV
+  var fixedCosts = existingDebt + prepayPen + repairs + thirdParty + legalFees;
+  var refiCostLoan = fixedCosts > 0 ? fixedCosts / (1 - hudLenderPct) : 0;
+  var ltv80 = appraisedValue * 0.80;
+  var corMax = Math.max(refiCostLoan, ltv80);
+  var cashOut = refiCostLoan < ltv80 && fixedCosts > 0;
+  var effectiveLtvMax = cashOut ? ltv80 : ltvMax;
+
+  // Constraint 4: Statutory
+  var statutoryMax = null;
+  if (totalUnits > 0) {
+    var lims = LIMITS[elevator];
+    var unitCalc = (units0br * lims['0br'] + units1br * lims['1br'] + units2br * lims['2br'] +
+                    units3br * lims['3br'] + units4br * lims['4br']) * HCP;
+    var costNotAttr = appraisedValue * 0.10;
+    statutoryMax = unitCalc + costNotAttr + landValue;
+  }
+
+  // Binding — use ltvMax (matching card display); cash-out 80% cap is enforced via corMax
+  var candidates = { ltv: ltvMax, dscr: dscrMax, cor: corMax };
+  if (statutoryMax !== null) candidates.stat = statutoryMax;
+  var bindingKey = Object.keys(candidates).reduce(function (a, b) {
+    return candidates[a] <= candidates[b] ? a : b;
+  });
+  var indicatedLoan = candidates[bindingKey];
+
+  // Flags — cash-out note only shown when Refi Cost / 80% LTV is the binding criterion
+  if (cashOut && bindingKey === 'cor') {
+    flags.push({ icon: 'ℹ️', text: 'Transaction costs fall below the 80% LTV threshold — this refinance generates cash-out. LTV ceiling applied at 80% (' + fmt(ltv80) + ').' });
+  }
+  if (fixedCosts > 0 && bindingKey === 'cor' && indicatedLoan < refiCostLoan) {
+    flags.push({ icon: '⚠️', text: 'The indicated loan (' + fmt(indicatedLoan) + ') is less than the grossed-up cost of refinancing (' + fmt(refiCostLoan) + '). This would require the borrower to contribute funds at closing.' });
+  }
+
+  // Cards
+  var allTests = [
+    { key: 'ltv',  label: 'LTV Max ' + ltvPct + '%',  amount: ltvMax,      detail: ltvPct + '% × ' + fmt(appraisedValue) + ' appraised value' },
+    { key: 'dscr', label: 'DSCR Max',                  amount: dscrMax,     detail: fmt(incomeForDS) + '/yr ÷ ' + (loanConstant * 100).toFixed(3) + '% loan constant' },
+    { key: 'cor',  label: 'Refi Cost / 80% LTV',       amount: corMax,      detail: fixedCosts > 0 ? 'Greater of ' + fmt(refiCostLoan) + ' (cost) or ' + fmt(ltv80) + ' (80% LTV)' : '80% LTV = ' + fmt(ltv80) + ' (add costs for full picture)' }
+  ];
+  if (totalUnits > 0 && statutoryMax !== null) {
+    allTests.push({ key: 'stat', label: 'Statutory Limit', amount: statutoryMax, detail: totalUnits + ' units × 270% HCP + CNA + land' });
+  } else {
+    allTests.push({ key: 'stat', label: 'Statutory Limit', amount: null, detail: 'Enter unit mix to calculate' });
+  }
+
+  // Explanations
+  var explanations = {
+    ltv:  cashOut
+      ? 'The LTV ceiling is binding. Transaction costs fall below 80% LTV, so this refinance generates cash-out — HUD caps the loan at 80% of appraised value (' + fmt(ltv80) + ') rather than the standard ' + ltvPct + '%.'
+      : 'The ' + ltvPct + '% LTV ceiling is binding. At ' + rate + '%, the DSCR test supports a larger loan than value permits. Increasing proceeds requires improving appraised value — through NOI growth or a tighter cap rate.',
+    dscr: 'DSCR is binding. The loan is limited by what the Debt Service NOI can support at the equivalent of 1.15x coverage (DS NOI × ' + ltvPct + '%) at ' + rate + '% plus 0.25% MIP. A lower rate or higher Debt Service NOI would increase this figure.',
+    cor:  'The Refinance Cost / 80% LTV criterion is binding. The loan is sized to cover the cost of the transaction, grossed up for HUD and lender fees. Reducing transaction costs or growing value would shift this constraint.',
+    stat: 'The HUD statutory per-unit limit is binding — independent of both value and income. This occurs most commonly in very high-rent markets where income and value would otherwise support a very large loan.'
+  };
+
+  // Render cards
+  var cardsEl = document.getElementById('constraint-cards');
+  cardsEl.innerHTML = allTests.map(function (t) {
+    var isBinding = t.key === bindingKey;
+    var amountHtml = t.amount === null
+      ? '<div class="constraint-amount" style="font-size:13px;color:var(--text-muted);">Enter unit mix</div>'
+      : '<div class="constraint-amount">' + fmt(t.amount) + '</div>';
+    return '<div class="constraint-card' + (isBinding ? ' binding' : '') + '">' +
+      '<div class="constraint-name">' + t.label + '</div>' +
+      amountHtml +
+      '<div class="constraint-detail">' + t.detail + '</div>' +
+      '</div>';
+  }).join('');
+
+  var bindingCard = cardsEl.querySelector('.binding');
+  if (bindingCard) {
+    var badge = document.createElement('div');
+    badge.style.cssText = 'position:absolute;top:-1px;right:-1px;font-size:8px;font-weight:700;letter-spacing:0.18em;color:var(--navy);background:var(--gold);padding:3px 8px;';
+    badge.textContent = 'LOWEST';
+    bindingCard.appendChild(badge);
+  }
+
+  document.getElementById('results-summary').innerHTML =
+    '<div class="summary-headline">Indicated Mortgage: <span>' + fmt(indicatedLoan) + '</span></div>' +
+    '<div class="summary-explain">' + explanations[bindingKey] + '</div>';
+
+  document.getElementById('results-flags').innerHTML = flags.map(function (f) {
+    return '<div class="flag-item"><span class="flag-icon">' + f.icon + '</span><span>' + f.text + '</span></div>';
+  }).join('');
+
+  document.getElementById('results-disclaimer').textContent =
+    'These numbers are based entirely on the assumptions you entered and are not a commitment to lend, a loan application, or underwriting analysis. Third-party, legal, and HUD/lender fee estimates are included in the cost-of-refinance calculation but other closing costs may apply. Contact Roach & Lorenz for deal-specific analysis and current rate guidance.';
+
+  var resultsEl = document.getElementById('calc-results');
+  resultsEl.classList.add('visible');
+  resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
+
+<!-- FLOATING CALCULATOR BUTTON -->
+<a href="#sizing-tool" class="float-calc-btn" id="float-calc-btn" aria-label="Jump to the sizing calculator">
+  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="1" width="5" height="5" rx="0.5" fill="currentColor"/>
+    <rect x="8" y="1" width="5" height="5" rx="0.5" fill="currentColor"/>
+    <rect x="1" y="8" width="5" height="5" rx="0.5" fill="currentColor"/>
+    <rect x="8" y="8" width="5" height="5" rx="0.5" fill="currentColor"/>
+  </svg>
+  Try the Calculator
+</a>
+
+<script>
+(function () {
+  const btn = document.getElementById('float-calc-btn');
+  const calcSection = document.getElementById('sizing-tool');
+  const coverEl = document.querySelector('.cover');
+
+  function update() {
+    const scrollY = window.scrollY;
+    const coverBottom = coverEl ? coverEl.getBoundingClientRect().bottom + scrollY : 400;
+    const calcBottom = calcSection ? calcSection.getBoundingClientRect().bottom + scrollY : Infinity;
+    const pastCover = scrollY > coverBottom - 100;
+    const pastCalc  = scrollY + window.innerHeight * 0.6 > calcBottom;
+    btn.classList.toggle('visible',   pastCover && !pastCalc);
+    btn.classList.toggle('past-calc', pastCalc);
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+
+</body>
+</html>
