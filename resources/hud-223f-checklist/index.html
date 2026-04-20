@@ -15,7 +15,7 @@
   <meta name="description" content="A complete HUD 223(f) checklist compared item by item to Fannie Mae, Freddie Mac, and life company requirements — written by a former HUD underwriter and MAP lender."/>
   <meta name="author" content="Wim Roach and Brian Lorenz"/>
   <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://roachlorenz.com/resources/hud-223f-checklist"/>
+  <link rel="canonical" href="https://roachlorenz.com/223f-checklist-white-paper"/>
   <meta property="og:title" content="HUD 223(f) Checklist: Documentation Requirements Compared to Fannie Mae & Freddie Mac"/>
   <meta property="og:description" content="A complete HUD 223(f) checklist compared item by item to Fannie Mae, Freddie Mac, and life company requirements — written by a former HUD underwriter and MAP lender."/>
   <meta property="og:type" content="article"/>
@@ -26,7 +26,7 @@
     "@type": "Article",
     "headline": "HUD 223(f) Checklist: Documentation Requirements Compared to Fannie Mae & Freddie Mac",
     "description": "A complete HUD 223(f) checklist compared item by item to Fannie Mae, Freddie Mac, and life company requirements — written by a former HUD underwriter and MAP lender.",
-    "datePublished": "2025-01-01",
+    "datePublished": "2026-04-01",
     "author": [
       {
         "@type": "Person",
@@ -56,8 +56,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: #0b1829; color: #e2ddd4; -webkit-font-smoothing: antialiased; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; background: #0b1829; color: #e2ddd4; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     :root {
       --navy: #0b1829; --navy-mid: #102035; --navy-light: #162d47; --navy-card: #0f2338;
       --gold: #c9a84c; --gold-light: #e2c070; --gold-dim: rgba(201,168,76,0.11); --gold-border: rgba(201,168,76,0.22);
@@ -76,14 +76,14 @@
     .nav-cta:hover { background: var(--gold-light); }
 
     /* HERO */
-    .article-hero { padding: 72px 40px 60px; max-width: 1040px; margin: 0 auto; position: relative; overflow: hidden; }
+    .article-hero { padding: 72px 40px 60px; max-width: 1040px; margin: 0 auto; position: relative; overflow: hidden; width: 100%; }
     .article-hero::after { content: ''; position: absolute; top: 0; right: -60px; width: 440px; height: 440px; background: radial-gradient(circle, rgba(201,168,76,0.055) 0%, transparent 65%); pointer-events: none; }
     .article-eyebrow { display: flex; align-items: center; gap: 12px; font-size: 10.5px; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
     .article-eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
-    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.6vw, 46px); font-weight: 700; line-height: 1.12; color: var(--text); margin-bottom: 20px; max-width: 760px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.6vw, 46px); font-weight: 700; line-height: 1.12; color: var(--text); margin-bottom: 20px; max-width: 760px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
     .article-title em { font-style: italic; color: var(--gold); }
-    .article-lede { font-size: 17px; font-weight: 300; line-height: 1.76; color: var(--text-soft); max-width: 660px; margin-bottom: 36px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
-    .article-meta { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+    .article-lede { font-size: clamp(15px, 2vw, 17px); font-weight: 300; line-height: 1.76; color: var(--text-soft); max-width: 660px; margin-bottom: 36px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
+    .article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; row-gap: 12px; }
     .article-byline { display: flex; align-items: center; gap: 10px; }
     .byline-initials { display: flex; gap: -4px; }
     .byline-initial { width: 32px; height: 32px; border-radius: 50%; background: var(--navy-light); border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 12px; font-weight: 700; color: var(--gold); }
@@ -95,6 +95,8 @@
 
     /* LAYOUT */
     .article-body { max-width: 1040px; margin: 0 auto; padding: 48px 40px 100px; display: grid; grid-template-columns: 1fr 268px; gap: 64px; align-items: start; }
+    .article-content { min-width: 0; overflow: hidden; }
+    .article-sidebar { min-width: 0; }
 
     /* SIDEBAR */
     .article-sidebar { position: sticky; top: 84px; }
@@ -176,10 +178,19 @@
     @media (max-width: 820px) {
       .article-body { grid-template-columns: 1fr; }
       .article-sidebar { position: static; }
-      .article-hero, .article-body { padding-left: 24px; padding-right: 24px; }
-      .nav-inner { padding: 0 24px; }
-      .dl-bar { padding: 13px 24px; flex-direction: column; gap: 10px; }
-      .article-footer { padding: 32px 24px; }
+      .article-hero, .article-body { padding-left: 20px; padding-right: 20px; width: 100%; }
+      .nav-inner { padding: 0 20px; }
+      .article-footer { padding: 32px 20px; }
+      .meta-divider { display: none; }
+      .article-meta { gap: 10px; }
+      .article-content p, .article-content li { max-width: 100%; word-wrap: break-word; overflow-wrap: break-word; }
+      .article-section { max-width: 100%; overflow: hidden; }
+      .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 28px 0; }
+      .compare-table { min-width: 520px; }
+      .section-heading { font-size: 20px; }
+      .article-lede { font-size: 15px; }
+      .callout { padding: 16px 18px; }
+      .callout p { font-size: 13px; }
     }
 
     @keyframes fadeUp {
@@ -206,9 +217,9 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-brand">Roach <span>&</span> Lorenz</a>
-    <a href="/#resources" class="nav-back">All Resources</a>
-    <a href="/#contact" class="nav-cta">Start a Deal</a>
+    <a href="index.html" class="nav-brand">Roach <span>&</span> Lorenz</a>
+    <a href="index.html#resources" class="nav-back">All Resources</a>
+    <a href="index.html#contact" class="nav-cta">Start a Deal</a>
   </div>
 </nav>
 
@@ -228,7 +239,7 @@
     <div class="meta-divider"></div>
     <span class="article-tag">HUD 223(f)</span>
     <div class="meta-divider"></div>
-    <span style="font-size:12px; color:var(--text-muted);">Published January 2025</span>
+    <span style="font-size:12px; color:var(--text-muted);">Published April 2026</span>
   </div>
 </div>
 
@@ -566,7 +577,7 @@
       </div>
     </div>
 
-    <a href="/#contact" class="sidebar-cta">Discuss Your Deal →</a>
+    <a href="index.html#contact" class="sidebar-cta">Discuss Your Deal →</a>
 
   </aside>
 </div>
