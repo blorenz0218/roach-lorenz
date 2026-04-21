@@ -26,6 +26,12 @@
   </url>
 
   <url>
+    <loc>https://roachlorenz.com/resources/hud-prepayment-vs-yield-maintenance</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://roachlorenz.com/resources/hud-221d4-bspra</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
