@@ -1,11 +1,11 @@
 # roachlorenz.com
 
-Personal brand site for Brian Lorenz and Wim Roach, both Vice Presidents at Centennial Mortgage, Inc. Target audience is HUD/FHA multifamily mortgage prospects — property owners, developers, syndicators, and property management companies. Primary geography is Pacific Northwest and Mountain West with national reach. Goals are SEO/AEO visibility, trust-building for cold-call prospects, white paper distribution, and inbound lead generation. The brand operates independently of any specific lender.
+Personal brand site for Brian Lorenz and Wim Roach, both VPs of Originations at Centennial Mortgage, Inc. Target audience is HUD/FHA multifamily mortgage prospects — property owners, developers, syndicators, and property management companies. Primary geography is Pacific Northwest and Mountain West with national reach. Goals are SEO/AEO visibility, trust-building for cold-call prospects, white paper distribution, and inbound lead generation. The brand operates independently of any specific lender.
 
 ## Who we are
 
-- **Brian Lorenz** — Vice President. Former Senior HUD Underwriter at Colliers Mortgage with a 100% HUD Firm Commitment success rate (never had a deal rejected). Lives in Boise, ID.
-- **Wim Roach** — Vice President. Extensive borrower relationships and closed transaction volume.
+- **Brian Lorenz** — VP, Originations. Former Senior HUD Underwriter at Colliers Mortgage with a 100% HUD Firm Commitment success rate (never had a deal rejected). Lives in Boise, ID.
+- **Wim Roach** — VP, Originations. Extensive borrower relationships and closed transaction volume.
 
 ## Loan programs featured
 
@@ -69,6 +69,36 @@ Every page ships with:
 - Visible publish date
 - Five-question FAQ section targeting long-tail queries
 
+### Title tag requirements
+
+- Keep titles **60 characters or fewer** (Google truncates in SERPs beyond this)
+- Drop the "| Wim Roach & Brian Lorenz" author suffix on white papers — the domain already shows below each search result
+- Keep the author suffix only on the homepage title
+- Lead with the specific HUD program number when applicable (e.g., "HUD 241(a)...", "HUD 221(d)(4)...") — these are the primary search terms
+
+### Meta description requirements
+
+- Keep descriptions **150–160 characters**
+- Write as a pitch, not an abstract — answer "why would someone click?"
+- Lead with the specific topic/program; mention credentials second where room allows
+- These are seen by real humans in Google search results (not just crawlers), so they drive clickthrough
+
+### Open Graph preview image requirements
+
+Every page must have a working og:image, or social preview cards (LinkedIn, iMessage, Slack, Twitter/X) will render blank.
+
+- Create a 1200×630 PNG using the og:image template (stored separately from the repo)
+- Save as `og-[topic].png` in `/assets/` (the naming convention — match the pattern of existing images)
+- Reference the image in these tags on the page:
+  - `<meta property="og:image" content="https://roachlorenz.com/assets/og-[topic].png">`
+  - `<meta property="og:image:width" content="1200">`
+  - `<meta property="og:image:height" content="630">`
+  - `<meta name="twitter:image" content="https://roachlorenz.com/assets/og-[topic].png">`
+  - JSON-LD Article schema `"image"` field — also point to the same PNG URL
+- Use `<meta name="twitter:card" content="summary_large_image">` (not `summary`) so the full 1200×630 image renders as a banner on Twitter/X
+- Use `.png` (not `.jpg`) to match the existing file convention in `/assets/`
+- Verify the preview renders correctly at linkedin.com/post-inspector after deploy
+
 ## Mobile overflow — recurring issue
 
 Standard fixes applied to every white paper:
@@ -87,9 +117,14 @@ All resource/white paper pages are delivered as `index.html` inside a subfolder 
 Every new page, no exceptions:
 
 1. Add Google Analytics tag `G-H3Y2SPVQSK` immediately after the opening `<head>` element
-2. Update `sitemap.xml` with the new URL
-3. Push all updated files to GitHub
-4. Google Search Console → URL Inspection → paste new URL → Request Indexing
+2. Verify `<title>` is ≤60 characters and `<meta name="description">` is 150–160 characters
+3. Verify og:image, twitter:image, and JSON-LD `image` all point to a real PNG that exists in `/assets/`
+4. Confirm `twitter:card` is set to `summary_large_image` (not `summary`)
+5. Confirm canonical URL matches the site pattern: `https://roachlorenz.com/resources/[folder-name]` with no trailing slash and no `.html` extension
+6. Update `sitemap.xml` with the new URL
+7. Push all updated files to GitHub
+8. Google Search Console → URL Inspection → paste new URL → Request Indexing
+9. After deploy, test the social preview at linkedin.com/post-inspector
 
 ## Workflow split
 
