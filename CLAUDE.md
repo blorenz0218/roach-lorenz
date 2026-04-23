@@ -26,6 +26,28 @@ Secondary: 241(a) supplemental loans, 223(a)(7) refinance, BSPRA structuring.
 - Body: DM Sans
 - Apply consistently across all pages and white papers
 
+### Hero entrance animation (required on white papers)
+
+Every white paper page includes a staggered fade-up entrance animation on the hero block. Four elements cascade in over 0.4 seconds when the page loads. Pure CSS, no JavaScript.
+
+Add this block at the end of the page's `<style>` section:
+
+```css
+/* Entrance animation */
+.cover-series { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
+.cover-inner > h1 { opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+.cover-lede { opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
+.cover-meta { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+```
+
+This targets the `cover` hero template (the canonical template used on 8 of 9 pages). `.cover-subtitle` and `.cover-rule` are intentionally left unanimated to keep the cascade to 4 elements.
+
+The `hud-223f-checklist` page uses a different hero template (`.article-*` classes instead of `.cover-*`) and has its own version of the same animation. Don't try to unify the templates — just make sure any new paper uses the `cover` template and gets the animation above.
+
 ## Writing voice (critical)
 
 Brian's voice is the standard for all long-form content. Characteristics:
@@ -121,10 +143,11 @@ Every new page, no exceptions:
 3. Verify og:image, twitter:image, and JSON-LD `image` all point to a real PNG that exists in `/assets/`
 4. Confirm `twitter:card` is set to `summary_large_image` (not `summary`)
 5. Confirm canonical URL matches the site pattern: `https://roachlorenz.com/resources/[folder-name]` with no trailing slash and no `.html` extension
-6. Update `sitemap.xml` with the new URL
-7. Push all updated files to GitHub
-8. Google Search Console → URL Inspection → paste new URL → Request Indexing
-9. After deploy, test the social preview at linkedin.com/post-inspector
+6. Confirm the hero entrance animation (fadeUp cascade on `.cover-series`, h1, `.cover-lede`, `.cover-meta`) is present in the page's `<style>` block
+7. Update `sitemap.xml` with the new URL
+8. Push all updated files to GitHub
+9. Google Search Console → URL Inspection → paste new URL → Request Indexing
+10. After deploy, test the social preview at linkedin.com/post-inspector
 
 ## Workflow split
 
