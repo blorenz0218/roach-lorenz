@@ -29,7 +29,7 @@
   <meta property="og:image:alt" content="HUD 221(d)(4) Loan Sizing — Wim Roach &amp; Brian Lorenz"/>
   <meta property="og:site_name" content="Wim Roach &amp; Brian Lorenz"/>
   <meta property="article:published_time" content="2026-04-01T00:00:00Z"/>
-  <meta property="article:modified_time" content="2026-04-01T00:00:00Z"/>
+  <meta property="article:modified_time" content="2026-05-05T00:00:00Z"/>
   <meta property="article:author" content="Brian Lorenz"/>
   <meta property="article:author" content="Wim Roach"/>
   <meta property="article:section" content="HUD/FHA Multifamily Financing"/>
@@ -59,7 +59,7 @@
     "description": "How HUD 221(d)(4) new construction loan proceeds are sized: LTC, DSCR, statutory limits, and BSPRA. Includes an interactive sizing calculator.",
     "image": "https://roachlorenz.com/assets/og-221d4-sizing.png",
     "datePublished": "2026-04-01T00:00:00Z",
-    "dateModified": "2026-04-01T00:00:00Z",
+    "dateModified": "2026-05-05T00:00:00Z",
     "wordCount": "3400",
     "author": [
       {
@@ -454,6 +454,7 @@
         <div class="cover-pub">
           <div>Centennial Mortgage, Inc.</div>
           <div>Published April 2026</div>
+          <div>Last updated May 2026</div>
         </div>
       </div>
     </div>
@@ -597,13 +598,13 @@
         <div class="example-box">
           <div class="example-label">Illustrative Example — Statutory Test (Elevator Building)</div>
           <p>178-unit elevator property with 66 one-bedroom, 23 two-bedroom, and 89 three-bedroom units:</p>
-          <div class="example-math">1-BR: 66 units × $82,802 × 2.70 = <strong>$14,755,316.40</strong></div>
-          <div class="example-math">2-BR: 23 units × $100,689 × 2.70 = <strong>$6,252,786.90</strong></div>
-          <div class="example-math">3-BR: 89 units × $130,257 × 2.70 = <strong>$31,300,757.10</strong></div>
-          <div class="example-math">Unit Total = <strong>$52,308,860.40</strong></div>
+          <div class="example-math">1-BR: 66 units × $84,706 × 2.70 = <strong>$15,094,609.20</strong></div>
+          <div class="example-math">2-BR: 23 units × $103,004 × 2.70 = <strong>$6,396,548.40</strong></div>
+          <div class="example-math">3-BR: 89 units × $133,252 × 2.70 = <strong>$32,020,455.60</strong></div>
+          <div class="example-math">Unit Total = <strong>$53,511,613.20</strong></div>
           <div class="example-math">Cost Not Attributable (15% × $25,000,000 hardcosts) = <strong>$3,750,000.00</strong></div>
           <div class="example-math">Land Value = <strong>$1,500,000.00</strong></div>
-          <div class="example-math">Statutory Limit = $52,308,860.40 + $3,750,000 + $1,500,000 = <strong>$57,558,860.40</strong></div>
+          <div class="example-math">Statutory Limit = $53,511,613.20 + $3,750,000 + $1,500,000 = <strong>$58,761,613.20</strong></div>
         </div>
 
         <p>On most new construction deals, the statutory limit is not the binding constraint. The per-unit limits — particularly at 270% HCP — are generous enough that LTC or DSCR will produce the lower loan amount in the vast majority of markets. The exception is very large-unit properties in high-rent metros where income and development costs would otherwise support a very large loan. Worth running the calculation, but it should not drive early-stage deal decisions in typical markets.</p>
@@ -977,8 +978,8 @@ function fmt(n) {
 
 // Statutory limits (new construction, 221d4)
 var LIMITS = {
-  'elevator':     { '0br': 72228, '1br': 82802, '2br': 100689, '3br': 130257, '4br': 142986 },
-  'non-elevator': { '0br': 66864, '1br': 75904, '2br':  91749, '3br': 115160, '4br': 130129 }
+  'elevator':     { '0br': 73889, '1br': 84706, '2br': 103004, '3br': 133252, '4br': 146274 },
+  'non-elevator': { '0br': 68401, '1br': 77649, '2br':  93859, '3br': 117808, '4br': 133121 }
 };
 var HCP = 2.70;
 
