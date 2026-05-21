@@ -2044,7 +2044,9 @@
       filtered.forEach((c, i) => {
         if (i < CARDS_PER_PAGE) { c.style.display = 'flex'; }
       });
-      loadMore.classList.toggle('hidden', filtered.length <= CARDS_PER_PAGE);
+      const remaining = filtered.length - CARDS_PER_PAGE;
+      loadMore.classList.toggle('hidden', remaining <= 0);
+      if (remaining > 0) { loadMore.textContent = 'Load More (' + remaining + ')'; }
     } else {
       // Show all in category
       filtered.forEach(c => { c.style.display = 'flex'; });
