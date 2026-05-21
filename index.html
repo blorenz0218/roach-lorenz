@@ -1246,6 +1246,55 @@
     }
 
     /* ════════════════════════════════════
+       RESOURCE FILTER TABS
+    ════════════════════════════════════ */
+    .wp-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 36px;
+      margin-bottom: 28px;
+    }
+    .wp-filter {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .wp-filter:hover { border-color: var(--gold); color: var(--gold); }
+    .wp-filter.active {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+    .wp-load-more-wrap {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .wp-load-more {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid var(--gold-border);
+      padding: 12px 32px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .wp-load-more:hover { border-color: var(--gold); color: var(--gold); }
+    .wp-load-more.hidden { display: none; }
+
+    /* ════════════════════════════════════
        WHITE PAPER CARDS
     ════════════════════════════════════ */
     .wp-grid {
@@ -1709,12 +1758,24 @@
     <div class="section-eyebrow">Resources</div>
     <h2 class="section-title">HUD/FHA insights from <em>practitioners.</em></h2>
     <p class="section-sub">We're building a library of practical white papers and guides written from the inside — not marketing copy, but real guidance on how to navigate the HUD process.</p>
-    <div class="wp-grid">
 
-      <!-- HUD Apartment Loans: A Guide to FHA Multifamily Financing -->
-      <div class="wp-card">
+    <!-- FILTER TABS -->
+    <div class="wp-filters">
+      <button class="wp-filter active" data-filter="all">All</button>
+      <button class="wp-filter" data-filter="HUD 223(f)">HUD 223(f)</button>
+      <button class="wp-filter" data-filter="HUD 221(d)(4)">HUD 221(d)(4)</button>
+      <button class="wp-filter" data-filter="HUD 241(a)">HUD 241(a)</button>
+      <button class="wp-filter" data-filter="HUD 223(a)(7)">HUD 223(a)(7)</button>
+      <button class="wp-filter" data-filter="HUD vs. Agency">HUD vs. Agency</button>
+      <button class="wp-filter" data-filter="Case Study">Case Study</button>
+      <button class="wp-filter" data-filter="HUD/FHA Primer">HUD/FHA Primer</button>
+    </div>
+
+    <div class="wp-grid" id="wp-grid">
+
+      <div class="wp-card" data-tag="HUD/FHA Primer">
         <div class="wp-card-top">
-          <div class="wp-tag">HUD/FHA Multifamily</div>
+          <div class="wp-tag">HUD/FHA Primer</div>
           <div class="wp-title">HUD Apartment Loans: A Guide to FHA Multifamily Financing</div>
           <p class="wp-desc">Non-recourse, fixed-rate, 35–40 year financing for apartment buildings. A guide to HUD and FHA multifamily loans, from a former Senior HUD underwriter.</p>
         </div>
@@ -1723,8 +1784,7 @@
         </div>
       </div>
 
-      <!-- Montana Tax Law HUD 223(f) Deal Highlight -->
-      <div class="wp-card">
+      <div class="wp-card" data-tag="Case Study">
         <div class="wp-card-top">
           <div class="wp-tag">Case Study</div>
           <div class="wp-title">How We Added $4M to a HUD 223(f) by Reading the Tax Code</div>
@@ -1735,92 +1795,7 @@
         </div>
       </div>
 
-      <!-- How HUD Sizes a 223f Mortgage -->
-      <div class="wp-card">
-        <div class="wp-card-top">
-          <div class="wp-tag">HUD 223(f)</div>
-          <div class="wp-title">How HUD Sizes a 223(f) Multifamily Mortgage</div>
-          <p class="wp-desc">A former Senior HUD Underwriter explains how 223(f) loan proceeds are determined — LTV, DSCR, statutory limits, and the cost-of-refinance floor — with an interactive sizing tool embedded in the article.</p>
-        </div>
-        <div class="wp-card-bottom">
-          <a href="/resources/how-hud-sizes-a-223f-mortgage" class="wp-read">Read →</a>
-        </div>
-      </div>
-
-      <!-- How HUD Sizes a 221d4 Mortgage -->
-      <div class="wp-card">
-        <div class="wp-card-top">
-          <div class="wp-tag">HUD 221(d)(4)</div>
-          <div class="wp-title">How HUD Sizes a 221(d)(4) New Construction Mortgage</div>
-          <p class="wp-desc">A former Senior HUD Underwriter explains how 221(d)(4) new construction loan proceeds are determined — LTC, DSCR, statutory limits, and BSPRA — with an interactive sizing tool embedded in the article.</p>
-        </div>
-        <div class="wp-card-bottom">
-          <a href="/resources/how-hud-sizes-a-221d4-mortgage" class="wp-read">Read →</a>
-        </div>
-      </div>
-
-      <!-- 221(d)(4) Timeline -->
-      <div class="wp-card">
-        <div class="wp-card-top">
-          <div class="wp-tag">HUD 221(d)(4)</div>
-          <div class="wp-title">HUD 221(d)(4) Timeline: How Long Does the Process Take?</div>
-          <p class="wp-desc">A step-by-step guide to the construction loan process — Concept Meeting through Initial Closing — including common delays and how to compress the schedule.</p>
-        </div>
-        <div class="wp-card-bottom">
-          <a href="/resources/hud-221d4-timeline" class="wp-read">Read →</a>
-        </div>
-      </div>
-
-      <!-- 223(f) Timeline -->
-      <div class="wp-card">
-        <div class="wp-card-top">
-          <div class="wp-tag">HUD 223(f)</div>
-          <div class="wp-title">HUD 223(f) Timeline: How Long Does the Process Take?</div>
-          <p class="wp-desc">A former underwriter's guide to the HUD 223(f) refinance timeline: engagement to closing, when to start on a stabilized project, and where deals stall.</p>
-        </div>
-        <div class="wp-card-bottom">
-          <a href="/resources/hud-223f-timeline" class="wp-read">Read →</a>
-        </div>
-      </div>
-
-      <!-- BSPRA -->
-      <div class="wp-card">
-        <div class="wp-card-top">
-          <div class="wp-tag">HUD 221(d)(4)</div>
-          <div class="wp-title">BSPRA Explained: Builder and Sponsor Profit and Risk Allowance</div>
-          <p class="wp-desc">How BSPRA works in the HUD 221(d)(4) program, how it affects the LTC mortgage calculation, and how it compares to SPRA.</p>
-        </div>
-        <div class="wp-card-bottom">
-          <a href="/resources/hud-221d4-bspra" class="wp-read">Read →</a>
-        </div>
-      </div>
-
-      <!-- 241(a) -->
-      <div class="wp-card">
-        <div class="wp-card-top">
-          <div class="wp-tag">HUD 241(a)</div>
-          <div class="wp-title">HUD 241(a) Supplemental Loan: 90% LTC Construction Financing</div>
-          <p class="wp-desc">How Section 241(a) allows ground-up construction of additional units at 90% LTC on top of an existing HUD mortgage — with no Davis-Bacon requirement if the underlying loan is a 223(f).</p>
-        </div>
-        <div class="wp-card-bottom">
-          <a href="/resources/hud-241a-supplemental-loan" class="wp-read">Read →</a>
-        </div>
-      </div>
-
-      <!-- 223(a)(7) and IRR Loan Modification -->
-      <div class="wp-card">
-        <div class="wp-card-top">
-          <div class="wp-tag">HUD 223(a)(7)</div>
-          <div class="wp-title">HUD 223(a)(7) and IRR Loan Modification: How to Reduce Your Rate</div>
-          <p class="wp-desc">The HUD 223(a)(7) refinance and IRR loan modification both cut your rate with no cash-out — plus the Hybrid 223(a)(7) structure that often beats both on NPV.</p>
-        </div>
-        <div class="wp-card-bottom">
-          <a href="/resources/hud-223a7-and-irr-loan-modification" class="wp-read">Read →</a>
-        </div>
-      </div>
-
-      <!-- Yield Maintenance vs. HUD Step-Down -->
-      <div class="wp-card">
+      <div class="wp-card" data-tag="HUD vs. Agency">
         <div class="wp-card-top">
           <div class="wp-tag">HUD vs. Agency</div>
           <div class="wp-title">Yield Maintenance vs. HUD Step-Down: Which Is Cheaper?</div>
@@ -1831,10 +1806,88 @@
         </div>
       </div>
 
-      <!-- 5 Reasons -->
-      <div class="wp-card">
+      <div class="wp-card" data-tag="HUD 223(f)">
         <div class="wp-card-top">
-          <div class="wp-tag">HUD/FHA Process</div>
+          <div class="wp-tag">HUD 223(f)</div>
+          <div class="wp-title">How HUD Sizes a 223(f) Multifamily Mortgage</div>
+          <p class="wp-desc">A former Senior HUD Underwriter explains how 223(f) loan proceeds are determined — LTV, DSCR, statutory limits, and the cost-of-refinance floor — with an interactive sizing tool embedded in the article.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/how-hud-sizes-a-223f-mortgage" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card" data-tag="HUD 221(d)(4)">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 221(d)(4)</div>
+          <div class="wp-title">How HUD Sizes a 221(d)(4) New Construction Mortgage</div>
+          <p class="wp-desc">A former Senior HUD Underwriter explains how 221(d)(4) new construction loan proceeds are determined — LTC, DSCR, statutory limits, and BSPRA — with an interactive sizing tool embedded in the article.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/how-hud-sizes-a-221d4-mortgage" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card" data-tag="HUD 241(a)">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 241(a)</div>
+          <div class="wp-title">HUD 241(a) Supplemental Loan: 90% LTC Construction Financing</div>
+          <p class="wp-desc">How Section 241(a) allows ground-up construction of additional units at 90% LTC on top of an existing HUD mortgage — with no Davis-Bacon requirement if the underlying loan is a 223(f).</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/hud-241a-supplemental-loan" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card" data-tag="HUD 223(f)">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 223(f)</div>
+          <div class="wp-title">HUD 223(f) Timeline: How Long Does the Process Take?</div>
+          <p class="wp-desc">A former underwriter's guide to the HUD 223(f) refinance timeline: engagement to closing, when to start on a stabilized project, and where deals stall.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/hud-223f-timeline" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card" data-tag="HUD 221(d)(4)">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 221(d)(4)</div>
+          <div class="wp-title">HUD 221(d)(4) Timeline: How Long Does the Process Take?</div>
+          <p class="wp-desc">A step-by-step guide to the construction loan process — Concept Meeting through Initial Closing — including common delays and how to compress the schedule.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/hud-221d4-timeline" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card" data-tag="HUD 223(a)(7)">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 223(a)(7)</div>
+          <div class="wp-title">HUD 223(a)(7) and IRR Loan Modification: How to Reduce Your Rate</div>
+          <p class="wp-desc">The HUD 223(a)(7) refinance and IRR loan modification both cut your rate with no cash-out — plus the Hybrid 223(a)(7) structure that often beats both on NPV.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/hud-223a7-and-irr-loan-modification" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <!-- Hidden behind Load More -->
+
+      <div class="wp-card" data-tag="HUD 221(d)(4)">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 221(d)(4)</div>
+          <div class="wp-title">BSPRA Explained: Builder and Sponsor Profit and Risk Allowance</div>
+          <p class="wp-desc">How BSPRA works in the HUD 221(d)(4) program, how it affects the LTC mortgage calculation, and how it compares to SPRA.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/hud-221d4-bspra" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card" data-tag="HUD/FHA Primer">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD/FHA Primer</div>
           <div class="wp-title">5 Reasons HUD Multifamily Loans Get Delayed — And How to Avoid Them</div>
           <p class="wp-desc">The five most common reasons HUD/FHA multifamily loan closings are delayed — incomplete submissions, environmental issues, report shelf lives, appraisal problems, and PCNA findings.</p>
         </div>
@@ -1843,8 +1896,7 @@
         </div>
       </div>
 
-      <!-- 223(f) Checklist -->
-      <div class="wp-card">
+      <div class="wp-card" data-tag="HUD 223(f)">
         <div class="wp-card-top">
           <div class="wp-tag">HUD 223(f)</div>
           <div class="wp-title">HUD 223(f) Checklist: Documentation Requirements Compared to Fannie Mae & Freddie Mac</div>
@@ -1856,6 +1908,12 @@
       </div>
 
     </div>
+
+    <!-- LOAD MORE -->
+    <div class="wp-load-more-wrap">
+      <button class="wp-load-more" id="wp-load-more">Load More</button>
+    </div>
+
   </div>
 </section>
 
@@ -1960,6 +2018,59 @@
       label.textContent = 'Close';
     }
   }
+</script>
+
+<script>
+  // Resource filter + load more
+  const CARDS_PER_PAGE = 9;
+  let currentFilter = 'all';
+
+  function getFilteredCards() {
+    const all = Array.from(document.querySelectorAll('#wp-grid .wp-card'));
+    if (currentFilter === 'all') return all;
+    return all.filter(c => c.dataset.tag === currentFilter);
+  }
+
+  function renderCards() {
+    const all = Array.from(document.querySelectorAll('#wp-grid .wp-card'));
+    const filtered = getFilteredCards();
+    const loadMore = document.getElementById('wp-load-more');
+
+    // Hide all first
+    all.forEach(c => { c.style.display = 'none'; c.classList.remove('visible'); });
+
+    if (currentFilter === 'all') {
+      // Show first 9, hide rest
+      filtered.forEach((c, i) => {
+        if (i < CARDS_PER_PAGE) { c.style.display = 'flex'; }
+      });
+      loadMore.classList.toggle('hidden', filtered.length <= CARDS_PER_PAGE);
+    } else {
+      // Show all in category
+      filtered.forEach(c => { c.style.display = 'flex'; });
+      loadMore.classList.add('hidden');
+    }
+  }
+
+  // Filter tab clicks
+  document.querySelectorAll('.wp-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.wp-filter').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      renderCards();
+    });
+  });
+
+  // Load more
+  document.getElementById('wp-load-more').addEventListener('click', () => {
+    const all = Array.from(document.querySelectorAll('#wp-grid .wp-card'));
+    all.forEach(c => { c.style.display = 'flex'; });
+    document.getElementById('wp-load-more').classList.add('hidden');
+  });
+
+  // Init
+  renderCards();
 </script>
 
 </body>
