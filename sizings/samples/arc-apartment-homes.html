@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arc Apartment Homes — 223(f) Sizing · Centennial Mortgage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #004e72; --blue-dark: #00374f; --blue-deep: #002a3d;
+    --orange: #f98e2b;
+    --orange-soft: rgba(249, 142, 43, 0.08);
+    --orange-soft-2: rgba(249, 142, 43, 0.18);
+    --orange-border: rgba(249, 142, 43, 0.35);
+    --gray: #9fa2a3; --gray-light: #f7f8f8;
+    --gray-mute: #6b7173; --ink: #1a2935;
+    --hair: rgba(0, 78, 114, 0.12);
+    --hair-strong: rgba(0, 78, 114, 0.22);
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--white); color: var(--ink);
+    font-family: 'Catamaran', sans-serif; font-weight: 400;
+    font-size: 14px; line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .container { padding: 0 16px; } }
+
+  /* CHROME */
+  .chrome { background: var(--blue); padding: 12px 0; }
+  .chrome-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .chrome-logo { display: flex; align-items: center; gap: 12px; color: var(--white); }
+  .chrome-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .chrome-logo-text .name { font-weight: 700; font-size: 17px; color: var(--white); letter-spacing: -0.01em; }
+  .chrome-logo-text .sub { font-weight: 400; font-size: 11.5px; color: var(--white); opacity: 0.8; letter-spacing: 0.04em; margin-top: 2px; }
+  .chrome-actions { display: flex; align-items: center; gap: 14px; }
+  .version-tag { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; }
+  .btn { font-family: 'Catamaran', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 18px; border: 1px solid transparent; background: transparent; color: inherit; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; text-decoration: none; display: inline-block; line-height: 1; }
+  .btn-outline-light { border-color: rgba(255,255,255,0.4); color: var(--white); }
+  .btn-outline-light:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+  .btn-link { background: none; border: none; color: var(--orange); font-weight: 700; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; padding: 0; }
+  .btn-link:hover { color: #e07a16; }
+
+  /* STICKY MODIFIED BANNER */
+  .modified-banner {
+    position: sticky; top: 0; z-index: 150;
+    background: var(--orange-soft);
+    border-top: 1px solid var(--orange);
+    border-bottom: 1px solid var(--orange);
+    padding: 12px 0;
+    display: none;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .modified-banner.active { display: block; background: rgba(254, 246, 235, 0.96); }
+  .modified-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .modified-banner-text { font-size: 13px; color: var(--blue); font-weight: 500; }
+  .modified-banner-text strong { color: #c2691a; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; margin-right: 10px; }
+
+  /* STALE-SIZING BANNER (30-day soft expiry) — neutral, no urgency */
+  .stale-banner {
+    background: #eef0f1;
+    border-top: 1px solid var(--gray);
+    border-bottom: 1px solid var(--gray);
+    padding: 11px 0;
+    display: none;
+  }
+  .stale-banner.active { display: block; }
+  .stale-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  .stale-banner-text { font-size: 12.5px; color: var(--gray-mute); font-weight: 500; }
+  .stale-banner-text strong { color: var(--blue); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10.5px; margin-right: 10px; }
+
+  /* INTERNAL-PREVIEW WATERMARK */
+  body.preview-mode::after {
+    content: ''; position: fixed; inset: 0; z-index: 2000; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27430%27%20height%3D%27300%27%3E%3Ctext%20x%3D%2712%27%20y%3D%27170%27%20transform%3D%27rotate%28-24%20215%20150%29%27%20font-family%3D%27Catamaran%2C%20sans-serif%27%20font-size%3D%2719%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%20fill%3D%27rgba%28249%2C142%2C43%2C0.11%29%27%3EINTERNAL%20PREVIEW%20%E2%80%94%20NOT%20FOR%20DISTRIBUTION%3C%2Ftext%3E%3C%2Fsvg%3E");
+    background-repeat: repeat;
+  }
+  .preview-tag { display: none; }
+  body.preview-mode .preview-tag {
+    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--orange);
+    border: 1px solid var(--orange-border); padding: 5px 10px;
+  }
+
+  /* HEADER */
+  .proforma-head { padding: 28px 0 20px; border-bottom: 1px solid var(--blue); }
+  .ph-grid { display: grid; grid-template-columns: 1.6fr 2.4fr; gap: 36px; align-items: end; }
+  @media (max-width: 880px) { .ph-grid { grid-template-columns: 1fr; gap: 20px; } }
+  .program-tag { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); display: inline-flex; align-items: center; gap: 12px; }
+  .program-tag::before { content: ''; display: inline-block; width: 22px; height: 1px; background: var(--orange); }
+  .property-name { font-weight: 800; font-size: 32px; color: var(--blue); letter-spacing: -0.02em; line-height: 1.1; margin-top: 10px; }
+  .property-meta { margin-top: 8px; font-size: 13.5px; color: var(--gray-mute); }
+  .property-meta .dot { display: inline-block; width: 3px; height: 3px; background: var(--gray); border-radius: 50%; vertical-align: middle; margin: 0 9px 2px; }
+
+  .headline-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  @media (max-width: 720px) { .headline-stats { grid-template-columns: repeat(2, 1fr); } }
+  .hs-cell { border-left: 1px solid var(--hair-strong); padding-left: 16px; }
+  .hs-cell:first-child { border-left: none; padding-left: 0; }
+  .hs-cell .label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 6px; }
+  .hs-cell .num { font-weight: 700; font-size: 22px; color: var(--blue); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; line-height: 1; }
+  .hs-cell .sub { font-size: 11px; color: var(--gray-mute); margin-top: 4px; font-weight: 500; letter-spacing: 0.02em; }
+
+  /* PROFORMA */
+  .proforma { padding: 24px 0 40px; }
+  .proforma-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 980px) { .proforma-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .pf-block { margin-bottom: 28px; }
+  .pf-block:last-child { margin-bottom: 0; }
+  .pf-title {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--orange); padding: 8px 0 8px;
+    border-bottom: 1px solid var(--hair-strong);
+    margin-bottom: 4px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .pf-title > span:first-child, .pf-title.has-rule { position: relative; }
+  /* Orange lead rule before section title text */
+  .pf-title .pf-title-text {
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .pf-title .pf-title-text::before {
+    content: ''; display: inline-block; width: 20px; height: 1px; background: var(--orange);
+  }
+
+  table.pf { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; table-layout: fixed; }
+  table.pf col.val-col { width: 180px; }
+  table.pf td { padding: 5px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; }
+  table.pf tr:last-child td { border-bottom: none; }
+  table.pf td.val { color: var(--blue); font-weight: 500; text-align: right; white-space: nowrap; }
+
+  /* SUMMATION RULE — sits only above the summed figure, not the label */
+  table.pf tr.total td {
+    font-weight: 700; color: var(--blue);
+    border-top: none;
+    border-bottom: none;
+    padding: 6px 0 5px;
+  }
+  table.pf tr.total td.val {
+    border-top: 2px solid var(--blue);
+  }
+
+  table.pf tr.binding-row td { background: var(--orange-soft); color: var(--orange); font-weight: 700; }
+  table.pf tr.binding-row td.val { color: var(--orange); }
+  table.pf tr.binding-row td:first-child { position: relative; padding-left: 12px; }
+  table.pf tr.binding-row td:first-child::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; background: var(--orange); }
+
+  /* PAYMENT GROUP — no framing box; summation rule sits above the Monthly Payment figure only */
+  .payment-group {
+    margin-top: 10px;
+  }
+  .payment-group table.pf {
+    border-collapse: collapse;
+  }
+  .payment-group table.pf td {
+    padding: 5px 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .payment-group table.pf tr:last-child td { border-bottom: none; }
+  .payment-group table.pf tr.total td {
+    border-top: none;
+    border-bottom: none;
+    padding: 6px 0 5px;
+    font-weight: 700;
+  }
+  .payment-group table.pf tr.total td.val {
+    border-top: 2px solid var(--blue);
+  }
+
+  /* MAX-OF — three-column layout: label / value / Greater tag (fixed widths) */
+  table.pf col.tag-col { width: 60px; }
+  tr.max-of-row td.lbl-cell { padding-top: 8px; padding-bottom: 8px; }
+  tr.max-of-row td.val { vertical-align: top; padding-top: 10px; }
+  .max-of-main { font-weight: 500; color: var(--ink); }
+  tr.binding-row .max-of-main { color: var(--orange); font-weight: 700; }
+  .max-of-subs { margin-top: 6px; padding-left: 12px; border-left: 1px solid var(--hair-strong); display: flex; flex-direction: column; gap: 4px; }
+  tr.binding-row .max-of-subs { border-left-color: var(--orange); }
+  .max-of-sub {
+    display: grid;
+    grid-template-columns: 1fr 130px 60px;
+    align-items: baseline;
+    gap: 8px;
+    font-size: 11.5px; color: var(--gray-mute);
+    line-height: 1.4;
+  }
+  .max-of-sub .sub-label { text-align: left; }
+  .max-of-sub .sub-num { text-align: right; font-variant-numeric: tabular-nums; }
+  .max-of-sub .greater-tag {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--orange);
+    text-align: right;
+    visibility: hidden;
+  }
+  .max-of-sub.governing { color: var(--blue); font-weight: 600; }
+  .max-of-sub.governing .sub-num { color: var(--blue); }
+  .max-of-sub.governing .greater-tag { visibility: visible; }
+  tr.binding-row .max-of-sub.governing { color: #c2691a; }
+  tr.binding-row .max-of-sub.governing .sub-num { color: #c2691a; }
+
+  .req-default-badge {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gray-mute);
+    margin-right: 8px;
+  }
+
+  /* UNIFIED SOURCES & USES */
+  .sources-uses-block .pf-title.sub {
+    font-size: 9.5px; padding: 14px 0 6px;
+    border-bottom: 1px solid var(--hair);
+    color: var(--gray-mute); letter-spacing: 0.18em;
+    margin-bottom: 0;
+  }
+  .sources-uses-block .pf-title.sub:first-of-type { padding-top: 12px; }
+
+  table.uses { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; table-layout: fixed; }
+  table.uses col.pct-col { width: 50px; }
+  table.uses col.val-col { width: 130px; }
+  table.uses td { padding: 5px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; color: var(--ink); }
+  table.uses tr:last-child td { border-bottom: none; }
+  table.uses td.pct { text-align: right; padding-right: 10px; color: var(--gray-mute); font-size: 11px; font-weight: 500; }
+  table.uses td.val { text-align: right; white-space: nowrap; color: var(--blue); font-weight: 500; }
+  /* Summation rule on value cell only */
+  table.uses tr.total td {
+    font-weight: 700; color: var(--blue);
+    border-top: none;
+    border-bottom: none;
+    padding: 6px 0 5px;
+  }
+  table.uses tr.total td.val {
+    border-top: 2px solid var(--blue);
+  }
+
+  table.noi { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; table-layout: fixed; }
+  table.noi col.val-col { width: 120px; }
+  table.noi th { font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); text-align: right; padding: 10px 0 8px; border-bottom: 1px solid var(--hair-strong); }
+  table.noi th.lbl-head { text-align: left; }
+  table.noi td { padding: 5px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; }
+  table.noi tr:last-child td { border-bottom: none; }
+  table.noi td.lbl { color: var(--ink); }
+  table.noi td.val { text-align: right; white-space: nowrap; color: var(--blue); font-weight: 500; }
+  table.noi td.val-mute { text-align: right; color: var(--gray-mute); font-weight: 400; }
+  table.noi tr.total td {
+    font-weight: 700; color: var(--blue);
+    border-top: none;
+    border-bottom: none;
+    padding: 6px 0 5px;
+  }
+  table.noi tr.total td.val {
+    border-top: 2px solid var(--blue);
+  }
+
+  .explain { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin-left: 8px; border: 1px solid var(--blue); background: var(--blue); color: var(--white); font-weight: 700; font-size: 10px; cursor: pointer; line-height: 1; transition: background 0.15s, border-color 0.15s, transform 0.1s; user-select: none; vertical-align: 1px; }
+  .explain:hover { background: var(--orange); border-color: var(--orange); }
+  .explain:active { transform: scale(0.92); }
+
+  .editable { cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 2px 6px; margin: -2px 0; border: 1px dashed transparent; transition: border-color 0.15s, background 0.15s; }
+  .editable:hover { border-color: var(--orange-border); background: var(--orange-soft); }
+  .editable.is-modified { background: var(--orange-soft); border-color: var(--orange); }
+  .editable .edit-val { color: var(--blue); font-weight: 500; }
+  .editable .pencil { width: 11px; height: 11px; opacity: 0.55; flex-shrink: 0; transition: opacity 0.15s; }
+  .editable:hover .pencil, .editable.is-modified .pencil { opacity: 1; }
+  .editable .pencil svg { display: block; width: 11px; height: 11px; }
+
+  .inline-editor { position: absolute; z-index: 200; background: var(--white); border: 1px solid var(--blue); border-top: 3px solid var(--orange); padding: 14px 16px; width: 300px; box-shadow: 0 8px 32px rgba(0, 42, 61, 0.18); display: none; }
+  .inline-editor.visible { display: block; }
+  .inline-editor .ie-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 8px; }
+  .inline-editor .ie-name { font-size: 14px; font-weight: 600; color: var(--blue); margin-bottom: 10px; }
+  .inline-editor .ie-hint {
+    font-size: 11.5px; color: var(--gray-mute);
+    line-height: 1.5; margin-bottom: 12px;
+    font-style: italic;
+  }
+  .inline-editor .ie-hint.warn {
+    color: #c2691a;
+    background: var(--orange-soft);
+    padding: 8px 10px;
+    border-left: 2px solid var(--orange);
+    font-style: normal;
+    font-weight: 500;
+  }
+  .inline-editor input { width: 100%; font-family: 'Catamaran', sans-serif; font-weight: 500; font-size: 16px; padding: 10px 12px; border: 1px solid var(--hair-strong); color: var(--blue); text-align: right; font-variant-numeric: tabular-nums; outline: none; }
+  .inline-editor input:focus { border-color: var(--orange); }
+  .inline-editor .ie-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; gap: 12px; }
+  .inline-editor .ie-reset { background: none; border: none; color: var(--gray-mute); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; cursor: pointer; padding: 0; }
+  .inline-editor .ie-reset:hover { color: var(--orange); }
+  .inline-editor .ie-apply { background: var(--orange); color: var(--white); border: none; padding: 8px 16px; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+  .inline-editor .ie-apply:hover { background: #e07a16; }
+
+  .tooltip-card { position: absolute; z-index: 300; background: var(--white); border: 1px solid var(--blue); border-top: 3px solid var(--orange); padding: 14px 18px; width: 320px; box-shadow: 0 6px 24px rgba(0, 42, 61, 0.15); font-size: 12.5px; line-height: 1.55; color: var(--ink); font-weight: 400; display: none; }
+  .tooltip-card.visible { display: block; }
+  .tooltip-card .tt-title { font-weight: 700; color: var(--blue); font-size: 13.5px; margin-bottom: 6px; }
+  .tooltip-card .tt-body { margin-bottom: 0; }
+  .tooltip-card .tt-link {
+    display: inline-block;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--hair);
+    font-size: 11px; color: var(--orange); font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+  }
+  .tooltip-card .tt-link:hover { text-decoration: underline; }
+
+  .notes-row { margin-top: 8px; padding: 18px 0 8px; border-top: 1px solid var(--hair); font-size: 12px; color: var(--gray-mute); line-height: 1.55; }
+  .notes-row strong { color: var(--blue); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 10.5px; display: block; margin-bottom: 6px; }
+  .notes-row ul { list-style: none; }
+  .notes-row li { padding-left: 14px; position: relative; margin-bottom: 3px; }
+  .notes-row li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 1px; background: var(--orange); }
+
+  .inline-disclaimer {
+    margin-top: 18px; padding-top: 14px;
+    border-top: 1px solid var(--hair);
+    font-size: 10.5px; line-height: 1.55;
+    color: var(--gray-mute);
+    font-style: italic;
+    max-width: 920px;
+  }
+
+  section.depth { padding: 60px 0; }
+  section.depth.alt { background: var(--gray-light); }
+  section.depth.navy { background: var(--blue-deep); color: rgba(255,255,255,0.85); }
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { margin-top: 12px; font-size: 26px; color: var(--blue); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; max-width: 720px; }
+  section.depth.navy .section-head h2 { color: var(--white); }
+  .section-head .lede { margin-top: 12px; font-size: 15px; font-weight: 300; color: var(--gray-mute); line-height: 1.55; max-width: 660px; }
+  section.depth.navy .section-head .lede { color: rgba(255,255,255,0.7); }
+  .eyebrow { font-weight: 700; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); display: inline-flex; align-items: center; gap: 14px; }
+  .eyebrow::before { content: ''; display: inline-block; width: 22px; height: 1px; background: var(--orange); }
+
+  .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  @media (max-width: 880px) { .timeline { grid-template-columns: 1fr; gap: 32px; } }
+  .col-head { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid var(--hair-strong); }
+  .milestone { display: grid; grid-template-columns: 60px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  .milestone:last-child { border-bottom: none; }
+  .milestone-num { font-weight: 700; font-size: 11px; letter-spacing: 0.12em; color: var(--orange); text-transform: uppercase; padding-top: 3px; }
+  .milestone-title { font-weight: 700; color: var(--blue); font-size: 13.5px; margin-bottom: 3px; }
+  .milestone-desc { font-size: 12.5px; color: var(--gray-mute); line-height: 1.5; }
+  .cash-row { display: grid; grid-template-columns: 70px 1fr auto; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+  .cash-row:last-child { border-bottom: none; }
+  .cash-when { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase; }
+  .cash-what { font-size: 13px; color: var(--ink); font-weight: 600; }
+  .cash-what .note { display: block; font-size: 11.5px; color: var(--gray-mute); font-weight: 400; margin-top: 2px; line-height: 1.45; }
+  .cash-how-much { font-weight: 700; color: var(--blue); font-size: 13.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 880px) { .resources-grid { grid-template-columns: 1fr; gap: 18px; } }
+  .resource-card { background: var(--blue-dark); padding: 24px 22px 22px; border-top: 2px solid var(--orange); text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: background 0.15s; }
+  .resource-card:hover { background: #003e5d; }
+  .resource-card .r-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }
+  .resource-card .r-title { font-weight: 700; font-size: 16px; color: var(--white); line-height: 1.3; margin-bottom: 10px; letter-spacing: -0.005em; }
+  .resource-card .r-blurb { font-size: 12.5px; color: rgba(255,255,255,0.7); line-height: 1.5; font-weight: 400; flex-grow: 1; }
+  .resource-card .r-read { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+  .resources-all { margin-top: 28px; text-align: center; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .resources-all a { color: var(--orange); text-decoration: none; font-weight: 700; }
+  .resources-all a:hover { color: #ffa650; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 1px solid var(--hair-strong); padding-top: 32px; }
+  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; gap: 28px; } }
+  .o-name { font-weight: 700; font-size: 20px; color: var(--blue); letter-spacing: -0.01em; }
+  .o-title { font-size: 12.5px; color: var(--gray-mute); margin-top: 4px; }
+  .o-firm { font-size: 12.5px; font-weight: 700; color: var(--blue); margin-top: 12px; }
+  .o-contact { margin-top: 10px; font-size: 13px; line-height: 1.7; }
+  .o-contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+  .o-contact a:hover { border-color: var(--orange); }
+  .o-contact .lbl { display: inline-block; width: 52px; color: var(--gray-mute); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+  footer { background: var(--blue-deep); color: rgba(255,255,255,0.7); padding: 28px 0 24px; }
+  .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: end; }
+  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; } }
+  .footer-meta { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1.7; }
+  .footer-disclaimer { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.55; max-width: 620px; text-align: right; }
+  @media (max-width: 720px) { .footer-disclaimer { text-align: left; } }
+
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--blue); color: var(--white); border-top: 3px solid var(--orange); padding: 14px 20px; max-width: 320px; box-shadow: 0 8px 28px rgba(0, 42, 61, 0.25); font-size: 13px; z-index: 400; transform: translateY(20px); opacity: 0; transition: transform 0.3s, opacity 0.3s; pointer-events: none; }
+  .toast.visible { transform: translateY(0); opacity: 1; }
+  .toast .t-eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }
+
+  /* PRINT */
+  .print-watermark { display: none; position: fixed; top: 0; left: 0; right: 0; padding: 8px 16px; background: rgba(249, 142, 43, 0.12); border-bottom: 2px solid var(--orange); color: #c2691a; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; text-align: center; z-index: 999; }
+  body.scenario-modified .print-watermark { display: none; }
+  @media print {
+    body.scenario-modified .print-watermark { display: block; }
+    body.scenario-modified::after {
+      content: "MODIFIED SCENARIO — NOT A CENTENNIAL MORTGAGE SIZING";
+      position: fixed; bottom: 8px; left: 0; right: 0; text-align: center;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.18em; color: #c2691a;
+    }
+    .chrome-actions, .modified-banner button, .toast, .inline-editor, .tooltip-card { display: none !important; }
+    .editable { border: none !important; background: transparent !important; }
+    .editable .pencil { display: none !important; }
+    .explain { display: none !important; }
+    section.depth.alt { background: transparent !important; }
+    section.depth.navy { background: transparent !important; color: var(--ink) !important; }
+    section.depth.navy .section-head h2, section.depth.navy .section-head .lede { color: var(--ink) !important; }
+    .resource-card { background: transparent !important; border: 1px solid var(--hair-strong) !important; }
+    .resource-card .r-title, .resource-card .r-blurb { color: var(--ink) !important; }
+    footer { background: transparent !important; color: var(--ink) !important; }
+    .footer-disclaimer, .footer-meta { color: var(--ink) !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="print-watermark">Modified Scenario — Not a Centennial Mortgage Sizing</div>
+
+<header class="chrome">
+  <div class="container chrome-inner">
+    <div class="chrome-logo">
+      <svg width="34" height="34" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+        <g stroke="#f98e2b" stroke-width="3" stroke-linecap="square">
+          <line x1="40" y1="6" x2="40" y2="16"/><line x1="40" y1="64" x2="40" y2="74"/>
+          <line x1="6" y1="40" x2="16" y2="40"/><line x1="64" y1="40" x2="74" y2="40"/>
+          <line x1="16" y1="16" x2="22" y2="22"/><line x1="58" y1="58" x2="64" y2="64"/>
+          <line x1="64" y1="16" x2="58" y2="22"/><line x1="22" y1="58" x2="16" y2="64"/>
+        </g>
+        <circle cx="40" cy="40" r="22" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+        <path d="M40 24 L46 42 L40 38 L34 42 Z" fill="#f98e2b"/>
+        <path d="M40 56 L34 38 L40 42 L46 38 Z" fill="#ffffff" opacity="0.85"/>
+      </svg>
+      <div class="chrome-logo-text">
+        <span class="name">Centennial Mortgage</span>
+        <span class="sub">HUD/FHA Multifamily Sizing</span>
+      </div>
+    </div>
+    <div class="chrome-actions">
+      <span class="preview-tag" id="previewTag">Internal Preview</span>
+      <span class="version-tag" id="versionTag">Prepared May 27, 2026</span>
+      <button class="btn btn-outline-light" id="downloadBtn" onclick="alert('PDF snapshot — placeholder')">Download PDF</button>
+    </div>
+  </div>
+</header>
+
+<div class="modified-banner" id="modifiedBanner">
+  <div class="container modified-banner-inner">
+    <div class="modified-banner-text">
+      <strong>Modified Scenario</strong>One or more inputs changed. This is no longer a Centennial Mortgage sizing.
+    </div>
+    <button class="btn-link" onclick="resetAllScenarios()">Reset to Delivered Values →</button>
+  </div>
+</div>
+
+<div class="stale-banner" id="staleBanner">
+  <div class="container stale-banner-inner">
+    <div class="stale-banner-text">
+      <strong>Stale Sizing</strong><span id="staleBannerBody">This sizing was prepared on this date. Pricing has likely moved. Contact us for a refreshed sizing.</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="proforma-head">
+    <div class="ph-grid">
+      <div>
+        <span class="program-tag">HUD Section 223(f) — Proposed Mortgage</span>
+        <div class="property-name">Arc Apartment Homes</div>
+        <div class="property-meta">
+          Great Falls, MT <span class="dot"></span> 216 Units <span id="dealTypeWrap" style="display:none;"><span class="dot"></span> <span id="dealTypeDisplay">Affordable</span></span> <span class="dot"></span> Refinance
+        </div>
+      </div>
+      <div class="headline-stats">
+        <div class="hs-cell"><div class="label">Loan Amount</div><div class="num" id="hsLoan">$36,019,600</div><div class="sub">35-yr fixed</div></div>
+        <div class="hs-cell"><div class="label">Interest Rate</div><div class="num" id="hsRate">5.70%</div><div class="sub">+ 0.25% MIP</div></div>
+        <div class="hs-cell"><div class="label">DSCR</div><div class="num" id="hsDscr">1.149<span style="font-size:14px">x</span></div><div class="sub">on DS NOI</div></div>
+        <div class="hs-cell"><div class="label">Per Unit</div><div class="num" id="hsPerUnit">$166,757</div><div class="sub">216 units</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="proforma">
+    <div class="proforma-grid">
+      <div>
+        <!-- PROPOSED MORTGAGE — reordered with payment mini-block at the bottom -->
+        <div class="pf-block">
+          <div class="pf-title"><span class="pf-title-text">Proposed Mortgage</span></div>
+          <table class="pf">
+            <colgroup><col><col class="val-col"></colgroup>
+            <tr><td>New Loan Amount</td><td class="val" id="pmLoan">$36,019,600</td></tr>
+            <tr>
+              <td>Interest Rate <span class="explain" data-tooltip="rate">?</span></td>
+              <td class="val">
+                <span class="editable" data-edit="rate" data-name="Interest Rate" data-value="5.70" data-unit="%" data-original="5.70">
+                  <span class="edit-val">5.70%</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr><td>MIP Rate <span class="explain" data-tooltip="mip">?</span></td><td class="val" id="pmMipRate">0.25%</td></tr>
+            <tr><td>Term</td><td class="val" id="pmTerm">420 months (35 yrs)</td></tr>
+            <tr><td>Debt Service Ratio <span class="explain" data-tooltip="dscr">?</span></td><td class="val" id="pmDscr">1.149</td></tr>
+            <tr><td>Estimated Closing</td><td class="val">TBD</td></tr>
+          </table>
+
+          <!-- Payment mini-block — framed by 2px borders top and bottom -->
+          <div class="payment-group">
+            <table class="pf">
+              <colgroup><col><col class="val-col"></colgroup>
+              <tr><td>Monthly P&amp;I</td><td class="val" id="pmPI">$198,175</td></tr>
+              <tr><td>Monthly MIP</td><td class="val" id="pmMIP">$7,504</td></tr>
+              <tr class="total"><td>Monthly Payment</td><td class="val" id="pmTotal">$205,679</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- HUD MORTGAGE CRITERIA -->
+        <div class="pf-block">
+          <div class="pf-title"><span class="pf-title-text">HUD Mortgage Criteria</span><span style="font-size:10px; color:var(--gray-mute); letter-spacing:0.08em; font-weight:600;">MAX LOAN</span></div>
+          <table class="pf">
+            <colgroup><col><col class="val-col"></colgroup>
+            <tr id="rowReq">
+              <td>Requested Loan Amount <span class="explain" data-tooltip="reqLoan">?</span></td>
+              <td class="val">
+                <span class="editable" data-edit="reqLoan" data-name="Requested Loan Amount" data-value="" data-unit="$" data-original="">
+                  <span class="edit-val"><span class="req-default-badge">Max Loan</span></span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr id="rowLtv87"><td><span id="ltv87Label">87% LTV</span> <span class="explain" data-tooltip="ltv87">?</span></td><td class="val" id="ltv87Val">$46,308,900</td></tr>
+            <tr id="rowDscrCriterion"><td><span id="dscrLabel">1.15x DSCR Constrained</span> <span class="explain" data-tooltip="dscr">?</span></td><td class="val" id="dscrVal">$36,019,600</td></tr>
+            <tr id="rowStat"><td>270% HUD Statutory Limit <span class="explain" data-tooltip="stat">?</span></td><td class="val" id="statVal">$49,225,100</td></tr>
+            <tr class="max-of-row" id="rowMaxOf">
+              <td class="lbl-cell">
+                <div class="max-of-main">Greater of 80% LTV or Cost of Refinance <span class="explain" data-tooltip="costrefi">?</span></div>
+                <div class="max-of-subs">
+                  <div class="max-of-sub" id="sub80Ltv">
+                    <span class="sub-label">80% LTV</span>
+                    <span class="sub-num" id="ltv80Val">$42,582,900</span>
+                    <span class="greater-tag">Greater</span>
+                  </div>
+                  <div class="max-of-sub" id="subCostRefi">
+                    <span class="sub-label">Cost of Refinance</span>
+                    <span class="sub-num" id="costRefiVal">$35,347,656</span>
+                    <span class="greater-tag">Greater</span>
+                  </div>
+                </div>
+              </td>
+              <td class="val" id="maxOfVal">$42,582,900</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="pf-block">
+          <div class="pf-title"><span class="pf-title-text">Net Operating Income &amp; Value</span></div>
+          <table class="noi">
+            <colgroup><col><col class="val-col"><col class="val-col"></colgroup>
+            <tr><th class="lbl-head"></th><th>Value NOI</th><th>Debt Svc NOI</th></tr>
+            <tr><td class="lbl">Effective Income</td><td class="val" id="effIncValue">$4,550,695</td><td class="val" id="effIncDS">$4,468,407</td></tr>
+            <tr><td class="lbl">Operating Expenses</td><td class="val" id="opExValueDisp">($1,569,115)</td><td class="val" id="opExDSDisp">($1,566,646)</td></tr>
+            <tr><td class="lbl">Replacement Reserves <span class="explain" data-tooltip="reserves">?</span></td><td class="val" id="reservesValueDisp">($54,000)</td><td class="val" id="reservesDSDisp">($64,800)</td></tr>
+            <tr class="total"><td class="lbl">NOI</td><td class="val" id="noiValueDisp">$2,927,580</td><td class="val" id="noiDSDisp">$2,836,961</td></tr>
+            <tr>
+              <td class="lbl">Cap Rate <span class="explain" data-tooltip="cap">?</span></td>
+              <td class="val">
+                <span class="editable" data-edit="capRate" data-name="Cap Rate" data-value="5.50" data-unit="%" data-original="5.50">
+                  <span class="edit-val">5.50%</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+              <td class="val-mute">—</td>
+            </tr>
+            <tr class="total"><td class="lbl">Market Value</td><td class="val" id="mktValue">$53,228,700</td><td class="val-mute">—</td></tr>
+            <tr><td class="lbl">Per Unit</td><td class="val" id="valuePerUnit">$246,429</td><td class="val-mute">—</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="pf-block sources-uses-block">
+          <div class="pf-title"><span class="pf-title-text">Estimated Sources &amp; Uses of Funds</span></div>
+          <div class="pf-title sub">Sources</div>
+          <table class="uses">
+            <colgroup><col class="pct-col"><col><col class="val-col"></colgroup>
+            <tr><td class="pct"></td><td>New Loan Amount</td><td class="val" id="srcLoan">$36,019,600</td></tr>
+            <tr>
+              <td class="pct"></td>
+              <td>Existing Replacement Reserve <span class="explain" data-tooltip="existingReserve">?</span></td>
+              <td class="val">
+                <span class="editable" data-edit="existingReserve" data-name="Existing Replacement Reserve" data-value="0" data-unit="$" data-original="0">
+                  <span class="edit-val">$0</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr><td class="pct"></td><td>Prepaid 3rd Party Reports</td><td class="val" id="srcPrepaid3PR">$32,900</td></tr>
+            <tr><td class="pct"></td><td>Prepaid HUD Application Fee</td><td class="val" id="srcAppFee">$108,059</td></tr>
+            <tr><td class="pct"></td><td>Cash Required at Closing <span class="explain" data-tooltip="cashreq">?</span></td><td class="val" id="srcCashReq">($812,903)</td></tr>
+            <tr class="total"><td class="pct"></td><td>Total Sources</td><td class="val" id="srcTotal">$35,347,656</td></tr>
+          </table>
+
+          <div class="pf-title sub">Uses</div>
+          <table class="uses">
+            <colgroup><col class="pct-col"><col><col class="val-col"></colgroup>
+            <tr>
+              <td class="pct"></td>
+              <td>Existing Debt</td>
+              <td class="val">
+                <span class="editable" data-edit="existingDebt" data-name="Existing Debt" data-value="34500000" data-unit="$" data-original="34500000">
+                  <span class="edit-val">$34,500,000</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="pct"></td>
+              <td>Prepayment Penalty</td>
+              <td class="val">
+                <span class="editable" data-edit="prepay" data-name="Prepayment Penalty" data-value="0" data-unit="$" data-original="0">
+                  <span class="edit-val">$0</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr><td class="pct"></td><td>Initial Deposit to Reserves</td><td class="val" id="useInitReserve">$324,000</td></tr>
+            <tr>
+              <td class="pct"></td>
+              <td>Repairs <span class="explain" data-tooltip="repairs">?</span></td>
+              <td class="val">
+                <span class="editable" data-edit="repairs" data-name="Repairs" data-value="0" data-unit="$" data-original="0">
+                  <span class="edit-val">$0</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr><td class="pct" id="pctAppFee">0.30%</td><td>HUD Application Fee</td><td class="val" id="useAppFee">$108,059</td></tr>
+            <tr><td class="pct" id="pctInitMIP">0.25%</td><td>HUD Initial MIP</td><td class="val" id="useInitMIP">$90,049</td></tr>
+            <tr><td class="pct"></td><td>HUD Inspection Fee</td><td class="val" id="useInspection">$1,500</td></tr>
+            <tr><td class="pct" id="pctFinFee">0.50%</td><td>Financing Fee</td><td class="val" id="useFinFee">$180,098</td></tr>
+            <tr><td class="pct"></td><td>Processing Fee</td><td class="val" id="useProcessingFee">$0</td></tr>
+            <tr><td class="pct"></td><td>GNMA Placement Fee</td><td class="val" id="useGNMA">$8,550</td></tr>
+            <tr><td class="pct"></td><td>Centennial Legal</td><td class="val" id="useCentennialLegal">$25,000</td></tr>
+            <tr>
+              <td class="pct"></td>
+              <td>Borrower Legal</td>
+              <td class="val">
+                <span class="editable" data-edit="bLegal" data-name="Borrower Legal" data-value="17500" data-unit="$" data-original="17500">
+                  <span class="edit-val">$17,500</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr><td class="pct"></td><td>Borrower Organizational</td><td class="val" id="useBorrowerOrg">$0</td></tr>
+            <tr>
+              <td class="pct"></td>
+              <td>Title &amp; Survey</td>
+              <td class="val">
+                <span class="editable" data-edit="titleSurvey" data-name="Title &amp; Survey" data-value="60000" data-unit="$" data-original="60000">
+                  <span class="edit-val">$60,000</span>
+                  <span class="pencil"><svg viewBox="0 0 12 12" fill="none"><path d="M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z" stroke="#004e72" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+                </span>
+              </td>
+            </tr>
+            <tr><td class="pct"></td><td>3rd Party Reports</td><td class="val" id="useThirdParty">$32,900</td></tr>
+            <tr><td class="pct"></td><td>Repair Completion Assurance Escrow</td><td class="val" id="useRepairAssurance">$0</td></tr>
+            <tr class="total"><td class="pct"></td><td>Total Uses</td><td class="val" id="useTotal">$35,347,656</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes-row">
+      <strong>Underwriting Notes</strong>
+      <ul><li>Assumes $34,500,000 in existing debt.</li><li>NOI based on March T12 and HUD underwriting standards. To be confirmed with updated financials and HUD appraisal.<div style="padding-left:14px; margin-top:4px;">Test continuation.<br></div></li><li>Assumes new real estate taxes at $1,750/unit with property tax changes.</li><li>Assumes project stabilizes at below 7% vacancy and bad debt.</li></ul>
+      <div class="inline-disclaimer">
+        This sizing is a conceptual document. Material variances between this document and actual closing will exist, including rate, term, loan amount, fees, costs, and other items. Not a commitment to lend. Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability.
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="depth alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Timeline &amp; Cash Deployment</span>
+      <h2>What to expect, month by month.</h2>
+      <p class="lede">A standard 223(f) closes in five to six months from engagement. Most of the borrower cash is back-loaded — the early months are primarily third-party report costs.</p>
+    </div>
+    <div class="timeline">
+      <div>
+        <div class="col-head">Process Timeline</div>
+        <div class="milestone"><div class="milestone-num">Mo. 1</div><div><div class="milestone-title">Engagement &amp; Kickoff</div><div class="milestone-desc">Lender engaged. Order PCNA, Phase I/HEROS, appraisal, ALTA survey. Borrower begins due diligence.</div></div></div>
+        <div class="milestone"><div class="milestone-num">Mo. 2</div><div><div class="milestone-title">Draft Reports &amp; Due Diligence</div><div class="milestone-desc">First-draft third-party reports return. Lender reconciles inconsistencies before they reach HUD.</div></div></div>
+        <div class="milestone"><div class="milestone-num">Mo. 3</div><div><div class="milestone-title">Firm Application Submission</div><div class="milestone-desc">Reports finalize, loan committee approves, full Firm Application submitted to HUD with the 0.30% application fee.</div></div></div>
+        <div class="milestone"><div class="milestone-num">Mo. 4</div><div><div class="milestone-title">HUD Review</div><div class="milestone-desc">HUD underwrites the Firm Application. A clean, internally consistent package moves through quickly.</div></div></div>
+        <div class="milestone"><div class="milestone-num">Mo. 5</div><div><div class="milestone-title">Firm Commitment &amp; Rate Lock</div><div class="milestone-desc">HUD issues Firm Commitment. Rate lock with 0.50% good faith deposit (credited at closing). Closing process begins.</div></div></div>
+        <div class="milestone"><div class="milestone-num">Mo. 6</div><div><div class="milestone-title">Final Closing &amp; Fund</div><div class="milestone-desc">Closing package finalized, documents executed, loan funds.</div></div></div>
+      </div>
+      <div>
+        <div class="col-head">Cash Deployment</div>
+        <div class="cash-row"><div class="cash-when">Mo. 1</div><div class="cash-what">Third-Party Reports<span class="note">PCNA, Phase I/HEROS, appraisal. Refunded into loan at closing.</span></div><div class="cash-how-much" id="cashThirdParty">~$32,900</div></div>
+        <div class="cash-row"><div class="cash-when">Mo. 3</div><div class="cash-what">HUD Application Fee<span class="note">0.30% of loan, paid at Firm Application submission. Funded into loan at closing.</span></div><div class="cash-how-much" id="cashAppFee">~$108,059</div></div>
+        <div class="cash-row"><div class="cash-when">Mo. 5</div><div class="cash-what">Rate Lock Good Faith Deposit<span class="note">0.50% of loan, refunded in full at closing.</span></div><div class="cash-how-much" id="cashGFD">~$180,098</div></div>
+        <div class="cash-row"><div class="cash-when">Mo. 6</div><div class="cash-what">Net Cash at Closing<span class="note">Net of all sources and uses at closing. Positive means cash-out to borrower.</span></div><div class="cash-how-much" id="cashNet">+$812,903</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="depth navy">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Further Reading</span>
+      <h2>Go deeper on 223(f).</h2>
+      <p class="lede">Articles written by us covering 223(f) methodology, timelines, and prepayment economics.</p>
+    </div>
+    <div class="resources-grid">
+      <a class="resource-card" href="https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/" target="_blank">
+        <div class="r-eyebrow">HUD 223(f)</div>
+        <div class="r-title">How HUD Sizes a 223(f) Multifamily Mortgage</div>
+        <div class="r-blurb">A former Senior HUD Underwriter explains how 223(f) loan proceeds are determined — LTV, DSCR, statutory limits, and the cost-of-refinance floor — with an interactive sizing tool embedded in the article.</div>
+        <div class="r-read">Read →</div>
+      </a>
+      <a class="resource-card" href="https://roachlorenz.com/resources/hud-223f-timeline/" target="_blank">
+        <div class="r-eyebrow">HUD 223(f)</div>
+        <div class="r-title">HUD 223(f) Timeline: How Long Does the Process Take?</div>
+        <div class="r-blurb">A former underwriter's month-by-month walkthrough of the 223(f) refinance timeline: engagement to closing, when to start on a stabilized project, and where deals stall.</div>
+        <div class="r-read">Read →</div>
+      </a>
+      <a class="resource-card" href="https://roachlorenz.com/resources/hud-prepayment-vs-yield-maintenance/" target="_blank">
+        <div class="r-eyebrow">HUD vs Agency</div>
+        <div class="r-title">Yield Maintenance vs. HUD Step-Down: Which Is Cheaper?</div>
+        <div class="r-blurb">The HUD step-down has a worse reputation than the math supports. Year-by-year comparison against Fannie/Freddie yield maintenance across flat, rising, and falling rate environments.</div>
+        <div class="r-read">Read →</div>
+      </a>
+    </div>
+    <div class="resources-all">
+      <a href="https://roachlorenz.com/#resources" target="_blank">View all resources →</a>
+    </div>
+  </div>
+</section>
+
+<section class="depth">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Questions on This Sizing</span>
+      <h2>Talk to us.</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="o-name">Brian Lorenz</div>
+        <div class="o-title">Vice President, Originations · Former Senior HUD Underwriter</div>
+        <div class="o-firm">Centennial Mortgage, Inc.</div>
+        <div class="o-contact">
+          <span class="lbl">Phone</span><a href="tel:5417604377">(541) 760-4377</a><br>
+          <span class="lbl">Email</span><a href="mailto:blorenz@centennialmortgage.com">blorenz@centennialmortgage.com</a>
+        </div>
+      </div>
+      <div>
+        <div class="o-name">Wim Roach</div>
+        <div class="o-title">Vice President, Originations</div>
+        <div class="o-firm">Centennial Mortgage, Inc.</div>
+        <div class="o-contact">
+          <span class="lbl">Phone</span><a href="tel:5095286691">(509) 528-6691</a><br>
+          <span class="lbl">Email</span><a href="mailto:wroach@centennialmortgage.com">wroach@centennialmortgage.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div class="footer-meta">Centennial Mortgage, Inc.<br>HUD/FHA Multifamily Origination<br>Prepared May 27, 2026</div>
+    <div class="footer-disclaimer">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This sizing is a conceptual document. Material variances between this document and actual closing will exist, including rate, term, loan amount, fees, costs, and other items. Not a commitment to lend.</div>
+  </div>
+</footer>
+
+<div class="tooltip-card" id="tooltip"></div>
+<div class="inline-editor" id="inlineEditor">
+  <div class="ie-label">Edit Value</div>
+  <div class="ie-name" id="ieName"></div>
+  <div class="ie-hint" id="ieHint" style="display:none;"></div>
+  <input type="text" id="ieInput" inputmode="decimal">
+  <div class="ie-actions">
+    <button class="ie-reset" id="ieReset">Reset to original</button>
+    <button class="ie-apply" id="ieApply">Apply</button>
+  </div>
+</div>
+<div class="toast" id="toast">
+  <div class="t-eyebrow">Sizing Updated</div>
+  <div id="toastBody"></div>
+</div>
+
+<script>
+window.__SIZING__ = {"preview":false,"stale":false,"staleDate":"May 27, 2026"};
+const deal = {
+  units: 216,
+  marketNOI: 2927579.8500000006,
+  debtServiceNOI: 2836960.88,
+  statutoryLimit: 49225100,
+  ltvMaxMarket: 0.87, ltvMaxAffordable: 0.90,
+  ltvCashOutCap: 0.80,
+  dscrFactorMarket: 0.87, dscrFactorAffordable: 0.90,
+  dscrLabelMarket: '1.15x DSCR Constrained', dscrLabelAffordable: '1.11x DSCR Constrained',
+  termMonths: 420,
+  mipRate: 0.0025,
+  initialMIPRate: 0.0025,
+  appFeeRate: 0.003,
+  financingFeeRate: 0.005,
+  prepaid3PR: 32900,
+  initialReserveDeposit: 324000,
+  inspectionFee: 1500,
+  centennialLegal: 25000,
+  thirdPartyReports: 32900,
+  repairAssurance: 0,
+  processingFee: 0,
+  borrowerOrg: 0,
+  effIncomeValue: 4550694.57,
+  effIncomeDS: 4468406.97,
+  opExValue: 1569114.72,
+  opExDS: 1566646.09,
+  reservesValue: 54000,
+  reservesDS: 64800,
+  delivered: {
+    dealType: "Market",
+    rate: 5.7,
+    capRate: 5.5,
+    reqLoan: null,
+    existingReserve: 0,
+    existingDebt: 34500000,
+    prepay: 0,
+    repairs: 0,
+    bLegal: 17500,
+    titleSurvey: 60000
+  }
+};
+const state = { ...deal.delivered };
+
+// Resolve LTV/DSCR factors from current dealType
+function getFactors() {
+  const isAffordable = state.dealType === 'Affordable';
+  return {
+    ltvMax: isAffordable ? deal.ltvMaxAffordable : deal.ltvMaxMarket,
+    ltvMaxPct: isAffordable ? '90%' : '87%',
+    dscrFactor: isAffordable ? deal.dscrFactorAffordable : deal.dscrFactorMarket,
+    dscrLabel: isAffordable ? deal.dscrLabelAffordable : deal.dscrLabelMarket
+  };
+}
+
+function loanConstant(rateDec, termMo, mipDec) {
+  const i = rateDec / 12;
+  const monthlyPmt = i / (1 - Math.pow(1 + i, -termMo));
+  const annualPI = monthlyPmt * 12;
+  const amort = annualPI - rateDec;
+  return rateDec + mipDec + amort;
+}
+function monthlyPI(loan, rateDec, termMo) {
+  const i = rateDec / 12;
+  return loan * i / (1 - Math.pow(1 + i, -termMo));
+}
+function gnmaPlacementFee(loan) {
+  if (loan < 1500000) return 1550;
+  const excessMillions = Math.ceil((loan - 1500000) / 1000000);
+  return 1550 + excessMillions * 200;
+}
+function fmtMoney(n, withSign) {
+  const num = Math.round(Number(n));
+  if (num < 0) return '($' + Math.abs(num).toLocaleString() + ')';
+  return (withSign && num > 0 ? '+' : '') + '$' + num.toLocaleString();
+}
+function fmtMoneyClean(n) { return '$' + Math.round(Number(n)).toLocaleString(); }
+function fmtPct(n) { return Number(n).toFixed(2) + '%'; }
+function roundDown100(n) { return Math.floor(n / 100) * 100; }
+
+function recalculate() {
+  const rateDec = state.rate / 100;
+  const capDec = state.capRate / 100;
+  const f = getFactors();
+  const K = loanConstant(rateDec, deal.termMonths, deal.mipRate);
+  const dscrLoan = roundDown100((deal.debtServiceNOI * f.dscrFactor) / K);
+  const mktValue = roundDown100(deal.marketNOI / capDec);
+  const ltv87 = roundDown100(mktValue * f.ltvMax);
+  const ltv80 = roundDown100(mktValue * deal.ltvCashOutCap);
+
+  function computeUsesAtLoan(loanAmt) {
+    const appFee = loanAmt * deal.appFeeRate;
+    const initMIP = loanAmt * deal.initialMIPRate;
+    const finFee = loanAmt * deal.financingFeeRate;
+    const gnma = gnmaPlacementFee(loanAmt);
+    const totalUses = state.existingDebt + state.prepay + deal.initialReserveDeposit
+                    + state.repairs + appFee + initMIP + deal.inspectionFee
+                    + finFee + deal.processingFee + gnma + deal.centennialLegal
+                    + state.bLegal + deal.borrowerOrg + state.titleSurvey + deal.thirdPartyReports
+                    + deal.repairAssurance;
+    return { appFee, initMIP, finFee, gnma, totalUses };
+  }
+
+  let u = computeUsesAtLoan(ltv80);
+  let costRefi = u.totalUses;
+  let fifthLimit = Math.max(ltv80, costRefi);
+  let fifthGoverning = ltv80 >= costRefi ? '80LTV' : 'CostRefi';
+
+  const hudCriteria = { '87LTV': ltv87, 'DSCR': dscrLoan, 'Statutory': deal.statutoryLimit, 'FifthCriterion': fifthLimit };
+  let hudMaxLoan = Math.min(...Object.values(hudCriteria));
+  let hudBindingKey = '87LTV';
+  ['DSCR','Statutory','FifthCriterion'].forEach(k => { if (hudCriteria[k] < hudCriteria[hudBindingKey]) hudBindingKey = k; });
+
+  let proposedLoan, bindingKey;
+  if (state.reqLoan === null || state.reqLoan === '' || state.reqLoan === undefined) {
+    proposedLoan = hudMaxLoan; bindingKey = hudBindingKey;
+  } else {
+    if (state.reqLoan < hudMaxLoan) { proposedLoan = state.reqLoan; bindingKey = 'Requested'; }
+    else { proposedLoan = hudMaxLoan; bindingKey = hudBindingKey; }
+  }
+  proposedLoan = roundDown100(proposedLoan);
+
+  u = computeUsesAtLoan(proposedLoan);
+  costRefi = u.totalUses;
+  fifthGoverning = ltv80 >= costRefi ? '80LTV' : 'CostRefi';
+  fifthLimit = Math.max(ltv80, costRefi);
+
+  const mPI = monthlyPI(proposedLoan, rateDec, deal.termMonths);
+  const mMIP = (proposedLoan * deal.mipRate) / 12;
+  const mTotal = mPI + mMIP;
+  const dscrRatio = deal.debtServiceNOI / ((mPI + mMIP) * 12);
+
+  document.getElementById('hsLoan').textContent = fmtMoneyClean(proposedLoan);
+  document.getElementById('hsRate').textContent = fmtPct(state.rate);
+  document.getElementById('hsDscr').innerHTML = dscrRatio.toFixed(3) + '<span style="font-size:14px">x</span>';
+  document.getElementById('hsPerUnit').textContent = fmtMoneyClean(proposedLoan / deal.units);
+
+  document.getElementById('pmLoan').textContent = fmtMoneyClean(proposedLoan);
+  document.getElementById('pmPI').textContent = fmtMoneyClean(mPI);
+  document.getElementById('pmMIP').textContent = fmtMoneyClean(mMIP);
+  document.getElementById('pmTotal').textContent = fmtMoneyClean(mTotal);
+  document.getElementById('pmDscr').textContent = dscrRatio.toFixed(3);
+
+  // Show deal type in meta line only when not Market (Market is the assumed default)
+  const dealTypeWrap = document.getElementById('dealTypeWrap');
+  if (state.dealType === 'Market') {
+    dealTypeWrap.style.display = 'none';
+  } else {
+    dealTypeWrap.style.display = 'inline';
+    document.getElementById('dealTypeDisplay').textContent = state.dealType;
+  }
+  document.getElementById('ltv87Label').textContent = f.ltvMaxPct + ' LTV';
+  document.getElementById('dscrLabel').textContent = f.dscrLabel;
+  document.getElementById('ltv87Val').textContent = fmtMoneyClean(ltv87);
+  document.getElementById('dscrVal').textContent = fmtMoneyClean(dscrLoan);
+  document.getElementById('statVal').textContent = fmtMoneyClean(deal.statutoryLimit);
+  document.getElementById('ltv80Val').textContent = fmtMoneyClean(ltv80);
+  document.getElementById('costRefiVal').textContent = fmtMoneyClean(costRefi);
+  document.getElementById('maxOfVal').textContent = fmtMoneyClean(fifthLimit);
+
+  const sub80 = document.getElementById('sub80Ltv');
+  const subCR = document.getElementById('subCostRefi');
+  sub80.classList.toggle('governing', fifthGoverning === '80LTV');
+  subCR.classList.toggle('governing', fifthGoverning === 'CostRefi');
+
+  ['rowReq','rowLtv87','rowDscrCriterion','rowStat','rowMaxOf'].forEach(id => {
+    document.getElementById(id).classList.remove('binding-row');
+  });
+  const bindingMap = { 'Requested': 'rowReq', '87LTV': 'rowLtv87', 'DSCR': 'rowDscrCriterion', 'Statutory': 'rowStat', 'FifthCriterion': 'rowMaxOf' };
+  document.getElementById(bindingMap[bindingKey]).classList.add('binding-row');
+
+  document.getElementById('mktValue').textContent = fmtMoneyClean(mktValue);
+  document.getElementById('valuePerUnit').textContent = fmtMoneyClean(mktValue / deal.units);
+
+  // NOI table line items — driven by deal config
+  document.getElementById('effIncValue').textContent = fmtMoneyClean(deal.effIncomeValue);
+  document.getElementById('effIncDS').textContent = fmtMoneyClean(deal.effIncomeDS);
+  document.getElementById('opExValueDisp').textContent = '(' + fmtMoneyClean(deal.opExValue) + ')';
+  document.getElementById('opExDSDisp').textContent = '(' + fmtMoneyClean(deal.opExDS) + ')';
+  document.getElementById('reservesValueDisp').textContent = '(' + fmtMoneyClean(deal.reservesValue) + ')';
+  document.getElementById('reservesDSDisp').textContent = '(' + fmtMoneyClean(deal.reservesDS) + ')';
+  document.getElementById('noiValueDisp').textContent = fmtMoneyClean(deal.marketNOI);
+  document.getElementById('noiDSDisp').textContent = fmtMoneyClean(deal.debtServiceNOI);
+
+  document.getElementById('srcLoan').textContent = fmtMoneyClean(proposedLoan);
+  document.getElementById('srcAppFee').textContent = fmtMoneyClean(u.appFee);
+  document.getElementById('useAppFee').textContent = fmtMoneyClean(u.appFee);
+  document.getElementById('useInitMIP').textContent = fmtMoneyClean(u.initMIP);
+  document.getElementById('useFinFee').textContent = fmtMoneyClean(u.finFee);
+  document.getElementById('useGNMA').textContent = fmtMoneyClean(u.gnma);
+  document.getElementById('useProcessingFee').textContent = fmtMoneyClean(deal.processingFee);
+  document.getElementById('useBorrowerOrg').textContent = fmtMoneyClean(deal.borrowerOrg);
+
+  // Input-derived display cells (driven by deal config, not just the Arc defaults)
+  document.getElementById('pmMipRate').textContent = fmtPct(deal.mipRate * 100);
+  document.getElementById('pmTerm').textContent = deal.termMonths + ' months (' + Math.round(deal.termMonths / 12) + ' yrs)';
+  document.getElementById('pctAppFee').textContent = fmtPct(deal.appFeeRate * 100);
+  document.getElementById('pctInitMIP').textContent = fmtPct(deal.initialMIPRate * 100);
+  document.getElementById('pctFinFee').textContent = fmtPct(deal.financingFeeRate * 100);
+  document.getElementById('srcPrepaid3PR').textContent = fmtMoneyClean(deal.prepaid3PR);
+  document.getElementById('useInitReserve').textContent = fmtMoneyClean(deal.initialReserveDeposit);
+  document.getElementById('useInspection').textContent = fmtMoneyClean(deal.inspectionFee);
+  document.getElementById('useCentennialLegal').textContent = fmtMoneyClean(deal.centennialLegal);
+  document.getElementById('useThirdParty').textContent = fmtMoneyClean(deal.thirdPartyReports);
+  document.getElementById('useRepairAssurance').textContent = fmtMoneyClean(deal.repairAssurance);
+  document.getElementById('cashThirdParty').textContent = '~' + fmtMoneyClean(deal.thirdPartyReports);
+
+  const sourcesExCash = proposedLoan + state.existingReserve + deal.prepaid3PR + u.appFee;
+  const cashReq = u.totalUses - sourcesExCash;
+  document.getElementById('srcCashReq').textContent = cashReq < 0
+    ? '($' + Math.abs(Math.round(cashReq)).toLocaleString() + ')'
+    : '$' + Math.round(cashReq).toLocaleString();
+  document.getElementById('srcTotal').textContent = fmtMoneyClean(u.totalUses);
+  document.getElementById('useTotal').textContent = fmtMoneyClean(u.totalUses);
+
+  document.getElementById('cashAppFee').textContent = '~' + fmtMoneyClean(u.appFee);
+  document.getElementById('cashGFD').textContent = '~' + fmtMoneyClean(u.finFee);
+  const netCash = -cashReq;
+  document.getElementById('cashNet').textContent = (netCash >= 0 ? '+' : '') + fmtMoney(netCash);
+
+  updateReqLoanDisplay(hudMaxLoan);
+}
+
+function updateReqLoanDisplay(hudMaxLoan) {
+  const editable = document.querySelector('[data-edit="reqLoan"]');
+  const valSpan = editable.querySelector('.edit-val');
+  if (state.reqLoan === null || state.reqLoan === '' || state.reqLoan === undefined) {
+    valSpan.innerHTML = '<span class="req-default-badge">Max Loan</span>';
+    editable.classList.remove('is-modified');
+  } else {
+    const num = Number(state.reqLoan);
+    if (num >= hudMaxLoan) {
+      valSpan.innerHTML = fmtMoneyClean(num) + ' <span class="req-default-badge">Ineffective</span>';
+    } else {
+      valSpan.textContent = fmtMoneyClean(num);
+    }
+  }
+}
+
+const tooltipContent = {
+  ltv87: { title: '87% LTV Test', body: 'The standard LTV ceiling on a 223(f). HUD applies 87% to the appraised value — Market NOI divided by cap rate. This is one of five constraints; on a cash-out refinance, the 80% LTV floor in the fifth criterion usually governs instead. For affordable deals, 90% applies instead of 87%.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },
+  dscr: { title: '1.15x DSCR Constrained', body: 'HUD multiplies Debt Service NOI by 87% to get the maximum allowable annual debt service (P&I + MIP). Divide that by the loan constant — interest rate + 0.25% MIP + amortization rate — for the DSCR-constrained loan. In higher-rate environments DSCR bites first. For affordable deals, 90% applies instead of 87%.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },
+  stat: { title: 'Statutory Limit (270% HCP)', body: 'Per-unit dollar caps by bedroom count, adjusted by a uniform 270% High Cost Percentage, plus 100% of land value and 100% of Cost Not Attributable. Rarely the binding constraint outside very high-rent metros.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },
+  costrefi: { title: 'Greater of 80% LTV or Cost of Refinance', body: 'The fifth criterion is the greater of two figures: 80% of appraised value, or the total cost of getting the refinance done. Whichever is larger governs. When 80% LTV is larger, the deal produces cash-out — and 80% becomes a hard cap regardless of the 87% LTV test above.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },
+  rate: { title: 'Interest Rate', body: 'Rate as of the sizing date. Moves both the DSCR-constrained loan amount through the loan constant and the monthly payment. Below the LTV/DSCR crossover, further rate decreases stop adding proceeds.' },
+  cap: { title: 'Cap Rate', body: 'Market NOI ÷ cap rate = appraised value, which drives the LTV ceiling. A 25 bps cap rate move on $1.2M of NOI moves value by roughly $1M, which translates directly to proceeds through LTV. The third-party appraisal sets the cap rate; this is your assumption.' },
+  reqLoan: { title: 'Requested Loan Amount', body: 'The borrower can request a loan amount below the otherwise-binding HUD criterion. Useful when a sponsor wants lower leverage, a stronger DSCR cushion, or a smaller MIP base. By default, the loan sizes to the maximum supported by the four HUD criteria.' },
+  cashreq: { title: 'Cash Required at Closing', body: 'Total Uses minus the loan and the prepaid items. A positive number means the borrower brings cash to closing. A negative number — shown in parentheses — means cash flows to the borrower: this is cash-out. Existing replacement reserves transferred at closing count as a source, so transferring them in increases the cash-out by the same amount.' },
+  existingReserve: { title: 'Existing Replacement Reserve', body: 'Reserves already held on the existing loan that the borrower transfers into the new transaction at closing. It counts as a source of funds — every dollar transferred reduces the cash the borrower brings to closing, or on a cash-out deal, increases the cash-out by the same amount.' },
+  mip: { title: 'Mortgage Insurance Premium', body: 'MIP is required for all HUD multifamily insured mortgages. It is a fee charged by HUD to be a part of the program, and the funds allow HUD to insure the mortgage portfolio. The 0.25% amount is charged against the loan\'s outstanding balance annually, and the first year is charged upfront (the "Initial MIP" on the Uses statement). The annual MIP is part of the loan constant in the DSCR calculation.' },
+  reserves: { title: 'Replacement Reserves', body: 'Annual reserve deposit funded from operations. HUD sets this based on the PCNA\'s CapEx schedule, not a generic $250/unit estimate. Higher reserves reduce Debt Service NOI and tighten DSCR. A higher annual deposit can decrease your initial deposit (shown on the Uses statement) and vice versa.' },
+  repairs: { title: 'Repairs / PCNA', body: 'Repairs identified by the Project Capital Needs Assessment (PCNA). Critical and non-critical repairs are funded at closing through the loan. Large repair scopes push the deal into "Heavy 223(f)" territory with a longer timeline.' }
+};
+
+const tooltip = document.getElementById('tooltip');
+let activeTrigger = null;
+let tooltipHideTimer = null;
+function clearHideTimer() { if (tooltipHideTimer) { clearTimeout(tooltipHideTimer); tooltipHideTimer = null; } }
+function showTooltip(target, key) {
+  clearHideTimer();
+  const data = tooltipContent[key]; if (!data) return;
+  let html = '<div class="tt-title">' + data.title + '</div><div class="tt-body">' + data.body + '</div>';
+  if (data.link) html += '<a class="tt-link" href="' + data.link + '" target="_blank">Read the full piece →</a>';
+  tooltip.innerHTML = html;
+  tooltip.classList.add('visible');
+  const rect = target.getBoundingClientRect();
+  const tipWidth = 320;
+  let left = rect.left + window.scrollX + rect.width / 2 - tipWidth / 2;
+  if (left < 16) left = 16;
+  if (left + tipWidth > window.innerWidth - 16) left = window.innerWidth - tipWidth - 16;
+  let top = rect.bottom + window.scrollY + 8;
+  if (rect.bottom + 220 > window.innerHeight) top = rect.top + window.scrollY - 8 - 220;
+  tooltip.style.left = left + 'px'; tooltip.style.top = top + 'px';
+  activeTrigger = target;
+}
+function scheduleHide() {
+  clearHideTimer();
+  tooltipHideTimer = setTimeout(() => { tooltip.classList.remove('visible'); activeTrigger = null; }, 250);
+}
+document.querySelectorAll('[data-tooltip]').forEach(el => {
+  el.addEventListener('mouseenter', () => showTooltip(el, el.dataset.tooltip));
+  el.addEventListener('mouseleave', () => scheduleHide());
+  el.addEventListener('click', e => { e.stopPropagation();
+    if (activeTrigger === el) { tooltip.classList.remove('visible'); activeTrigger = null; }
+    else { showTooltip(el, el.dataset.tooltip); }
+  });
+});
+tooltip.addEventListener('mouseenter', clearHideTimer);
+tooltip.addEventListener('mouseleave', scheduleHide);
+
+const editor = document.getElementById('inlineEditor');
+const ieInput = document.getElementById('ieInput');
+const ieName = document.getElementById('ieName');
+const ieHint = document.getElementById('ieHint');
+const ieReset = document.getElementById('ieReset');
+const ieApply = document.getElementById('ieApply');
+let activeEditable = null;
+function parseMoney(str) { return Number(String(str).replace(/[$,()\s]/g, '')) || 0; }
+
+function formatInputWithCommas(inputEl) {
+  const oldVal = inputEl.value;
+  const oldCursor = inputEl.selectionStart;
+  const oldDigitsBeforeCursor = oldVal.slice(0, oldCursor).replace(/[^0-9]/g, '').length;
+  const digits = oldVal.replace(/[^0-9]/g, '');
+  if (digits === '') { inputEl.value = ''; return; }
+  const formatted = Number(digits).toLocaleString();
+  inputEl.value = formatted;
+  let newCursor = 0, digitsSeen = 0;
+  for (let i = 0; i < formatted.length; i++) {
+    if (digitsSeen >= oldDigitsBeforeCursor) break;
+    if (/[0-9]/.test(formatted[i])) digitsSeen++;
+    newCursor = i + 1;
+  }
+  inputEl.setSelectionRange(newCursor, newCursor);
+}
+
+function currentHudMax() {
+  const rateDec = state.rate / 100;
+  const capDec = state.capRate / 100;
+  const f = getFactors();
+  const K = loanConstant(rateDec, deal.termMonths, deal.mipRate);
+  const dscrLoan = roundDown100((deal.debtServiceNOI * f.dscrFactor) / K);
+  const mktValue = roundDown100(deal.marketNOI / capDec);
+  const ltv87 = roundDown100(mktValue * f.ltvMax);
+  const ltv80 = roundDown100(mktValue * deal.ltvCashOutCap);
+  const initLoan = ltv80;
+  const appFee = initLoan * deal.appFeeRate;
+  const initMIP = initLoan * deal.initialMIPRate;
+  const finFee = initLoan * deal.financingFeeRate;
+  const gnma = gnmaPlacementFee(initLoan);
+  const costRefi = state.existingDebt + state.prepay + deal.initialReserveDeposit
+                 + state.repairs + appFee + initMIP + deal.inspectionFee
+                 + finFee + deal.processingFee + gnma + deal.centennialLegal
+                 + state.bLegal + deal.borrowerOrg + state.titleSurvey + deal.thirdPartyReports
+                 + deal.repairAssurance;
+  const fifthLimit = Math.max(ltv80, costRefi);
+  return Math.min(ltv87, dscrLoan, deal.statutoryLimit, fifthLimit);
+}
+
+function openEditor(el) {
+  activeEditable = el;
+  ieName.innerHTML = el.dataset.name;
+  ieHint.style.display = 'none';
+  ieHint.classList.remove('warn');
+  const key = el.dataset.edit;
+  const unit = el.dataset.unit;
+
+  if (key === 'reqLoan') {
+    ieHint.style.display = 'block';
+    if (state.reqLoan === null || state.reqLoan === '' || state.reqLoan === undefined) {
+      ieInput.value = '';
+      ieInput.placeholder = 'Leave blank for Max Loan';
+      ieHint.textContent = 'Leave blank to size to the maximum supported by HUD criteria. Enter an amount only if the borrower wants leverage below the otherwise-binding criterion.';
+    } else {
+      ieInput.value = Number(state.reqLoan).toLocaleString();
+      ieInput.placeholder = '';
+      ieHint.textContent = 'Enter a value below the binding HUD criterion to lower leverage. Leave blank or set to 0 to default to Max Loan.';
+    }
+  } else if (unit === '%') {
+    ieInput.value = el.dataset.value;
+    ieInput.placeholder = '';
+  } else {
+    ieInput.value = Number(el.dataset.value).toLocaleString();
+    ieInput.placeholder = '';
+  }
+
+  const rect = el.getBoundingClientRect();
+  let left = rect.right + window.scrollX - 300; if (left < 16) left = 16;
+  let top = rect.bottom + window.scrollY + 8;
+  if (rect.bottom + 260 > window.innerHeight) top = rect.top + window.scrollY - 260;
+  editor.style.left = left + 'px'; editor.style.top = top + 'px';
+  editor.classList.add('visible');
+  setTimeout(() => ieInput.focus(), 50);
+  if (ieInput.value) ieInput.select();
+}
+function closeEditor() { editor.classList.remove('visible'); activeEditable = null; }
+
+ieInput.addEventListener('input', () => {
+  if (!activeEditable) return;
+  if (activeEditable.dataset.unit === '$') formatInputWithCommas(ieInput);
+});
+
+function applyEditor() {
+  if (!activeEditable) return;
+  const raw = ieInput.value.trim();
+  const unit = activeEditable.dataset.unit;
+  const key = activeEditable.dataset.edit;
+
+  if (key === 'reqLoan') {
+    if (raw === '' || parseMoney(raw) === 0) {
+      state.reqLoan = null;
+      activeEditable.dataset.value = '';
+      activeEditable.classList.remove('is-modified');
+    } else {
+      const newVal = parseMoney(raw);
+      const hudMax = currentHudMax();
+      if (newVal >= hudMax) {
+        ieHint.style.display = 'block';
+        ieHint.classList.add('warn');
+        ieHint.textContent = 'Requested Loan Amount is for when the Borrower wants a loan lower than the binding criterion. Your entry of ' + fmtMoneyClean(newVal) + ' is at or above the current HUD-binding max of ' + fmtMoneyClean(hudMax) + ', so it will not constrain the loan. Leave blank to default to Max Loan, or enter a lower number.';
+        state.reqLoan = newVal;
+        activeEditable.dataset.value = newVal;
+        activeEditable.classList.add('is-modified');
+        markScenarioModified();
+        recalculate();
+        toastUpdate('Requested loan above binding criterion — not constraining.');
+        return;
+      } else {
+        state.reqLoan = newVal;
+        activeEditable.dataset.value = newVal;
+        activeEditable.classList.add('is-modified');
+        markScenarioModified();
+      }
+    }
+    recalculate();
+    toastUpdate('Requested Loan Amount updated. Constraints recalculated.');
+    closeEditor();
+    checkScenarioState();
+    return;
+  }
+
+  let newVal;
+  if (unit === '%') {
+    newVal = Number(raw);
+    if (isNaN(newVal)) { closeEditor(); return; }
+    activeEditable.dataset.value = newVal;
+    activeEditable.querySelector('.edit-val').textContent = fmtPct(newVal);
+  } else {
+    newVal = parseMoney(raw);
+    activeEditable.dataset.value = newVal;
+    activeEditable.querySelector('.edit-val').textContent = fmtMoneyClean(newVal);
+  }
+  state[key] = newVal;
+  if (String(newVal) !== String(activeEditable.dataset.original)) {
+    activeEditable.classList.add('is-modified');
+    markScenarioModified();
+  } else {
+    activeEditable.classList.remove('is-modified');
+    checkScenarioState();
+  }
+  recalculate();
+  toastUpdate(activeEditable.dataset.name + ' updated. Constraints recalculated.');
+  closeEditor();
+}
+
+function resetSingle() {
+  if (!activeEditable) return;
+  const unit = activeEditable.dataset.unit;
+  const orig = activeEditable.dataset.original;
+  const key = activeEditable.dataset.edit;
+  activeEditable.dataset.value = orig;
+  if (key === 'reqLoan') {
+    state.reqLoan = orig === '' ? null : parseMoney(orig);
+  } else {
+    state[key] = unit === '%' ? Number(orig) : parseMoney(orig);
+    activeEditable.querySelector('.edit-val').textContent = unit === '%' ? fmtPct(orig) : fmtMoneyClean(parseMoney(orig));
+  }
+  activeEditable.classList.remove('is-modified');
+  recalculate();
+  checkScenarioState();
+  closeEditor();
+}
+
+document.querySelectorAll('.editable').forEach(el => {
+  el.addEventListener('click', e => { e.stopPropagation(); openEditor(el); });
+});
+ieApply.addEventListener('click', applyEditor);
+ieReset.addEventListener('click', resetSingle);
+ieInput.addEventListener('keydown', e => { if (e.key === 'Enter') applyEditor(); if (e.key === 'Escape') closeEditor(); });
+document.addEventListener('click', e => { if (!editor.contains(e.target)) closeEditor(); });
+
+const banner = document.getElementById('modifiedBanner');
+const downloadBtn = document.getElementById('downloadBtn');
+
+function syncModifiedState() {
+  const isMod = document.querySelectorAll('.editable.is-modified').length > 0;
+  if (isMod) {
+    banner.classList.add('active');
+    document.body.classList.add('scenario-modified');
+    downloadBtn.textContent = 'Download PDF (Modified)';
+  } else {
+    banner.classList.remove('active');
+    document.body.classList.remove('scenario-modified');
+    downloadBtn.textContent = 'Download PDF';
+  }
+}
+function markScenarioModified() { syncModifiedState(); }
+function checkScenarioState() { syncModifiedState(); }
+
+function resetAllScenarios() {
+  document.querySelectorAll('.editable').forEach(el => {
+    const unit = el.dataset.unit;
+    const orig = el.dataset.original;
+    const key = el.dataset.edit;
+    el.dataset.value = orig;
+    el.classList.remove('is-modified');
+    if (key === 'reqLoan') {
+      state.reqLoan = orig === '' ? null : parseMoney(orig);
+    } else {
+      state[key] = unit === '%' ? Number(orig) : parseMoney(orig);
+      el.querySelector('.edit-val').textContent = unit === '%' ? fmtPct(orig) : fmtMoneyClean(parseMoney(orig));
+    }
+  });
+  syncModifiedState();
+  recalculate();
+}
+
+const toast = document.getElementById('toast');
+const toastBody = document.getElementById('toastBody');
+let toastTimer;
+function toastUpdate(msg) {
+  toastBody.textContent = msg;
+  toast.classList.add('visible');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('visible'), 3500);
+}
+
+// Seed editable controls (value, original, displayed text) from the delivered state,
+// so the page is correct for any deal — not just the Arc defaults baked into the markup.
+function seedEditables() {
+  document.querySelectorAll('.editable').forEach(el => {
+    const key = el.dataset.edit;
+    const unit = el.dataset.unit;
+    const v = state[key];
+    if (key === 'reqLoan') {
+      const sv = (v === null || v === undefined || v === '') ? '' : String(v);
+      el.dataset.value = sv;
+      el.dataset.original = sv;
+      return; // .edit-val rendered by updateReqLoanDisplay() during recalculate
+    }
+    el.dataset.value = String(v);
+    el.dataset.original = String(v);
+    const valSpan = el.querySelector('.edit-val');
+    if (valSpan) valSpan.textContent = unit === '%' ? fmtPct(v) : fmtMoneyClean(v);
+  });
+}
+
+// Pipeline-controlled flags, injected by the renderer as window.__SIZING__.
+// { stale: bool, staleDate: 'Month D, YYYY', preview: bool }
+function applySizingFlags() {
+  const flags = (window.__SIZING__ || {});
+  if (flags.preview) {
+    document.body.classList.add('preview-mode');
+  }
+  if (flags.stale) {
+    const banner = document.getElementById('staleBanner');
+    const body = document.getElementById('staleBannerBody');
+    if (body) {
+      body.textContent = flags.staleDate
+        ? 'This sizing was prepared ' + flags.staleDate + '. Pricing has likely moved. Contact us for a refreshed sizing.'
+        : 'This sizing has not been refreshed recently. Pricing has likely moved. Contact us for a refreshed sizing.';
+    }
+    if (banner) banner.classList.add('active');
+  }
+}
+
+seedEditables();
+applySizingFlags();
+recalculate();
+</script>
+
+</body>
+</html>

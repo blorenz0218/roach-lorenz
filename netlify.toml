@@ -1,0 +1,20 @@
+# Netlify config for roachlorenz.com + sizings.roachlorenz.com.
+#
+# Marketing site: static HTML served from repo root (unchanged behavior).
+# Sizings pipeline: functions at /netlify/functions/, served pages at /s/<slug>/,
+# subdomain rewrite handled in /_redirects.
+
+[build]
+  publish = "."
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  # render.js reads chassis-template.html at runtime via fs.readFileSync; tell
+  # the bundler to ship it alongside the function (esbuild bundles JS only).
+  included_files = ["sizings/lib/chassis-template.html"]
+
+# Scheduled function: daily soft-expiry job that flips the gray banner on
+# sizings older than 30 days. Internal cron; no auth.
+[functions."expire"]
+  schedule = "@daily"

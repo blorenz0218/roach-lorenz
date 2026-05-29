@@ -1,0 +1,17 @@
+{
+  "name": "centennial-sizing-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Publishing pipeline for Centennial HUD/FHA 223(f) sizing pages",
+  "scripts": {
+    "test": "node test/verify-arc.js && node test/verify-sonoran.js && node test/verify-publish.js && node test/verify-publisher-ui.js",
+    "test:arc": "node test/verify-arc.js",
+    "test:sonoran": "node test/verify-sonoran.js",
+    "render": "node test/render-cli.js",
+    "test:publish": "node test/verify-publish.js",
+    "test:ui": "node test/verify-publisher-ui.js"
+  },
+  "dependencies": {
+    "jsdom": "^24.1.3"
+  }
+}

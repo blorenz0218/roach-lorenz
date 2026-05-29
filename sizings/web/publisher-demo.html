@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sizing Publisher — Centennial Mortgage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #004e72; --blue-dark: #00374f; --blue-deep: #002a3d;
+    --orange: #f98e2b;
+    --orange-soft: rgba(249, 142, 43, 0.08);
+    --orange-border: rgba(249, 142, 43, 0.35);
+    --gray: #9fa2a3; --gray-light: #f7f8f8;
+    --gray-mute: #6b7173; --ink: #1a2935;
+    --hair: rgba(0, 78, 114, 0.12);
+    --hair-strong: rgba(0, 78, 114, 0.22);
+    --err: #b3392b; --err-soft: rgba(179, 57, 43, 0.07);
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--gray-light); color: var(--ink);
+    font-family: 'Catamaran', sans-serif; font-weight: 400;
+    font-size: 14px; line-height: 1.45; -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .container { padding: 0 16px; } }
+
+  /* chrome */
+  .chrome { background: var(--blue); padding: 12px 0; }
+  .chrome-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .chrome-logo .name { font-weight: 700; font-size: 17px; color: var(--white); letter-spacing: -0.01em; }
+  .chrome-logo .sub { font-weight: 400; font-size: 11.5px; color: var(--white); opacity: 0.8; letter-spacing: 0.04em; margin-top: 2px; }
+  .signout { font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; border: 1px solid rgba(255,255,255,0.4); padding: 8px 16px; }
+  .signout:hover { color: var(--white); border-color: var(--white); }
+
+  /* page */
+  main { padding: 48px 0 80px; }
+  .eyebrow { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 14px; }
+  .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--orange); display: inline-block; }
+  h1 { font-weight: 700; font-size: 28px; line-height: 1.15; color: var(--blue); margin-bottom: 8px; }
+  .lede { font-weight: 300; font-size: 16px; color: var(--gray-mute); margin-bottom: 32px; max-width: 60ch; }
+
+  label.field-label { display: block; font-weight: 600; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 8px; }
+  textarea {
+    width: 100%; min-height: 220px; resize: vertical;
+    font-family: 'Catamaran', sans-serif; font-size: 13px; line-height: 1.5; color: var(--ink);
+    background: var(--white); border: 1px solid var(--hair-strong); padding: 14px 16px; outline: none;
+  }
+  textarea:focus { border-color: var(--blue); }
+  .hint { font-size: 12px; color: var(--gray-mute); margin-top: 8px; }
+
+  .options { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0 28px; }
+  .options input[type=checkbox] { margin-top: 3px; width: 15px; height: 15px; accent-color: var(--blue); }
+  .options .opt-text .opt-title { font-weight: 600; font-size: 13px; color: var(--ink); }
+  .options .opt-text .opt-sub { font-size: 12px; color: var(--gray-mute); margin-top: 1px; }
+
+  .btn-primary {
+    font-family: 'Catamaran', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--orange); color: var(--blue-deep); border: none; padding: 14px 30px; cursor: pointer; transition: background 0.15s;
+  }
+  .btn-primary:hover { background: #e07a16; }
+  .btn-primary:disabled { background: var(--gray); color: var(--white); cursor: default; }
+
+  .btn-secondary {
+    font-family: 'Catamaran', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    background: transparent; color: var(--blue); border: 1px solid var(--hair-strong); padding: 10px 18px; cursor: pointer; transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--blue); }
+
+  /* result */
+  .result { margin-top: 40px; border-top: 1px solid var(--hair); padding-top: 32px; display: none; }
+  .result.show { display: block; }
+  .result.error .eyebrow { color: var(--err); }
+  .result.error .eyebrow::before { background: var(--err); }
+  .errbox { background: var(--err-soft); border: 1px solid rgba(179,57,43,0.25); padding: 16px 18px; }
+  .errbox h2 { font-weight: 700; font-size: 15px; color: var(--err); margin-bottom: 8px; }
+  .errbox ul { margin: 0; padding-left: 18px; }
+  .errbox li { font-size: 13px; color: var(--ink); margin: 3px 0; }
+
+  .urlrow { display: flex; align-items: stretch; gap: 0; margin: 6px 0 4px; max-width: 640px; }
+  .urlrow input { flex: 1; font-family: 'Catamaran', sans-serif; font-size: 13px; color: var(--blue); background: var(--white); border: 1px solid var(--hair-strong); border-right: none; padding: 11px 14px; outline: none; }
+  .urlrow .btn-secondary { border-left: none; white-space: nowrap; }
+  .propagate { font-size: 12px; color: var(--gray-mute); margin: 10px 0 24px; }
+  .openrow { margin: 10px 0 0; }
+
+  .preview-note { background: var(--orange-soft); border: 1px solid var(--orange-border); padding: 12px 16px; font-size: 13px; color: var(--ink); margin: 6px 0 24px; max-width: 640px; }
+  .preview-note strong { color: var(--blue); }
+
+  .email-label { display: flex; align-items: center; justify-content: space-between; margin: 28px 0 10px; }
+  .email-label .lab { font-weight: 600; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); }
+  .email-preview { border: 1px solid var(--hair); background: var(--white); padding: 22px 24px; max-width: 640px; }
+  .copied { font-size: 12px; color: var(--blue); font-weight: 600; margin-left: 10px; opacity: 0; transition: opacity 0.15s; }
+  .copied.show { opacity: 1; }
+</style>
+</head>
+<body>
+  <header class="chrome">
+    <div class="container chrome-inner">
+      <div class="chrome-logo">
+        <div class="name">Centennial Mortgage</div>
+        <div class="sub">HUD/FHA Multifamily Sizing &mdash; Publisher</div>
+      </div>
+      <a class="signout" href="#" id="signout">Sign out</a>
+    </div>
+  </header>
+
+  <div style="background:rgba(249,142,43,0.12);border-bottom:1px solid rgba(249,142,43,0.35);"><div class="container" style="padding-top:8px;padding-bottom:8px;font-size:12px;color:#6b7173;"><strong style="color:#004e72;">Demo</strong> &mdash; backend mocked, Arc deal pre-filled. Click <strong>Publish</strong> to see the result. (Open page is stubbed here since the site is not deployed yet.)</div></div>
+  <main class="container">
+    <div class="eyebrow">Internal tool</div>
+    <h1>Publish a sizing</h1>
+    <p class="lede">Paste the <strong>HTML Export</strong> tab from the underwriting model. The page is rendered, stored, and given a live URL; the matching email is ready to copy into Outlook.</p>
+
+    <label class="field-label" for="paste">HTML Export tab</label>
+    <textarea id="paste" placeholder="Select the HTML Export tab range in Excel, copy, and paste here."></textarea>
+    <div class="hint">Excel copies the cells tab-separated &mdash; paste straight in, no cleanup needed.</div>
+
+    <div class="options">
+      <input type="checkbox" id="preview">
+      <label class="opt-text" for="preview">
+        <div class="opt-title">Internal preview</div>
+        <div class="opt-sub">Watermarked and not borrower-facing. Doesn't supersede a live sizing and never expires.</div>
+      </label>
+    </div>
+
+    <button class="btn-primary" id="publishBtn">Publish</button>
+
+    <!-- RESULT -->
+    <section class="result" id="result" aria-live="polite"></section>
+  </main>
+
+<script>
+  // Claude Code: confirm this matches the function route you deploy.
+  var PUBLISH_ENDPOINT = '/.netlify/functions/publish';
+
+  var pasteEl = document.getElementById('paste');
+  var previewEl = document.getElementById('preview');
+  var btn = document.getElementById('publishBtn');
+  var result = document.getElementById('result');
+
+  // Netlify Identity wires the real sign-out; this is a safe default.
+  document.getElementById('signout').addEventListener('click', function (e) {
+    e.preventDefault();
+    if (window.netlifyIdentity) window.netlifyIdentity.logout();
+  });
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // Strip tags for the plain-text clipboard flavor (so non-HTML targets get something sane).
+  function htmlToText(html) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return (tmp.textContent || '').replace(/\n{3,}/g, '\n\n').trim();
+  }
+
+  async function copyRichHtml(html, feedbackEl) {
+    try {
+      if (navigator.clipboard && window.ClipboardItem) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([htmlToText(html)], { type: 'text/plain' })
+        });
+        await navigator.clipboard.write([item]);
+      } else {
+        throw new Error('no ClipboardItem');
+      }
+    } catch (err) {
+      // Fallback: select a live-rendered node and execCommand('copy').
+      var holder = document.createElement('div');
+      holder.style.position = 'fixed';
+      holder.style.left = '-9999px';
+      holder.innerHTML = html;
+      document.body.appendChild(holder);
+      var range = document.createRange();
+      range.selectNodeContents(holder);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      document.execCommand('copy');
+      sel.removeAllRanges();
+      document.body.removeChild(holder);
+    }
+    if (feedbackEl) {
+      feedbackEl.classList.add('show');
+      setTimeout(function () { feedbackEl.classList.remove('show'); }, 1800);
+    }
+  }
+
+  function renderSuccess(data, isPreview) {
+    result.className = 'result show';
+    var previewNote = isPreview
+      ? '<div class="preview-note"><strong>Internal preview.</strong> This URL is watermarked and excluded from supersession and expiry. Don\'t send it to a borrower.</div>'
+      : '';
+    result.innerHTML =
+      '<div class="eyebrow">' + (isPreview ? 'Preview published' : 'Published') + '</div>' +
+      previewNote +
+      '<label class="field-label">Live URL</label>' +
+      '<div class="urlrow">' +
+        '<input id="liveUrl" type="text" readonly value="' + esc(data.url) + '">' +
+        '<button class="btn-secondary" id="copyLinkBtn">Copy link</button>' +
+      '</div>' +
+      '<div class="openrow"><button class="btn-secondary" id="openLinkBtn">Open page &rarr;</button></div>' +
+      '<div class="propagate">The page goes live within about a minute of publishing.</div>' +
+      '<div class="email-label">' +
+        '<span class="lab">Email &mdash; this is what gets copied</span>' +
+        '<span><button class="btn-primary" id="copyEmailBtn">Copy email</button>' +
+        '<span class="copied" id="emailCopied">Copied</span></span>' +
+      '</div>' +
+      '<div class="email-preview" id="emailPreview">' + data.email + '</div>';
+
+    document.getElementById('copyLinkBtn').addEventListener('click', function () {
+      var u = document.getElementById('liveUrl');
+      u.select();
+      if (navigator.clipboard) navigator.clipboard.writeText(u.value); else document.execCommand('copy');
+      this.textContent = 'Copied';
+      var self = this;
+      setTimeout(function () { self.textContent = 'Copy link'; }, 1500);
+    });
+    document.getElementById('copyEmailBtn').addEventListener('click', function () {
+      copyRichHtml(data.email, document.getElementById('emailCopied'));
+    });
+    document.getElementById('openLinkBtn').addEventListener('click', function () {
+      window.open(data.url, '_blank', 'noopener');
+    });
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderError(payload) {
+    result.className = 'result show error';
+    var items = '';
+    if (payload && payload.errors && payload.errors.length) {
+      items = payload.errors.map(function (e) {
+        return '<li>' + esc(e.label ? e.label + ' — ' : '') + esc(e.msg || e.message || String(e)) + '</li>';
+      }).join('');
+    } else {
+      items = '<li>' + esc((payload && (payload.error || payload.message)) || 'Something went wrong publishing this sizing.') + '</li>';
+    }
+    result.innerHTML =
+      '<div class="eyebrow">Couldn\'t publish</div>' +
+      '<div class="errbox"><h2>Fix these and try again</h2><ul>' + items + '</ul></div>';
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  async function publish() {
+    var paste = pasteEl.value.trim();
+    if (!paste) { renderError({ error: 'Paste the HTML Export tab first.' }); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Publishing\u2026';
+    result.className = 'result';
+
+    try {
+      var token = (window.netlifyIdentity && window.netlifyIdentity.currentUser())
+        ? (await window.netlifyIdentity.currentUser().jwt()) : null;
+      var headers = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = 'Bearer ' + token;
+
+      var res = await fetch(PUBLISH_ENDPOINT, {
+        method: 'POST',
+        headers: headers,
+        body: JSON.stringify({ paste: paste, preview: previewEl.checked })
+      });
+      var data = await res.json().catch(function () { return {}; });
+      if (!res.ok) { renderError(data); return; }
+      renderSuccess(data, previewEl.checked);
+    } catch (err) {
+      renderError({ error: 'Network error: ' + (err && err.message ? err.message : err) });
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Publish';
+    }
+  }
+
+  btn.addEventListener('click', publish);
+</script>
+
+<script>
+var __CLEAN__={"slug":"arc-apartment-homes-great-falls-mt","url":"https://sizings.roachlorenz.com/arc-apartment-homes-great-falls-mt","email":"<div style=\"font-family:-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;\"><tr><td bgcolor=\"#f98e2b\" style=\"background:#f98e2b;mso-padding-alt:15px 40px;\"><a href=\"https://sizings.roachlorenz.com/arc-apartment-homes-great-falls-mt\" style=\"display:inline-block;padding:15px 40px;font-family:-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;font-size:15px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1;color:#002a3d;text-decoration:none;\"><span style=\"font-family:-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;font-size:15px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1;color:#002a3d;text-decoration:none;\">View the Sizing&nbsp;&rarr;</span></a></td></tr></table></div>","emailSubject":"223(f) sizing on Arc Apartment Homes in Great Falls"};
+var __PREVIEW__={"slug":"arc-apartment-homes-great-falls-mt-preview","url":"https://sizings.roachlorenz.com/arc-apartment-homes-great-falls-mt-preview","email":"<div style=\"font-family:-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;\"><table role=\"presentation\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse;\"><tr><td bgcolor=\"#f98e2b\" style=\"background:#f98e2b;mso-padding-alt:15px 40px;\"><a href=\"https://sizings.roachlorenz.com/arc-apartment-homes-great-falls-mt-preview\" style=\"display:inline-block;padding:15px 40px;font-family:-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;font-size:15px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1;color:#002a3d;text-decoration:none;\"><span style=\"font-family:-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;font-size:15px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;line-height:1;color:#002a3d;text-decoration:none;\">View the Sizing&nbsp;&rarr;</span></a></td></tr></table></div>","emailSubject":"223(f) sizing on Arc Apartment Homes in Great Falls"};
+document.getElementById("paste").value="Property Name\tArc Apartment Homes\nCity\tGreat Falls\nState\tMT\nUnit Count\t216\nTransaction Type\tRefinance\n\nHUD Program\t223(f)\nDeal Type\tMarket\nSizing Date\t5/27/2026\n\nEffective Income - Value NOI\t4550694.57\nEffective Income - Debt Svc NOI\t4468406.97\nOperating Expenses - Value NOI\t1569114.72\nOperating Expenses - Debt Svc NOI\t1566646.09\nReplacement Reserves - Value NOI\t54000\nReplacement Reserves - Debt Svc NOI\t64800\nCap Rate\t5.50\n\nInterest Rate\t5.70\nRequested Loan Amount\t\nExisting Replacement Reserve\t0\nExisting Debt\t34500000\nPrepayment Penalty\t0\nRepairs\t0\nBorrower Legal\t17500\nTitle & Survey\t60000\n\nStatutory Limit\t49225100\n\nPrepaid 3rd Party Reports\t32900\nInitial Deposit to Reserves\t324000\nHUD Application Fee Rate\t0.003\nHUD Initial MIP Rate\t0.0025\nHUD Inspection Fee\t1500\nFinancing Fee Rate\t0.005\nProcessing Fee\t0\nCentennial Legal\t25000\nBorrower Organizational\t0\n3rd Party Reports (Total)\t32900\nRepair Completion Assurance Escrow\t0\nAnnual MIP Rate\t0.0025\n\n\tAssumes $34,500,000 in existing debt.\n\tNOI based on March T12 and HUD underwriting standards. To be confirmed with updated financials and HUD appraisal.\n\t\tTest continuation.\n\tAssumes new real estate taxes at $1,750/unit with property tax changes.\n\tAssumes project stabilizes at below 7% vacancy and bad debt.\n";
+window.fetch=function(u,o){var b=JSON.parse(o.body);return Promise.resolve({ok:true,json:function(){return Promise.resolve(b.preview?__PREVIEW__:__CLEAN__);}});};
+window.open=function(u){alert("Demo \u2014 this would open:\n"+u);return null;};
+</script>
+</body>
+</html>

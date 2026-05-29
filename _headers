@@ -1,0 +1,10 @@
+# Borrower-facing sizing pages must not be indexed — they contain proprietary
+# deal terms (loan amount, rate, DSCR). Applies on both apex and subdomain
+# regardless of which URL the page is served at.
+/s/*
+  X-Robots-Tag: noindex, nofollow
+
+# The publisher tool is internal-only.
+/publisher/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store

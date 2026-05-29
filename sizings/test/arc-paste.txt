@@ -1,0 +1,47 @@
+Property Name	Arc Apartment Homes
+City	Great Falls
+State	MT
+Unit Count	216
+Transaction Type	Refinance
+
+HUD Program	223(f)
+Deal Type	Market
+Sizing Date	5/27/2026
+
+Effective Income - Value NOI	4550694.57
+Effective Income - Debt Svc NOI	4468406.97
+Operating Expenses - Value NOI	1569114.72
+Operating Expenses - Debt Svc NOI	1566646.09
+Replacement Reserves - Value NOI	54000
+Replacement Reserves - Debt Svc NOI	64800
+Cap Rate	5.50
+
+Interest Rate	5.70
+Requested Loan Amount	
+Existing Replacement Reserve	0
+Existing Debt	34500000
+Prepayment Penalty	0
+Repairs	0
+Borrower Legal	17500
+Title & Survey	60000
+
+Statutory Limit	49225100
+
+Prepaid 3rd Party Reports	32900
+Initial Deposit to Reserves	324000
+HUD Application Fee Rate	0.003
+HUD Initial MIP Rate	0.0025
+HUD Inspection Fee	1500
+Financing Fee Rate	0.005
+Processing Fee	0
+Centennial Legal	25000
+Borrower Organizational	0
+3rd Party Reports (Total)	32900
+Repair Completion Assurance Escrow	0
+Annual MIP Rate	0.0025
+
+	Assumes $34,500,000 in existing debt.
+	NOI based on March T12 and HUD underwriting standards. To be confirmed with updated financials and HUD appraisal.
+		Test continuation.
+	Assumes new real estate taxes at $1,750/unit with property tax changes.
+	Assumes project stabilizes at below 7% vacancy and bad debt.

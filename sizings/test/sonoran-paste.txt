@@ -1,0 +1,45 @@
+Property Name	Sonoran Vista Apartments
+City	Phoenix
+State	AZ
+Unit Count	312
+Transaction Type	Refinance
+
+HUD Program	223(f)
+Deal Type	Affordable
+Sizing Date	5/15/2026
+
+Effective Income - Value NOI	6850000
+Effective Income - Debt Svc NOI	6720000
+Operating Expenses - Value NOI	2400000
+Operating Expenses - Debt Svc NOI	2395000
+Replacement Reserves - Value NOI	93600
+Replacement Reserves - Debt Svc NOI	109200
+Cap Rate	5.25
+
+Interest Rate	5.85
+Requested Loan Amount	
+Existing Replacement Reserve	125000
+Existing Debt	41200000
+Prepayment Penalty	350000
+Repairs	250000
+Borrower Legal	22000
+Title & Survey	75000
+
+Statutory Limit	58900000
+
+Prepaid 3rd Party Reports	41500
+Initial Deposit to Reserves	468000
+HUD Application Fee Rate	0.003
+HUD Initial MIP Rate	0.0025
+HUD Inspection Fee	2500
+Financing Fee Rate	0.005
+Processing Fee	0
+Centennial Legal	30000
+Borrower Organizational	0
+3rd Party Reports (Total)	41500
+Repair Completion Assurance Escrow	150000
+Annual MIP Rate	0.0025
+
+	Assumes $41,200,000 in existing debt refinanced under 223(f).
+	Affordable transaction: 90% LTV / 90% DSCR criteria applied per HUD LIHTC standards.
+	Includes $250,000 in critical repairs with a 150% completion assurance escrow.

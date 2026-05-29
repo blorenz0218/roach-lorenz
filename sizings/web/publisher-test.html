@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sizing Publisher — Centennial Mortgage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #004e72; --blue-dark: #00374f; --blue-deep: #002a3d;
+    --orange: #f98e2b;
+    --orange-soft: rgba(249, 142, 43, 0.08);
+    --orange-border: rgba(249, 142, 43, 0.35);
+    --gray: #9fa2a3; --gray-light: #f7f8f8;
+    --gray-mute: #6b7173; --ink: #1a2935;
+    --hair: rgba(0, 78, 114, 0.12);
+    --hair-strong: rgba(0, 78, 114, 0.22);
+    --err: #b3392b; --err-soft: rgba(179, 57, 43, 0.07);
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--gray-light); color: var(--ink);
+    font-family: 'Catamaran', sans-serif; font-weight: 400;
+    font-size: 14px; line-height: 1.45; -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .container { padding: 0 16px; } }
+
+  /* chrome */
+  .chrome { background: var(--blue); padding: 12px 0; }
+  .chrome-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .chrome-logo .name { font-weight: 700; font-size: 17px; color: var(--white); letter-spacing: -0.01em; }
+  .chrome-logo .sub { font-weight: 400; font-size: 11.5px; color: var(--white); opacity: 0.8; letter-spacing: 0.04em; margin-top: 2px; }
+  .signout { font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; border: 1px solid rgba(255,255,255,0.4); padding: 8px 16px; }
+  .signout:hover { color: var(--white); border-color: var(--white); }
+
+  /* page */
+  main { padding: 48px 0 80px; }
+  .eyebrow { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 14px; }
+  .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--orange); display: inline-block; }
+  h1 { font-weight: 700; font-size: 28px; line-height: 1.15; color: var(--blue); margin-bottom: 8px; }
+  .lede { font-weight: 300; font-size: 16px; color: var(--gray-mute); margin-bottom: 32px; max-width: 60ch; }
+
+  label.field-label { display: block; font-weight: 600; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 8px; }
+  textarea {
+    width: 100%; min-height: 220px; resize: vertical;
+    font-family: 'Catamaran', sans-serif; font-size: 13px; line-height: 1.5; color: var(--ink);
+    background: var(--white); border: 1px solid var(--hair-strong); padding: 14px 16px; outline: none;
+  }
+  textarea:focus { border-color: var(--blue); }
+  .hint { font-size: 12px; color: var(--gray-mute); margin-top: 8px; }
+
+  .options { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0 28px; }
+  .options input[type=checkbox] { margin-top: 3px; width: 15px; height: 15px; accent-color: var(--blue); }
+  .options .opt-text .opt-title { font-weight: 600; font-size: 13px; color: var(--ink); }
+  .options .opt-text .opt-sub { font-size: 12px; color: var(--gray-mute); margin-top: 1px; }
+
+  .btn-primary {
+    font-family: 'Catamaran', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--orange); color: var(--blue-deep); border: none; padding: 14px 30px; cursor: pointer; transition: background 0.15s;
+  }
+  .btn-primary:hover { background: #e07a16; }
+  .btn-primary:disabled { background: var(--gray); color: var(--white); cursor: default; }
+
+  .btn-secondary {
+    font-family: 'Catamaran', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    background: transparent; color: var(--blue); border: 1px solid var(--hair-strong); padding: 10px 18px; cursor: pointer; transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-secondary:hover { border-color: var(--blue); }
+
+  /* result */
+  .result { margin-top: 40px; border-top: 1px solid var(--hair); padding-top: 32px; display: none; }
+  .result.show { display: block; }
+  .result.error .eyebrow { color: var(--err); }
+  .result.error .eyebrow::before { background: var(--err); }
+  .errbox { background: var(--err-soft); border: 1px solid rgba(179,57,43,0.25); padding: 16px 18px; }
+  .errbox h2 { font-weight: 700; font-size: 15px; color: var(--err); margin-bottom: 8px; }
+  .errbox ul { margin: 0; padding-left: 18px; }
+  .errbox li { font-size: 13px; color: var(--ink); margin: 3px 0; }
+
+  .urlrow { display: flex; align-items: stretch; gap: 0; margin: 6px 0 4px; max-width: 640px; }
+  .urlrow input { flex: 1; font-family: 'Catamaran', sans-serif; font-size: 13px; color: var(--blue); background: var(--white); border: 1px solid var(--hair-strong); border-right: none; padding: 11px 14px; outline: none; }
+  .urlrow .btn-secondary { border-left: none; white-space: nowrap; }
+  .propagate { font-size: 12px; color: var(--gray-mute); margin: 10px 0 24px; }
+  .openrow { margin: 10px 0 0; }
+
+  .preview-note { background: var(--orange-soft); border: 1px solid var(--orange-border); padding: 12px 16px; font-size: 13px; color: var(--ink); margin: 6px 0 24px; max-width: 640px; }
+  .preview-note strong { color: var(--blue); }
+
+  .email-label { display: flex; align-items: center; justify-content: space-between; margin: 28px 0 10px; }
+  .email-label .lab { font-weight: 600; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); }
+  .email-preview { border: 1px solid var(--hair); background: var(--white); padding: 22px 24px; max-width: 640px; }
+  .copied { font-size: 12px; color: var(--blue); font-weight: 600; margin-left: 10px; opacity: 0; transition: opacity 0.15s; }
+  .copied.show { opacity: 1; }
+</style>
+</head>
+<body>
+  <header class="chrome">
+    <div class="container chrome-inner">
+      <div class="chrome-logo">
+        <div class="name">Centennial Mortgage</div>
+        <div class="sub">HUD/FHA Multifamily Sizing &mdash; Publisher</div>
+      </div>
+      <a class="signout" href="#" id="signout">Sign out</a>
+    </div>
+  </header>
+
+  <div style="background:rgba(249,142,43,0.12);border-bottom:1px solid rgba(249,142,43,0.35);"><div class="container" style="padding-top:8px;padding-bottom:8px;font-size:12px;color:#6b7173;"><strong style="color:#004e72;">Test build</strong> &mdash; runs the full pipeline in your browser. Paste any deal's HTML Export tab, click Publish, and copy the email into Outlook. The live URL is illustrative (the site isn't deployed yet); <strong>Open page</strong> shows the rendered sizing page in a new tab.</div></div>
+  <main class="container">
+    <div class="eyebrow">Internal tool</div>
+    <h1>Publish a sizing</h1>
+    <p class="lede">Paste the <strong>HTML Export</strong> tab from the underwriting model. The page is rendered, stored, and given a live URL; the matching email is ready to copy into Outlook.</p>
+
+    <label class="field-label" for="paste">HTML Export tab</label>
+    <textarea id="paste" placeholder="Select the HTML Export tab range in Excel, copy, and paste here."></textarea>
+    <div class="hint">Excel copies the cells tab-separated &mdash; paste straight in, no cleanup needed.</div>
+
+    <div class="options">
+      <input type="checkbox" id="preview">
+      <label class="opt-text" for="preview">
+        <div class="opt-title">Internal preview</div>
+        <div class="opt-sub">Watermarked and not borrower-facing. Doesn't supersede a live sizing and never expires.</div>
+      </label>
+    </div>
+
+    <button class="btn-primary" id="publishBtn">Publish</button>
+
+    <!-- RESULT -->
+    <section class="result" id="result" aria-live="polite"></section>
+  </main>
+
+<script>
+  // Claude Code: confirm this matches the function route you deploy.
+  var PUBLISH_ENDPOINT = '/.netlify/functions/publish';
+
+  var pasteEl = document.getElementById('paste');
+  var previewEl = document.getElementById('preview');
+  var btn = document.getElementById('publishBtn');
+  var result = document.getElementById('result');
+
+  // Netlify Identity wires the real sign-out; this is a safe default.
+  document.getElementById('signout').addEventListener('click', function (e) {
+    e.preventDefault();
+    if (window.netlifyIdentity) window.netlifyIdentity.logout();
+  });
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  // Strip tags for the plain-text clipboard flavor (so non-HTML targets get something sane).
+  function htmlToText(html) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return (tmp.textContent || '').replace(/\n{3,}/g, '\n\n').trim();
+  }
+
+  async function copyRichHtml(html, feedbackEl) {
+    try {
+      if (navigator.clipboard && window.ClipboardItem) {
+        var item = new ClipboardItem({
+          'text/html': new Blob([html], { type: 'text/html' }),
+          'text/plain': new Blob([htmlToText(html)], { type: 'text/plain' })
+        });
+        await navigator.clipboard.write([item]);
+      } else {
+        throw new Error('no ClipboardItem');
+      }
+    } catch (err) {
+      // Fallback: select a live-rendered node and execCommand('copy').
+      var holder = document.createElement('div');
+      holder.style.position = 'fixed';
+      holder.style.left = '-9999px';
+      holder.innerHTML = html;
+      document.body.appendChild(holder);
+      var range = document.createRange();
+      range.selectNodeContents(holder);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      document.execCommand('copy');
+      sel.removeAllRanges();
+      document.body.removeChild(holder);
+    }
+    if (feedbackEl) {
+      feedbackEl.classList.add('show');
+      setTimeout(function () { feedbackEl.classList.remove('show'); }, 1800);
+    }
+  }
+
+  function renderSuccess(data, isPreview) {
+    result.className = 'result show';
+    var previewNote = isPreview
+      ? '<div class="preview-note"><strong>Internal preview.</strong> This URL is watermarked and excluded from supersession and expiry. Don\'t send it to a borrower.</div>'
+      : '';
+    result.innerHTML =
+      '<div class="eyebrow">' + (isPreview ? 'Preview published' : 'Published') + '</div>' +
+      previewNote +
+      '<label class="field-label">Live URL</label>' +
+      '<div class="urlrow">' +
+        '<input id="liveUrl" type="text" readonly value="' + esc(data.url) + '">' +
+        '<button class="btn-secondary" id="copyLinkBtn">Copy link</button>' +
+      '</div>' +
+      '<div class="openrow"><button class="btn-secondary" id="openLinkBtn">Open page &rarr;</button></div>' +
+      '<div class="propagate">The page goes live within about a minute of publishing.</div>' +
+      '<div class="email-label">' +
+        '<span class="lab">Email &mdash; this is what gets copied</span>' +
+        '<span><button class="btn-primary" id="copyEmailBtn">Copy email</button>' +
+        '<span class="copied" id="emailCopied">Copied</span></span>' +
+      '</div>' +
+      '<div class="email-preview" id="emailPreview">' + data.email + '</div>';
+
+    document.getElementById('copyLinkBtn').addEventListener('click', function () {
+      var u = document.getElementById('liveUrl');
+      u.select();
+      if (navigator.clipboard) navigator.clipboard.writeText(u.value); else document.execCommand('copy');
+      this.textContent = 'Copied';
+      var self = this;
+      setTimeout(function () { self.textContent = 'Copy link'; }, 1500);
+    });
+    document.getElementById('copyEmailBtn').addEventListener('click', function () {
+      copyRichHtml(data.email, document.getElementById('emailCopied'));
+    });
+    document.getElementById('openLinkBtn').addEventListener('click', function () {
+      var blob = new Blob([data.page], { type: 'text/html' });
+      var u = URL.createObjectURL(blob);
+      window.open(u, '_blank', 'noopener');
+    });
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function renderError(payload) {
+    result.className = 'result show error';
+    var items = '';
+    if (payload && payload.errors && payload.errors.length) {
+      items = payload.errors.map(function (e) {
+        return '<li>' + esc(e.label ? e.label + ' — ' : '') + esc(e.msg || e.message || String(e)) + '</li>';
+      }).join('');
+    } else {
+      items = '<li>' + esc((payload && (payload.error || payload.message)) || 'Something went wrong publishing this sizing.') + '</li>';
+    }
+    result.innerHTML =
+      '<div class="eyebrow">Couldn\'t publish</div>' +
+      '<div class="errbox"><h2>Fix these and try again</h2><ul>' + items + '</ul></div>';
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function publish() {
+    var paste = pasteEl.value.trim();
+    if (!paste) { renderError({ error: 'Paste the HTML Export tab first.' }); return; }
+
+    btn.disabled = true;
+    btn.textContent = 'Publishing\u2026';
+    result.className = 'result';
+
+    try {
+      var data = localPublish(paste, previewEl.checked);
+      renderSuccess(data, previewEl.checked);
+    } catch (err) {
+      if (err && err.errors) { renderError({ errors: err.errors }); }
+      else { renderError({ error: (err && err.message) ? err.message : String(err) }); }
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Publish';
+    }
+  }
+
+  btn.addEventListener('click', publish);
+
+  /* inlined pipeline */
+// bundle
+
+const CHASSIS_TEMPLATE = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n<title>Arc Apartment Homes \u2014 223(f) Sizing \u00b7 Centennial Mortgage</title>\n<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500;600;700;800&display=swap\" rel=\"stylesheet\">\n<style>\n  :root {\n    --blue: #004e72; --blue-dark: #00374f; --blue-deep: #002a3d;\n    --orange: #f98e2b;\n    --orange-soft: rgba(249, 142, 43, 0.08);\n    --orange-soft-2: rgba(249, 142, 43, 0.18);\n    --orange-border: rgba(249, 142, 43, 0.35);\n    --gray: #9fa2a3; --gray-light: #f7f8f8;\n    --gray-mute: #6b7173; --ink: #1a2935;\n    --hair: rgba(0, 78, 114, 0.12);\n    --hair-strong: rgba(0, 78, 114, 0.22);\n    --white: #ffffff;\n  }\n  * { box-sizing: border-box; margin: 0; padding: 0; }\n  html, body {\n    background: var(--white); color: var(--ink);\n    font-family: 'Catamaran', sans-serif; font-weight: 400;\n    font-size: 14px; line-height: 1.45;\n    -webkit-font-smoothing: antialiased;\n  }\n  .container { max-width: 1240px; margin: 0 auto; padding: 0 32px; }\n  @media (max-width: 720px) { .container { padding: 0 16px; } }\n\n  /* CHROME */\n  .chrome { background: var(--blue); padding: 12px 0; }\n  .chrome-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }\n  .chrome-logo { display: flex; align-items: center; gap: 12px; color: var(--white); }\n  .chrome-logo-text { display: flex; flex-direction: column; line-height: 1.1; }\n  .chrome-logo-text .name { font-weight: 700; font-size: 17px; color: var(--white); letter-spacing: -0.01em; }\n  .chrome-logo-text .sub { font-weight: 400; font-size: 11.5px; color: var(--white); opacity: 0.8; letter-spacing: 0.04em; margin-top: 2px; }\n  .chrome-actions { display: flex; align-items: center; gap: 14px; }\n  .version-tag { font-size: 11px; color: rgba(255,255,255,0.7); letter-spacing: 0.04em; }\n  .btn { font-family: 'Catamaran', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 9px 18px; border: 1px solid transparent; background: transparent; color: inherit; cursor: pointer; transition: background 0.15s, color 0.15s, border-color 0.15s; text-decoration: none; display: inline-block; line-height: 1; }\n  .btn-outline-light { border-color: rgba(255,255,255,0.4); color: var(--white); }\n  .btn-outline-light:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }\n  .btn-link { background: none; border: none; color: var(--orange); font-weight: 700; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; padding: 0; }\n  .btn-link:hover { color: #e07a16; }\n\n  /* STICKY MODIFIED BANNER */\n  .modified-banner {\n    position: sticky; top: 0; z-index: 150;\n    background: var(--orange-soft);\n    border-top: 1px solid var(--orange);\n    border-bottom: 1px solid var(--orange);\n    padding: 12px 0;\n    display: none;\n    backdrop-filter: blur(8px);\n    -webkit-backdrop-filter: blur(8px);\n  }\n  .modified-banner.active { display: block; background: rgba(254, 246, 235, 0.96); }\n  .modified-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }\n  .modified-banner-text { font-size: 13px; color: var(--blue); font-weight: 500; }\n  .modified-banner-text strong { color: #c2691a; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; margin-right: 10px; }\n\n  /* STALE-SIZING BANNER (30-day soft expiry) \u2014 neutral, no urgency */\n  .stale-banner {\n    background: #eef0f1;\n    border-top: 1px solid var(--gray);\n    border-bottom: 1px solid var(--gray);\n    padding: 11px 0;\n    display: none;\n  }\n  .stale-banner.active { display: block; }\n  .stale-banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }\n  .stale-banner-text { font-size: 12.5px; color: var(--gray-mute); font-weight: 500; }\n  .stale-banner-text strong { color: var(--blue); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 10.5px; margin-right: 10px; }\n\n  /* INTERNAL-PREVIEW WATERMARK */\n  body.preview-mode::after {\n    content: ''; position: fixed; inset: 0; z-index: 2000; pointer-events: none;\n    background-image: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27430%27%20height%3D%27300%27%3E%3Ctext%20x%3D%2712%27%20y%3D%27170%27%20transform%3D%27rotate%28-24%20215%20150%29%27%20font-family%3D%27Catamaran%2C%20sans-serif%27%20font-size%3D%2719%27%20font-weight%3D%27700%27%20letter-spacing%3D%273%27%20fill%3D%27rgba%28249%2C142%2C43%2C0.11%29%27%3EINTERNAL%20PREVIEW%20%E2%80%94%20NOT%20FOR%20DISTRIBUTION%3C%2Ftext%3E%3C%2Fsvg%3E\");\n    background-repeat: repeat;\n  }\n  .preview-tag { display: none; }\n  body.preview-mode .preview-tag {\n    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.12em;\n    text-transform: uppercase; color: var(--orange);\n    border: 1px solid var(--orange-border); padding: 5px 10px;\n  }\n\n  /* HEADER */\n  .proforma-head { padding: 28px 0 20px; border-bottom: 1px solid var(--blue); }\n  .ph-grid { display: grid; grid-template-columns: 1.6fr 2.4fr; gap: 36px; align-items: end; }\n  @media (max-width: 880px) { .ph-grid { grid-template-columns: 1fr; gap: 20px; } }\n  .program-tag { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); display: inline-flex; align-items: center; gap: 12px; }\n  .program-tag::before { content: ''; display: inline-block; width: 22px; height: 1px; background: var(--orange); }\n  .property-name { font-weight: 800; font-size: 32px; color: var(--blue); letter-spacing: -0.02em; line-height: 1.1; margin-top: 10px; }\n  .property-meta { margin-top: 8px; font-size: 13.5px; color: var(--gray-mute); }\n  .property-meta .dot { display: inline-block; width: 3px; height: 3px; background: var(--gray); border-radius: 50%; vertical-align: middle; margin: 0 9px 2px; }\n\n  .headline-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }\n  @media (max-width: 720px) { .headline-stats { grid-template-columns: repeat(2, 1fr); } }\n  .hs-cell { border-left: 1px solid var(--hair-strong); padding-left: 16px; }\n  .hs-cell:first-child { border-left: none; padding-left: 0; }\n  .hs-cell .label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 6px; }\n  .hs-cell .num { font-weight: 700; font-size: 22px; color: var(--blue); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; line-height: 1; }\n  .hs-cell .sub { font-size: 11px; color: var(--gray-mute); margin-top: 4px; font-weight: 500; letter-spacing: 0.02em; }\n\n  /* PROFORMA */\n  .proforma { padding: 24px 0 40px; }\n  .proforma-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }\n  @media (max-width: 980px) { .proforma-grid { grid-template-columns: 1fr; gap: 28px; } }\n  .pf-block { margin-bottom: 28px; }\n  .pf-block:last-child { margin-bottom: 0; }\n  .pf-title {\n    font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;\n    color: var(--orange); padding: 8px 0 8px;\n    border-bottom: 1px solid var(--hair-strong);\n    margin-bottom: 4px;\n    display: flex; align-items: center; justify-content: space-between;\n  }\n  .pf-title > span:first-child, .pf-title.has-rule { position: relative; }\n  /* Orange lead rule before section title text */\n  .pf-title .pf-title-text {\n    display: inline-flex; align-items: center; gap: 12px;\n  }\n  .pf-title .pf-title-text::before {\n    content: ''; display: inline-block; width: 20px; height: 1px; background: var(--orange);\n  }\n\n  table.pf { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; table-layout: fixed; }\n  table.pf col.val-col { width: 180px; }\n  table.pf td { padding: 5px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; }\n  table.pf tr:last-child td { border-bottom: none; }\n  table.pf td.val { color: var(--blue); font-weight: 500; text-align: right; white-space: nowrap; }\n\n  /* SUMMATION RULE \u2014 sits only above the summed figure, not the label */\n  table.pf tr.total td {\n    font-weight: 700; color: var(--blue);\n    border-top: none;\n    border-bottom: none;\n    padding: 6px 0 5px;\n  }\n  table.pf tr.total td.val {\n    border-top: 2px solid var(--blue);\n  }\n\n  table.pf tr.binding-row td { background: var(--orange-soft); color: var(--orange); font-weight: 700; }\n  table.pf tr.binding-row td.val { color: var(--orange); }\n  table.pf tr.binding-row td:first-child { position: relative; padding-left: 12px; }\n  table.pf tr.binding-row td:first-child::before { content: ''; position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; background: var(--orange); }\n\n  /* PAYMENT GROUP \u2014 no framing box; summation rule sits above the Monthly Payment figure only */\n  .payment-group {\n    margin-top: 10px;\n  }\n  .payment-group table.pf {\n    border-collapse: collapse;\n  }\n  .payment-group table.pf td {\n    padding: 5px 0;\n    border-bottom: 1px solid var(--hair);\n  }\n  .payment-group table.pf tr:last-child td { border-bottom: none; }\n  .payment-group table.pf tr.total td {\n    border-top: none;\n    border-bottom: none;\n    padding: 6px 0 5px;\n    font-weight: 700;\n  }\n  .payment-group table.pf tr.total td.val {\n    border-top: 2px solid var(--blue);\n  }\n\n  /* MAX-OF \u2014 three-column layout: label / value / Greater tag (fixed widths) */\n  table.pf col.tag-col { width: 60px; }\n  tr.max-of-row td.lbl-cell { padding-top: 8px; padding-bottom: 8px; }\n  tr.max-of-row td.val { vertical-align: top; padding-top: 10px; }\n  .max-of-main { font-weight: 500; color: var(--ink); }\n  tr.binding-row .max-of-main { color: var(--orange); font-weight: 700; }\n  .max-of-subs { margin-top: 6px; padding-left: 12px; border-left: 1px solid var(--hair-strong); display: flex; flex-direction: column; gap: 4px; }\n  tr.binding-row .max-of-subs { border-left-color: var(--orange); }\n  .max-of-sub {\n    display: grid;\n    grid-template-columns: 1fr 130px 60px;\n    align-items: baseline;\n    gap: 8px;\n    font-size: 11.5px; color: var(--gray-mute);\n    line-height: 1.4;\n  }\n  .max-of-sub .sub-label { text-align: left; }\n  .max-of-sub .sub-num { text-align: right; font-variant-numeric: tabular-nums; }\n  .max-of-sub .greater-tag {\n    font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;\n    color: var(--orange);\n    text-align: right;\n    visibility: hidden;\n  }\n  .max-of-sub.governing { color: var(--blue); font-weight: 600; }\n  .max-of-sub.governing .sub-num { color: var(--blue); }\n  .max-of-sub.governing .greater-tag { visibility: visible; }\n  tr.binding-row .max-of-sub.governing { color: #c2691a; }\n  tr.binding-row .max-of-sub.governing .sub-num { color: #c2691a; }\n\n  .req-default-badge {\n    display: inline-block;\n    font-size: 10px; font-weight: 700;\n    letter-spacing: 0.1em; text-transform: uppercase;\n    color: var(--gray-mute);\n    margin-right: 8px;\n  }\n\n  /* UNIFIED SOURCES & USES */\n  .sources-uses-block .pf-title.sub {\n    font-size: 9.5px; padding: 14px 0 6px;\n    border-bottom: 1px solid var(--hair);\n    color: var(--gray-mute); letter-spacing: 0.18em;\n    margin-bottom: 0;\n  }\n  .sources-uses-block .pf-title.sub:first-of-type { padding-top: 12px; }\n\n  table.uses { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; table-layout: fixed; }\n  table.uses col.pct-col { width: 50px; }\n  table.uses col.val-col { width: 130px; }\n  table.uses td { padding: 5px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; color: var(--ink); }\n  table.uses tr:last-child td { border-bottom: none; }\n  table.uses td.pct { text-align: right; padding-right: 10px; color: var(--gray-mute); font-size: 11px; font-weight: 500; }\n  table.uses td.val { text-align: right; white-space: nowrap; color: var(--blue); font-weight: 500; }\n  /* Summation rule on value cell only */\n  table.uses tr.total td {\n    font-weight: 700; color: var(--blue);\n    border-top: none;\n    border-bottom: none;\n    padding: 6px 0 5px;\n  }\n  table.uses tr.total td.val {\n    border-top: 2px solid var(--blue);\n  }\n\n  table.noi { width: 100%; border-collapse: collapse; font-size: 13px; font-variant-numeric: tabular-nums; table-layout: fixed; }\n  table.noi col.val-col { width: 120px; }\n  table.noi th { font-size: 9.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); text-align: right; padding: 10px 0 8px; border-bottom: 1px solid var(--hair-strong); }\n  table.noi th.lbl-head { text-align: left; }\n  table.noi td { padding: 5px 0; border-bottom: 1px solid var(--hair); vertical-align: middle; }\n  table.noi tr:last-child td { border-bottom: none; }\n  table.noi td.lbl { color: var(--ink); }\n  table.noi td.val { text-align: right; white-space: nowrap; color: var(--blue); font-weight: 500; }\n  table.noi td.val-mute { text-align: right; color: var(--gray-mute); font-weight: 400; }\n  table.noi tr.total td {\n    font-weight: 700; color: var(--blue);\n    border-top: none;\n    border-bottom: none;\n    padding: 6px 0 5px;\n  }\n  table.noi tr.total td.val {\n    border-top: 2px solid var(--blue);\n  }\n\n  .explain { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; margin-left: 8px; border: 1px solid var(--blue); background: var(--blue); color: var(--white); font-weight: 700; font-size: 10px; cursor: pointer; line-height: 1; transition: background 0.15s, border-color 0.15s, transform 0.1s; user-select: none; vertical-align: 1px; }\n  .explain:hover { background: var(--orange); border-color: var(--orange); }\n  .explain:active { transform: scale(0.92); }\n\n  .editable { cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 2px 6px; margin: -2px 0; border: 1px dashed transparent; transition: border-color 0.15s, background 0.15s; }\n  .editable:hover { border-color: var(--orange-border); background: var(--orange-soft); }\n  .editable.is-modified { background: var(--orange-soft); border-color: var(--orange); }\n  .editable .edit-val { color: var(--blue); font-weight: 500; }\n  .editable .pencil { width: 11px; height: 11px; opacity: 0.55; flex-shrink: 0; transition: opacity 0.15s; }\n  .editable:hover .pencil, .editable.is-modified .pencil { opacity: 1; }\n  .editable .pencil svg { display: block; width: 11px; height: 11px; }\n\n  .inline-editor { position: absolute; z-index: 200; background: var(--white); border: 1px solid var(--blue); border-top: 3px solid var(--orange); padding: 14px 16px; width: 300px; box-shadow: 0 8px 32px rgba(0, 42, 61, 0.18); display: none; }\n  .inline-editor.visible { display: block; }\n  .inline-editor .ie-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray-mute); margin-bottom: 8px; }\n  .inline-editor .ie-name { font-size: 14px; font-weight: 600; color: var(--blue); margin-bottom: 10px; }\n  .inline-editor .ie-hint {\n    font-size: 11.5px; color: var(--gray-mute);\n    line-height: 1.5; margin-bottom: 12px;\n    font-style: italic;\n  }\n  .inline-editor .ie-hint.warn {\n    color: #c2691a;\n    background: var(--orange-soft);\n    padding: 8px 10px;\n    border-left: 2px solid var(--orange);\n    font-style: normal;\n    font-weight: 500;\n  }\n  .inline-editor input { width: 100%; font-family: 'Catamaran', sans-serif; font-weight: 500; font-size: 16px; padding: 10px 12px; border: 1px solid var(--hair-strong); color: var(--blue); text-align: right; font-variant-numeric: tabular-nums; outline: none; }\n  .inline-editor input:focus { border-color: var(--orange); }\n  .inline-editor .ie-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; gap: 12px; }\n  .inline-editor .ie-reset { background: none; border: none; color: var(--gray-mute); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; cursor: pointer; padding: 0; }\n  .inline-editor .ie-reset:hover { color: var(--orange); }\n  .inline-editor .ie-apply { background: var(--orange); color: var(--white); border: none; padding: 8px 16px; font-weight: 600; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }\n  .inline-editor .ie-apply:hover { background: #e07a16; }\n\n  .tooltip-card { position: absolute; z-index: 300; background: var(--white); border: 1px solid var(--blue); border-top: 3px solid var(--orange); padding: 14px 18px; width: 320px; box-shadow: 0 6px 24px rgba(0, 42, 61, 0.15); font-size: 12.5px; line-height: 1.55; color: var(--ink); font-weight: 400; display: none; }\n  .tooltip-card.visible { display: block; }\n  .tooltip-card .tt-title { font-weight: 700; color: var(--blue); font-size: 13.5px; margin-bottom: 6px; }\n  .tooltip-card .tt-body { margin-bottom: 0; }\n  .tooltip-card .tt-link {\n    display: inline-block;\n    margin-top: 14px;\n    padding-top: 10px;\n    border-top: 1px solid var(--hair);\n    font-size: 11px; color: var(--orange); font-weight: 700;\n    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;\n  }\n  .tooltip-card .tt-link:hover { text-decoration: underline; }\n\n  .notes-row { margin-top: 8px; padding: 18px 0 8px; border-top: 1px solid var(--hair); font-size: 12px; color: var(--gray-mute); line-height: 1.55; }\n  .notes-row strong { color: var(--blue); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; font-size: 10.5px; display: block; margin-bottom: 6px; }\n  .notes-row ul { list-style: none; }\n  .notes-row li { padding-left: 14px; position: relative; margin-bottom: 3px; }\n  .notes-row li::before { content: ''; position: absolute; left: 0; top: 8px; width: 6px; height: 1px; background: var(--orange); }\n\n  .inline-disclaimer {\n    margin-top: 18px; padding-top: 14px;\n    border-top: 1px solid var(--hair);\n    font-size: 10.5px; line-height: 1.55;\n    color: var(--gray-mute);\n    font-style: italic;\n    max-width: 920px;\n  }\n\n  section.depth { padding: 60px 0; }\n  section.depth.alt { background: var(--gray-light); }\n  section.depth.navy { background: var(--blue-deep); color: rgba(255,255,255,0.85); }\n  .section-head { margin-bottom: 32px; }\n  .section-head h2 { margin-top: 12px; font-size: 26px; color: var(--blue); font-weight: 700; letter-spacing: -0.01em; line-height: 1.2; max-width: 720px; }\n  section.depth.navy .section-head h2 { color: var(--white); }\n  .section-head .lede { margin-top: 12px; font-size: 15px; font-weight: 300; color: var(--gray-mute); line-height: 1.55; max-width: 660px; }\n  section.depth.navy .section-head .lede { color: rgba(255,255,255,0.7); }\n  .eyebrow { font-weight: 700; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange); display: inline-flex; align-items: center; gap: 14px; }\n  .eyebrow::before { content: ''; display: inline-block; width: 22px; height: 1px; background: var(--orange); }\n\n  .timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }\n  @media (max-width: 880px) { .timeline { grid-template-columns: 1fr; gap: 32px; } }\n  .col-head { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid var(--hair-strong); }\n  .milestone { display: grid; grid-template-columns: 60px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--hair); }\n  .milestone:last-child { border-bottom: none; }\n  .milestone-num { font-weight: 700; font-size: 11px; letter-spacing: 0.12em; color: var(--orange); text-transform: uppercase; padding-top: 3px; }\n  .milestone-title { font-weight: 700; color: var(--blue); font-size: 13.5px; margin-bottom: 3px; }\n  .milestone-desc { font-size: 12.5px; color: var(--gray-mute); line-height: 1.5; }\n  .cash-row { display: grid; grid-template-columns: 70px 1fr auto; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }\n  .cash-row:last-child { border-bottom: none; }\n  .cash-when { font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase; }\n  .cash-what { font-size: 13px; color: var(--ink); font-weight: 600; }\n  .cash-what .note { display: block; font-size: 11.5px; color: var(--gray-mute); font-weight: 400; margin-top: 2px; line-height: 1.45; }\n  .cash-how-much { font-weight: 700; color: var(--blue); font-size: 13.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }\n\n  .resources-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }\n  @media (max-width: 880px) { .resources-grid { grid-template-columns: 1fr; gap: 18px; } }\n  .resource-card { background: var(--blue-dark); padding: 24px 22px 22px; border-top: 2px solid var(--orange); text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: background 0.15s; }\n  .resource-card:hover { background: #003e5d; }\n  .resource-card .r-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 14px; }\n  .resource-card .r-title { font-weight: 700; font-size: 16px; color: var(--white); line-height: 1.3; margin-bottom: 10px; letter-spacing: -0.005em; }\n  .resource-card .r-blurb { font-size: 12.5px; color: rgba(255,255,255,0.7); line-height: 1.5; font-weight: 400; flex-grow: 1; }\n  .resource-card .r-read { margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.15); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }\n  .resources-all { margin-top: 28px; text-align: center; font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; }\n  .resources-all a { color: var(--orange); text-decoration: none; font-weight: 700; }\n  .resources-all a:hover { color: #ffa650; }\n\n  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; border-top: 1px solid var(--hair-strong); padding-top: 32px; }\n  @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; gap: 28px; } }\n  .o-name { font-weight: 700; font-size: 20px; color: var(--blue); letter-spacing: -0.01em; }\n  .o-title { font-size: 12.5px; color: var(--gray-mute); margin-top: 4px; }\n  .o-firm { font-size: 12.5px; font-weight: 700; color: var(--blue); margin-top: 12px; }\n  .o-contact { margin-top: 10px; font-size: 13px; line-height: 1.7; }\n  .o-contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }\n  .o-contact a:hover { border-color: var(--orange); }\n  .o-contact .lbl { display: inline-block; width: 52px; color: var(--gray-mute); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }\n  footer { background: var(--blue-deep); color: rgba(255,255,255,0.7); padding: 28px 0 24px; }\n  .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: end; }\n  @media (max-width: 720px) { .footer-grid { grid-template-columns: 1fr; } }\n  .footer-meta { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); line-height: 1.7; }\n  .footer-disclaimer { font-size: 11.5px; color: rgba(255,255,255,0.6); line-height: 1.55; max-width: 620px; text-align: right; }\n  @media (max-width: 720px) { .footer-disclaimer { text-align: left; } }\n\n  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--blue); color: var(--white); border-top: 3px solid var(--orange); padding: 14px 20px; max-width: 320px; box-shadow: 0 8px 28px rgba(0, 42, 61, 0.25); font-size: 13px; z-index: 400; transform: translateY(20px); opacity: 0; transition: transform 0.3s, opacity 0.3s; pointer-events: none; }\n  .toast.visible { transform: translateY(0); opacity: 1; }\n  .toast .t-eyebrow { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 4px; }\n\n  /* PRINT */\n  .print-watermark { display: none; position: fixed; top: 0; left: 0; right: 0; padding: 8px 16px; background: rgba(249, 142, 43, 0.12); border-bottom: 2px solid var(--orange); color: #c2691a; font-weight: 700; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; text-align: center; z-index: 999; }\n  body.scenario-modified .print-watermark { display: none; }\n  @media print {\n    body.scenario-modified .print-watermark { display: block; }\n    body.scenario-modified::after {\n      content: \"MODIFIED SCENARIO \u2014 NOT A CENTENNIAL MORTGAGE SIZING\";\n      position: fixed; bottom: 8px; left: 0; right: 0; text-align: center;\n      font-size: 9px; font-weight: 700; letter-spacing: 0.18em; color: #c2691a;\n    }\n    .chrome-actions, .modified-banner button, .toast, .inline-editor, .tooltip-card { display: none !important; }\n    .editable { border: none !important; background: transparent !important; }\n    .editable .pencil { display: none !important; }\n    .explain { display: none !important; }\n    section.depth.alt { background: transparent !important; }\n    section.depth.navy { background: transparent !important; color: var(--ink) !important; }\n    section.depth.navy .section-head h2, section.depth.navy .section-head .lede { color: var(--ink) !important; }\n    .resource-card { background: transparent !important; border: 1px solid var(--hair-strong) !important; }\n    .resource-card .r-title, .resource-card .r-blurb { color: var(--ink) !important; }\n    footer { background: transparent !important; color: var(--ink) !important; }\n    .footer-disclaimer, .footer-meta { color: var(--ink) !important; }\n  }\n</style>\n</head>\n<body>\n\n<div class=\"print-watermark\">Modified Scenario \u2014 Not a Centennial Mortgage Sizing</div>\n\n<header class=\"chrome\">\n  <div class=\"container chrome-inner\">\n    <div class=\"chrome-logo\">\n      <svg width=\"34\" height=\"34\" viewBox=\"0 0 80 80\" fill=\"none\" aria-hidden=\"true\">\n        <g stroke=\"#f98e2b\" stroke-width=\"3\" stroke-linecap=\"square\">\n          <line x1=\"40\" y1=\"6\" x2=\"40\" y2=\"16\"/><line x1=\"40\" y1=\"64\" x2=\"40\" y2=\"74\"/>\n          <line x1=\"6\" y1=\"40\" x2=\"16\" y2=\"40\"/><line x1=\"64\" y1=\"40\" x2=\"74\" y2=\"40\"/>\n          <line x1=\"16\" y1=\"16\" x2=\"22\" y2=\"22\"/><line x1=\"58\" y1=\"58\" x2=\"64\" y2=\"64\"/>\n          <line x1=\"64\" y1=\"16\" x2=\"58\" y2=\"22\"/><line x1=\"22\" y1=\"58\" x2=\"16\" y2=\"64\"/>\n        </g>\n        <circle cx=\"40\" cy=\"40\" r=\"22\" stroke=\"#ffffff\" stroke-width=\"2.5\" fill=\"none\"/>\n        <path d=\"M40 24 L46 42 L40 38 L34 42 Z\" fill=\"#f98e2b\"/>\n        <path d=\"M40 56 L34 38 L40 42 L46 38 Z\" fill=\"#ffffff\" opacity=\"0.85\"/>\n      </svg>\n      <div class=\"chrome-logo-text\">\n        <span class=\"name\">Centennial Mortgage</span>\n        <span class=\"sub\">HUD/FHA Multifamily Sizing</span>\n      </div>\n    </div>\n    <div class=\"chrome-actions\">\n      <span class=\"preview-tag\" id=\"previewTag\">Internal Preview</span>\n      <span class=\"version-tag\" id=\"versionTag\">Prepared May 27, 2026</span>\n      <button class=\"btn btn-outline-light\" id=\"downloadBtn\" onclick=\"alert('PDF snapshot \u2014 placeholder')\">Download PDF</button>\n    </div>\n  </div>\n</header>\n\n<div class=\"modified-banner\" id=\"modifiedBanner\">\n  <div class=\"container modified-banner-inner\">\n    <div class=\"modified-banner-text\">\n      <strong>Modified Scenario</strong>One or more inputs changed. This is no longer a Centennial Mortgage sizing.\n    </div>\n    <button class=\"btn-link\" onclick=\"resetAllScenarios()\">Reset to Delivered Values \u2192</button>\n  </div>\n</div>\n\n<div class=\"stale-banner\" id=\"staleBanner\">\n  <div class=\"container stale-banner-inner\">\n    <div class=\"stale-banner-text\">\n      <strong>Stale Sizing</strong><span id=\"staleBannerBody\">This sizing was prepared on this date. Pricing has likely moved. Contact us for a refreshed sizing.</span>\n    </div>\n  </div>\n</div>\n\n<div class=\"container\">\n  <div class=\"proforma-head\">\n    <div class=\"ph-grid\">\n      <div>\n        <span class=\"program-tag\">HUD Section 223(f) \u2014 Proposed Mortgage</span>\n        <div class=\"property-name\">Arc Apartment Homes</div>\n        <div class=\"property-meta\">\n          Great Falls, MT <span class=\"dot\"></span> 216 Units <span id=\"dealTypeWrap\" style=\"display:none;\"><span class=\"dot\"></span> <span id=\"dealTypeDisplay\">Affordable</span></span> <span class=\"dot\"></span> Refinance\n        </div>\n      </div>\n      <div class=\"headline-stats\">\n        <div class=\"hs-cell\"><div class=\"label\">Loan Amount</div><div class=\"num\" id=\"hsLoan\">$36,019,600</div><div class=\"sub\">35-yr fixed</div></div>\n        <div class=\"hs-cell\"><div class=\"label\">Interest Rate</div><div class=\"num\" id=\"hsRate\">5.70%</div><div class=\"sub\">+ 0.25% MIP</div></div>\n        <div class=\"hs-cell\"><div class=\"label\">DSCR</div><div class=\"num\" id=\"hsDscr\">1.149<span style=\"font-size:14px\">x</span></div><div class=\"sub\">on DS NOI</div></div>\n        <div class=\"hs-cell\"><div class=\"label\">Per Unit</div><div class=\"num\" id=\"hsPerUnit\">$166,757</div><div class=\"sub\">216 units</div></div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"container\">\n  <div class=\"proforma\">\n    <div class=\"proforma-grid\">\n      <div>\n        <!-- PROPOSED MORTGAGE \u2014 reordered with payment mini-block at the bottom -->\n        <div class=\"pf-block\">\n          <div class=\"pf-title\"><span class=\"pf-title-text\">Proposed Mortgage</span></div>\n          <table class=\"pf\">\n            <colgroup><col><col class=\"val-col\"></colgroup>\n            <tr><td>New Loan Amount</td><td class=\"val\" id=\"pmLoan\">$36,019,600</td></tr>\n            <tr>\n              <td>Interest Rate <span class=\"explain\" data-tooltip=\"rate\">?</span></td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"rate\" data-name=\"Interest Rate\" data-value=\"5.70\" data-unit=\"%\" data-original=\"5.70\">\n                  <span class=\"edit-val\">5.70%</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr><td>MIP Rate <span class=\"explain\" data-tooltip=\"mip\">?</span></td><td class=\"val\" id=\"pmMipRate\">0.25%</td></tr>\n            <tr><td>Term</td><td class=\"val\" id=\"pmTerm\">420 months (35 yrs)</td></tr>\n            <tr><td>Debt Service Ratio <span class=\"explain\" data-tooltip=\"dscr\">?</span></td><td class=\"val\" id=\"pmDscr\">1.149</td></tr>\n            <tr><td>Estimated Closing</td><td class=\"val\">TBD</td></tr>\n          </table>\n\n          <!-- Payment mini-block \u2014 framed by 2px borders top and bottom -->\n          <div class=\"payment-group\">\n            <table class=\"pf\">\n              <colgroup><col><col class=\"val-col\"></colgroup>\n              <tr><td>Monthly P&amp;I</td><td class=\"val\" id=\"pmPI\">$198,175</td></tr>\n              <tr><td>Monthly MIP</td><td class=\"val\" id=\"pmMIP\">$7,504</td></tr>\n              <tr class=\"total\"><td>Monthly Payment</td><td class=\"val\" id=\"pmTotal\">$205,679</td></tr>\n            </table>\n          </div>\n        </div>\n\n        <!-- HUD MORTGAGE CRITERIA -->\n        <div class=\"pf-block\">\n          <div class=\"pf-title\"><span class=\"pf-title-text\">HUD Mortgage Criteria</span><span style=\"font-size:10px; color:var(--gray-mute); letter-spacing:0.08em; font-weight:600;\">MAX LOAN</span></div>\n          <table class=\"pf\">\n            <colgroup><col><col class=\"val-col\"></colgroup>\n            <tr id=\"rowReq\">\n              <td>Requested Loan Amount <span class=\"explain\" data-tooltip=\"reqLoan\">?</span></td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"reqLoan\" data-name=\"Requested Loan Amount\" data-value=\"\" data-unit=\"$\" data-original=\"\">\n                  <span class=\"edit-val\"><span class=\"req-default-badge\">Max Loan</span></span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr id=\"rowLtv87\"><td><span id=\"ltv87Label\">87% LTV</span> <span class=\"explain\" data-tooltip=\"ltv87\">?</span></td><td class=\"val\" id=\"ltv87Val\">$46,308,900</td></tr>\n            <tr id=\"rowDscrCriterion\"><td><span id=\"dscrLabel\">1.15x DSCR Constrained</span> <span class=\"explain\" data-tooltip=\"dscr\">?</span></td><td class=\"val\" id=\"dscrVal\">$36,019,600</td></tr>\n            <tr id=\"rowStat\"><td>270% HUD Statutory Limit <span class=\"explain\" data-tooltip=\"stat\">?</span></td><td class=\"val\" id=\"statVal\">$49,225,100</td></tr>\n            <tr class=\"max-of-row\" id=\"rowMaxOf\">\n              <td class=\"lbl-cell\">\n                <div class=\"max-of-main\">Greater of 80% LTV or Cost of Refinance <span class=\"explain\" data-tooltip=\"costrefi\">?</span></div>\n                <div class=\"max-of-subs\">\n                  <div class=\"max-of-sub\" id=\"sub80Ltv\">\n                    <span class=\"sub-label\">80% LTV</span>\n                    <span class=\"sub-num\" id=\"ltv80Val\">$42,582,900</span>\n                    <span class=\"greater-tag\">Greater</span>\n                  </div>\n                  <div class=\"max-of-sub\" id=\"subCostRefi\">\n                    <span class=\"sub-label\">Cost of Refinance</span>\n                    <span class=\"sub-num\" id=\"costRefiVal\">$35,347,656</span>\n                    <span class=\"greater-tag\">Greater</span>\n                  </div>\n                </div>\n              </td>\n              <td class=\"val\" id=\"maxOfVal\">$42,582,900</td>\n            </tr>\n          </table>\n        </div>\n\n        <div class=\"pf-block\">\n          <div class=\"pf-title\"><span class=\"pf-title-text\">Net Operating Income &amp; Value</span></div>\n          <table class=\"noi\">\n            <colgroup><col><col class=\"val-col\"><col class=\"val-col\"></colgroup>\n            <tr><th class=\"lbl-head\"></th><th>Value NOI</th><th>Debt Svc NOI</th></tr>\n            <tr><td class=\"lbl\">Effective Income</td><td class=\"val\" id=\"effIncValue\">$4,550,695</td><td class=\"val\" id=\"effIncDS\">$4,468,407</td></tr>\n            <tr><td class=\"lbl\">Operating Expenses</td><td class=\"val\" id=\"opExValueDisp\">($1,569,115)</td><td class=\"val\" id=\"opExDSDisp\">($1,566,646)</td></tr>\n            <tr><td class=\"lbl\">Replacement Reserves <span class=\"explain\" data-tooltip=\"reserves\">?</span></td><td class=\"val\" id=\"reservesValueDisp\">($54,000)</td><td class=\"val\" id=\"reservesDSDisp\">($64,800)</td></tr>\n            <tr class=\"total\"><td class=\"lbl\">NOI</td><td class=\"val\" id=\"noiValueDisp\">$2,927,580</td><td class=\"val\" id=\"noiDSDisp\">$2,836,961</td></tr>\n            <tr>\n              <td class=\"lbl\">Cap Rate <span class=\"explain\" data-tooltip=\"cap\">?</span></td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"capRate\" data-name=\"Cap Rate\" data-value=\"5.50\" data-unit=\"%\" data-original=\"5.50\">\n                  <span class=\"edit-val\">5.50%</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n              <td class=\"val-mute\">\u2014</td>\n            </tr>\n            <tr class=\"total\"><td class=\"lbl\">Market Value</td><td class=\"val\" id=\"mktValue\">$53,228,700</td><td class=\"val-mute\">\u2014</td></tr>\n            <tr><td class=\"lbl\">Per Unit</td><td class=\"val\" id=\"valuePerUnit\">$246,429</td><td class=\"val-mute\">\u2014</td></tr>\n          </table>\n        </div>\n      </div>\n\n      <div>\n        <div class=\"pf-block sources-uses-block\">\n          <div class=\"pf-title\"><span class=\"pf-title-text\">Estimated Sources &amp; Uses of Funds</span></div>\n          <div class=\"pf-title sub\">Sources</div>\n          <table class=\"uses\">\n            <colgroup><col class=\"pct-col\"><col><col class=\"val-col\"></colgroup>\n            <tr><td class=\"pct\"></td><td>New Loan Amount</td><td class=\"val\" id=\"srcLoan\">$36,019,600</td></tr>\n            <tr>\n              <td class=\"pct\"></td>\n              <td>Existing Replacement Reserve <span class=\"explain\" data-tooltip=\"existingReserve\">?</span></td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"existingReserve\" data-name=\"Existing Replacement Reserve\" data-value=\"0\" data-unit=\"$\" data-original=\"0\">\n                  <span class=\"edit-val\">$0</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr><td class=\"pct\"></td><td>Prepaid 3rd Party Reports</td><td class=\"val\" id=\"srcPrepaid3PR\">$32,900</td></tr>\n            <tr><td class=\"pct\"></td><td>Prepaid HUD Application Fee</td><td class=\"val\" id=\"srcAppFee\">$108,059</td></tr>\n            <tr><td class=\"pct\"></td><td>Cash Required at Closing <span class=\"explain\" data-tooltip=\"cashreq\">?</span></td><td class=\"val\" id=\"srcCashReq\">($812,903)</td></tr>\n            <tr class=\"total\"><td class=\"pct\"></td><td>Total Sources</td><td class=\"val\" id=\"srcTotal\">$35,347,656</td></tr>\n          </table>\n\n          <div class=\"pf-title sub\">Uses</div>\n          <table class=\"uses\">\n            <colgroup><col class=\"pct-col\"><col><col class=\"val-col\"></colgroup>\n            <tr>\n              <td class=\"pct\"></td>\n              <td>Existing Debt</td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"existingDebt\" data-name=\"Existing Debt\" data-value=\"34500000\" data-unit=\"$\" data-original=\"34500000\">\n                  <span class=\"edit-val\">$34,500,000</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr>\n              <td class=\"pct\"></td>\n              <td>Prepayment Penalty</td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"prepay\" data-name=\"Prepayment Penalty\" data-value=\"0\" data-unit=\"$\" data-original=\"0\">\n                  <span class=\"edit-val\">$0</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr><td class=\"pct\"></td><td>Initial Deposit to Reserves</td><td class=\"val\" id=\"useInitReserve\">$324,000</td></tr>\n            <tr>\n              <td class=\"pct\"></td>\n              <td>Repairs <span class=\"explain\" data-tooltip=\"repairs\">?</span></td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"repairs\" data-name=\"Repairs\" data-value=\"0\" data-unit=\"$\" data-original=\"0\">\n                  <span class=\"edit-val\">$0</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr><td class=\"pct\" id=\"pctAppFee\">0.30%</td><td>HUD Application Fee</td><td class=\"val\" id=\"useAppFee\">$108,059</td></tr>\n            <tr><td class=\"pct\" id=\"pctInitMIP\">0.25%</td><td>HUD Initial MIP</td><td class=\"val\" id=\"useInitMIP\">$90,049</td></tr>\n            <tr><td class=\"pct\"></td><td>HUD Inspection Fee</td><td class=\"val\" id=\"useInspection\">$1,500</td></tr>\n            <tr><td class=\"pct\" id=\"pctFinFee\">0.50%</td><td>Financing Fee</td><td class=\"val\" id=\"useFinFee\">$180,098</td></tr>\n            <tr><td class=\"pct\"></td><td>Processing Fee</td><td class=\"val\" id=\"useProcessingFee\">$0</td></tr>\n            <tr><td class=\"pct\"></td><td>GNMA Placement Fee</td><td class=\"val\" id=\"useGNMA\">$8,550</td></tr>\n            <tr><td class=\"pct\"></td><td>Centennial Legal</td><td class=\"val\" id=\"useCentennialLegal\">$25,000</td></tr>\n            <tr>\n              <td class=\"pct\"></td>\n              <td>Borrower Legal</td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"bLegal\" data-name=\"Borrower Legal\" data-value=\"17500\" data-unit=\"$\" data-original=\"17500\">\n                  <span class=\"edit-val\">$17,500</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr><td class=\"pct\"></td><td>Borrower Organizational</td><td class=\"val\" id=\"useBorrowerOrg\">$0</td></tr>\n            <tr>\n              <td class=\"pct\"></td>\n              <td>Title &amp; Survey</td>\n              <td class=\"val\">\n                <span class=\"editable\" data-edit=\"titleSurvey\" data-name=\"Title &amp; Survey\" data-value=\"60000\" data-unit=\"$\" data-original=\"60000\">\n                  <span class=\"edit-val\">$60,000</span>\n                  <span class=\"pencil\"><svg viewBox=\"0 0 12 12\" fill=\"none\"><path d=\"M8.5 1.5L10.5 3.5L4 10L1.5 10.5L2 8L8.5 1.5Z\" stroke=\"#004e72\" stroke-width=\"1.2\" stroke-linejoin=\"round\"/></svg></span>\n                </span>\n              </td>\n            </tr>\n            <tr><td class=\"pct\"></td><td>3rd Party Reports</td><td class=\"val\" id=\"useThirdParty\">$32,900</td></tr>\n            <tr><td class=\"pct\"></td><td>Repair Completion Assurance Escrow</td><td class=\"val\" id=\"useRepairAssurance\">$0</td></tr>\n            <tr class=\"total\"><td class=\"pct\"></td><td>Total Uses</td><td class=\"val\" id=\"useTotal\">$35,347,656</td></tr>\n          </table>\n        </div>\n      </div>\n    </div>\n\n    <div class=\"notes-row\">\n      <strong>Underwriting Notes</strong>\n      <ul>\n        <li>Assumes $34,500,000 in existing debt.</li>\n        <li>NOI based on March T12 and HUD underwriting standards. To be confirmed with updated financials and HUD appraisal.</li>\n        <li>Assumes new real estate taxes at $1,750/unit with property tax changes.</li>\n        <li>Assumes project stabilizes at below 7% vacancy and bad debt.</li>\n      </ul>\n      <div class=\"inline-disclaimer\">\n        This sizing is a conceptual document. Material variances between this document and actual closing will exist, including rate, term, loan amount, fees, costs, and other items. Not a commitment to lend. Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability.\n      </div>\n    </div>\n  </div>\n</div>\n\n<section class=\"depth alt\">\n  <div class=\"container\">\n    <div class=\"section-head\">\n      <span class=\"eyebrow\">Timeline &amp; Cash Deployment</span>\n      <h2>What to expect, month by month.</h2>\n      <p class=\"lede\">A standard 223(f) closes in five to six months from engagement. Most of the borrower cash is back-loaded \u2014 the early months are primarily third-party report costs.</p>\n    </div>\n    <div class=\"timeline\">\n      <div>\n        <div class=\"col-head\">Process Timeline</div>\n        <div class=\"milestone\"><div class=\"milestone-num\">Mo. 1</div><div><div class=\"milestone-title\">Engagement &amp; Kickoff</div><div class=\"milestone-desc\">Lender engaged. Order PCNA, Phase I/HEROS, appraisal, ALTA survey. Borrower begins due diligence.</div></div></div>\n        <div class=\"milestone\"><div class=\"milestone-num\">Mo. 2</div><div><div class=\"milestone-title\">Draft Reports &amp; Due Diligence</div><div class=\"milestone-desc\">First-draft third-party reports return. Lender reconciles inconsistencies before they reach HUD.</div></div></div>\n        <div class=\"milestone\"><div class=\"milestone-num\">Mo. 3</div><div><div class=\"milestone-title\">Firm Application Submission</div><div class=\"milestone-desc\">Reports finalize, loan committee approves, full Firm Application submitted to HUD with the 0.30% application fee.</div></div></div>\n        <div class=\"milestone\"><div class=\"milestone-num\">Mo. 4</div><div><div class=\"milestone-title\">HUD Review</div><div class=\"milestone-desc\">HUD underwrites the Firm Application. A clean, internally consistent package moves through quickly.</div></div></div>\n        <div class=\"milestone\"><div class=\"milestone-num\">Mo. 5</div><div><div class=\"milestone-title\">Firm Commitment &amp; Rate Lock</div><div class=\"milestone-desc\">HUD issues Firm Commitment. Rate lock with 0.50% good faith deposit (credited at closing). Closing process begins.</div></div></div>\n        <div class=\"milestone\"><div class=\"milestone-num\">Mo. 6</div><div><div class=\"milestone-title\">Final Closing &amp; Fund</div><div class=\"milestone-desc\">Closing package finalized, documents executed, loan funds.</div></div></div>\n      </div>\n      <div>\n        <div class=\"col-head\">Cash Deployment</div>\n        <div class=\"cash-row\"><div class=\"cash-when\">Mo. 1</div><div class=\"cash-what\">Third-Party Reports<span class=\"note\">PCNA, Phase I/HEROS, appraisal. Refunded into loan at closing.</span></div><div class=\"cash-how-much\" id=\"cashThirdParty\">~$32,900</div></div>\n        <div class=\"cash-row\"><div class=\"cash-when\">Mo. 3</div><div class=\"cash-what\">HUD Application Fee<span class=\"note\">0.30% of loan, paid at Firm Application submission. Funded into loan at closing.</span></div><div class=\"cash-how-much\" id=\"cashAppFee\">~$108,059</div></div>\n        <div class=\"cash-row\"><div class=\"cash-when\">Mo. 5</div><div class=\"cash-what\">Rate Lock Good Faith Deposit<span class=\"note\">0.50% of loan, refunded in full at closing.</span></div><div class=\"cash-how-much\" id=\"cashGFD\">~$180,098</div></div>\n        <div class=\"cash-row\"><div class=\"cash-when\">Mo. 6</div><div class=\"cash-what\">Net Cash at Closing<span class=\"note\">Net of all sources and uses at closing. Positive means cash-out to borrower.</span></div><div class=\"cash-how-much\" id=\"cashNet\">+$812,903</div></div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<section class=\"depth navy\">\n  <div class=\"container\">\n    <div class=\"section-head\">\n      <span class=\"eyebrow\">Further Reading</span>\n      <h2>Go deeper on 223(f).</h2>\n      <p class=\"lede\">Articles written by us covering 223(f) methodology, timelines, and prepayment economics.</p>\n    </div>\n    <div class=\"resources-grid\">\n      <a class=\"resource-card\" href=\"https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/\" target=\"_blank\">\n        <div class=\"r-eyebrow\">HUD 223(f)</div>\n        <div class=\"r-title\">How HUD Sizes a 223(f) Multifamily Mortgage</div>\n        <div class=\"r-blurb\">A former Senior HUD Underwriter explains how 223(f) loan proceeds are determined \u2014 LTV, DSCR, statutory limits, and the cost-of-refinance floor \u2014 with an interactive sizing tool embedded in the article.</div>\n        <div class=\"r-read\">Read \u2192</div>\n      </a>\n      <a class=\"resource-card\" href=\"https://roachlorenz.com/resources/hud-223f-timeline/\" target=\"_blank\">\n        <div class=\"r-eyebrow\">HUD 223(f)</div>\n        <div class=\"r-title\">HUD 223(f) Timeline: How Long Does the Process Take?</div>\n        <div class=\"r-blurb\">A former underwriter's month-by-month walkthrough of the 223(f) refinance timeline: engagement to closing, when to start on a stabilized project, and where deals stall.</div>\n        <div class=\"r-read\">Read \u2192</div>\n      </a>\n      <a class=\"resource-card\" href=\"https://roachlorenz.com/resources/hud-prepayment-vs-yield-maintenance/\" target=\"_blank\">\n        <div class=\"r-eyebrow\">HUD vs Agency</div>\n        <div class=\"r-title\">Yield Maintenance vs. HUD Step-Down: Which Is Cheaper?</div>\n        <div class=\"r-blurb\">The HUD step-down has a worse reputation than the math supports. Year-by-year comparison against Fannie/Freddie yield maintenance across flat, rising, and falling rate environments.</div>\n        <div class=\"r-read\">Read \u2192</div>\n      </a>\n    </div>\n    <div class=\"resources-all\">\n      <a href=\"https://roachlorenz.com/#resources\" target=\"_blank\">View all resources \u2192</a>\n    </div>\n  </div>\n</section>\n\n<section class=\"depth\">\n  <div class=\"container\">\n    <div class=\"section-head\">\n      <span class=\"eyebrow\">Questions on This Sizing</span>\n      <h2>Talk to us.</h2>\n    </div>\n    <div class=\"contact-grid\">\n      <div>\n        <div class=\"o-name\">Brian Lorenz</div>\n        <div class=\"o-title\">Vice President, Originations \u00b7 Former Senior HUD Underwriter</div>\n        <div class=\"o-firm\">Centennial Mortgage, Inc.</div>\n        <div class=\"o-contact\">\n          <span class=\"lbl\">Phone</span><a href=\"tel:5417604377\">(541) 760-4377</a><br>\n          <span class=\"lbl\">Email</span><a href=\"mailto:blorenz@centennialmortgage.com\">blorenz@centennialmortgage.com</a>\n        </div>\n      </div>\n      <div>\n        <div class=\"o-name\">Wim Roach</div>\n        <div class=\"o-title\">Vice President, Originations</div>\n        <div class=\"o-firm\">Centennial Mortgage, Inc.</div>\n        <div class=\"o-contact\">\n          <span class=\"lbl\">Phone</span><a href=\"tel:5095286691\">(509) 528-6691</a><br>\n          <span class=\"lbl\">Email</span><a href=\"mailto:wroach@centennialmortgage.com\">wroach@centennialmortgage.com</a>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n<footer>\n  <div class=\"container footer-grid\">\n    <div class=\"footer-meta\">Centennial Mortgage, Inc.<br>HUD/FHA Multifamily Origination<br>Prepared May 27, 2026</div>\n    <div class=\"footer-disclaimer\">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This sizing is a conceptual document. Material variances between this document and actual closing will exist, including rate, term, loan amount, fees, costs, and other items. Not a commitment to lend.</div>\n  </div>\n</footer>\n\n<div class=\"tooltip-card\" id=\"tooltip\"></div>\n<div class=\"inline-editor\" id=\"inlineEditor\">\n  <div class=\"ie-label\">Edit Value</div>\n  <div class=\"ie-name\" id=\"ieName\"></div>\n  <div class=\"ie-hint\" id=\"ieHint\" style=\"display:none;\"></div>\n  <input type=\"text\" id=\"ieInput\" inputmode=\"decimal\">\n  <div class=\"ie-actions\">\n    <button class=\"ie-reset\" id=\"ieReset\">Reset to original</button>\n    <button class=\"ie-apply\" id=\"ieApply\">Apply</button>\n  </div>\n</div>\n<div class=\"toast\" id=\"toast\">\n  <div class=\"t-eyebrow\">Sizing Updated</div>\n  <div id=\"toastBody\"></div>\n</div>\n\n<script>\nconst deal = {\n  units: 216, marketNOI: 2927580, debtServiceNOI: 2836961,\n  // NOI line items for display in the NOI table\n  effIncomeValue: 4550694.57, effIncomeDS: 4468406.97,\n  opExValue: 1569114.72, opExDS: 1566646.09,\n  reservesValue: 54000, reservesDS: 64800,\n  statutoryLimit: 49225100,\n  // LTV and DSCR factors vary by deal type\n  ltvMaxMarket: 0.87, ltvMaxAffordable: 0.90,\n  ltvCashOutCap: 0.80,\n  dscrFactorMarket: 0.87, dscrFactorAffordable: 0.90,\n  // Display labels per deal type\n  dscrLabelMarket: '1.15x DSCR Constrained', dscrLabelAffordable: '1.11x DSCR Constrained',\n  termMonths: 420, mipRate: 0.0025, initialMIPRate: 0.0025,\n  appFeeRate: 0.0030, financingFeeRate: 0.0050,\n  prepaid3PR: 32900, initialReserveDeposit: 324000, inspectionFee: 1500,\n  centennialLegal: 25000, thirdPartyReports: 32900, repairAssurance: 0,\n  processingFee: 0, borrowerOrg: 0,\n  delivered: {\n    dealType: 'Market',  // 'Market' or 'Affordable' \u2014 set by Excel Export tab at publish\n    rate: 5.70, capRate: 5.50, reqLoan: null,\n    existingReserve: 0, existingDebt: 34500000, prepay: 0, repairs: 0,\n    bLegal: 17500, titleSurvey: 60000\n  }\n};\nconst state = { ...deal.delivered };\n\n// Resolve LTV/DSCR factors from current dealType\nfunction getFactors() {\n  const isAffordable = state.dealType === 'Affordable';\n  return {\n    ltvMax: isAffordable ? deal.ltvMaxAffordable : deal.ltvMaxMarket,\n    ltvMaxPct: isAffordable ? '90%' : '87%',\n    dscrFactor: isAffordable ? deal.dscrFactorAffordable : deal.dscrFactorMarket,\n    dscrLabel: isAffordable ? deal.dscrLabelAffordable : deal.dscrLabelMarket\n  };\n}\n\nfunction loanConstant(rateDec, termMo, mipDec) {\n  const i = rateDec / 12;\n  const monthlyPmt = i / (1 - Math.pow(1 + i, -termMo));\n  const annualPI = monthlyPmt * 12;\n  const amort = annualPI - rateDec;\n  return rateDec + mipDec + amort;\n}\nfunction monthlyPI(loan, rateDec, termMo) {\n  const i = rateDec / 12;\n  return loan * i / (1 - Math.pow(1 + i, -termMo));\n}\nfunction gnmaPlacementFee(loan) {\n  if (loan < 1500000) return 1550;\n  const excessMillions = Math.ceil((loan - 1500000) / 1000000);\n  return 1550 + excessMillions * 200;\n}\nfunction fmtMoney(n, withSign) {\n  const num = Math.round(Number(n));\n  if (num < 0) return '($' + Math.abs(num).toLocaleString() + ')';\n  return (withSign && num > 0 ? '+' : '') + '$' + num.toLocaleString();\n}\nfunction fmtMoneyClean(n) { return '$' + Math.round(Number(n)).toLocaleString(); }\nfunction fmtPct(n) { return Number(n).toFixed(2) + '%'; }\nfunction roundDown100(n) { return Math.floor(n / 100) * 100; }\n\nfunction recalculate() {\n  const rateDec = state.rate / 100;\n  const capDec = state.capRate / 100;\n  const f = getFactors();\n  const K = loanConstant(rateDec, deal.termMonths, deal.mipRate);\n  const dscrLoan = roundDown100((deal.debtServiceNOI * f.dscrFactor) / K);\n  const mktValue = roundDown100(deal.marketNOI / capDec);\n  const ltv87 = roundDown100(mktValue * f.ltvMax);\n  const ltv80 = roundDown100(mktValue * deal.ltvCashOutCap);\n\n  function computeUsesAtLoan(loanAmt) {\n    const appFee = loanAmt * deal.appFeeRate;\n    const initMIP = loanAmt * deal.initialMIPRate;\n    const finFee = loanAmt * deal.financingFeeRate;\n    const gnma = gnmaPlacementFee(loanAmt);\n    const totalUses = state.existingDebt + state.prepay + deal.initialReserveDeposit\n                    + state.repairs + appFee + initMIP + deal.inspectionFee\n                    + finFee + deal.processingFee + gnma + deal.centennialLegal\n                    + state.bLegal + deal.borrowerOrg + state.titleSurvey + deal.thirdPartyReports\n                    + deal.repairAssurance;\n    return { appFee, initMIP, finFee, gnma, totalUses };\n  }\n\n  let u = computeUsesAtLoan(ltv80);\n  let costRefi = u.totalUses;\n  let fifthLimit = Math.max(ltv80, costRefi);\n  let fifthGoverning = ltv80 >= costRefi ? '80LTV' : 'CostRefi';\n\n  const hudCriteria = { '87LTV': ltv87, 'DSCR': dscrLoan, 'Statutory': deal.statutoryLimit, 'FifthCriterion': fifthLimit };\n  let hudMaxLoan = Math.min(...Object.values(hudCriteria));\n  let hudBindingKey = '87LTV';\n  ['DSCR','Statutory','FifthCriterion'].forEach(k => { if (hudCriteria[k] < hudCriteria[hudBindingKey]) hudBindingKey = k; });\n\n  let proposedLoan, bindingKey;\n  if (state.reqLoan === null || state.reqLoan === '' || state.reqLoan === undefined) {\n    proposedLoan = hudMaxLoan; bindingKey = hudBindingKey;\n  } else {\n    if (state.reqLoan < hudMaxLoan) { proposedLoan = state.reqLoan; bindingKey = 'Requested'; }\n    else { proposedLoan = hudMaxLoan; bindingKey = hudBindingKey; }\n  }\n  proposedLoan = roundDown100(proposedLoan);\n\n  u = computeUsesAtLoan(proposedLoan);\n  costRefi = u.totalUses;\n  fifthGoverning = ltv80 >= costRefi ? '80LTV' : 'CostRefi';\n  fifthLimit = Math.max(ltv80, costRefi);\n\n  const mPI = monthlyPI(proposedLoan, rateDec, deal.termMonths);\n  const mMIP = (proposedLoan * deal.mipRate) / 12;\n  const mTotal = mPI + mMIP;\n  const dscrRatio = deal.debtServiceNOI / ((mPI + mMIP) * 12);\n\n  document.getElementById('hsLoan').textContent = fmtMoneyClean(proposedLoan);\n  document.getElementById('hsRate').textContent = fmtPct(state.rate);\n  document.getElementById('hsDscr').innerHTML = dscrRatio.toFixed(3) + '<span style=\"font-size:14px\">x</span>';\n  document.getElementById('hsPerUnit').textContent = fmtMoneyClean(proposedLoan / deal.units);\n\n  document.getElementById('pmLoan').textContent = fmtMoneyClean(proposedLoan);\n  document.getElementById('pmPI').textContent = fmtMoneyClean(mPI);\n  document.getElementById('pmMIP').textContent = fmtMoneyClean(mMIP);\n  document.getElementById('pmTotal').textContent = fmtMoneyClean(mTotal);\n  document.getElementById('pmDscr').textContent = dscrRatio.toFixed(3);\n\n  // Show deal type in meta line only when not Market (Market is the assumed default)\n  const dealTypeWrap = document.getElementById('dealTypeWrap');\n  if (state.dealType === 'Market') {\n    dealTypeWrap.style.display = 'none';\n  } else {\n    dealTypeWrap.style.display = 'inline';\n    document.getElementById('dealTypeDisplay').textContent = state.dealType;\n  }\n  document.getElementById('ltv87Label').textContent = f.ltvMaxPct + ' LTV';\n  document.getElementById('dscrLabel').textContent = f.dscrLabel;\n  document.getElementById('ltv87Val').textContent = fmtMoneyClean(ltv87);\n  document.getElementById('dscrVal').textContent = fmtMoneyClean(dscrLoan);\n  document.getElementById('statVal').textContent = fmtMoneyClean(deal.statutoryLimit);\n  document.getElementById('ltv80Val').textContent = fmtMoneyClean(ltv80);\n  document.getElementById('costRefiVal').textContent = fmtMoneyClean(costRefi);\n  document.getElementById('maxOfVal').textContent = fmtMoneyClean(fifthLimit);\n\n  const sub80 = document.getElementById('sub80Ltv');\n  const subCR = document.getElementById('subCostRefi');\n  sub80.classList.toggle('governing', fifthGoverning === '80LTV');\n  subCR.classList.toggle('governing', fifthGoverning === 'CostRefi');\n\n  ['rowReq','rowLtv87','rowDscrCriterion','rowStat','rowMaxOf'].forEach(id => {\n    document.getElementById(id).classList.remove('binding-row');\n  });\n  const bindingMap = { 'Requested': 'rowReq', '87LTV': 'rowLtv87', 'DSCR': 'rowDscrCriterion', 'Statutory': 'rowStat', 'FifthCriterion': 'rowMaxOf' };\n  document.getElementById(bindingMap[bindingKey]).classList.add('binding-row');\n\n  document.getElementById('mktValue').textContent = fmtMoneyClean(mktValue);\n  document.getElementById('valuePerUnit').textContent = fmtMoneyClean(mktValue / deal.units);\n\n  // NOI table line items \u2014 driven by deal config\n  document.getElementById('effIncValue').textContent = fmtMoneyClean(deal.effIncomeValue);\n  document.getElementById('effIncDS').textContent = fmtMoneyClean(deal.effIncomeDS);\n  document.getElementById('opExValueDisp').textContent = '(' + fmtMoneyClean(deal.opExValue) + ')';\n  document.getElementById('opExDSDisp').textContent = '(' + fmtMoneyClean(deal.opExDS) + ')';\n  document.getElementById('reservesValueDisp').textContent = '(' + fmtMoneyClean(deal.reservesValue) + ')';\n  document.getElementById('reservesDSDisp').textContent = '(' + fmtMoneyClean(deal.reservesDS) + ')';\n  document.getElementById('noiValueDisp').textContent = fmtMoneyClean(deal.marketNOI);\n  document.getElementById('noiDSDisp').textContent = fmtMoneyClean(deal.debtServiceNOI);\n\n  document.getElementById('srcLoan').textContent = fmtMoneyClean(proposedLoan);\n  document.getElementById('srcAppFee').textContent = fmtMoneyClean(u.appFee);\n  document.getElementById('useAppFee').textContent = fmtMoneyClean(u.appFee);\n  document.getElementById('useInitMIP').textContent = fmtMoneyClean(u.initMIP);\n  document.getElementById('useFinFee').textContent = fmtMoneyClean(u.finFee);\n  document.getElementById('useGNMA').textContent = fmtMoneyClean(u.gnma);\n  document.getElementById('useProcessingFee').textContent = fmtMoneyClean(deal.processingFee);\n  document.getElementById('useBorrowerOrg').textContent = fmtMoneyClean(deal.borrowerOrg);\n\n  // Input-derived display cells (driven by deal config, not just the Arc defaults)\n  document.getElementById('pmMipRate').textContent = fmtPct(deal.mipRate * 100);\n  document.getElementById('pmTerm').textContent = deal.termMonths + ' months (' + Math.round(deal.termMonths / 12) + ' yrs)';\n  document.getElementById('pctAppFee').textContent = fmtPct(deal.appFeeRate * 100);\n  document.getElementById('pctInitMIP').textContent = fmtPct(deal.initialMIPRate * 100);\n  document.getElementById('pctFinFee').textContent = fmtPct(deal.financingFeeRate * 100);\n  document.getElementById('srcPrepaid3PR').textContent = fmtMoneyClean(deal.prepaid3PR);\n  document.getElementById('useInitReserve').textContent = fmtMoneyClean(deal.initialReserveDeposit);\n  document.getElementById('useInspection').textContent = fmtMoneyClean(deal.inspectionFee);\n  document.getElementById('useCentennialLegal').textContent = fmtMoneyClean(deal.centennialLegal);\n  document.getElementById('useThirdParty').textContent = fmtMoneyClean(deal.thirdPartyReports);\n  document.getElementById('useRepairAssurance').textContent = fmtMoneyClean(deal.repairAssurance);\n  document.getElementById('cashThirdParty').textContent = '~' + fmtMoneyClean(deal.thirdPartyReports);\n\n  const sourcesExCash = proposedLoan + state.existingReserve + deal.prepaid3PR + u.appFee;\n  const cashReq = u.totalUses - sourcesExCash;\n  document.getElementById('srcCashReq').textContent = cashReq < 0\n    ? '($' + Math.abs(Math.round(cashReq)).toLocaleString() + ')'\n    : '$' + Math.round(cashReq).toLocaleString();\n  document.getElementById('srcTotal').textContent = fmtMoneyClean(u.totalUses);\n  document.getElementById('useTotal').textContent = fmtMoneyClean(u.totalUses);\n\n  document.getElementById('cashAppFee').textContent = '~' + fmtMoneyClean(u.appFee);\n  document.getElementById('cashGFD').textContent = '~' + fmtMoneyClean(u.finFee);\n  const netCash = -cashReq;\n  document.getElementById('cashNet').textContent = (netCash >= 0 ? '+' : '') + fmtMoney(netCash);\n\n  updateReqLoanDisplay(hudMaxLoan);\n}\n\nfunction updateReqLoanDisplay(hudMaxLoan) {\n  const editable = document.querySelector('[data-edit=\"reqLoan\"]');\n  const valSpan = editable.querySelector('.edit-val');\n  if (state.reqLoan === null || state.reqLoan === '' || state.reqLoan === undefined) {\n    valSpan.innerHTML = '<span class=\"req-default-badge\">Max Loan</span>';\n    editable.classList.remove('is-modified');\n  } else {\n    const num = Number(state.reqLoan);\n    if (num >= hudMaxLoan) {\n      valSpan.innerHTML = fmtMoneyClean(num) + ' <span class=\"req-default-badge\">Ineffective</span>';\n    } else {\n      valSpan.textContent = fmtMoneyClean(num);\n    }\n  }\n}\n\nconst tooltipContent = {\n  ltv87: { title: '87% LTV Test', body: 'The standard LTV ceiling on a 223(f). HUD applies 87% to the appraised value \u2014 Market NOI divided by cap rate. This is one of five constraints; on a cash-out refinance, the 80% LTV floor in the fifth criterion usually governs instead. For affordable deals, 90% applies instead of 87%.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },\n  dscr: { title: '1.15x DSCR Constrained', body: 'HUD multiplies Debt Service NOI by 87% to get the maximum allowable annual debt service (P&I + MIP). Divide that by the loan constant \u2014 interest rate + 0.25% MIP + amortization rate \u2014 for the DSCR-constrained loan. In higher-rate environments DSCR bites first. For affordable deals, 90% applies instead of 87%.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },\n  stat: { title: 'Statutory Limit (270% HCP)', body: 'Per-unit dollar caps by bedroom count, adjusted by a uniform 270% High Cost Percentage, plus 100% of land value and 100% of Cost Not Attributable. Rarely the binding constraint outside very high-rent metros.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },\n  costrefi: { title: 'Greater of 80% LTV or Cost of Refinance', body: 'The fifth criterion is the greater of two figures: 80% of appraised value, or the total cost of getting the refinance done. Whichever is larger governs. When 80% LTV is larger, the deal produces cash-out \u2014 and 80% becomes a hard cap regardless of the 87% LTV test above.', link: 'https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage' },\n  rate: { title: 'Interest Rate', body: 'Rate as of the sizing date. Moves both the DSCR-constrained loan amount through the loan constant and the monthly payment. Below the LTV/DSCR crossover, further rate decreases stop adding proceeds.' },\n  cap: { title: 'Cap Rate', body: 'Market NOI \u00f7 cap rate = appraised value, which drives the LTV ceiling. A 25 bps cap rate move on $1.2M of NOI moves value by roughly $1M, which translates directly to proceeds through LTV. The third-party appraisal sets the cap rate; this is your assumption.' },\n  reqLoan: { title: 'Requested Loan Amount', body: 'The borrower can request a loan amount below the otherwise-binding HUD criterion. Useful when a sponsor wants lower leverage, a stronger DSCR cushion, or a smaller MIP base. By default, the loan sizes to the maximum supported by the four HUD criteria.' },\n  cashreq: { title: 'Cash Required at Closing', body: 'Total Uses minus the loan and the prepaid items. A positive number means the borrower brings cash to closing. A negative number \u2014 shown in parentheses \u2014 means cash flows to the borrower: this is cash-out. Existing replacement reserves transferred at closing count as a source, so transferring them in increases the cash-out by the same amount.' },\n  existingReserve: { title: 'Existing Replacement Reserve', body: 'Reserves already held on the existing loan that the borrower transfers into the new transaction at closing. It counts as a source of funds \u2014 every dollar transferred reduces the cash the borrower brings to closing, or on a cash-out deal, increases the cash-out by the same amount.' },\n  mip: { title: 'Mortgage Insurance Premium', body: 'MIP is required for all HUD multifamily insured mortgages. It is a fee charged by HUD to be a part of the program, and the funds allow HUD to insure the mortgage portfolio. The 0.25% amount is charged against the loan\\'s outstanding balance annually, and the first year is charged upfront (the \"Initial MIP\" on the Uses statement). The annual MIP is part of the loan constant in the DSCR calculation.' },\n  reserves: { title: 'Replacement Reserves', body: 'Annual reserve deposit funded from operations. HUD sets this based on the PCNA\\'s CapEx schedule, not a generic $250/unit estimate. Higher reserves reduce Debt Service NOI and tighten DSCR. A higher annual deposit can decrease your initial deposit (shown on the Uses statement) and vice versa.' },\n  repairs: { title: 'Repairs / PCNA', body: 'Repairs identified by the Project Capital Needs Assessment (PCNA). Critical and non-critical repairs are funded at closing through the loan. Large repair scopes push the deal into \"Heavy 223(f)\" territory with a longer timeline.' }\n};\n\nconst tooltip = document.getElementById('tooltip');\nlet activeTrigger = null;\nlet tooltipHideTimer = null;\nfunction clearHideTimer() { if (tooltipHideTimer) { clearTimeout(tooltipHideTimer); tooltipHideTimer = null; } }\nfunction showTooltip(target, key) {\n  clearHideTimer();\n  const data = tooltipContent[key]; if (!data) return;\n  let html = '<div class=\"tt-title\">' + data.title + '</div><div class=\"tt-body\">' + data.body + '</div>';\n  if (data.link) html += '<a class=\"tt-link\" href=\"' + data.link + '\" target=\"_blank\">Read the full piece \u2192</a>';\n  tooltip.innerHTML = html;\n  tooltip.classList.add('visible');\n  const rect = target.getBoundingClientRect();\n  const tipWidth = 320;\n  let left = rect.left + window.scrollX + rect.width / 2 - tipWidth / 2;\n  if (left < 16) left = 16;\n  if (left + tipWidth > window.innerWidth - 16) left = window.innerWidth - tipWidth - 16;\n  let top = rect.bottom + window.scrollY + 8;\n  if (rect.bottom + 220 > window.innerHeight) top = rect.top + window.scrollY - 8 - 220;\n  tooltip.style.left = left + 'px'; tooltip.style.top = top + 'px';\n  activeTrigger = target;\n}\nfunction scheduleHide() {\n  clearHideTimer();\n  tooltipHideTimer = setTimeout(() => { tooltip.classList.remove('visible'); activeTrigger = null; }, 250);\n}\ndocument.querySelectorAll('[data-tooltip]').forEach(el => {\n  el.addEventListener('mouseenter', () => showTooltip(el, el.dataset.tooltip));\n  el.addEventListener('mouseleave', () => scheduleHide());\n  el.addEventListener('click', e => { e.stopPropagation();\n    if (activeTrigger === el) { tooltip.classList.remove('visible'); activeTrigger = null; }\n    else { showTooltip(el, el.dataset.tooltip); }\n  });\n});\ntooltip.addEventListener('mouseenter', clearHideTimer);\ntooltip.addEventListener('mouseleave', scheduleHide);\n\nconst editor = document.getElementById('inlineEditor');\nconst ieInput = document.getElementById('ieInput');\nconst ieName = document.getElementById('ieName');\nconst ieHint = document.getElementById('ieHint');\nconst ieReset = document.getElementById('ieReset');\nconst ieApply = document.getElementById('ieApply');\nlet activeEditable = null;\nfunction parseMoney(str) { return Number(String(str).replace(/[$,()\\s]/g, '')) || 0; }\n\nfunction formatInputWithCommas(inputEl) {\n  const oldVal = inputEl.value;\n  const oldCursor = inputEl.selectionStart;\n  const oldDigitsBeforeCursor = oldVal.slice(0, oldCursor).replace(/[^0-9]/g, '').length;\n  const digits = oldVal.replace(/[^0-9]/g, '');\n  if (digits === '') { inputEl.value = ''; return; }\n  const formatted = Number(digits).toLocaleString();\n  inputEl.value = formatted;\n  let newCursor = 0, digitsSeen = 0;\n  for (let i = 0; i < formatted.length; i++) {\n    if (digitsSeen >= oldDigitsBeforeCursor) break;\n    if (/[0-9]/.test(formatted[i])) digitsSeen++;\n    newCursor = i + 1;\n  }\n  inputEl.setSelectionRange(newCursor, newCursor);\n}\n\nfunction currentHudMax() {\n  const rateDec = state.rate / 100;\n  const capDec = state.capRate / 100;\n  const f = getFactors();\n  const K = loanConstant(rateDec, deal.termMonths, deal.mipRate);\n  const dscrLoan = roundDown100((deal.debtServiceNOI * f.dscrFactor) / K);\n  const mktValue = roundDown100(deal.marketNOI / capDec);\n  const ltv87 = roundDown100(mktValue * f.ltvMax);\n  const ltv80 = roundDown100(mktValue * deal.ltvCashOutCap);\n  const initLoan = ltv80;\n  const appFee = initLoan * deal.appFeeRate;\n  const initMIP = initLoan * deal.initialMIPRate;\n  const finFee = initLoan * deal.financingFeeRate;\n  const gnma = gnmaPlacementFee(initLoan);\n  const costRefi = state.existingDebt + state.prepay + deal.initialReserveDeposit\n                 + state.repairs + appFee + initMIP + deal.inspectionFee\n                 + finFee + deal.processingFee + gnma + deal.centennialLegal\n                 + state.bLegal + deal.borrowerOrg + state.titleSurvey + deal.thirdPartyReports\n                 + deal.repairAssurance;\n  const fifthLimit = Math.max(ltv80, costRefi);\n  return Math.min(ltv87, dscrLoan, deal.statutoryLimit, fifthLimit);\n}\n\nfunction openEditor(el) {\n  activeEditable = el;\n  ieName.innerHTML = el.dataset.name;\n  ieHint.style.display = 'none';\n  ieHint.classList.remove('warn');\n  const key = el.dataset.edit;\n  const unit = el.dataset.unit;\n\n  if (key === 'reqLoan') {\n    ieHint.style.display = 'block';\n    if (state.reqLoan === null || state.reqLoan === '' || state.reqLoan === undefined) {\n      ieInput.value = '';\n      ieInput.placeholder = 'Leave blank for Max Loan';\n      ieHint.textContent = 'Leave blank to size to the maximum supported by HUD criteria. Enter an amount only if the borrower wants leverage below the otherwise-binding criterion.';\n    } else {\n      ieInput.value = Number(state.reqLoan).toLocaleString();\n      ieInput.placeholder = '';\n      ieHint.textContent = 'Enter a value below the binding HUD criterion to lower leverage. Leave blank or set to 0 to default to Max Loan.';\n    }\n  } else if (unit === '%') {\n    ieInput.value = el.dataset.value;\n    ieInput.placeholder = '';\n  } else {\n    ieInput.value = Number(el.dataset.value).toLocaleString();\n    ieInput.placeholder = '';\n  }\n\n  const rect = el.getBoundingClientRect();\n  let left = rect.right + window.scrollX - 300; if (left < 16) left = 16;\n  let top = rect.bottom + window.scrollY + 8;\n  if (rect.bottom + 260 > window.innerHeight) top = rect.top + window.scrollY - 260;\n  editor.style.left = left + 'px'; editor.style.top = top + 'px';\n  editor.classList.add('visible');\n  setTimeout(() => ieInput.focus(), 50);\n  if (ieInput.value) ieInput.select();\n}\nfunction closeEditor() { editor.classList.remove('visible'); activeEditable = null; }\n\nieInput.addEventListener('input', () => {\n  if (!activeEditable) return;\n  if (activeEditable.dataset.unit === '$') formatInputWithCommas(ieInput);\n});\n\nfunction applyEditor() {\n  if (!activeEditable) return;\n  const raw = ieInput.value.trim();\n  const unit = activeEditable.dataset.unit;\n  const key = activeEditable.dataset.edit;\n\n  if (key === 'reqLoan') {\n    if (raw === '' || parseMoney(raw) === 0) {\n      state.reqLoan = null;\n      activeEditable.dataset.value = '';\n      activeEditable.classList.remove('is-modified');\n    } else {\n      const newVal = parseMoney(raw);\n      const hudMax = currentHudMax();\n      if (newVal >= hudMax) {\n        ieHint.style.display = 'block';\n        ieHint.classList.add('warn');\n        ieHint.textContent = 'Requested Loan Amount is for when the Borrower wants a loan lower than the binding criterion. Your entry of ' + fmtMoneyClean(newVal) + ' is at or above the current HUD-binding max of ' + fmtMoneyClean(hudMax) + ', so it will not constrain the loan. Leave blank to default to Max Loan, or enter a lower number.';\n        state.reqLoan = newVal;\n        activeEditable.dataset.value = newVal;\n        activeEditable.classList.add('is-modified');\n        markScenarioModified();\n        recalculate();\n        toastUpdate('Requested loan above binding criterion \u2014 not constraining.');\n        return;\n      } else {\n        state.reqLoan = newVal;\n        activeEditable.dataset.value = newVal;\n        activeEditable.classList.add('is-modified');\n        markScenarioModified();\n      }\n    }\n    recalculate();\n    toastUpdate('Requested Loan Amount updated. Constraints recalculated.');\n    closeEditor();\n    checkScenarioState();\n    return;\n  }\n\n  let newVal;\n  if (unit === '%') {\n    newVal = Number(raw);\n    if (isNaN(newVal)) { closeEditor(); return; }\n    activeEditable.dataset.value = newVal;\n    activeEditable.querySelector('.edit-val').textContent = fmtPct(newVal);\n  } else {\n    newVal = parseMoney(raw);\n    activeEditable.dataset.value = newVal;\n    activeEditable.querySelector('.edit-val').textContent = fmtMoneyClean(newVal);\n  }\n  state[key] = newVal;\n  if (String(newVal) !== String(activeEditable.dataset.original)) {\n    activeEditable.classList.add('is-modified');\n    markScenarioModified();\n  } else {\n    activeEditable.classList.remove('is-modified');\n    checkScenarioState();\n  }\n  recalculate();\n  toastUpdate(activeEditable.dataset.name + ' updated. Constraints recalculated.');\n  closeEditor();\n}\n\nfunction resetSingle() {\n  if (!activeEditable) return;\n  const unit = activeEditable.dataset.unit;\n  const orig = activeEditable.dataset.original;\n  const key = activeEditable.dataset.edit;\n  activeEditable.dataset.value = orig;\n  if (key === 'reqLoan') {\n    state.reqLoan = orig === '' ? null : parseMoney(orig);\n  } else {\n    state[key] = unit === '%' ? Number(orig) : parseMoney(orig);\n    activeEditable.querySelector('.edit-val').textContent = unit === '%' ? fmtPct(orig) : fmtMoneyClean(parseMoney(orig));\n  }\n  activeEditable.classList.remove('is-modified');\n  recalculate();\n  checkScenarioState();\n  closeEditor();\n}\n\ndocument.querySelectorAll('.editable').forEach(el => {\n  el.addEventListener('click', e => { e.stopPropagation(); openEditor(el); });\n});\nieApply.addEventListener('click', applyEditor);\nieReset.addEventListener('click', resetSingle);\nieInput.addEventListener('keydown', e => { if (e.key === 'Enter') applyEditor(); if (e.key === 'Escape') closeEditor(); });\ndocument.addEventListener('click', e => { if (!editor.contains(e.target)) closeEditor(); });\n\nconst banner = document.getElementById('modifiedBanner');\nconst downloadBtn = document.getElementById('downloadBtn');\n\nfunction syncModifiedState() {\n  const isMod = document.querySelectorAll('.editable.is-modified').length > 0;\n  if (isMod) {\n    banner.classList.add('active');\n    document.body.classList.add('scenario-modified');\n    downloadBtn.textContent = 'Download PDF (Modified)';\n  } else {\n    banner.classList.remove('active');\n    document.body.classList.remove('scenario-modified');\n    downloadBtn.textContent = 'Download PDF';\n  }\n}\nfunction markScenarioModified() { syncModifiedState(); }\nfunction checkScenarioState() { syncModifiedState(); }\n\nfunction resetAllScenarios() {\n  document.querySelectorAll('.editable').forEach(el => {\n    const unit = el.dataset.unit;\n    const orig = el.dataset.original;\n    const key = el.dataset.edit;\n    el.dataset.value = orig;\n    el.classList.remove('is-modified');\n    if (key === 'reqLoan') {\n      state.reqLoan = orig === '' ? null : parseMoney(orig);\n    } else {\n      state[key] = unit === '%' ? Number(orig) : parseMoney(orig);\n      el.querySelector('.edit-val').textContent = unit === '%' ? fmtPct(orig) : fmtMoneyClean(parseMoney(orig));\n    }\n  });\n  syncModifiedState();\n  recalculate();\n}\n\nconst toast = document.getElementById('toast');\nconst toastBody = document.getElementById('toastBody');\nlet toastTimer;\nfunction toastUpdate(msg) {\n  toastBody.textContent = msg;\n  toast.classList.add('visible');\n  clearTimeout(toastTimer);\n  toastTimer = setTimeout(() => toast.classList.remove('visible'), 3500);\n}\n\n// Seed editable controls (value, original, displayed text) from the delivered state,\n// so the page is correct for any deal \u2014 not just the Arc defaults baked into the markup.\nfunction seedEditables() {\n  document.querySelectorAll('.editable').forEach(el => {\n    const key = el.dataset.edit;\n    const unit = el.dataset.unit;\n    const v = state[key];\n    if (key === 'reqLoan') {\n      const sv = (v === null || v === undefined || v === '') ? '' : String(v);\n      el.dataset.value = sv;\n      el.dataset.original = sv;\n      return; // .edit-val rendered by updateReqLoanDisplay() during recalculate\n    }\n    el.dataset.value = String(v);\n    el.dataset.original = String(v);\n    const valSpan = el.querySelector('.edit-val');\n    if (valSpan) valSpan.textContent = unit === '%' ? fmtPct(v) : fmtMoneyClean(v);\n  });\n}\n\n// Pipeline-controlled flags, injected by the renderer as window.__SIZING__.\n// { stale: bool, staleDate: 'Month D, YYYY', preview: bool }\nfunction applySizingFlags() {\n  const flags = (window.__SIZING__ || {});\n  if (flags.preview) {\n    document.body.classList.add('preview-mode');\n  }\n  if (flags.stale) {\n    const banner = document.getElementById('staleBanner');\n    const body = document.getElementById('staleBannerBody');\n    if (body) {\n      body.textContent = flags.staleDate\n        ? 'This sizing was prepared ' + flags.staleDate + '. Pricing has likely moved. Contact us for a refreshed sizing.'\n        : 'This sizing has not been refreshed recently. Pricing has likely moved. Contact us for a refreshed sizing.';\n    }\n    if (banner) banner.classList.add('active');\n  }\n}\n\nseedEditables();\napplySizingFlags();\nrecalculate();\n<\/script>\n\n</body>\n</html>\n";
+
+/**
+ * Server-side Export-tab parser for the Centennial sizing pipeline.
+ *
+ * This is a faithful port of the parser in publisher.html — same schema,
+ * same value coercions, same notes-continuation logic, same prefix-match
+ * fallback for Excel-for-Web (space-separated) pastes. Keep the two in sync:
+ * a change here is a change to the publish contract with Brian's Export tab.
+ */
+
+const SCHEMA = {
+  // DEAL IDENTITY
+  'property name': { key: 'propertyName', fmt: 'text', required: true },
+  'city': { key: 'city', fmt: 'text', required: true },
+  'state': { key: 'state', fmt: 'state', required: true },
+  'unit count': { key: 'units', fmt: 'int', required: true },
+  'transaction type': { key: 'transactionType', fmt: 'enum', enum: ['Refinance', 'Acquisition'], required: true },
+
+  // PROGRAM
+  'hud program': { key: 'program', fmt: 'enum', enum: ['223(f)'], required: true },
+  'deal type': { key: 'dealType', fmt: 'enum', enum: ['Market', 'Affordable'], required: true },
+  'sizing date': { key: 'sizingDate', fmt: 'date', required: true },
+
+  // NOI & VALUE
+  'effective income - value noi': { key: 'effIncomeValue', fmt: 'currency', required: true },
+  'effective income - debt svc noi': { key: 'effIncomeDS', fmt: 'currency', required: true },
+  'operating expenses - value noi': { key: 'opExValue', fmt: 'currency', required: true },
+  'operating expenses - debt svc noi': { key: 'opExDS', fmt: 'currency', required: true },
+  'replacement reserves - value noi': { key: 'reservesValue', fmt: 'currency', required: true },
+  'replacement reserves - debt svc noi': { key: 'reservesDS', fmt: 'currency', required: true },
+  'cap rate': { key: 'capRate', fmt: 'pctHuman', required: true },
+
+  // UNDERWRITING INPUTS
+  'interest rate': { key: 'rate', fmt: 'pctHuman', required: true },
+  'requested loan amount': { key: 'reqLoan', fmt: 'currencyOrBlank', required: false },
+  'existing replacement reserve': { key: 'existingReserve', fmt: 'currency', required: true },
+  'existing debt': { key: 'existingDebt', fmt: 'currency', required: true },
+  'prepayment penalty': { key: 'prepay', fmt: 'currency', required: true },
+  'repairs': { key: 'repairs', fmt: 'currency', required: true },
+  'borrower legal': { key: 'bLegal', fmt: 'currency', required: true },
+  'title & survey': { key: 'titleSurvey', fmt: 'currency', required: true },
+
+  // STATUTORY
+  'statutory limit': { key: 'statutoryLimit', fmt: 'currency', required: true },
+
+  // SOURCES & USES + RATES
+  'prepaid 3rd party reports': { key: 'prepaid3PR', fmt: 'currency', required: true },
+  'initial deposit to reserves': { key: 'initialReserveDeposit', fmt: 'currency', required: true },
+  'hud application fee rate': { key: 'appFeeRate', fmt: 'pctDecimal', required: true },
+  'hud initial mip rate': { key: 'initialMIPRate', fmt: 'pctDecimal', required: true },
+  'hud inspection fee': { key: 'inspectionFee', fmt: 'currency', required: true },
+  'financing fee rate': { key: 'financingFeeRate', fmt: 'pctDecimal', required: true },
+  'processing fee': { key: 'processingFee', fmt: 'currency', required: true },
+  'centennial legal': { key: 'centennialLegal', fmt: 'currency', required: true },
+  'borrower organizational': { key: 'borrowerOrg', fmt: 'currency', required: true },
+  '3rd party reports (total)': { key: 'thirdPartyReports', fmt: 'currency', required: true },
+  'repair completion assurance escrow': { key: 'repairAssurance', fmt: 'currency', required: true },
+  'annual mip rate': { key: 'mipRate', fmt: 'pctDecimal', required: true }
+};
+
+function normalizeLabel(s) {
+  return String(s == null ? '' : s)
+    .toLowerCase()
+    .replace(/[\u2013\u2014\u2212]/g, '-') // en/em dash, minus -> hyphen
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function parseNumberLoose(s) {
+  if (s === '' || s === null || s === undefined) return null;
+  let str = String(s).trim();
+  if (str === '') return null;
+  const negative = /^\(.*\)$/.test(str);
+  str = str.replace(/[$,()\s]/g, '').replace(/%/g, '');
+  if (str === '') return null;
+  const n = Number(str);
+  if (isNaN(n)) return null;
+  return negative ? -n : n;
+}
+
+function parseValue(rawVal, fmt, enumValues) {
+  if (rawVal === '' || rawVal === null || rawVal === undefined) {
+    return { value: null, error: null };
+  }
+  const str = String(rawVal).trim();
+  if (str === '') return { value: null, error: null };
+
+  switch (fmt) {
+    case 'text':
+      return { value: str, error: null };
+    case 'state': {
+      const s = str.toUpperCase();
+      if (!/^[A-Z]{2}$/.test(s)) return { value: null, error: 'Expected 2-letter state code, got "' + str + '"' };
+      return { value: s, error: null };
+    }
+    case 'int': {
+      const n = parseNumberLoose(str);
+      if (n === null) return { value: null, error: 'Expected integer, got "' + str + '"' };
+      if (!Number.isInteger(n)) return { value: Math.round(n), error: null };
+      return { value: n, error: null };
+    }
+    case 'currency': {
+      const n = parseNumberLoose(str);
+      if (n === null) return { value: null, error: 'Expected number, got "' + str + '"' };
+      return { value: n, error: null };
+    }
+    case 'currencyOrBlank': {
+      const n = parseNumberLoose(str);
+      if (n === null) return { value: null, error: null };
+      if (n === 0) return { value: null, error: null };
+      return { value: n, error: null };
+    }
+    case 'pctHuman': {
+      const n = parseNumberLoose(str);
+      if (n === null) return { value: null, error: 'Expected percent, got "' + str + '"' };
+      return { value: n, error: null };
+    }
+    case 'pctDecimal': {
+      const hasPercentSign = String(str).includes('%');
+      const n = parseNumberLoose(str);
+      if (n === null) return { value: null, error: 'Expected decimal percent, got "' + str + '"' };
+      return { value: hasPercentSign ? n / 100 : n, error: null };
+    }
+    case 'enum': {
+      const lower = str.toLowerCase();
+      const found = enumValues.find(v => v.toLowerCase() === lower);
+      if (!found) return { value: null, error: 'Expected one of ' + enumValues.join('/') + ', got "' + str + '"' };
+      return { value: found, error: null };
+    }
+    case 'date': {
+      const d = new Date(str);
+      if (!isNaN(d.getTime())) return { value: d.toISOString().slice(0, 10), error: null };
+      return { value: null, error: 'Could not parse date "' + str + '"' };
+    }
+    default:
+      return { value: str, error: null };
+  }
+}
+
+const SCHEMA_LABELS_BY_LENGTH = Object.keys(SCHEMA)
+  .sort((a, b) => b.length - a.length)
+  .map(k => ({ norm: k, schema: SCHEMA[k] }));
+
+function matchLabelPrefix(line) {
+  const normalized = normalizeLabel(line);
+  for (const entry of SCHEMA_LABELS_BY_LENGTH) {
+    if (normalized === entry.norm) {
+      return { matchedLabel: entry.norm, valueText: '', schema: entry.schema };
+    }
+    if (normalized.startsWith(entry.norm)) {
+      let prefixLen = 0;
+      for (let i = 1; i <= line.length; i++) {
+        const np = normalizeLabel(line.slice(0, i));
+        if (np === entry.norm) { prefixLen = i; break; }
+        if (np.length > entry.norm.length) break;
+      }
+      if (prefixLen > 0) {
+        return { matchedLabel: entry.norm, valueText: line.slice(prefixLen).trim(), schema: entry.schema };
+      }
+    }
+  }
+  return null;
+}
+
+function parseExportTab(text) {
+  const lines = String(text).split(/\r?\n/);
+  const results = {};
+  const errors = [];
+  const matchedLabels = new Set();
+  const notes = [];
+  let currentNote = null;
+
+  const hasTabs = String(text).includes('\t');
+  const parseMode = hasTabs ? 'tab' : 'prefix';
+
+  for (let lineIdx = 0; lineIdx < lines.length; lineIdx++) {
+    const line = lines[lineIdx];
+    let colA, colB, colC;
+
+    if (parseMode === 'tab') {
+      const cols = line.split('\t');
+      colA = (cols[0] || '').trim();
+      colB = (cols[1] || '').trim();
+      colC = (cols[2] || '').trim();
+    } else {
+      if (line.trim() === '') {
+        colA = ''; colB = ''; colC = '';
+      } else {
+        const m = matchLabelPrefix(line.trim());
+        if (m) {
+          let originalLabel = '';
+          const trimmed = line.trim();
+          for (let i = 1; i <= trimmed.length; i++) {
+            if (normalizeLabel(trimmed.slice(0, i)) === m.matchedLabel) { originalLabel = trimmed.slice(0, i); break; }
+          }
+          colA = originalLabel || m.matchedLabel;
+          colB = m.valueText;
+          colC = '';
+        } else {
+          colA = ''; colB = line.trim(); colC = '';
+        }
+      }
+    }
+
+    // Notes section: column A empty, B and/or C populated
+    if (colA === '' && (colB !== '' || colC !== '')) {
+      if (colB !== '' && colC === '') {
+        currentNote = { text: colB, continuations: [] };
+        notes.push(currentNote);
+      } else if (colB === '' && colC !== '') {
+        if (currentNote) {
+          currentNote.continuations.push(colC);
+        } else {
+          errors.push({ label: 'Notes (line ' + (lineIdx + 1) + ')', msg: 'Continuation has no parent note above it', raw: colC, severity: 'warn' });
+        }
+      } else if (colB !== '' && colC !== '') {
+        currentNote = { text: colB, continuations: [colC] };
+        notes.push(currentNote);
+      }
+      continue;
+    }
+
+    if (colA === '' && colB === '' && colC === '') {
+      currentNote = null;
+      continue;
+    }
+
+    const normLabel = normalizeLabel(colA);
+    const schemaEntry = SCHEMA[normLabel];
+    if (!schemaEntry) {
+      errors.push({ label: colA, msg: 'Unknown label (will be ignored)', raw: colB, severity: 'warn' });
+      continue;
+    }
+    matchedLabels.add(normLabel);
+    const parsed = parseValue(colB, schemaEntry.fmt, schemaEntry.enum);
+    if (parsed.error) {
+      errors.push({ label: colA, msg: parsed.error, raw: colB, severity: 'err' });
+      continue;
+    }
+    if (parsed.value === null && schemaEntry.required) {
+      errors.push({ label: colA, msg: 'Required field is empty', raw: '(blank)', severity: 'err' });
+      continue;
+    }
+    results[schemaEntry.key] = { value: parsed.value, raw: colB, label: colA };
+  }
+
+  for (const [normLabel, entry] of Object.entries(SCHEMA)) {
+    if (entry.required && !matchedLabels.has(normLabel)) {
+      errors.push({ label: normLabel, msg: 'Required label not found in pasted content', raw: '', severity: 'err' });
+    }
+  }
+
+  return { results, errors, notes, parseMode };
+}
+
+/** True when the parse has no error-severity entries. */
+function isValid(parsed) {
+  return !parsed.errors.some(e => e.severity === 'err');
+}
+
+/**
+ * Slug from property name + city, e.g. "arc-apartment-homes-great-falls".
+ * Conflict suffixing (-a, -b) is the storage layer's job; this is the base.
+ */
+function slugify() {
+  const parts = Array.from(arguments).filter(Boolean).join(' ');
+  return parts
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-');
+}
+
+
+
+function escapeHTML(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function prettyDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso + 'T00:00:00');
+  if (isNaN(d.getTime())) return '';
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+
+/**
+ * Render a complete, standalone sizing page from a parsed Export tab.
+ *
+ * @param {object} parsed   output of parser.parseExportTab()
+ * @param {object} [opts]
+ * @param {boolean} [opts.preview]  render the internal-preview watermark
+ * @param {boolean} [opts.stale]    render the gray soft-expiry banner
+ * @param {string}  [opts.template] override chassis HTML (defaults to chassis-template.html)
+ * @returns {string} full HTML document
+ */
+function renderSizingPage(parsed, opts) {
+  opts = opts || {};
+  let html = opts.template != null ? opts.template : CHASSIS_TEMPLATE;
+
+  const r = parsed.results;
+  const get = (key, fallback) => (r[key] ? r[key].value : (fallback === undefined ? null : fallback));
+
+  const propertyName = get('propertyName', 'Unnamed Property');
+  const city = get('city', '');
+  const state = get('state', '');
+  const units = get('units', 1);
+  const txType = get('transactionType', 'Refinance');
+  const dealType = get('dealType', 'Market');
+  const sizingDate = get('sizingDate');
+  const datePretty = prettyDate(sizingDate);
+
+  const reqLoan = get('reqLoan');
+  const flags = {
+    preview: !!opts.preview,
+    stale: !!opts.stale,
+    staleDate: datePretty
+  };
+
+  // Pipeline flags ride immediately ahead of the (replaced) deal config, in the same script.
+  const dealJS = `window.__SIZING__ = ${JSON.stringify(flags)};
+const deal = {
+  units: ${units},
+  marketNOI: ${get('effIncomeValue', 0) - get('opExValue', 0) - get('reservesValue', 0)},
+  debtServiceNOI: ${get('effIncomeDS', 0) - get('opExDS', 0) - get('reservesDS', 0)},
+  statutoryLimit: ${get('statutoryLimit', 0)},
+  ltvMaxMarket: 0.87, ltvMaxAffordable: 0.90,
+  ltvCashOutCap: 0.80,
+  dscrFactorMarket: 0.87, dscrFactorAffordable: 0.90,
+  dscrLabelMarket: '1.15x DSCR Constrained', dscrLabelAffordable: '1.11x DSCR Constrained',
+  termMonths: 420,
+  mipRate: ${get('mipRate', 0.0025)},
+  initialMIPRate: ${get('initialMIPRate', 0.0025)},
+  appFeeRate: ${get('appFeeRate', 0.0030)},
+  financingFeeRate: ${get('financingFeeRate', 0.0050)},
+  prepaid3PR: ${get('prepaid3PR', 0)},
+  initialReserveDeposit: ${get('initialReserveDeposit', 0)},
+  inspectionFee: ${get('inspectionFee', 0)},
+  centennialLegal: ${get('centennialLegal', 0)},
+  thirdPartyReports: ${get('thirdPartyReports', 0)},
+  repairAssurance: ${get('repairAssurance', 0)},
+  processingFee: ${get('processingFee', 0)},
+  borrowerOrg: ${get('borrowerOrg', 0)},
+  effIncomeValue: ${get('effIncomeValue', 0)},
+  effIncomeDS: ${get('effIncomeDS', 0)},
+  opExValue: ${get('opExValue', 0)},
+  opExDS: ${get('opExDS', 0)},
+  reservesValue: ${get('reservesValue', 0)},
+  reservesDS: ${get('reservesDS', 0)},
+  delivered: {
+    dealType: ${JSON.stringify(dealType)},
+    rate: ${get('rate', 0)},
+    capRate: ${get('capRate', 0)},
+    reqLoan: ${reqLoan === null || reqLoan === undefined ? 'null' : reqLoan},
+    existingReserve: ${get('existingReserve', 0)},
+    existingDebt: ${get('existingDebt', 0)},
+    prepay: ${get('prepay', 0)},
+    repairs: ${get('repairs', 0)},
+    bLegal: ${get('bLegal', 0)},
+    titleSurvey: ${get('titleSurvey', 0)}
+  }
+};`;
+
+  html = html.replace(/const deal = \{[\s\S]*?\n\};/, () => dealJS);
+
+  html = html.replace(/<title>[^<]*<\/title>/,
+    `<title>${escapeHTML(propertyName)} — 223(f) Sizing · Centennial Mortgage</title>`);
+  html = html.replace(/<div class="property-name">[^<]*<\/div>/,
+    `<div class="property-name">${escapeHTML(propertyName)}</div>`);
+  html = html.replace(/Great Falls, MT <span class="dot"><\/span> 216 Units/,
+    `${escapeHTML(city)}, ${escapeHTML(state)} <span class="dot"></span> ${units} Units`);
+  html = html.replace(/<span class="dot"><\/span> Refinance/,
+    `<span class="dot"></span> ${escapeHTML(txType)}`);
+
+  if (datePretty) {
+    html = html.replace(/Prepared May 27, 2026/g, `Prepared ${datePretty}`);
+  }
+
+  const notesHTML = parsed.notes.map(n => {
+    let li = `<li>${escapeHTML(n.text)}`;
+    if (n.continuations.length > 0) {
+      li += '<div style="padding-left:14px; margin-top:4px;">';
+      n.continuations.forEach(c => { li += escapeHTML(c) + '<br>'; });
+      li += '</div>';
+    }
+    return li + '</li>';
+  }).join('');
+  html = html.replace(/<ul>\s*<li>Assumes[\s\S]*?<\/ul>/, () => `<ul>${notesHTML}</ul>`);
+
+  return html;
+}
+
+/**
+ * Generates the email snippet Brian/Wim paste into Outlook when a sizing is
+ * published. It is intentionally minimal: a single button linking to the live
+ * sizing page. The person writes the surrounding email (greeting, deal context,
+ * sign-off) themselves, so the snippet stays out of the way and reads like a
+ * person sharing a link rather than a marketing blast.
+ *
+ * FONT: email clients don't load web fonts (Catamaran), so the button text uses
+ * the recipient's native UI font — Segoe UI on Windows/New Outlook, San Francisco
+ * on Mac, Roboto on Android — which matches the Publisher preview.
+ *
+ * OUTLOOK NOTES: right-angle flat button only (no radius/gradient/shadow — both
+ * the brand and Outlook forbid them). Techniques chosen to survive New Outlook's
+ * paste sanitizer: bgcolor attribute for the fill, an inner <span> carrying the
+ * text color + no-underline (Outlook overrides color on <a> but respects it on a
+ * child span), and a 1px border via the td for the keyline style.
+ */
+
+const NAVY = '#004e72';
+const NAVY_DEEP = '#002a3d';
+const ORANGE = '#f98e2b';
+const WHITE = '#ffffff';
+const FONT = "-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// Outlook-safe flat button. style: 'orange' | 'navy' | 'keyline'
+function buildButton(url, label, style) {
+  const href = esc(url || '#');
+  const text = esc(label);
+
+  let fill, textColor, border;
+  if (style === 'navy') {
+    fill = NAVY; textColor = WHITE; border = '';
+  } else if (style === 'keyline') {
+    fill = ORANGE; textColor = NAVY_DEEP; border = `border:1px solid ${NAVY_DEEP};`;
+  } else { // 'orange' (default)
+    fill = ORANGE; textColor = NAVY_DEEP; border = '';
+  }
+
+  // Outlook's compose paste clamps font-size on links to its own default and
+  // collapses letter-spacing, which made earlier versions render tiny. Tested fix
+  // (Option A): carry typography on the TABLE CELL, drop letter-spacing entirely,
+  // keep link styling minimal. This renders bold, full-size, and consistent on
+  // paste into New Outlook. bgcolor on the td keeps the fill; align="center"
+  // centers the label; mso-padding-alt gives Outlook the padding it understands.
+  const tdStyle = `background:${fill};${border}padding:16px 44px;`
+    + `font-family:${FONT};font-size:16pt;font-weight:bold;color:${textColor};`
+    + `mso-padding-alt:16px 44px;`;
+  const aStyle = `color:${textColor};text-decoration:none;font-size:16pt;font-weight:bold;`;
+
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">`
+    + `<tr><td bgcolor="${fill}" align="center" style="${tdStyle}">`
+    + `<a href="${href}" style="${aStyle}">${text}&nbsp;&rarr;</a>`
+    + `</td></tr></table>`;
+}
+
+/**
+ * @param {object} parsed  parser.parseExportTab() output
+ * @param {object} terms   computed headline figures (unused in button-only mode;
+ *                         kept in the signature so callers don't change)
+ * @param {object} opts    { url, buttonStyle='orange', label='View the Sizing' }
+ * @returns {{subject:string, html:string}}
+ *          `subject` is a suggested subject line (not part of the pasted HTML).
+ *          `html` is the snippet to paste into Outlook.
+ */
+function buildEmailSnippet(parsed, terms, opts) {
+  opts = opts || {};
+  const r = parsed.results;
+  const v = (k) => (r[k] ? r[k].value : '');
+
+  const propertyName = v('propertyName') || 'your property';
+  const city = v('city');
+  const subject = `223(f) sizing on ${propertyName}${city ? ' in ' + city : ''}`;
+
+  const label = opts.label || 'View the Sizing';
+  const button = buildButton(opts.url, label, opts.buttonStyle || 'orange');
+
+  const html = `<div style="font-family:${FONT};">${button}</div>`;
+
+  return { subject, html };
+}
+
+
+function localPublish(paste, preview) {
+  const parsed = parseExportTab(paste);
+  if (!isValid(parsed)) { const errs=parsed.errors.filter(e=>e.severity==='err'); const err=new Error('validation'); err.errors=errs; throw err; }
+  const v = k => parsed.results[k] ? parsed.results[k].value : '';
+  const base = slugify(v('propertyName'), v('city'), v('state'));
+  const slug = preview ? base + '-preview' : base;
+  const url = 'https://sizings.roachlorenz.com/' + slug;
+  const page = renderSizingPage(parsed, { preview: preview, stale: false, template: CHASSIS_TEMPLATE });
+  const snippet = buildEmailSnippet(parsed, null, { url: url, buttonStyle: 'orange' });
+  return { slug, url, email: snippet.html, emailSubject: snippet.subject, page };
+}
+
+</script>
+</body>
+</html>

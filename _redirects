@@ -1,3 +1,32 @@
+# ============================================================================
+# Sizings subdomain rewrites — sizings.roachlorenz.com → /s/<slug>/
+# ----------------------------------------------------------------------------
+# Netlify supports full-URL "from" matching for host-aware rewrites. This rule
+# runs on the sizings subdomain only. `200!` forces the rewrite, and rule
+# processing stops on a match — so any /s/* block rule below is NEVER reached
+# when the host is sizings.roachlorenz.com.
+https://sizings.roachlorenz.com/*  /s/:splat  200!
+
+# ============================================================================
+# Apex / everywhere-else: hide borrower content paths.
+# ----------------------------------------------------------------------------
+# Borrower sizing pages live at /s/<slug>/ on disk but must ONLY be served on
+# the sizings subdomain (confidential deal terms). The host-scoped rewrite
+# above catches the subdomain first; here we hard-404 /s/* on every other host
+# the site responds to — apex, www, *.netlify.app default subdomain, deploy
+# previews, anything not explicitly whitelisted by a rule above.
+/s/*          /404.html  404!
+
+# /data/<slug>.json holds borrower records — never public on any host.
+# /sizings/ is the pipeline source folder — code, samples, test pastes.
+# /netlify/ tidies the source path; Netlify functions are served from /.netlify/.
+/data/*       /404.html  404!
+/sizings/*    /404.html  404!
+/netlify/*    /404.html  404!
+
+# ============================================================================
+# Marketing site — legacy URL → canonical /resources/ redirects (unchanged).
+# ============================================================================
 /whitepaper-bspra                    /resources/hud-221d4-bspra/             301
 /whitepaper-bspra.html               /resources/hud-221d4-bspra/             301
 /whitepaper-221d4-timeline           /resources/hud-221d4-timeline/           301
