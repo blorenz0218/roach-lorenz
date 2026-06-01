@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    Netlify Identity token forwarder. Identity invite, recovery, confirmation,
-    and email-change emails land on the apex (#token=...) but the Identity
-    widget only loads on /publisher/. This synchronous redirect catches those
-    fragments here and forwards to /publisher/ carrying the hash intact, so
-    the widget on that page opens the right modal automatically.
-    Runs before GA on purpose — these are transactional URLs, not page views.
-  -->
-  <script>
-    (function () {
-      var h = window.location.hash;
-      if (h && /^#(invite_token|recovery_token|confirmation_token|email_change_token)=/.test(h)) {
-        window.location.replace('/publisher/' + h);
-      }
-    })();
-  </script>
-
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3Y2SPVQSK"></script>
   <script>
