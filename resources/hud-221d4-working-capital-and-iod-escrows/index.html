@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3Y2SPVQSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H3Y2SPVQSK');
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HUD 221(d)(4) Working Capital &amp; IOD Escrows</title>
+  <meta name="description" content="How HUD sizes, funds, and releases the working capital and initial operating deficit (IOD) escrows on a 221(d)(4) ground-up deal, and when the money returns."/>
+  <meta name="keywords" content="HUD 221d4 working capital escrow, initial operating deficit escrow, HUD IOD escrow, HUD 221(d)(4) escrow requirements, non-mortgageable HUD costs, working capital escrow 4 percent, HUD operating deficit reserve, HUD-92412M, HUD-92476a-M, MAP Guide 8.14, Centennial Mortgage"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="Wim Roach and Brian Lorenz"/>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://roachlorenz.com/resources/hud-221d4-working-capital-and-iod-escrows"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://roachlorenz.com/resources/hud-221d4-working-capital-and-iod-escrows"/>
+  <meta property="og:title" content="HUD 221(d)(4) Working Capital &amp; IOD Escrows"/>
+  <meta property="og:description" content="How HUD sizes, funds, and releases the working capital and initial operating deficit (IOD) escrows on a 221(d)(4) ground-up deal, and when the money returns."/>
+  <meta property="og:site_name" content="Wim Roach &amp; Brian Lorenz"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:image" content="https://roachlorenz.com/assets/og-221d4-escrows.png"/>
+  <meta property="og:image:alt" content="HUD 221(d)(4) Working Capital &amp; IOD Escrows — Wim Roach &amp; Brian Lorenz"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="article:published_time" content="2026-06-01T00:00:00Z"/>
+  <meta property="article:modified_time" content="2026-06-01T00:00:00Z"/>
+  <meta property="article:author" content="Wim Roach"/>
+  <meta property="article:section" content="HUD/FHA Multifamily Financing"/>
+  <meta property="article:tag" content="221(d)(4) New Construction"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="HUD 221(d)(4) Working Capital &amp; IOD Escrows"/>
+  <meta name="twitter:description" content="How HUD sizes, funds, and releases the working capital and initial operating deficit (IOD) escrows on a 221(d)(4) ground-up deal."/>
+  <meta name="twitter:image" content="https://roachlorenz.com/assets/og-221d4-escrows.png"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "HUD 221(d)(4) Working Capital and Initial Operating Deficit (IOD) Escrows",
+    "description": "How HUD sizes, funds, and releases the working capital and initial operating deficit (IOD) escrows on a 221(d)(4) new construction loan — the two non-mortgageable escrows on a ground-up deal.",
+    "image": "https://roachlorenz.com/assets/og-221d4-escrows.png",
+    "author": [
+      { "@type": "Person", "name": "Wim Roach", "jobTitle": "Vice President" },
+      { "@type": "Person", "name": "Brian Lorenz", "jobTitle": "Vice President" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Wim Roach & Brian Lorenz — HUD/FHA Multifamily Origination",
+      "url": "https://roachlorenz.com"
+    },
+    "datePublished": "2026-06-01",
+    "dateModified": "2026-06-01",
+    "mainEntityOfPage": "https://roachlorenz.com/resources/hud-221d4-working-capital-and-iod-escrows",
+    "about": "HUD 221(d)(4) working capital escrow and initial operating deficit escrow"
+  }
+  </script>
+
+  <!-- JSON-LD: HowTo (IOD calculation) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How HUD sizes a 221(d)(4) initial operating deficit",
+    "description": "HUD sizes the initial operating deficit as the greater of three amounts.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "Appraisal and underwriting amount",
+        "text": "A month-by-month cash flow estimate that accounts for when buildings come online, when P&I begins, reduced operating expenses during lease-up, and the appraiser's and market study's monthly absorption estimates. The underwriter sums the cumulative cash flow loss to get the cash needed to cover it."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "3% of the mortgage amount",
+        "text": "A flat backstop set by HUD. Many deals underwrite right to this floor."
+      },
+      {
+        "@type": "HowToStep",
+        "name": "Four to six months of debt service",
+        "text": "Four months of debt service (principal, interest, and MIP) for a garden apartment, or six months for an elevator building. On loans above $75 million HUD raises this to a 12-month floor."
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are the 221(d)(4) working capital and IOD escrows mortgageable?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Both the working capital escrow and the initial operating deficit escrow are non-mortgageable. They belong in the development budget but never enter the replacement cost basis the loan is sized against. The borrower funds both at initial closing with cash or a letter of credit, and the unused portions are returned." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much is the working capital escrow on a 221(d)(4)?",
+        "acceptedAnswer": { "@type": "Answer", "text": "For new construction the working capital escrow is 4% of the mortgage amount. Half of it — 2% — is a construction contingency for cost overruns and approved change orders; the other 2% covers excess soft costs and the cost of putting the project into operation. For substantial rehabilitation the escrow is 2%." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the initial operating deficit (IOD) escrow calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The IOD is the greater of three numbers: the amount the appraisal and underwriting determine is appropriate, 3% of the mortgage amount, or 4 months of debt service (P&I plus MIP) for a garden apartment / 6 months for an elevator building. The appraiser's amount is built from break-even occupancy, the absorption rate, and the cumulative monthly shortfall across the lease-up period." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can the working capital and IOD escrows be funded with a letter of credit?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Both escrows can be funded with cash or an unconditional, irrevocable letter of credit at initial closing. They can also be funded from excess mortgage proceeds or excess land equity where those are available." }
+      },
+      {
+        "@type": "Question",
+        "name": "When are the 221(d)(4) escrows refunded?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Any unused construction contingency portion of the working capital escrow is refunded at Final Endorsement. The remaining working capital is released at the later of 12 months after Final Endorsement or six consecutive months of sustaining occupancy. The IOD is released after six consecutive months of sustaining occupancy. Sustaining occupancy is a 1.0 DSCR on all project income." }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body { font-family: 'DM Sans', sans-serif; background: #0b1829; color: #e2ddd4; -webkit-font-smoothing: antialiased; overflow-x: hidden; max-width: 100vw; }
+    :root {
+      --navy: #0b1829; --navy-mid: #102035; --navy-light: #162d47; --navy-card: #0f2338;
+      --gold: #c9a84c; --gold-light: #e2c070; --gold-dim: rgba(201,168,76,0.12); --gold-border: rgba(201,168,76,0.22);
+      --text: #e2ddd4; --text-muted: #7d97b0; --text-soft: #a8bccf;
+    }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(11,24,41,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gold-border); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: 0.02em; }
+    .nav-brand span { color: var(--gold); }
+    .nav-back { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
+    .nav-back:hover { color: var(--gold); }
+    .nav-back::before { content: '←'; font-size: 13px; }
+    .nav-cta { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold); border: none; padding: 10px 20px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--gold-light); }
+    @media (max-width: 600px) { .nav-inner { padding: 0 20px; } .nav-cta { display: none; } }
+
+    /* PAGE WRAPPER */
+    .page-wrapper { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 600px) { .page-wrapper { padding: 0 16px; } }
+    @media (max-width: 380px) { .page-wrapper { padding: 0 12px; } }
+
+    /* COVER */
+    .cover { padding: 120px 0 80px; border-bottom: 1px solid var(--gold-border); position: relative; overflow: hidden; }
+    @media (max-width: 600px) { .cover { padding: 96px 0 56px; } }
+    .cover::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,168,76,0.018) 60px, rgba(201,168,76,0.018) 61px); pointer-events: none; }
+    .cover::after { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 65%); pointer-events: none; }
+    .cover-inner { position: relative; z-index: 1; }
+
+    .cover-series { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; background: var(--gold-dim); border: 1px solid var(--gold-border); padding: 8px 16px; max-width: 100%; word-break: break-word; }
+    .cover-series-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+
+    .cover h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 700; line-height: 1.1; color: var(--text); max-width: 700px; margin-bottom: 10px; }
+    .cover h1 em { font-style: italic; color: var(--gold); }
+    .cover-subtitle { font-family: 'Playfair Display', serif; font-size: clamp(15px, 2vw, 19px); font-weight: 400; font-style: italic; color: var(--text-muted); margin-bottom: 32px; }
+    .cover-rule { width: 56px; height: 2px; background: var(--gold); margin-bottom: 28px; }
+    .cover-lede { font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--text-soft); max-width: 660px; margin-bottom: 40px; }
+
+    .cover-meta { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .cover-authors { display: flex; gap: 20px; flex-wrap: wrap; }
+    .cover-author { display: flex; align-items: center; gap: 10px; }
+    .author-initial { width: 36px; height: 36px; border-radius: 50%; background: var(--navy-light); border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+    .author-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .author-role { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+    .cover-divider { width: 1px; height: 36px; background: var(--gold-border); }
+    .cover-pub { font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+
+    /* LAYOUT */
+    .doc-layout { display: grid; grid-template-columns: 1fr 260px; gap: 56px; padding: 64px 0 80px; align-items: start; }
+    @media (max-width: 820px) { .doc-layout { grid-template-columns: 1fr; } .doc-sidebar { display: none; } }
+    @media (max-width: 600px) { .doc-layout { padding: 40px 0 60px; gap: 32px; } }
+    .doc-layout > * { min-width: 0; }
+
+    /* SIDEBAR */
+    .doc-sidebar { position: sticky; top: 88px; }
+    .sidebar-box { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 24px; margin-bottom: 20px; position: relative; }
+    .sidebar-box::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .sidebar-label { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+    .toc-list li a { display: flex; align-items: baseline; gap: 8px; font-size: 12px; color: var(--text-muted); text-decoration: none; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04); transition: color 0.2s; line-height: 1.4; }
+    .toc-list li:last-child a { border-bottom: none; }
+    .toc-list li a:hover { color: var(--gold); }
+    .toc-num { font-family: 'Playfair Display', serif; font-size: 11px; color: var(--gold-border); flex-shrink: 0; }
+    .sidebar-stat { display: flex; flex-direction: column; gap: 4px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .sidebar-stat:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-stat-val { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--gold); }
+    .sidebar-stat-label { font-size: 11px; color: var(--text-muted); line-height: 1.4; }
+    .sidebar-cta { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold); text-align: center; padding: 14px; text-decoration: none; transition: background 0.2s; }
+    .sidebar-cta:hover { background: var(--gold-light); }
+
+    /* BODY COPY */
+    .doc-body { min-width: 0; width: 100%; }
+    .intro-graf { font-size: 17px; font-weight: 300; line-height: 1.8; color: var(--text-soft); margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--gold-border); overflow-wrap: break-word; word-break: break-word; }
+    .intro-graf.intro-graf-plain { margin-bottom: 20px; padding-bottom: 0; border-bottom: none; }
+    .intro-graf strong { color: var(--text); font-weight: 500; }
+    @media (max-width: 600px) { .intro-graf { font-size: 15px; } }
+
+    /* Section blocks */
+    .section-block { margin-bottom: 64px; padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.06); scroll-margin-top: 88px; min-width: 0; width: 100%; }
+    .section-block:last-of-type { border-bottom: none; }
+
+    .section-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 24px; min-width: 0; }
+    .section-number { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; color: var(--gold-border); line-height: 1; flex-shrink: 0; padding-top: 2px; }
+    @media (max-width: 500px) { .section-number { font-size: 36px; } .section-header { gap: 14px; } }
+    .section-header-text { min-width: 0; }
+    .section-eyebrow { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .section-title, h2.section-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: var(--text); line-height: 1.2; }
+    .section-title em, h2.section-title em { font-style: italic; color: var(--gold); }
+
+    .section-block p { font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--text-soft); margin-bottom: 16px; overflow-wrap: break-word; word-break: break-word; }
+    .section-block p:last-child { margin-bottom: 0; }
+    .section-block p strong { color: var(--text); font-weight: 500; }
+
+    /* Callout */
+    .callout { background: var(--navy-card); border: 1px solid var(--gold-border); border-left: 3px solid var(--gold); padding: 20px 24px; margin: 24px 0; }
+    .callout-label { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .callout p { font-size: 13px !important; font-weight: 400 !important; line-height: 1.65 !important; color: var(--text-muted) !important; margin-bottom: 0 !important; }
+    .callout p strong { color: var(--text) !important; font-weight: 500 !important; }
+
+    /* Warning box */
+    .warning-box { background: rgba(201,168,76,0.05); border: 1px solid var(--gold-border); padding: 20px 24px; margin: 24px 0; display: flex; gap: 14px; align-items: flex-start; }
+    .warning-icon { font-size: 16px; flex-shrink: 0; padding-top: 1px; }
+    .warning-box p { font-size: 13px !important; margin-bottom: 0 !important; }
+
+    /* Timeline */
+    .timeline { margin: 28px 0; display: flex; flex-direction: column; gap: 0; }
+    .timeline-item { display: grid; grid-template-columns: 80px 1fr; gap: 0; position: relative; }
+    .timeline-item:not(:last-child) .timeline-line { content: ''; position: absolute; top: 36px; left: 27px; bottom: -16px; width: 1px; background: var(--gold-border); z-index: 0; }
+    .timeline-month { display: flex; flex-direction: column; align-items: center; padding-top: 6px; position: relative; z-index: 1; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 2px solid var(--navy); flex-shrink: 0; }
+    .timeline-month-label { font-family: 'Playfair Display', serif; font-size: 9px; font-weight: 700; color: var(--gold); letter-spacing: 0.06em; margin-top: 6px; text-transform: uppercase; text-align: center; line-height: 1.3; }
+    .timeline-connector { width: 1px; flex: 1; background: var(--gold-border); margin-top: 4px; }
+    .timeline-content { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 18px 20px; margin-bottom: 12px; margin-left: 12px; position: relative; min-width: 0; }
+    .timeline-content::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .timeline-phase { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+    .timeline-heading { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.3; }
+    .timeline-content p { font-size: 12.5px !important; font-weight: 300 !important; line-height: 1.7 !important; color: var(--text-soft) !important; margin-bottom: 0 !important; overflow-wrap: break-word !important; word-break: break-word !important; }
+    .timeline-content p + p { margin-top: 10px !important; }
+    .timeline-content p strong { color: var(--text) !important; font-weight: 500 !important; }
+    .timeline-hud-review { border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.05); }
+    @media (max-width: 500px) {
+      .timeline-item { grid-template-columns: 60px 1fr; }
+      .timeline-month-label { font-size: 8px; letter-spacing: 0; }
+      .timeline-content { padding: 14px 14px; margin-left: 8px; }
+      .timeline-heading { font-size: 13px; }
+    }
+
+    /* Spec table */
+    .spec-table-wrap { overflow-x: auto; margin: 28px 0; -webkit-overflow-scrolling: touch; }
+    .spec-table { width: 100%; min-width: 420px; border-collapse: collapse; font-size: 13px; }
+    .spec-table th { font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); background: var(--navy-card); padding: 12px 16px; text-align: left; border-bottom: 1.5px solid var(--gold); white-space: nowrap; }
+    .spec-table td { padding: 11px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-soft); font-weight: 300; line-height: 1.5; vertical-align: top; }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-table tr:hover td { background: rgba(255,255,255,0.015); }
+    .td-label { color: var(--text); font-weight: 500; white-space: nowrap; }
+    .td-val { color: var(--gold); font-weight: 500; }
+
+    /* Check list */
+    .check-list { list-style: none; margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
+    .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; font-weight: 300; line-height: 1.6; color: var(--text-soft); }
+    .check-list li::before { content: '→'; color: var(--gold); font-size: 12px; flex-shrink: 0; padding-top: 1px; }
+    .check-list li strong { color: var(--text); font-weight: 500; }
+
+    /* Closing */
+    .closing { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 40px 36px; position: relative; overflow: hidden; margin-top: 56px; }
+    .closing::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .closing h2 { font-family: 'Playfair Display', serif; font-size: clamp(20px, 2.5vw, 26px); font-weight: 700; color: var(--text); margin-bottom: 16px; }
+    .closing h2 em { font-style: italic; color: var(--gold); }
+    .closing p { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--text-soft); margin-bottom: 24px; max-width: 600px; }
+    .closing-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--navy); background: var(--gold); border: none; padding: 14px 28px; cursor: pointer; text-decoration: none; display: inline-block; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--gold-light); }
+    .btn-outline { font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); background: transparent; border: 1px solid var(--gold-border); padding: 14px 28px; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* FOOTER */
+    footer { background: var(--navy); border-top: 1px solid var(--gold-border); padding: 40px 0 28px; }
+    .footer-inner { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--gold-border); flex-wrap: wrap; gap: 24px; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+    .footer-brand span { color: var(--gold); }
+    .footer-tagline { font-size: 12px; color: var(--text-muted); font-style: italic; margin-top: 4px; }
+    .footer-links { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; align-items: center; }
+    .footer-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-disclaimer { font-size: 11px; line-height: 1.7; color: var(--text-muted); font-style: italic; opacity: 0.7; }
+    @media (max-width: 600px) { .footer-inner { padding: 0 16px; } .footer-top { flex-direction: column; } }
+    @media (max-width: 500px) { .closing { padding: 28px 20px; } }
+
+    @media print {
+      nav { display: none !important; }
+      body { background: white; color: #1a1a1a; }
+      .cover, .page-wrapper { margin-top: 0 !important; }
+      .doc-layout { grid-template-columns: 1fr !important; }
+      .doc-sidebar { display: none !important; }
+      :root { --navy: white; --navy-mid: #f4f4f4; --navy-card: #f8f8f8; --text: #111; --text-soft: #3a3a3a; --text-muted: #666; --gold: #8a6820; --gold-border: rgba(138,104,32,0.3); }
+    }
+
+    /* Entrance animation */
+    .cover-series { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
+    .cover-inner > h1 { opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+    .cover-lede { opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
+    .cover-meta { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://roachlorenz.com/" class="nav-brand">Wim Roach <span>&amp;</span> Brian Lorenz</a>
+    <a href="https://roachlorenz.com/#resources" class="nav-back">All Resources</a>
+    <a href="https://roachlorenz.com/#contact" class="nav-cta">Start a Deal</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<div class="page-wrapper">
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-series">
+        <div class="cover-series-dot"></div>
+        Wim Roach &amp; Brian Lorenz — HUD/FHA Practitioner Series
+      </div>
+      <h1>The Working Capital and IOD Escrows on a <em>221(d)(4)</em></h1>
+      <div class="cover-subtitle">The Two Non-Mortgageable Escrows You Bring to a Ground-Up Closing</div>
+      <div class="cover-rule"></div>
+      <p class="cover-lede">Every 221(d)(4) carries two escrows that sit outside the mortgage: a working capital escrow and an initial operating deficit escrow. Sponsors coming from the conventional construction world expect a contingency line inside the loan and an interest reserve funded from loan proceeds. HUD handles both differently, and the difference lands as cash — or a letter of credit — the borrower brings at initial closing on top of the equity already in the deal. This paper covers what each escrow is, how we size them, and when the money comes back.</p>
+      <div class="cover-meta">
+        <div class="cover-authors">
+          <div class="cover-author">
+            <div class="author-initial">W</div>
+            <div class="author-info">
+              <div class="author-name">Wim Roach</div>
+              <div class="author-role">Vice President</div>
+            </div>
+          </div>
+          <div class="cover-author">
+            <div class="author-initial">B</div>
+            <div class="author-info">
+              <div class="author-name">Brian Lorenz</div>
+              <div class="author-role">Vice President — Former Senior HUD Underwriter</div>
+            </div>
+          </div>
+        </div>
+        <div class="cover-divider"></div>
+        <div class="cover-pub">
+          Centennial Mortgage, Inc.<br/>
+          <time datetime="2026-06-01">Published June 2026</time>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-wrapper">
+  <div class="doc-layout">
+
+    <!-- BODY -->
+    <article class="doc-body" itemscope itemtype="https://schema.org/Article">
+
+      <p class="intro-graf intro-graf-plain">
+        At a high level, these are two escrows the borrower funds at closing on top of project equity: one to carry construction cost overruns and the soft costs of opening the building, and one to cover operating shortfalls until the project leases up and can support its own debt service.
+      </p>
+      <p class="intro-graf intro-graf-plain">
+        Both are funded at initial closing with cash or a letter of credit, and the lender controls and approves every disbursement, with HUD's written approval. These escrows are how a borrower ensures their new project has the cushion to absorb a construction overrun and to carry itself through lease-up before it can stand on its own income — since HUD does not consider contingency or operating deficit a mortgageable cost. In the article below, we cover what each one is, how the lender determines their sizes, and how any unused portions are returned to the borrower.
+      </p>
+      <p class="intro-graf">
+        A quick note: everything here is written for a 221(d)(4) new construction loan. The concepts carry over to a 221(d)(4) substantial rehabilitation, but several of the numbers change, and we have noted the rehab figures where they matter.
+      </p>
+
+      <!-- SECTION 1: WORKING CAPITAL -->
+      <div class="section-block" id="working-capital">
+        <div class="section-header">
+          <div class="section-number">01</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">The Working Capital Escrow</div>
+            <h2 class="section-title">The Working Capital Escrow: <em>What It Is</em></h2>
+          </div>
+        </div>
+        <p>A key to understanding the working capital escrow is knowing that HUD does not treat contingency the way a bank does when it comes to what is mortgageable and what is not (a mortgageable cost being one that counts toward the loan-to-cost basis). In conventional construction financing, banks often carry the hard cost contingency and soft cost contingency as mortgageable development line items that can increase the loan amount. HUD does not consider those contingency line items mortgageable, because the costs going into a HUD deal are nailed down through the A&amp;E cost review and the cost certification process at a level a conventional loan never reaches, so HUD does not need to lend against a padded contingency. But HUD also understands that even with the development team pinning down costs before construction, things happen and costs can rise. That is what the working capital escrow is for. It covers the costs of finishing and opening the building that the mortgage did not contemplate — for example, cost overruns and approved change orders, the accruals of taxes, insurance, and construction period interest above what was capitalized in the mortgage if construction runs long, and the soft costs of putting the project into operation, such as marketing, model furnishing, and the supplies needed for initial rent-up. It is HUD's version of a hard cost and soft cost contingency, just held outside the mortgage amount. It is the borrower's money, held by the lender in a controlled account, and the unused balance comes back.</p>
+        <p>For new construction the escrow is 4% of the mortgage amount, and HUD splits that 4% into two halves with different jobs. 2% is set aside specifically as a construction contingency for cost overruns and approved change orders (analogous to a hard cost contingency). The other 2% covers the excess soft costs and the cost of putting the project into operation (analogous to a soft cost contingency). For substantial rehabilitation the working capital escrow is 2% of the mortgage amount, and a formal hard cost contingency is permitted inside the construction costs themselves.</p>
+        <p>Because this is not a mortgageable cost, the borrower has to fund it with equity — but HUD allows that to be cash, an irrevocable letter of credit, or, where the deal has them, excess mortgage proceeds or excess land equity. It is funded in full at initial closing and then drawn against as needed. Anything left in the contingency at the end of the job is refunded to the developer at Final Endorsement (described in full at the end of the article).</p>
+      </div>
+
+      <!-- SECTION 2: IOD -->
+      <div class="section-block" id="iod">
+        <div class="section-header">
+          <div class="section-number">02</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">The IOD Escrow</div>
+            <h2 class="section-title">The Initial Operating Deficit: <em>The Greater of Three Numbers</em></h2>
+          </div>
+        </div>
+        <p>The Initial Operating Deficit (IOD) funds the gap between what the project earns and what it owes during lease-up — operating expenses, non-capitalized taxes and insurance, and the new debt service — until the NOI is enough to cover the mortgage. A new building generates almost no income on the day it opens but carries operating expenses and owes a full debt service payment, so the IOD is designed to carry that shortfall until enough units are leased to close it. Like the working capital escrow, HUD treats the IOD as a non-mortgageable cost, so it is funded entirely with equity — cash, a letter of credit, or excess mortgage proceeds if available.</p>
+        <p>On all new construction, and on substantial rehabilitation where resident displacement drives negative cash flow during the rehab period, HUD sizes the operating deficit escrow as the <strong>greater of</strong> three amounts:</p>
+        <ul class="check-list">
+          <li>What the appraisal and underwriting analysis determine to be appropriate based on lease-up projections;</li>
+          <li>3% of the mortgage amount; or</li>
+          <li>4 months of debt service — principal, interest, and MIP — if the property is a garden apartment, or 6 months of debt service if it is an elevator building where a single Certificate of Occupancy is issued before any units or floors can be rented.</li>
+        </ul>
+        <p>The first test, the appraisal and underwriting amount, is a month-by-month cash flow estimate that accounts for when buildings come online, when P&amp;I starts, the reduced operating expenses during lease-up, and the appraiser's and market study's monthly absorption estimates. From those monthly cash flows, the underwriter sums the cumulative cash flow loss and arrives at the amount of cash needed to cover that total loss.</p>
+        <p>The third test is the four-to-six-month debt service floor, and the garden-versus-elevator distinction is there because a garden project can lease buildings as each one finishes, so income starts arriving while the rest of the site is still under construction. An elevator building with a single Certificate of Occupancy cannot rent a single unit until the whole building is done, which lengthens the period the project runs at a loss — hence six months of debt service instead of four. On a large loan above $75 million, HUD raises this test to a 12-month debt service floor, on the logic that bigger projects carry longer lease-ups.</p>
+        <p>The second test, 3% of the mortgage amount, is simply a backstop HUD set, and many deals actually underwrite right to it. Which of the three criteria governs depends on interest rates, the development budget, and the lease-up projections.</p>
+      </div>
+
+      <!-- SECTION 3: RELEASING -->
+      <div class="section-block" id="release">
+        <div class="section-header">
+          <div class="section-number">03</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Getting the Money Back</div>
+            <h2 class="section-title">Releasing the Escrows — <em>Two Different Clocks</em></h2>
+          </div>
+        </div>
+        <p>The escrows are, ideally, not all spent during construction and lease-up — and to the extent they are not, the borrower gets the unused balance back. When that balance is released depends on a few different triggers, and the working capital escrow itself releases in two pieces (corresponding to the two halves of the escrow). Each release runs through the lender, subject to HUD approval.</p>
+        <p><strong>Working capital.</strong> Any unused balance in the construction contingency portion — the 2% set aside for overruns and change orders — is refunded at Final Endorsement, or applied to a latent-defects escrow or delayed-construction items if those needs exist. The remaining working capital is released at the later of two dates: 12 months after Final Endorsement, or the point at which the project has demonstrated six consecutive months of sustaining occupancy.</p>
+        <p><strong>Initial operating deficit.</strong> The unused IOD balance is released after the project shows six consecutive months of sustaining occupancy. There is no 12-month floor on the IOD the way there is on the working capital balance. Sustaining occupancy is a 1.0 debt service coverage ratio — break-even — measured on all sources of project income, including ancillary income.</p>
+        <p>During lease-up, the borrower does not have to wait for full release to use the IOD for its intended purpose. The lender can request draws against it using form HUD-92464M, Request for Approval of Advance of Escrow, supported by a comparison of actual lease-up against the underwritten projections and an updated check that the remaining escrow is still sufficient. For garden-style projects made up of separate buildings that lease up individually, HUD will consider partial IOD releases as each building hits its own six months of sustaining occupancy.</p>
+        <div class="callout">
+          <div class="callout-label">From the Underwriting Desk</div>
+          <p>Brian underwrote 221(d)(4) deals before moving to origination, and the most common misconception on the sponsor side is treating these escrows as money that disappears. Hopefully it does not. Both escrows are the borrower's money, held in a controlled account, and the unused balances come back. The thing worth planning for is timing: the IOD can release months before the working capital balance, because the working capital balance carries the 12-month-after-Final-Endorsement floor. If the project stabilizes quickly, the IOD comes home first.</p>
+        </div>
+        <div class="spec-table-wrap">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>Working Capital Escrow</th>
+                <th>Initial Operating Deficit (IOD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="td-label">Purpose</td><td>Cost overruns, change orders, excess soft costs, cost of putting the project into operation</td><td>Cover operating and debt service shortfalls during lease-up before the project reaches break-even occupancy</td></tr>
+              <tr><td class="td-label">Amount</td><td>4% of the mortgage (2% contingency + 2% other)</td><td>Greater of UW amount, 3% of mortgage, or 4–6 months debt service</td></tr>
+              <tr><td class="td-label">Mortgageable?</td><td>No</td><td>No</td></tr>
+              <tr><td class="td-label">Funding</td><td>Cash or letter of credit at initial closing</td><td>Cash or letter of credit at initial closing</td></tr>
+              <tr><td class="td-label">Governing HUD Form</td><td class="td-val">HUD-92412M</td><td class="td-val">HUD-92476a-M</td></tr>
+              <tr><td class="td-label">Release of Unused Funds</td><td>Contingency portion at Final Endorsement (FE); balance at later of 12 mo. after FE or 6 mo. sustaining occupancy</td><td>6 consecutive months of sustaining occupancy</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section-block" id="faq" style="margin-top: 0;">
+        <div class="section-header">
+          <div class="section-number">04</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Common Questions</div>
+            <h2 class="section-title">Frequently Asked Questions: <em>221(d)(4) Escrows</em></h2>
+          </div>
+        </div>
+        <div>
+          <div style="margin-bottom: 28px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35;">Are the 221(d)(4) working capital and IOD escrows mortgageable?</h3>
+            <div><p>No. Both are non-mortgageable. They belong in the development budget but never enter the replacement cost basis the loan is sized against. The borrower funds both at initial closing with cash or a letter of credit, and the unused portions are returned.</p></div>
+          </div>
+          <div style="margin-bottom: 28px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35;">How much is the working capital escrow on a 221(d)(4)?</h3>
+            <div><p>For new construction it is 4% of the mortgage amount — 2% as a construction contingency for cost overruns and change orders, and 2% for excess soft costs and putting the project into operation. For substantial rehabilitation it is 2%.</p></div>
+          </div>
+          <div style="margin-bottom: 28px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35;">How is the initial operating deficit (IOD) escrow calculated?</h3>
+            <div><p>It is the greater of three numbers: the amount the appraisal and underwriting determine is appropriate, 3% of the mortgage amount, or 4 months of debt service (P&amp;I plus MIP) for a garden apartment / 6 months for an elevator building. The appraisal and underwriting amount is a month-by-month cash flow estimate that sums the cumulative loss through lease-up.</p></div>
+          </div>
+          <div style="margin-bottom: 28px;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35;">Can the escrows be funded with a letter of credit?</h3>
+            <div><p>Yes. Both can be funded with cash or an unconditional, irrevocable letter of credit at initial closing, and where available they can be funded from excess mortgage proceeds or excess land equity.</p></div>
+          </div>
+          <div>
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.35;">When are the working capital and IOD escrows refunded?</h3>
+            <div><p>Any unused construction contingency is refunded at Final Endorsement. The remaining working capital releases at the later of 12 months after Final Endorsement or six consecutive months of sustaining occupancy. The IOD releases after six consecutive months of sustaining occupancy — a 1.0 DSCR on all project income.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLOSING CTA -->
+      <div class="closing">
+        <h2>Have a 221(d)(4) Deal <em>You're Underwriting?</em></h2>
+        <p>The working capital and IOD escrows are two of several details that shape the equity a 221(d)(4) actually requires at closing. We underwrite these deals from the cost basis up — if you're working through a new construction project and want a second set of eyes on the capital stack before you commit to a structure, we're happy to spend 30 minutes on it.</p>
+        <div class="closing-actions">
+          <a href="https://roachlorenz.com/#contact" class="btn-primary">Talk to the Team</a>
+          <a href="https://roachlorenz.com/#products" class="btn-outline">View Loan Programs</a>
+        </div>
+      </div>
+
+    </article><!-- /doc-body -->
+
+    <!-- SIDEBAR -->
+    <aside class="doc-sidebar">
+      <div class="sidebar-box">
+        <div class="sidebar-label">In This Paper</div>
+        <ul class="toc-list">
+          <li><a href="#working-capital"><span class="toc-num">01</span> The Working Capital Escrow</a></li>
+          <li><a href="#iod"><span class="toc-num">02</span> The IOD: Greater of Three</a></li>
+          <li><a href="#release"><span class="toc-num">03</span> Releasing the Escrows</a></li>
+          <li><a href="#faq"><span class="toc-num">04</span> Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-label">Escrows At a Glance</div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">4%</div>
+          <div class="sidebar-stat-label">Working capital escrow — new construction (2% contingency + 2% other)</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">3% / 4–6 mo</div>
+          <div class="sidebar-stat-label">IOD floor — greater of UW amount, 3% of mortgage, or 4–6 months debt service</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">Non-Mortg.</div>
+          <div class="sidebar-stat-label">Neither escrow enters the loan-to-cost basis</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">6 Mo</div>
+          <div class="sidebar-stat-label">Sustaining occupancy needed to release the IOD</div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-label">About This Team</div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">$2B+</div>
+          <div class="sidebar-stat-label">Combined HUD/FHA closed volume</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">20+</div>
+          <div class="sidebar-stat-label">Years combined HUD/FHA experience</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">100%</div>
+          <div class="sidebar-stat-label">Brian Lorenz — never had a HUD deal rejected as underwriter</div>
+        </div>
+      </div>
+
+      <a href="https://roachlorenz.com/#contact" class="sidebar-cta">Discuss Your Project →</a>
+
+    </aside>
+
+  </div><!-- /doc-layout -->
+</div><!-- /page-wrapper -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Wim Roach <span>&amp;</span> Brian Lorenz</div>
+        <div class="footer-tagline">HUD/FHA Multifamily Origination</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://roachlorenz.com/#products">Products</a></li>
+        <li><a href="https://roachlorenz.com/#team">Team</a></li>
+        <li><a href="https://roachlorenz.com/#process">Process</a></li>
+        <li><a href="https://roachlorenz.com/#resources">Resources</a></li>
+        <li><a href="https://roachlorenz.com/#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-disclaimer">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This white paper is for informational purposes only and does not constitute a commitment to lend or legal or financial advice. Escrow sizing, funding, and release terms — including working capital and initial operating deficit amounts — are governed by HUD guidelines and individual transaction analysis and are subject to HUD approval. Wim Roach &amp; Brian Lorenz are loan originators with Centennial Mortgage, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>
