@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3Y2SPVQSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H3Y2SPVQSK');
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interest-Only vs. Amortizing Loans: The NPV Tradeoff</title>
+  <meta name="description" content="A former HUD underwriter on interest-only vs. amortizing multifamily loans: interest-only wins on equal terms, but HUD wins at maximum leverage."/>
+  <meta name="keywords" content="interest only vs amortizing, interest only vs P&I, does interest only improve IRR, NPV interest only vs amortizing, net present value multifamily loan, interest only multifamily loan, HUD amortizing loan, interest only loan returns, P&I vs interest only multifamily, HUD vs agency interest only, Brian Lorenz HUD underwriter"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://roachlorenz.com/resources/hud-interest-only-vs-amortizing"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://roachlorenz.com/resources/hud-interest-only-vs-amortizing"/>
+  <meta property="og:title" content="Interest-Only vs. Amortizing Loans: The NPV Tradeoff"/>
+  <meta property="og:description" content="A former HUD underwriter on interest-only vs. amortizing multifamily loans: interest-only wins on equal terms, but HUD wins at maximum leverage."/>
+  <meta property="og:site_name" content="Wim Roach &amp; Brian Lorenz"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:image" content="https://roachlorenz.com/assets/og-io-vs-amortizing.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="Interest-Only vs. Amortizing Loans — Wim Roach &amp; Brian Lorenz"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Interest-Only vs. Amortizing Loans: The NPV Tradeoff"/>
+  <meta name="twitter:description" content="A former HUD underwriter on interest-only vs. amortizing multifamily loans: interest-only wins on equal terms, but HUD wins at maximum leverage."/>
+  <meta name="twitter:image" content="https://roachlorenz.com/assets/og-io-vs-amortizing.png"/>
+
+  <!-- JSON-LD: Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Interest-Only vs. Amortizing Loans: The NPV Tradeoff",
+    "description": "A former HUD underwriter on interest-only vs. amortizing multifamily loans: interest-only wins on equal terms, but HUD wins at maximum leverage.",
+    "image": "https://roachlorenz.com/assets/og-io-vs-amortizing.png",
+    "author": [
+      {"@type": "Person", "name": "Brian Lorenz", "jobTitle": "Vice President", "url": "https://www.linkedin.com/in/lorenzbrian/"},
+      {"@type": "Person", "name": "Wim Roach", "jobTitle": "Vice President"}
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Wim Roach & Brian Lorenz — HUD/FHA Multifamily Origination",
+      "url": "https://roachlorenz.com",
+      "logo": {"@type": "ImageObject", "url": "https://roachlorenz.com/assets/logo.png"}
+    },
+    "datePublished": "2026-06-04",
+    "dateModified": "2026-06-08",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": "https://roachlorenz.com/resources/hud-interest-only-vs-amortizing"},
+    "articleSection": "HUD/FHA Multifamily Financing"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is the IRR better on an interest-only loan vs principal and interest loan?",
+        "acceptedAnswer": {"@type": "Answer", "text": "On equal terms — same loan amount, rate, and amortization — interest-only does improve the return. Amortization only earns the loan's own rate, and most sponsors discount at more than that, so saving the cash beats paying down principal. The advantage often disappears, however, if the IO payments come at the sacrifice of more aggressive loan terms: a maximum-leverage HUD execution sizes larger and prices lower than an agency interest-only quote, which more than offsets the cost of amortizing."}
+      },
+      {
+        "@type": "Question",
+        "name": "Is the principal on an amortizing loan a cost?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. Principal is not an expense. Each dollar of principal paid reduces the balance owed at sale or refinance, so it comes back at exit. Amortization functions as a forced reinvestment at the loan's own interest rate. The only thing given up versus interest-only is the use of that cash between when it is paid and when it would otherwise be recovered at exit."}
+      },
+      {
+        "@type": "Question",
+        "name": "When is interest-only better than an amortizing loan?",
+        "acceptedAnswer": {"@type": "Answer", "text": "When the freed-up cash has a better use than paying down debt at the loan rate. But the sponsor needs to weigh what getting interest-only did to the rest of the loan terms, because at maximum leverage interest-only usually comes with a lower loan amount or a higher rate. Sometimes interest-only isn't worth the lower leverage it costs."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does a HUD loan's amortization hurt returns versus an agency interest-only loan?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Not as much as the payment difference suggests, and often not at all. A HUD 223(f) frequently sizes higher and prices lower than an agency interest-only quote. When you take the net present value of each loan's full cash flows at the borrower's cost of capital, the larger amortizing HUD loan can be worth more in today's dollars than the smaller interest-only loan, even at a 7% discount rate where holding cash is favored."}
+      },
+      {
+        "@type": "Question",
+        "name": "Does a HUD loan size larger than an agency loan?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Usually yes, whether the binding constraint is LTV or DSCR. On a cash-out execution a HUD 223(f) reaches 80% LTV against 75% for a high-leverage agency loan. When debt service coverage is the constraint, HUD sizes to a 1.15 DSCR versus 1.25 for the agencies, supporting more loan on the same NOI. A common misconception is that an agency interest-only loan is sized off the lower interest-only payment; the agencies measure the 1.25 coverage on the amortizing principal-and-interest payment even when the loan is interest-only for its full term, so the IO structure adds cash flow during the hold but no additional proceeds at closing."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do Fannie Mae and Freddie Mac offer full-term interest-only at maximum leverage?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Not automatically. At their highest-leverage tiers the agencies often grant only partial interest-only, with principal beginning partway through the term, commonly in year 3, 5, or 7 of a 10-year loan. Full-term interest-only is more available at lower leverage. A borrower comparing a HUD loan against an agency interest-only quote should confirm how many years of interest-only the high-leverage option actually includes, because a curtailed interest-only period narrows the agency's cash-flow advantage."}
+      },
+      {
+        "@type": "Question",
+        "name": "How do you compare interest-only versus amortizing over a hold period?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Build the full borrower cash flows for each loan separately: the proceeds received at closing, the debt service paid each month, and the loan payoff at exit. Take the net present value of each stream at your opportunity cost of capital. The loan with the higher NPV is worth more in today's dollars. Because the project economics are identical under either loan, the gap between the two NPVs is the value of choosing one financing over the other, with no property NOI or sale-price assumption required."}
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://roachlorenz.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://roachlorenz.com/#resources"},
+      {"@type": "ListItem", "position": 3, "name": "Interest-Only vs. Amortizing", "item": "https://roachlorenz.com/resources/hud-interest-only-vs-amortizing"}
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0b1829;
+      color: #e2ddd4;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    :root {
+      --navy:        #0b1829;
+      --navy-mid:    #102035;
+      --navy-light:  #162d47;
+      --navy-card:   #0f2338;
+      --gold:        #c9a84c;
+      --gold-light:  #e2c070;
+      --gold-dim:    rgba(201,168,76,0.15);
+      --gold-border: rgba(201,168,76,0.22);
+      --text:        #e2ddd4;
+      --text-muted:  #7d97b0;
+      --text-soft:   #a8bccf;
+      --white:       #ffffff;
+      --green:       #5fb98e;
+      --red:         #d98a7a;
+    }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { color: var(--gold-light); }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy);
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px; max-width: 1120px; margin: 0 auto; padding: 0 40px;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
+      color: var(--text); letter-spacing: 0.02em; text-decoration: none;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--navy); background: var(--gold); border: none; padding: 11px 22px;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-inner { padding: 0 24px; }
+      .nav-brand { font-size: 15px; }
+    }
+
+    /* ── COVER / HERO ── */
+    .cover {
+      padding: 72px 0 60px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(201,168,76,0.08), transparent 55%),
+        var(--navy);
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .cover-inner { max-width: 820px; }
+    .cover-series {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+    }
+    .cover-inner > h1 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(34px, 5.2vw, 58px); line-height: 1.08; color: var(--white);
+      letter-spacing: -0.01em; margin-bottom: 18px;
+    }
+    .cover-inner > h1 em { font-style: italic; color: var(--gold); }
+    .cover-subtitle {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(17px, 2.2vw, 22px); color: var(--text-soft); margin-bottom: 30px;
+    }
+    .cover-rule { width: 60px; height: 2px; background: var(--gold); margin-bottom: 30px; }
+    .cover-lede { font-size: 18px; color: var(--text-soft); max-width: 720px; margin-bottom: 38px; }
+    .cover-meta {
+      display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: center;
+      padding-top: 28px; border-top: 1px solid var(--gold-border);
+    }
+    .author { display: flex; align-items: center; gap: 13px; }
+    .author-badge {
+      width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center;
+      background: var(--gold-dim); border: 1px solid var(--gold-border);
+      color: var(--gold); font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700;
+    }
+    .author-name { font-size: 15px; font-weight: 600; color: var(--text); }
+    .author-role { font-size: 12px; color: var(--text-muted); letter-spacing: 0.02em; }
+    .cover-dates { font-size: 12.5px; color: var(--text-muted); }
+    .cover-dates strong { color: var(--text-soft); font-weight: 500; }
+
+    /* ── LAYOUT ── */
+    .layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; padding: 64px 0 40px; }
+    @media (max-width: 980px) { .layout { grid-template-columns: 1fr; gap: 0; } }
+    .article { min-width: 0; }
+
+    .article-section { margin-bottom: 52px; scroll-margin-top: 90px; }
+    .sec-num {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--gold);
+      display: inline-block; margin-bottom: 4px;
+    }
+    .sec-eyebrow {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 14px;
+    }
+    .article h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(24px, 3.2vw, 33px); line-height: 1.18; color: var(--white); margin-bottom: 20px;
+    }
+    .article h2 em { font-style: italic; color: var(--gold); }
+    .article h3 {
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 18px;
+      color: var(--white); margin: 30px 0 12px;
+    }
+    .article p { font-size: 16.5px; color: var(--text-soft); margin-bottom: 18px; overflow-wrap: break-word; }
+    .article p strong { color: var(--text); font-weight: 600; }
+    .article ul { margin: 0 0 18px 0; padding-left: 0; list-style: none; }
+    .article ul li {
+      position: relative; padding-left: 24px; margin-bottom: 12px;
+      font-size: 16.5px; color: var(--text-soft); overflow-wrap: break-word;
+    }
+    .article ul li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+    .article ul li strong { color: var(--text); font-weight: 600; }
+
+    /* ── EXAMPLE / CALLOUT BOX ── */
+    .example {
+      background: var(--navy-card); border: 1px solid var(--gold-border);
+      border-left: 3px solid var(--gold); padding: 24px 26px; margin: 26px 0;
+    }
+    .example-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .example p { font-size: 15px; margin-bottom: 10px; color: var(--text-soft); }
+    .example .res { color: var(--white); font-weight: 600; }
+    .example .big {
+      font-family: 'Playfair Display', serif; font-size: 30px; color: var(--gold);
+      font-weight: 700; display: block; margin-top: 6px;
+    }
+    .callout {
+      background: var(--navy-card); border: 1px solid var(--gold-border);
+      border-left: 4px solid var(--gold); padding: 22px 26px; margin: 30px 0;
+    }
+    .callout-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 10px;
+    }
+    .callout p { font-size: 15px; color: var(--text-soft); margin: 0; }
+    .callout .res { color: var(--white); font-weight: 600; }
+
+    /* ── COMPARISON TABLE ── */
+    .tbl-wrap { overflow-x: auto; margin: 24px 0; }
+    table.cmp { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 420px; }
+    table.cmp th, table.cmp td {
+      text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--gold-border);
+    }
+    table.cmp thead th {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600;
+    }
+    table.cmp td { color: var(--text-soft); }
+    table.cmp td:first-child { color: var(--text); font-weight: 500; }
+    table.cmp tbody tr:last-child td { border-bottom: none; }
+
+    /* ── INTERACTIVE TOOL ── */
+    .tool {
+      background: var(--navy-mid); border: 1px solid var(--gold-border);
+      padding: 36px; margin: 40px 0; scroll-margin-top: 90px;
+    }
+    @media (max-width: 600px) { .tool { padding: 22px 18px; } }
+    .tool-head { margin-bottom: 28px; }
+    .tool-head .sec-eyebrow { margin-bottom: 8px; }
+    .tool-head h2 { margin-bottom: 8px; }
+    .tool-head p { font-size: 14.5px; color: var(--text-muted); margin: 0; }
+
+    .tool-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .tool-cols { grid-template-columns: 1fr; } }
+    .loan-card { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 22px 20px; min-width: 0; }
+    .loan-card h4 {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--white); margin-bottom: 4px;
+    }
+    .loan-card .tag {
+      font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+      margin-bottom: 18px; display: inline-block;
+    }
+    .loan-a .tag { color: var(--gold); }
+    .loan-b .tag { color: var(--text-muted); }
+
+    .field { margin-bottom: 15px; }
+    .field label {
+      display: block; font-size: 12px; color: var(--text-soft); margin-bottom: 6px; font-weight: 500;
+    }
+    .input-wrap { position: relative; display: flex; align-items: center; }
+    .input-wrap .pre, .input-wrap .post {
+      position: absolute; color: var(--text-muted); font-size: 14px; pointer-events: none;
+    }
+    .input-wrap .pre { left: 12px; }
+    .input-wrap .post { right: 12px; }
+    .field input {
+      width: 100%; background: var(--navy); border: 1px solid var(--gold-border);
+      color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 15px;
+      padding: 11px 12px; transition: border-color 0.2s;
+    }
+    .field input.has-pre { padding-left: 26px; }
+    .field input.has-post { padding-right: 34px; }
+    .field input:focus { outline: none; border-color: var(--gold); }
+
+    .field-shared { max-width: 280px; margin: 0 auto 24px; }
+    .field-shared label { text-align: center; }
+
+    .calc-btn {
+      display: block; width: 100%; max-width: 360px; margin: 0 auto;
+      background: var(--gold); color: var(--navy); border: none;
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 15px; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .calc-btn:hover { background: var(--gold-light); }
+
+    /* ── RESULTS ── */
+    .results { margin-top: 30px; display: none; }
+    .results.show { display: block; animation: fadeUp 0.5s ease forwards; }
+    .results h3.res-title {
+      font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white);
+      font-weight: 700; margin-bottom: 18px; text-align: center;
+    }
+    .res-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    @media (max-width: 680px) { .res-grid { grid-template-columns: 1fr; } }
+    .res-card { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 18px 20px; }
+    .res-card h5 {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+      margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gold-border);
+    }
+    .res-card.a h5 { color: var(--gold); }
+    .res-card.b h5 { color: var(--text-muted); }
+    .res-line { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 13.5px; }
+    .res-line span:first-child { color: var(--text-muted); }
+    .res-line span:last-child { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    .verdict {
+      background: var(--navy); border: 1px solid var(--gold-border);
+      border-top: 3px solid var(--gold); padding: 26px 24px; text-align: center;
+    }
+    .verdict .vlabel {
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 12px; font-weight: 600;
+    }
+    .verdict .vbig {
+      font-family: 'Playfair Display', serif; font-size: clamp(38px, 7vw, 54px);
+      font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 6px;
+    }
+    .verdict .vsub { font-size: 13.5px; color: var(--text-muted); margin-bottom: 18px; }
+    .verdict .vtext {
+      font-size: 15px; color: var(--text-soft); max-width: 560px; margin: 0 auto; line-height: 1.65;
+    }
+    .verdict .vtext strong { color: var(--text); }
+
+    .breakdown { margin-top: 20px; }
+    .breakdown .res-line { font-size: 13.5px; padding: 0 4px; }
+    .breakdown .res-line.total { border-top: 1px solid var(--gold-border); padding-top: 10px; margin-top: 4px; }
+
+    /* two-NPV verdict */
+    .npv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
+    @media (max-width: 680px) { .npv-pair { grid-template-columns: 1fr; } }
+    .npv-card { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 16px 18px; text-align: center; }
+    .npv-card.a { border-top: 2px solid var(--gold); }
+    .npv-card.b { border-top: 2px solid var(--text-muted); }
+    .npv-card .npv-name {
+      font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 8px; font-weight: 600;
+    }
+    .npv-card .npv-val {
+      font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;
+      color: var(--white); font-variant-numeric: tabular-nums; line-height: 1.1;
+    }
+    .irr-line {
+      font-size: 12.5px; font-style: italic; color: var(--text-muted);
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--gold-border); line-height: 1.6;
+    }
+
+    /* shared input row */
+    .shared-row { display: flex; gap: 18px; max-width: 480px; margin: 0 auto 24px; }
+    .shared-row .field { flex: 1; margin-bottom: 0; }
+    .shared-row .field label { text-align: center; }
+    @media (max-width: 480px) { .shared-row { flex-direction: column; gap: 15px; } }
+
+    /* analyst aside note in article body */
+    .aside-note {
+      font-size: 14px; color: var(--text-muted); font-style: italic;
+      border-left: 2px solid var(--gold-border); padding: 4px 0 4px 16px; margin-top: 18px; line-height: 1.65;
+    }
+
+    /* chart */
+    .chart-wrap { margin-top: 24px; }
+    .chart-wrap .clabel {
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted);
+      text-align: center; margin-bottom: 12px; font-weight: 600;
+    }
+    svg.balchart { width: 100%; height: auto; display: block; }
+    .legend { display: flex; gap: 22px; justify-content: center; margin-top: 10px; font-size: 12px; color: var(--text-muted); }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .legend i { width: 16px; height: 2px; display: inline-block; }
+
+    .tool-note { font-size: 12px; color: var(--text-muted); margin-top: 20px; line-height: 1.6; }
+
+    /* ── SIDEBAR ── */
+    .sidebar { min-width: 0; }
+    @media (max-width: 980px) { .sidebar { display: none; } }
+    .sticky { position: sticky; top: 92px; }
+    .toc { border-left: 1px solid var(--gold-border); padding-left: 20px; margin-bottom: 40px; }
+    .toc-label {
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+      font-weight: 600; margin-bottom: 16px;
+    }
+    .toc a { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 11px; transition: color 0.2s; }
+    .toc a:hover { color: var(--gold); }
+    .side-card { background: var(--navy-card); border: 1px solid var(--gold-border); padding: 24px; margin-bottom: 22px; }
+    .side-card .sc-label {
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+      font-weight: 600; margin-bottom: 18px;
+    }
+    .stat { margin-bottom: 18px; }
+    .stat:last-child { margin-bottom: 0; }
+    .stat .num { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--white); }
+    .stat .desc { font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
+    .side-cta {
+      display: block; text-align: center; background: var(--gold); color: var(--navy);
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 14px; margin-top: 4px; transition: background 0.2s;
+    }
+    .side-cta:hover { background: var(--gold-light); color: var(--navy); }
+
+    /* ── FAQ ── */
+    .faq { padding: 20px 0 60px; }
+    .faq h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(24px, 3.2vw, 33px);
+      color: var(--white); margin-bottom: 26px;
+    }
+    .faq h2 em { font-style: italic; color: var(--gold); }
+    .faq-item { border-top: 1px solid var(--gold-border); padding: 22px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--gold-border); }
+    .faq-q { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+    .faq-a { font-size: 15.5px; color: var(--text-soft); }
+
+    /* ── CLOSING CTA ── */
+    .closing { background: var(--navy-mid); border-top: 1px solid var(--gold-border); padding: 60px 0; }
+    .closing h2 {
+      font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(26px, 3.6vw, 38px);
+      color: var(--white); margin-bottom: 16px;
+    }
+    .closing h2 em { font-style: italic; color: var(--gold); }
+    .closing p { font-size: 16.5px; color: var(--text-soft); max-width: 640px; margin-bottom: 26px; }
+    .closing-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn-primary, .btn-ghost {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 15px 28px; transition: all 0.2s;
+    }
+    .btn-primary { background: var(--gold); color: var(--navy); }
+    .btn-primary:hover { background: var(--gold-light); color: var(--navy); }
+    .btn-ghost { border: 1px solid var(--gold-border); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy); border-top: 1px solid var(--gold-border); padding: 48px 0 36px; }
+    .foot-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; margin-bottom: 32px; }
+    .foot-brand { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--text); }
+    .foot-brand span { color: var(--gold); }
+    .foot-tag { font-size: 13px; color: var(--text-muted); margin-top: 6px; }
+    .foot-links { display: flex; flex-wrap: wrap; gap: 24px; list-style: none; align-items: center; }
+    .foot-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .foot-links a:hover { color: var(--gold); }
+    .disclaimer {
+      font-size: 11.5px; color: var(--text-muted); line-height: 1.7;
+      padding-top: 24px; border-top: 1px solid var(--gold-border); max-width: 920px;
+    }
+
+    /* ── ENTRANCE ANIMATION ── */
+    .cover-series { opacity: 0; animation: fadeUp 0.6s ease forwards 0.1s; }
+    .cover-inner > h1 { opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
+    .cover-lede { opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
+    .cover-meta { opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="https://roachlorenz.com/" class="nav-brand">Wim Roach <span>&amp;</span> Brian Lorenz</a>
+    <ul class="nav-links">
+      <li><a href="https://roachlorenz.com/#products">Programs</a></li>
+      <li><a href="https://roachlorenz.com/#resources">Resources</a></li>
+      <li><a href="https://roachlorenz.com/#team">Team</a></li>
+    </ul>
+    <a href="https://roachlorenz.com/#contact" class="nav-cta">Start a Deal</a>
+  </div>
+</nav>
+
+<!-- ── COVER ── -->
+<header class="cover">
+  <div class="container">
+    <div class="cover-inner">
+      <div class="cover-series">Wim Roach &amp; Brian Lorenz — HUD/FHA Practitioner Series</div>
+      <h1>Interest-Only vs. Amortizing: <em>Which Wins, and When</em></h1>
+      <div class="cover-subtitle">A Former Senior HUD Underwriter Runs the Math</div>
+      <div class="cover-rule"></div>
+      <p class="cover-lede">Sponsors normally want interest-only mortgages because it minimizes debt service and preserves cash, and on identical terms that instinct is correct — interest-only does come out ahead. But identical terms aren't the choice a borrower faces. When you want maximum proceeds, the real decision is HUD versus agency, and the HUD loan wins that comparison — even though it amortizes — because the leverage can be higher and the interest rate lower by enough to more than cover the cost of paying down principal each month. We ran the net present value of each, and the math is below — with an interactive tool to run it on your own numbers.</p>
+      <div class="cover-meta">
+        <div class="author">
+          <div class="author-badge">B</div>
+          <div>
+            <div class="author-name">Brian Lorenz</div>
+            <div class="author-role">Vice President — Former Senior HUD Underwriter</div>
+          </div>
+        </div>
+        <div class="author">
+          <div class="author-badge">W</div>
+          <div>
+            <div class="author-name">Wim Roach</div>
+            <div class="author-role">Vice President</div>
+          </div>
+        </div>
+        <div class="cover-dates">
+          <div><strong>Published</strong> June 2026 &middot; <strong>Updated</strong> June 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <!-- ── ARTICLE ── -->
+    <main class="article">
+
+      <section class="article-section" id="assumption">
+        <span class="sec-num">01</span>
+        <div class="sec-eyebrow">In a Vacuum</div>
+        <h2>On Equal Terms, <em>Interest-Only Wins</em></h2>
+        <p>We'll start by giving the interest-only argument its strongest case. Take two loans that are identical in every respect — same $40,000,000 amount, same 3.50% rate, same 30-year amortization, no MIP on either — and change only one thing: one pays principal and interest, the other is interest-only for the full term. Hold the asset 10 years, discount each at a 7% cost of capital, and the interest-only loan is worth more.</p>
+        <div class="example">
+          <div class="example-label">Equal terms, 7% discount rate — only the structure differs</div>
+          <p>Amortizing (P&amp;I): <span class="res">$8,637,544 NPV</span></p>
+          <p>Interest-only: <span class="res">$9,521,392 NPV</span></p>
+          <p style="margin-top:14px;">Interest-only advantage:</p>
+          <span class="big">+$883,848</span>
+        </div>
+        <p>This is the part the instinct gets right: a payment toward principal is a forced reinvestment at a known rate — an effective 3.56% in this example — so when you pay principal down, your money is only earning that 3.56%. If you can earn a higher rate elsewhere (your theoretical discount rate) than 3.56%, you're better off keeping the cash and putting it to work than retiring debt. That's what interest-only does: it nets you the spread between your discount rate and the effective note rate, here 3.44%. When your money is worth more than the loan costs, paying down principal early is the worse use of it. The two structures break even exactly at the loan rate; above it, interest-only is ahead.</p>
+        <p>If the comparison were based on equal mortgage terms, every conversation about HUD versus an interest-only agency loan would end with the IO loan winning. But the HUD loan terms are usually differentiated enough from the agency option that the real question becomes whether HUD's better terms make up for the fact that it isn't interest-only.</p>
+      </section>
+
+      <section class="article-section" id="example">
+        <span class="sec-num">02</span>
+        <div class="sec-eyebrow">The Real Decision</div>
+        <h2><em>HUD vs. Agency</em></h2>
+        <p>Most of our borrowers aren't choosing between a HUD and agency version of the same loan amount. Instead, they're trying to pull the most proceeds the asset will support — because they believe they can deploy that equity at a return above their all-in mortgage rate. Sophisticated borrowers weigh every point at which the deal returns equity: first, cash received at the closing table, through a higher loan amount; second, cash saved each month, through a lower rate or interest-only terms; and third, cash received at disposition or refinance, through a lower payoff balance. All three feed the question of which mortgage option leaves the most equity in hand — a HUD 223(f) or an agency execution.</p>
+        <p>HUD and agency give different answers at those three cash-flow moments — the settlement table, the monthly debt service, and the payoff at exit — and on an NPV basis the sum of the differences usually runs in HUD's favor. Take a property worth $50,000,000 and size each mortgage program to its maximum LTV. A HUD 223(f) on a cash-out execution tops out at 80% LTV, so the HUD loan comes in at $40,000,000. The agencies run lighter at their highest-leverage tier — particularly with full-term interest-only — so the Fannie Mae loan sizes to 75% LTV, or $37,500,000 in this example. Imagine the HUD interest rate is 3.50% plus the 0.25% annual MIP, and the agency interest rate is 3.95% — 45 basis points higher than HUD — a conservative spread we see at high leverage against HUD's pricing. (HUD's rate is lower because of the Ginnie Mae guarantee to the mortgage-backed-security investor.) HUD amortizes over 35 years; the agency loan is interest-only for the full 10-year term. The example hold period is 10 years, then sell or refinance.</p>
+        <p>Note that the example rate used here is lower than today's market rate on purpose. Which underwriting limit binds depends on the rate environment: when rates are low, debt service is light relative to value, so the loan is capped by LTV — the case below. When rates are higher, coverage binds first, and the loan is capped by DSCR — the case we turn to next.</p>
+
+        <div class="tbl-wrap">
+          <table class="cmp">
+            <thead>
+              <tr><th>&nbsp;</th><th>HUD (Amortizing)</th><th>Agency (Interest-Only)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Leverage on a $50M asset</td><td>80% LTV (cash-out cap)</td><td>75% LTV (max agency)</td></tr>
+              <tr><td>Loan amount</td><td>$40,000,000</td><td>$37,500,000</td></tr>
+              <tr><td>Rate</td><td>3.50% + 0.25% MIP</td><td>3.95%</td></tr>
+              <tr><td>Term</td><td>35-yr amortizing</td><td>10-yr interest-only</td></tr>
+              <tr><td>Monthly debt service (yr 1)</td><td>$173,583</td><td>$123,438</td></tr>
+              <tr><td>Balance after 10 years</td><td>$33,022,068</td><td>$37,500,000</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>On the payment line the agency loan wins clearly. It costs about $50,000 less per month at the start, and across the full 10-year hold the HUD loan runs roughly $5,900,000 more in total debt service. Taken alone, that's a decisive cash-flow advantage for interest-only.</p>
+
+        <p>Two things HUD wins clearly, however. First, the higher HUD 80% LTV leverage funded $2,500,000 more at closing — $40M against $37.5M — which is $2,500,000 less equity left in the deal. Second, by the end of the hold period the HUD loan has amortized down to about $33,000,000 while the agency loan still owes its full $37,500,000. At payoff the HUD borrower retires $4,478,000 less debt.</p>
+
+        <p>The way to settle it is to value each loan the way the borrower actually experiences it: the proceeds received at closing, the debt service paid each month, and the balance retired at exit. Discount each of those streams back at your own cost of capital, and you get the net present value of the financing — what each loan is worth, today, in a single number. We'll use 7% as the discount rate, a reasonable stand-in for what a dollar of the sponsor's capital earns elsewhere. The project is the same building either way, so the loan with the higher NPV is the one that leaves the borrower wealthier.</p>
+
+        <div class="example">
+          <div class="example-label">Net present value at a 7% discount rate</div>
+          <p>HUD loan (amortizing): <span class="res">$8,166,810 NPV</span></p>
+          <p>Agency loan (interest-only): <span class="res">$7,703,514 NPV</span></p>
+          <p style="margin-top:14px;">HUD advantage, in today's dollars:</p>
+          <span class="big">+$463,296</span>
+        </div>
+
+        <p>Both numbers come out positive because, at a 7% opportunity cost, both loans are cheap money compared to paying all cash — you repay them in dollars you value less than the ones you received at closing. The HUD loan is simply worth more of it, by about $463,000 in present-value terms. The idea that the amortizing loan costs $5,900,000 more in payments is true, and it loses to the $2,500,000 more it advanced at closing and the $4,478,000 less it owes at exit.</p>
+      </section>
+
+      <section class="article-section" id="why">
+        <span class="sec-num">03</span>
+        <div class="sec-eyebrow">What's Driving It</div>
+        <h2>Why the HUD Loan <em>Wins</em></h2>
+        <p>Three things sit in the HUD loan's favor here, and it's worth separating them so the result isn't read as a universal one.</p>
+        <ul>
+          <li><strong>HUD is cheaper per dollar.</strong> The all-in HUD rate of 3.75% — 3.50% plus the 0.25% MIP — sits below the agency rate of 3.95%. Cheaper debt is worth more in present-value terms when your own capital earns more than the loan costs.</li>
+          <li><strong>HUD funded more.</strong> On the same $50,000,000 asset, the 223(f) reached 80% LTV against the agency's 75%, so it advanced $2,500,000 more. That extra money arrives at closing, when a dollar is worth the most, and it carries the lightest discount of anything in the stream.</li>
+          <li><strong>The principal comes back.</strong> The HUD loan amortizes, and that paydown reappears at exit as a $4,478,000 lower payoff. The forced reinvestment earns the loan rate, so it nets against the higher payments rather than vanishing.</li>
+        </ul>
+        <p>What's notable about this pairing is how little the discount rate matters to the outcome. The HUD advantage barely moves — it sits in a $400,000 to $615,000 band whether you discount at 4% or 10%, easing somewhat as the rate rises. There is no break-even rate at all: no opportunity cost, high or low, flips the answer.</p>
+        <div class="tbl-wrap">
+          <table class="cmp">
+            <thead>
+              <tr><th>Discount rate</th><th>HUD NPV</th><th>Agency NPV</th><th>HUD advantage</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>4%</td><td>$546,175</td><td>−$66,622</td><td>+$612,798</td></tr>
+              <tr><td>6%</td><td>$5,862,790</td><td>$5,361,412</td><td>+$501,378</td></tr>
+              <tr><td>7%</td><td>$8,166,810</td><td>$7,703,514</td><td>+$463,296</td></tr>
+              <tr><td>8%</td><td>$10,266,430</td><td>$9,831,559</td><td>+$434,871</td></tr>
+              <tr><td>10%</td><td>$13,932,387</td><td>$13,530,506</td><td>+$401,881</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Near the loans' own cost the NPVs approach zero — at 4%, just above the agency's all-in rate, its NPV is already slightly negative while HUD's is still positive — but the HUD loan stays ahead of the agency at every rate. You don't have to win the argument about what discount rate to use, because every rate lands in the same place.</p>
+        <p class="aside-note">For the analysts: there is no discount rate at which the two loans tie. The HUD loan's cash flows carry a higher present value at every rate, so the difference between them never reverses and has no internal rate of return to solve for. This is exactly the case that breaks an IRR comparison — the incremental IRR comes back undefined — and where two plain NPVs do the job cleanly.</p>
+
+        <h3>When the Constraint Is DSCR, Not LTV</h3>
+        <p>The example above is capped by LTV, which is what binds when rates are low. Raise rates and debt service climbs until coverage becomes the tighter limit instead. Every loan is sized to the lower of the two — what the value supports (LTV) and what the income supports (DSCR) — and HUD also has a more aggressive DSCR limit too. A 223(f) sizes to a 1.15 DSCR; the agencies hold to 1.25. Take the same $50,000,000 asset with $2,500,000 of NOI (a 5% cap), now financed at a higher 5.00% for HUD and 5.45% for the agency, where DSCR is what binds.</p>
+        <div class="tbl-wrap">
+          <table class="cmp">
+            <thead>
+              <tr><th>&nbsp;</th><th>HUD 223(f)</th><th>Agency</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>DSCR requirement</td><td>1.15x</td><td>1.25x</td></tr>
+              <tr><td>Coverage measured on</td><td>P&amp;I payment</td><td>P&amp;I payment (even if IO)</td></tr>
+              <tr><td>Supportable loan on $2.5M NOI</td><td>$34,489,500</td><td>$29,516,500</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>HUD supports $4,973,000 more loan — roughly 17% more — before pricing even enters, and the advantage carries through to NPV exactly as it did under the LTV cap. At a 7% discount rate the DSCR-constrained HUD loan is worth $3,627,620 against the agency's $2,855,264, an edge of $772,000. That's wider than the LTV case, because the 1.25 coverage requirement squeezes the agency harder than the 75% LTV cap did, and it holds across any discount rate a sponsor would actually use, growing as the rate rises. Whether value or income is the binding constraint, HUD is the larger loan and the better NPV.</p>
+        <p>The comparison is generous to the agency on one more point worth naming. We've granted it full-term interest-only, but Fannie and Freddie don't hand that out automatically at their highest-leverage tiers. A max-leverage quote frequently carries partial interest-only, with principal payments beginning in year 3, 5, or 7 of a 10-year term. The full-term IO that makes interest-only attractive in the first place isn't a given at the leverage a borrower is usually reaching for, and where it's cut short, the agency loan's position only weakens further.</p>
+        <div class="callout">
+          <div class="callout-label">Where borrowers get tripped up</div>
+          <p>The agency's 1.25 coverage is measured against the amortizing principal-and-interest payment, not the interest-only payment — even when the loan is interest-only for its full term. A sponsor who assumes the IO loan is sized off its lower interest-only payment is reaching for about <span class="res">$36,700,000</span> the agency won't underwrite. Coverage runs on the P&amp;I payment regardless, so interest-only buys cash flow during the hold, not proceeds at closing.</p>
+        </div>
+      </section>
+
+      <section class="article-section" id="when-io">
+        <span class="sec-num">04</span>
+        <div class="sec-eyebrow">The Other Side</div>
+        <h2>When Interest-Only <em>Is</em> the Right Call</h2>
+        <p>The equal-terms result from the start of this piece is the thing to hold onto here: interest-only genuinely is the better structure when the terms are actually equal, or when the reason to choose it has nothing to do with leverage. The cases below are where that edge is real.</p>
+        <ul>
+          <li><strong>The agency matches the proceeds.</strong> If you're not pushing maximum leverage — the agency loan funds what you need at the same size — then HUD's sizing advantage never comes into play, and on equal proceeds the lower-payment interest-only structure is worth more.</li>
+          <li><strong>Short holds.</strong> Over a two- or three-year hold, an amortizing loan recovers very little principal, so the recapture-at-exit benefit is small and the cash-flow drag dominates. The shorter the hold, the more interest-only wins. Prepayment terms enter here too and can change the answer — our analysis of <a href="https://roachlorenz.com/resources/hud-prepayment-vs-yield-maintenance/">HUD prepayment versus yield maintenance</a> walks through how.</li>
+        </ul>
+        <p>What the worked example shows is not quite as simple as "amortizing is better." It's that the amortization on a HUD loan rarely costs what it appears to, and when HUD also sizes higher and prices lower — the max-leverage case — the larger amortizing loan can be worth more outright. Reach for interest-only when the cash it frees has a better home than the loan rate, not on the payment line alone.</p>
+      </section>
+
+      <section class="article-section" id="leaves-out">
+        <span class="sec-num">05</span>
+        <div class="sec-eyebrow">The Limits of This</div>
+        <h2>What the Comparison <em>Leaves Out</em></h2>
+        <p>Valuing each loan against the same property means the building, its income, and its sale price are identical on both sides of the comparison — so they cancel out, leaving only the loan cash flows. That clean cancellation is what isolates the financing decision, and it's also where the comparison stops. There are three things it deliberately doesn't price.</p>
+        <ul>
+          <li><strong>A single rate prices return, not refinance risk.</strong> The interest-only loan reaches maturity owing nearly its full balance, to be refinanced into whatever cap rate and interest rate environment exists then. The amortizing loan has been deleveraging into that same maturity the entire hold. Discounting at one rate folds this into a return figure rather than showing it. The exposure sits with interest-only, and it's a reason to favor amortizing that the NPV gap understates rather than captures.</li>
+          <li><strong>It answers the loan penciling question, not the deal penciling question.</strong> The comparison tells you which loan is the better financing, holding the property fixed. It doesn't tell you whether the deal itself works — whether the extra leverage actually lifts your equity return given the property's own yield, what cash-on-cash each loan throws off, or how the sale clears. Those need a full levered-equity model with real NOI, a cap rate, and a sale price — the analysis that tells you whether to do the deal, not just which loan is the better financing.</li>
+        </ul>
+      </section>
+
+      <!-- ── INTERACTIVE TOOL ── -->
+      <div class="tool" id="tool">
+        <div class="tool-head">
+          <div class="sec-eyebrow">Interactive Tool</div>
+          <h2>Run It <em>on Your Deal</em></h2>
+          <p>Enter both loans. The defaults load the HUD-versus-agency example above — change anything. For a clean interest-only-versus-P&amp;I comparison, set both loan amounts and rates equal and give one a full interest-only period. Nothing here is a quote or a commitment.</p>
+        </div>
+
+        <div class="tool-cols">
+          <div class="loan-card loan-a">
+            <div class="tag">Loan A</div>
+            <h4>Amortizing (P&amp;I) — e.g. HUD</h4>
+            <div style="height:14px"></div>
+            <div class="field"><label>Loan Amount</label><div class="input-wrap"><span class="pre">$</span><input id="a_amt" class="has-pre" type="text" inputmode="numeric" value="40,000,000"></div></div>
+            <div class="field"><label>Interest Rate</label><div class="input-wrap"><input id="a_rate" class="has-post" type="text" inputmode="decimal" value="3.50"><span class="post">%</span></div></div>
+            <div class="field"><label>Annual MIP (HUD only; 0 if none)</label><div class="input-wrap"><input id="a_mip" class="has-post" type="text" inputmode="decimal" value="0.25"><span class="post">%</span></div></div>
+            <div class="field"><label>Amortization (years)</label><div class="input-wrap"><input id="a_amort" type="text" inputmode="numeric" value="35"></div></div>
+            <div class="field"><label>Interest-Only Period (years)</label><div class="input-wrap"><input id="a_io" type="text" inputmode="numeric" value="0"></div></div>
+          </div>
+
+          <div class="loan-card loan-b">
+            <div class="tag">Loan B</div>
+            <h4>Interest-Only — e.g. Agency</h4>
+            <div style="height:14px"></div>
+            <div class="field"><label>Loan Amount</label><div class="input-wrap"><span class="pre">$</span><input id="b_amt" class="has-pre" type="text" inputmode="numeric" value="37,500,000"></div></div>
+            <div class="field"><label>Interest Rate</label><div class="input-wrap"><input id="b_rate" class="has-post" type="text" inputmode="decimal" value="3.95"><span class="post">%</span></div></div>
+            <div class="field"><label>Annual MIP (HUD only; 0 if none)</label><div class="input-wrap"><input id="b_mip" class="has-post" type="text" inputmode="decimal" value="0.00"><span class="post">%</span></div></div>
+            <div class="field"><label>Amortization (years)</label><div class="input-wrap"><input id="b_amort" type="text" inputmode="numeric" value="30"></div></div>
+            <div class="field"><label>Interest-Only Period (years)</label><div class="input-wrap"><input id="b_io" type="text" inputmode="numeric" value="10"></div></div>
+          </div>
+        </div>
+
+        <div class="shared-row">
+          <div class="field"><label>Hold / Analysis Period (years)</label><div class="input-wrap"><input id="hold" type="text" inputmode="numeric" value="10"></div></div>
+          <div class="field"><label>Discount Rate (opportunity cost)</label><div class="input-wrap"><input id="disc" class="has-post" type="text" inputmode="decimal" value="7.00"><span class="post">%</span></div></div>
+        </div>
+
+        <button class="calc-btn" id="calcBtn">Compare the Two Loans</button>
+
+        <div class="results" id="results">
+          <h3 class="res-title">Over Your Hold Period</h3>
+          <div class="res-grid">
+            <div class="res-card a">
+              <h5>Loan A — Amortizing</h5>
+              <div class="res-line"><span>Initial monthly payment</span><span id="ra_pmt">—</span></div>
+              <div class="res-line"><span>Total debt service (hold)</span><span id="ra_ds">—</span></div>
+              <div class="res-line"><span>Balance at exit</span><span id="ra_bal">—</span></div>
+            </div>
+            <div class="res-card b">
+              <h5>Loan B — Interest-Only</h5>
+              <div class="res-line"><span>Initial monthly payment</span><span id="rb_pmt">—</span></div>
+              <div class="res-line"><span>Total debt service (hold)</span><span id="rb_ds">—</span></div>
+              <div class="res-line"><span>Balance at exit</span><span id="rb_bal">—</span></div>
+            </div>
+          </div>
+
+          <div class="verdict">
+            <div class="vlabel">Net Present Value at Your Discount Rate</div>
+            <div class="npv-pair">
+              <div class="npv-card a"><div class="npv-name">Loan A — Amortizing</div><div class="npv-val" id="npv_a">—</div></div>
+              <div class="npv-card b"><div class="npv-name">Loan B — Interest-Only</div><div class="npv-val" id="npv_b">—</div></div>
+            </div>
+            <div class="vsub" id="v_winlabel">Higher NPV is the better financing</div>
+            <div class="vbig" id="v_gap">—</div>
+            <div class="vsub" id="v_sub">advantage in today's dollars</div>
+            <p class="vtext" id="v_text">—</p>
+
+            <div class="breakdown">
+              <div class="res-line"><span id="bd_proceeds_l">More proceeds at closing (A − B)</span><span id="bd_proceeds">—</span></div>
+              <div class="res-line"><span>Extra debt service over hold</span><span id="bd_ds">—</span></div>
+              <div class="res-line"><span>Lower payoff at exit (B bal − A bal)</span><span id="bd_payoff">—</span></div>
+              <div class="res-line total"><span>Net nominal cash flow</span><span id="bd_net">—</span></div>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="clabel">Loan Balance Over the Hold</div>
+            <svg class="balchart" id="chart" viewBox="0 0 600 240" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Loan balance over the hold period"></svg>
+            <div class="legend">
+              <span><i style="background:var(--gold)"></i> Loan A — Amortizing</span>
+              <span><i style="background:var(--text-muted)"></i> Loan B — Interest-Only</span>
+            </div>
+          </div>
+
+          <p class="tool-note">The project economics are identical under either loan, so no property NOI or sale price is assumed. MIP is modeled on the average annual balance. Outputs are illustrative estimates from your inputs, not a quote, commitment, or underwriting. <a href="https://roachlorenz.com/#contact">Contact us</a> for current rate guidance.</p>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+      <div class="sticky">
+        <nav class="toc">
+          <div class="toc-label">In This Article</div>
+          <a href="#assumption">01 On Equal Terms, IO Wins</a>
+          <a href="#example">02 HUD vs. Agency</a>
+          <a href="#why">03 Why the HUD Loan Wins</a>
+          <a href="#when-io">04 When IO Is the Right Call</a>
+          <a href="#leaves-out">05 What the Comparison Leaves Out</a>
+          <a href="#tool">→ Interactive Tool</a>
+        </nav>
+
+        <div class="side-card">
+          <div class="sc-label">The Bottom Line</div>
+          <div class="stat"><div class="num">+$463K</div><div class="desc">HUD's NPV edge at max leverage, despite amortizing</div></div>
+          <div class="stat"><div class="num">~17%</div><div class="desc">Larger HUD loan when DSCR is the binding constraint</div></div>
+          <div class="stat"><div class="num">Equal terms</div><div class="desc">The one case where interest-only actually wins</div></div>
+        </div>
+
+        <div class="side-card">
+          <div class="sc-label">About the Team</div>
+          <div class="stat"><div class="num">$2B+</div><div class="desc">Combined HUD/FHA closed volume</div></div>
+          <div class="stat"><div class="num">20+</div><div class="desc">Years combined HUD/FHA experience</div></div>
+          <div class="stat"><div class="num">MAP</div><div class="desc">Approved lender — all 50 states</div></div>
+        </div>
+
+        <a href="https://roachlorenz.com/#contact" class="side-cta">Discuss Your Deal →</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ── FAQ ── -->
+  <section class="faq">
+    <h2>Common <em>Questions</em></h2>
+    <div class="faq-item">
+      <div class="faq-q">Is the IRR better on an interest-only loan vs principal and interest loan?</div>
+      <div class="faq-a">On equal terms — same loan amount, rate, and amortization — interest-only does improve the return. Amortization only earns the loan's own rate, and most sponsors discount at more than that, so saving the cash beats paying down principal. The advantage often disappears, however, if the IO payments come at the sacrifice of more aggressive loan terms: a maximum-leverage HUD execution sizes larger and prices lower than an agency interest-only quote, which more than offsets the cost of amortizing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is the principal on an amortizing loan a cost?</div>
+      <div class="faq-a">No. Principal is not an expense. Each dollar paid reduces the balance owed at sale or refinance, so it comes back at exit. Amortization functions as a forced reinvestment at the loan's own interest rate. The only thing given up versus interest-only is the use of that cash between when it's paid and when it would otherwise be recovered.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">When is interest-only better than an amortizing loan?</div>
+      <div class="faq-a">When the freed-up cash has a better use than paying down debt at the loan rate. But the sponsor needs to weigh what getting interest-only did to the rest of the loan terms, because at maximum leverage interest-only usually comes with a lower loan amount or a higher rate. Sometimes interest-only isn't worth the lower leverage it costs.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does a HUD loan's amortization hurt returns versus an agency interest-only loan?</div>
+      <div class="faq-a">Not as much as the payment difference suggests, and often not at all. A HUD 223(f) frequently sizes higher and prices lower than an agency interest-only quote. When you take the net present value of each loan's full cash flows at the borrower's cost of capital, the larger amortizing HUD loan can be worth more in today's dollars than the smaller interest-only loan — even at a 7% discount rate, where holding cash is favored.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Does a HUD loan size larger than an agency loan?</div>
+      <div class="faq-a">Usually yes — whether the binding constraint is LTV or DSCR. On a cash-out execution a HUD 223(f) reaches 80% LTV against 75% for a high-leverage agency loan. When debt service coverage is the constraint, HUD sizes to a 1.15 DSCR versus 1.25 for the agencies, supporting more loan on the same NOI. One common misconception: borrowers assume an agency interest-only loan is sized off the lower interest-only payment, but the agencies measure the 1.25 coverage on the amortizing P&I payment even when the loan is interest-only for its full term. The IO structure adds cash flow during the hold, not proceeds at closing.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Do Fannie Mae and Freddie Mac offer full-term interest-only at maximum leverage?</div>
+      <div class="faq-a">Not automatically. At their highest-leverage tiers the agencies often grant only partial interest-only, with principal beginning partway through the term — commonly year 3, 5, or 7 of a 10-year loan. Full-term interest-only is more available at lower leverage. If you're comparing a HUD loan against an agency interest-only quote, confirm how many years of interest-only the high-leverage option actually includes, because a curtailed IO period narrows the agency's cash-flow advantage.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do you compare interest-only versus amortizing over a hold period?</div>
+      <div class="faq-a">Build the full borrower cash flows for each loan separately — proceeds received at closing, debt service paid each month, and the loan payoff at exit — and take the net present value of each at your opportunity cost of capital. The loan with the higher NPV is worth more in today's dollars. Because the project economics are identical under either loan, the gap between the two NPVs is the value of choosing one financing over the other, with no property NOI or sale-price assumption required.</div>
+    </div>
+  </section>
+</div>
+
+<!-- ── CLOSING CTA ── -->
+<section class="closing">
+  <div class="container">
+    <h2>Want the Model <em>Behind This Article?</em></h2>
+    <p>Every number on this page comes out of an Excel model we built — the full cash-flow build for both loans, the NPV comparison, and the sensitivity table. Want to run it on your own rates and proceeds? Reach out and we'll email it to you. And if you're weighing a HUD loan against an agency interest-only quote on a live deal, we'll size it both ways and walk through the trade-offs with you.</p>
+    <div class="closing-btns">
+      <a href="https://roachlorenz.com/#contact" class="btn-primary">Get the Excel Model</a>
+      <a href="https://roachlorenz.com/#products" class="btn-ghost">View Loan Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">Wim Roach <span>&amp;</span> Brian Lorenz</div>
+        <div class="foot-tag">HUD/FHA Multifamily Origination</div>
+      </div>
+      <ul class="foot-links">
+        <li><a href="https://roachlorenz.com/#products">Products</a></li>
+        <li><a href="https://roachlorenz.com/#team">Team</a></li>
+        <li><a href="https://roachlorenz.com/#process">Process</a></li>
+        <li><a href="https://roachlorenz.com/#resources">Resources</a></li>
+        <li><a href="https://roachlorenz.com/#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="disclaimer">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This article and comparison tool are for informational and illustrative purposes only. All tool outputs are preliminary estimates based on user-entered assumptions, including a discount rate the user selects, and do not constitute a commitment to lend, a loan application, or underwriting analysis. The net present value comparison isolates the financing decision by holding the property constant; it does not account for property-level cash flow, taxes, refinance risk at maturity, or whether freed-up proceeds are reinvested at the assumed rate, and it is not a substitute for a full levered-equity analysis of a specific deal. Rates, MIP, and program terms are subject to HUD guidelines and individual transaction review. Contact Wim Roach &amp; Brian Lorenz directly for current rate guidance and deal-specific analysis. Wim Roach &amp; Brian Lorenz are loan originators with Centennial Mortgage, Inc.</p>
+  </div>
+</footer>
+
+<script>
+  // ── Engine (matches the Excel model exactly) ──
+  function piPayment(amt, annRate, amortYears){
+    var r = annRate/12, n = amortYears*12;
+    if (r === 0) return n>0 ? amt/n : 0;
+    return amt * r / (1 - Math.pow(1+r, -n));
+  }
+  function schedule(loan, holdYears){
+    var N = Math.round(holdYears*12);
+    var pi = piPayment(loan.amt, loan.rate, loan.amort);
+    var rows = [], ends = [], bal = loan.amt;
+    for (var m=1; m<=N; m++){
+      var yr = Math.floor((m-1)/12)+1;
+      var beg = bal;
+      var interest = beg*loan.rate/12;
+      var principal = (loan.io >= yr) ? 0 : (pi - interest);
+      if (principal < 0) principal = 0;
+      if (principal > beg) principal = beg;
+      var end = beg - principal;
+      rows.push({beg:beg, interest:interest, principal:principal, end:end});
+      ends.push(end); bal = end;
+    }
+    var mip = rows.map(function(row, i){
+      var y = Math.floor(i/12);
+      var yrEnds = ends.slice(y*12, y*12+12);
+      var avg = yrEnds.reduce(function(a,b){return a+b;},0)/yrEnds.length;
+      return avg*loan.mip/12;
+    });
+    var ds = rows.map(function(row,i){ return row.interest+row.principal+mip[i]; });
+    return {rows:rows, ds:ds, mip:mip, pi:pi, ends:ends, endBal: rows.length? rows[N-1].end : loan.amt, n:N};
+  }
+  function irr(cf, guess){
+    var r = (guess===undefined)?0.001:guess;
+    for (var it=0; it<300; it++){
+      var npv=0, d=0;
+      for (var t=0; t<cf.length; t++){
+        var f = Math.pow(1+r, t);
+        npv += cf[t]/f;
+        d += -t*cf[t]/(f*(1+r));
+      }
+      if (Math.abs(d) < 1e-13) break;
+      var step = npv/d;
+      r -= step;
+      if (!isFinite(r)) return NaN;
+      if (Math.abs(step) < 1e-12) break;
+    }
+    return r;
+  }
+  // ── Formatting ──
+  function fmt$(n){
+    var sign = n<0 ? "-" : "";
+    return sign + "$" + Math.round(Math.abs(n)).toLocaleString("en-US");
+  }
+  function fmtSigned$(n){
+    var sign = n<0 ? "−" : "+";
+    return sign + "$" + Math.round(Math.abs(n)).toLocaleString("en-US");
+  }
+  function parseNum(id){
+    var v = document.getElementById(id).value.replace(/[^0-9.\-]/g,"");
+    return parseFloat(v) || 0;
+  }
+  // Pretty-format amount inputs with commas on blur
+  ["a_amt","b_amt"].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener("blur", function(){
+      var n = parseNum(id);
+      el.value = n ? n.toLocaleString("en-US") : "";
+    });
+  });
+
+  function readLoan(p){
+    return {
+      amt: parseNum(p+"_amt"),
+      rate: parseNum(p+"_rate")/100,
+      mip: parseNum(p+"_mip")/100,
+      amort: parseNum(p+"_amort"),
+      io: parseNum(p+"_io")
+    };
+  }
+
+  function drawChart(sA, sB, hold){
+    var N = sA.n;
+    var W=600, H=240, padL=64, padR=12, padT=14, padB=42;
+    var rawMax = Math.max(sA.amt, sB.amt, sA.endBal, sB.endBal);
+    var rawMin = Math.min(sA.amt, sB.amt, sA.endBal, sB.endBal);
+    function niceNum(x){
+      if (x <= 0) return 1;
+      var exp = Math.floor(Math.log10(x)), f = x/Math.pow(10,exp);
+      var nf = f<1.5?1 : f<3?2 : f<7?5 : 10;
+      return nf*Math.pow(10,exp);
+    }
+    var rawRange = (rawMax - rawMin) || rawMax*0.1 || 1;
+    var step = niceNum(rawRange/4);
+    var niceMin = Math.floor(rawMin/step)*step;
+    var niceMax = Math.ceil(rawMax/step)*step;
+    var rng = (niceMax - niceMin) || 1;
+    function x(i){ return padL + (i/N) * (W - padL - padR); }
+    function y(v){ return padT + (1-(v-niceMin)/rng) * (H - padT - padB); }
+    function path(series){
+      var d = "M " + x(0) + " " + y(series.amt);
+      for (var i=0;i<series.rows.length;i++){ d += " L " + x(i+1) + " " + y(series.rows[i].end); }
+      return d;
+    }
+    function fmtAxis(v){
+      if (Math.abs(v) >= 1e6) return "$" + (v/1e6).toFixed(1) + "M";
+      if (Math.abs(v) >= 1e3) return "$" + Math.round(v/1e3) + "k";
+      return "$" + Math.round(v);
+    }
+    var gold = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();
+    var muted = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim();
+    var border = "rgba(201,168,76,0.18)";
+    var axis = "rgba(201,168,76,0.35)";
+    var g = "";
+
+    // Y-axis gridlines + balance labels
+    for (var v=niceMin; v<=niceMax+step*0.001; v+=step){
+      var yi = y(v);
+      g += '<line x1="'+padL+'" y1="'+yi+'" x2="'+(W-padR)+'" y2="'+yi+'" stroke="'+border+'" stroke-width="1"/>';
+      g += '<text x="'+(padL-9)+'" y="'+(yi+3.5)+'" fill="'+muted+'" font-size="10" text-anchor="end" font-family="DM Sans, sans-serif">'+fmtAxis(v)+'</text>';
+    }
+    // X-axis year ticks + labels
+    for (var yr=0; yr<=hold; yr++){
+      var xi = x(yr*12);
+      g += '<line x1="'+xi+'" y1="'+padT+'" x2="'+xi+'" y2="'+(H-padB)+'" stroke="'+border+'" stroke-width="1"/>';
+      if (yr % (hold>12?2:1) === 0){
+        g += '<text x="'+xi+'" y="'+(H-padB+16)+'" fill="'+muted+'" font-size="10" text-anchor="middle" font-family="DM Sans, sans-serif">'+yr+'</text>';
+      }
+    }
+    // Axis lines
+    g += '<line x1="'+padL+'" y1="'+padT+'" x2="'+padL+'" y2="'+(H-padB)+'" stroke="'+axis+'" stroke-width="1"/>';
+    g += '<line x1="'+padL+'" y1="'+(H-padB)+'" x2="'+(W-padR)+'" y2="'+(H-padB)+'" stroke="'+axis+'" stroke-width="1"/>';
+    // X-axis title
+    g += '<text x="'+((padL+(W-padR))/2)+'" y="'+(H-6)+'" fill="'+muted+'" font-size="11" text-anchor="middle" font-family="DM Sans, sans-serif" letter-spacing="0.08em">YEARS</text>';
+    // Balance curves
+    g += '<path d="'+path(sB)+'" fill="none" stroke="'+muted+'" stroke-width="2"/>';
+    g += '<path d="'+path(sA)+'" fill="none" stroke="'+gold+'" stroke-width="2.5"/>';
+
+    document.getElementById("chart").innerHTML = g;
+  }
+
+  function calculate(){
+    var A = readLoan("a"), B = readLoan("b");
+    var hold = parseNum("hold") || 10;
+    if (hold < 1) hold = 1;
+    var sA = schedule(A, hold), sB = schedule(B, hold);
+    sA.amt = A.amt; sB.amt = B.amt;
+
+    document.getElementById("ra_pmt").textContent = fmt$(sA.ds[0]);
+    document.getElementById("rb_pmt").textContent = fmt$(sB.ds[0]);
+    document.getElementById("ra_ds").textContent  = fmt$(sA.ds.reduce(function(a,b){return a+b;},0));
+    document.getElementById("rb_ds").textContent  = fmt$(sB.ds.reduce(function(a,b){return a+b;},0));
+    document.getElementById("ra_bal").textContent = fmt$(sA.endBal);
+    document.getElementById("rb_bal").textContent = fmt$(sB.endBal);
+
+    var moreProceeds = A.amt - B.amt;
+    var payoffBenefit = sB.endBal - sA.endBal;
+    var N = sA.n;
+    var cf = [moreProceeds];
+    var totExtra = 0;
+    for (var i=0;i<N;i++){
+      var diff = (i<sA.ds.length?sA.ds[i]:0) - (i<sB.ds.length?sB.ds[i]:0);
+      totExtra += diff;
+      var flow = -diff;
+      if (i===N-1) flow += payoffBenefit;
+      cf.push(flow);
+    }
+    var net = moreProceeds - totExtra + payoffBenefit;
+
+    document.getElementById("bd_proceeds").textContent = fmtSigned$(moreProceeds);
+    document.getElementById("bd_ds").textContent       = fmtSigned$(-totExtra);
+    document.getElementById("bd_payoff").textContent   = fmtSigned$(payoffBenefit);
+    document.getElementById("bd_net").textContent      = fmtSigned$(net);
+
+    // ── Two-NPV comparison (borrower cash flows discounted at opportunity cost) ──
+    var disc = parseNum("disc")/100;
+    if (!isFinite(disc) || disc <= -0.99) disc = 0.07;
+    var mr = Math.pow(1+disc, 1/12) - 1;
+    function npvLoan(s, amt){
+      var v = amt, n = s.ds.length;
+      for (var i=0;i<n;i++){
+        var flow = -s.ds[i];
+        if (i === n-1) flow -= s.endBal;
+        v += flow / Math.pow(1+mr, i+1);
+      }
+      return v;
+    }
+    var npvA = npvLoan(sA, A.amt), npvB = npvLoan(sB, B.amt);
+    var gap = npvA - npvB;
+    var discPct = (disc*100).toFixed(2);
+
+    var npvAEl = document.getElementById("npv_a");
+    var npvBEl = document.getElementById("npv_b");
+    npvAEl.textContent = fmt$(npvA);
+    npvBEl.textContent = fmt$(npvB);
+    npvAEl.style.color = (gap >= 0) ? "var(--gold)" : "var(--text-soft)";
+    npvBEl.style.color = (gap <  0) ? "var(--gold)" : "var(--text-soft)";
+
+    var winEl = document.getElementById("v_winlabel");
+    var gapEl = document.getElementById("v_gap");
+    var subEl = document.getElementById("v_sub");
+    var txtEl = document.getElementById("v_text");
+
+    if (Math.abs(gap) < 1){
+      winEl.textContent = "The two loans are worth the same";
+      gapEl.textContent = "$0";
+      subEl.textContent = "at a " + discPct + "% discount rate";
+      txtEl.innerHTML = "At this discount rate the two structures carry identical present value. Move the rate or the terms to separate them.";
+    } else {
+      var winName = (gap >= 0) ? "Loan A (amortizing)" : "Loan B (interest-only)";
+      winEl.textContent = winName + " is worth more";
+      gapEl.textContent = "+" + fmt$(Math.abs(gap));
+      subEl.textContent = "more in today\u2019s dollars, at a " + discPct + "% discount rate";
+      txtEl.innerHTML = "<strong>" + winName + "</strong> is worth <strong>" +
+        fmt$(Math.abs(gap)) + "</strong> more in present-value terms. This holds the property fixed, so it isolates the financing \u2014 it assumes the proceeds and freed-up cash earn the " + discPct + "% you set. Set that rate to what your capital genuinely earns.";
+    }
+
+    drawChart(sA, sB, hold);
+    var res = document.getElementById("results");
+    res.classList.add("show");
+    if (typeof gtag === "function"){ gtag('event', 'tool_calculate', {tool: 'io_vs_amortizing'}); }
+  }
+
+  document.getElementById("calcBtn").addEventListener("click", calculate);
+  // Run once on load with the worked-example defaults
+  window.addEventListener("load", calculate);
+</script>
+
+</body>
+</html>
