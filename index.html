@@ -761,6 +761,24 @@
       transition: color 0.2s;
     }
     .team-email:hover { color: var(--gold-light); }
+    /* Testimonial attribution */
+    .quote-attr {
+      display: block;
+      margin-top: 12px;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+    .quote-attr span {
+      display: block;
+      color: var(--text-muted);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-top: 2px;
+    }
+
     .team-quote {
       margin-top: 20px;
       padding: 16px 20px;
@@ -1374,6 +1392,17 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+
+    /* ════════════════════════════════════
+       FEATURED RESOURCES (teaser)
+    ════════════════════════════════════ */
+    .featured-resources {
+      padding: 90px 0;
+      background: var(--navy-mid);
+      border-top: 1px solid var(--gold-border);
+      border-bottom: 1px solid var(--gold-border);
+    }
+    .featured-cta-wrap { margin-top: 36px; }
   </style>
 </head>
 <body>
@@ -1434,7 +1463,9 @@
         </div>
       </div>
       <div class="hero-card-divider"></div>
-      <p class="hero-card-note">"Wim and Brian are the rare team that is interested in finding out how you want your deal to look, versus dragging you along on what's profitable for them."</p>
+      <p class="hero-card-note">"Wim and Brian ran with my project — and I was nervous about HUD at the beginning. In the end, it was because we went with HUD and these guys that the project started."
+        <cite class="quote-attr">Developer, Boise, ID<span>HUD 221(d)(4) new construction</span></cite>
+      </p>
     </div>
   </div>
 </section>
@@ -1502,6 +1533,54 @@
         <div class="edge-title">Independent, Focused & Yours</div>
         <p class="edge-desc">Centennial Mortgage is not a big bank with a HUD department buried three levels deep — it's an independent, nimble lender that focuses on maintaining exceptional relationships with HUD offices. And when you work with Wim and Brian, those relationships are yours.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURED RESOURCES (teaser) ── -->
+<section class="featured-resources">
+  <div class="container">
+    <div class="section-eyebrow">Proof of Work</div>
+    <h2 class="section-title">We write the field guides for <em>this program.</em></h2>
+    <p class="section-sub">Not marketing copy — practitioner-grade analysis written from a former HUD underwriter's desk. A few worth starting with:</p>
+    <div class="wp-grid" style="margin-top: 40px;">
+
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">Case Study</div>
+          <div class="wp-title">How We Added $4M to a HUD 223(f) by Reading the Tax Code</div>
+          <p class="wp-desc">How a former HUD underwriter got Montana's 2025 multifamily tax cut (HB 231 / SB 542) into a 223(f) refinance — adding $4M in DSCR-constrained proceeds.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/montana-tax-law-hud-223f-deal-highlight" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD 223(f)</div>
+          <div class="wp-title">How HUD Sizes a 223(f) Multifamily Mortgage</div>
+          <p class="wp-desc">A former Senior HUD Underwriter explains how 223(f) loan proceeds are determined — LTV, DSCR, statutory limits, and the cost-of-refinance floor — with an interactive sizing tool embedded in the article.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/how-hud-sizes-a-223f-mortgage" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-card-top">
+          <div class="wp-tag">HUD vs. Agency</div>
+          <div class="wp-title">Yield Maintenance vs. HUD Step-Down: Which Is Cheaper?</div>
+          <p class="wp-desc">A side-by-side comparison of the HUD 10-9-8-7-6-5-4-3-2-1 step-down against Fannie Mae yield maintenance on a $25M, 5.30%, 35-year loan — including what happens when treasuries move.</p>
+        </div>
+        <div class="wp-card-bottom">
+          <a href="/resources/hud-prepayment-vs-yield-maintenance" class="wp-read">Read →</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="featured-cta-wrap">
+      <a href="#resources" class="btn-outline">Browse all <span id="resource-count">13</span> resources →</a>
     </div>
   </div>
 </section>
@@ -1684,7 +1763,9 @@
         <div class="team-name">Wim Roach</div>
         <div class="team-title">Vice President</div>
         <p class="team-bio">Wim has been originating HUD/FHA multifamily loans since March 2014, building a track record of approximately $1.5 billion in closed transactions across the country. His relationships are built on a simple foundation: understanding borrower goals, taking processing load off of the borrower, making sure his client gets the product they wanted, and a deep knowledge of the HUD process from start to finish.</p>
-        <blockquote class="team-quote">"Wim made our HUD refinance the easiest loan I have ever done - HUD, FNMA, bank, or otherwise."</blockquote>
+        <blockquote class="team-quote">"Wim made our HUD refinance easy compared to a FNMA loan we did earlier in the year."
+          <cite class="quote-attr">Owner, Bozeman, MT<span>HUD 223(f) refinance</span></cite>
+        </blockquote>
         <div class="team-stats">
           <div class="team-stat">
             <div class="team-stat-val">$1.5B+</div>
@@ -1704,7 +1785,9 @@
         <div class="team-name">Brian Lorenz</div>
         <div class="team-title">Vice President</div>
         <p class="team-bio">Brian spent the early part of his career as a Senior Underwriter at a leading HUD/FHA multifamily lender, where he underwrote approximately $500 million in HUD/FHA multifamily loans — including some of HUD's most complicated pilot programs, such as HUD RAD for PRAC Sub-Rehabs and LIHTC PILOTs. That experience — understanding exactly how HUD evaluates credit, market, and physical risk — is the foundation of how Wim and Brian structure every deal. He joined Centennial Mortgage as Vice President, bringing his underwriting perspective directly to the borrower relationship.</p>
-        <blockquote class="team-quote">"Brian came up as an underwriter. He knows exactly what HUD is going to ask — before they ask it."</blockquote>
+        <blockquote class="team-quote">"Brian was so knowledgeable and helpful — he made the process really clean and quick for me and the other GPs."
+          <cite class="quote-attr">Owner, Spokane, WA<span>HUD 223(f) refinance</span></cite>
+        </blockquote>
         <div class="team-stats">
           <div class="team-stat">
             <div class="team-stat-val">~$500M</div>
@@ -2008,6 +2091,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
+    <p class="footer-disclaimer">Client comments reflect individual experiences working with Wim and Brian over the course of their careers. Some transactions referenced were originated or underwritten at prior institutions. Past results are not a guarantee of future outcomes and do not constitute a commitment to lend.</p>
     <p class="footer-disclaimer">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This website is for informational purposes only and does not constitute a commitment to lend. This is the personal website of Wim Roach and Brian Lorenz, loan originators with Centennial Mortgage, Inc.</p>
   </div>
 </footer>
@@ -2086,6 +2170,9 @@
 
   // Init
   renderCards();
+  // Keep the teaser's "Browse all N" count in sync with the library
+  const rcEl = document.getElementById('resource-count');
+  if (rcEl) rcEl.textContent = document.querySelectorAll('#wp-grid .wp-card').length;
 </script>
 
 </body>
