@@ -140,7 +140,7 @@
 
   /* ================= header ================= */
   header{border-bottom:2px solid var(--rule-strong);background:var(--paper);position:sticky;top:0;z-index:50}
-  .nav{display:flex;align-items:baseline;justify-content:space-between;padding:18px 0;gap:24px}
+  .nav{display:flex;align-items:baseline;justify-content:space-between;padding:18px 32px;gap:24px}
   .wordmark{font-family:var(--serif);font-size:19px;font-weight:700;color:var(--ink);letter-spacing:-0.01em;white-space:nowrap}
   .wordmark span{color:var(--blue)}
   nav.links{display:flex;gap:30px;font-size:14.5px;font-weight:500}
@@ -316,6 +316,9 @@
   .cta-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;margin-top:48px}
   .cta-facts{font-family:var(--mono);font-size:13.5px;line-height:1.7}
   .cta-facts .row{display:grid;grid-template-columns:140px 1fr;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.18)}
+  .cta-grid > *{min-width:0}
+  .cta-facts .row > :last-child{min-width:0;overflow-wrap:anywhere}
+  form .frow input{min-width:0}
   .cta-facts .k{color:#8fb4c6;letter-spacing:0.04em}
   .cta-facts a{color:#fff;border-bottom:1px solid var(--marker)}
   form .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
@@ -329,7 +332,7 @@
 
   footer{padding:38px 0 44px;border-top:1px solid var(--rule)}
   footer .cols{display:flex;justify-content:space-between;gap:40px;font-family:var(--mono);font-size:13px;color:var(--mid);margin-bottom:24px;flex-wrap:wrap}
-  footer .cols nav{display:flex;gap:22px}
+  footer .cols nav{display:flex;gap:22px;flex-wrap:wrap}
   footer .cols nav a{color:var(--mid)}
   footer .cols nav a:hover{color:var(--blue)}
   footer .disclaimer{font-size:12px;color:var(--mid);max-width:72em;line-height:1.6}
