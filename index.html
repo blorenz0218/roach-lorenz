@@ -200,7 +200,7 @@
   .browse-all:hover{color:var(--blue)}
 
   /* ================= claim: comparison ================= */
-  .compare{margin-top:18px;overflow-x:auto}
+  .compare{margin-top:18px;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .compare table{width:100%;border-collapse:collapse;min-width:760px}
   .compare th,.compare td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--rule);font-size:14.5px;vertical-align:top}
   .compare thead th{font-family:var(--mono);font-size:12px;letter-spacing:0.07em;color:var(--mid);font-weight:500;border-bottom:1.5px solid var(--ink);padding-bottom:12px}
@@ -345,7 +345,7 @@
 
   /* ================= responsive ================= */
   @media (max-width:980px){
-    .hero{grid-template-columns:1fr;gap:48px;padding:52px 0}
+    .hero{grid-template-columns:1fr;gap:48px;padding:52px 20px}
     .ledger-grid{grid-template-columns:1fr;border-left:none}
     .ledger-cell{border-right:none;border-bottom:1px solid var(--rule);padding:22px 0}
     .edge-grid{grid-template-columns:1fr}
@@ -363,6 +363,8 @@
     .cta-grid{grid-template-columns:1fr;gap:44px}
     nav.links a:not(.cta){display:none}
     .tl-card{flex-basis:320px}
+    .tl-line + .tl-card{margin-left:20px}
+    .tl-track{padding-right:20px}
   }
 </style>
 </head>
@@ -765,7 +767,7 @@
               <div class="pstats"><b>~$500M</b> UNDERWRITTEN<br/><b>10+</b> YEARS HUD/FHA</div>
             </div>
           </div>
-          <div class="bio">Brian spent the early part of his career as a Senior Underwriter at a leading HUD/FHA multifamily lender, where he underwrote approximately $500 million in HUD/FHA loans — including some of HUD's most complicated pilot programs, such as RAD for PRAC sub-rehabs and LIHTC PILOTs. Earlier in his career, he also led Agency sizing and intake for a Northwest origination team, sizing every incoming deal through both HUD and FNMA to determine which execution was best. That experience — understanding exactly how HUD evaluates credit, market, and physical risk — is the foundation of how Wim and Brian structure every deal.</div>
+          <div class="bio">Brian spent the early part of his career as a Senior Underwriter at a leading HUD/FHA multifamily lender, where he underwrote approximately $500 million in HUD/FHA loans — including some of HUD's most complicated pilot programs, such as RAD for PRAC sub-rehabs and LIHTC PILOTs. Later in his career, he also led Agency sizing and intake for a Northwest origination team, sizing every incoming deal through both HUD and FNMA to determine which execution was best. That experience — understanding exactly how HUD evaluates credit, market, and physical risk — is the foundation of how Wim and Brian structure every deal.</div>
           <div class="pquote">"Brian was so knowledgeable and helpful — he made the process really clean and quick for me and the other GPs."<span class="pattr">OWNER, SPOKANE, WA · HUD 223(f) REFINANCE</span></div>
           <a class="mail" href="mailto:&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a>
         </div>
