@@ -21,10 +21,25 @@ Secondary: 241(a) supplemental loans, 223(a)(7) refinance, BSPRA structuring.
 
 ## Design system
 
-- Navy and gold palette
-- Headings: Playfair Display (serif)
-- Body: DM Sans
-- Apply consistently across all pages and white papers
+**Design System v2 — "The Underwriter's Desk"** (rolled out across the homepage and all resource articles). Light, paper-toned, editorial. No border-radius anywhere.
+
+**Canonical stylesheet:** the entire `<style>` block in `resources/how-hud-sizes-a-223f-mortgage/index.html` is the single source of truth. A new resource page copies that block verbatim — do not retype or "improve" it. (The homepage carries its own copy of the same system inline.)
+
+**Fonts** — Source Serif 4 (display/serif headings), IBM Plex Sans (body/UI), IBM Plex Mono (data/labels). Canonical fonts `<link>` for every page:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+```
+
+**Tokens:** paper `#f6f8f8`, ink `#132b36`, blue `#04567c`, blue-deep `#003a55`, mid `#5b7280`, body-text `#33505d`, rule `#cfd9dd`, marker (orange) `#e8821f`, marker-tint `#fdf3e7`, tint `#eef4f7`, card `#ffffff`. Fonts as `--serif` / `--sans` / `--mono`.
+
+**Legacy aliases** live in the canonical stylesheet's `:root` so older inline styles and inline-JS `var()` refs keep working — leave them, and leave existing inline styles untouched: `--text-muted`→mid, `--text`→ink/body-text, `--text-soft`→body-text, `--navy`→ink, `--gold`→marker, `--gold-border`→rule.
+
+**Retired — must not appear in any new page:** the v1 navy/gold palette, `--navy`/`--gold` as *primary* tokens (only the aliases above remain), Playfair Display, and DM Sans. A dark band is still allowed where intentional (e.g. the homepage contact CTA uses `--blue-deep` with light text) — but build it from v2 tokens, never the retired ones.
+
+**Per-page supplements:** some articles use components the canonical stylesheet doesn't cover (charts, timelines, comparison widgets, calculators). Those carry a clearly-marked `/* PAGE-SPECIFIC SUPPLEMENT — review */` block at the end of their `<style>`, composed only from v2 tokens. When adding such a component, keep its old visual role (a highlighted box stays a highlighted box — `--marker-tint` with an ink border) and never put dark text on a dark background.
 
 ### Hero entrance animation (required on white papers)
 
