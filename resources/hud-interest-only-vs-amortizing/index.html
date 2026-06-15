@@ -444,11 +444,11 @@
     .disclaimer { font-size: 11.5px; color: var(--mid); line-height: 1.7; padding-top: 24px; border-top: 1px solid var(--rule); max-width: 920px; }
     .faq { padding: 20px 0 60px; }
     .faq h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3.2vw, 33px); letter-spacing: -0.01em; color: var(--ink); margin-bottom: 26px; }
-    .faq h2 em { font-style: italic; color: var(--marker); }
+    .faq h2 em { font-style: italic; color: var(--blue); }
     .faq-a { font-size: 15.5px; color: var(--body-text); }
     .faq-item { border-top: 1px solid var(--rule); padding: 22px 0; }
     .faq-item:last-child { border-bottom: 1px solid var(--rule); }
-    .faq-q { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+    .faq-q { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 10px; }
     .foot-brand { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); }
     .foot-brand span { color: var(--marker); }
     .foot-links { display: flex; flex-wrap: wrap; gap: 24px; list-style: none; align-items: center; }
@@ -483,7 +483,7 @@
     .npv-card .npv-name { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; font-weight: 600; }
     .npv-card .npv-val { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; }
     .npv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
-    .stat .num { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); }
+    .stat .num { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--ink); }
     .res-card { background: var(--card); border: 1px solid var(--rule); padding: 18px 20px; }
     .res-card h5 { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
     .res-card.a h5 { color: var(--marker); }
@@ -501,8 +501,8 @@
     .shared-row .field { flex: 1; margin-bottom: 0; }
     .shared-row .field label { text-align: left; }
     .side-card { background: var(--card); border: 1.5px solid var(--ink); padding: 24px; margin-bottom: 22px; }
-    .side-cta { display: block; text-align: center; background: var(--marker); color: var(--ink); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px; margin-top: 4px; transition: background 0.2s; }
-    .side-cta:hover { background: var(--marker); color: var(--ink); }
+    .side-cta { display: block; text-align: center; background: var(--blue-deep); color: #fff; font-size: 14px; font-weight: 600; padding: 13px 16px; margin-top: 4px; text-decoration: none; transition: background 0.2s; }
+    .side-cta:hover { background: var(--blue); }
     .stat { margin-bottom: 18px; }
     .stat:last-child { margin-bottom: 0; }
     .sticky { position: sticky; top: 92px; }
@@ -845,14 +845,14 @@
           <div class="stat"><div class="num">MAP</div><div class="desc">Approved lender — all 50 states</div></div>
         </div>
 
-        <a href="https://roachlorenz.com/#contact" class="side-cta">Discuss Your Deal →</a>
+        <a href="https://roachlorenz.com/#contact" class="side-cta">Start a Conversation</a>
       </div>
     </aside>
   </div>
 
   <!-- ── FAQ ── -->
   <section class="faq">
-    <h2>Common <em>Questions</em></h2>
+    <h2>Frequently Asked <em>Questions</em></h2>
     <div class="faq-item">
       <div class="faq-q">Is the IRR better on an interest-only loan vs principal and interest loan?</div>
       <div class="faq-a">On equal terms — same loan amount, rate, and amortization — interest-only does improve the return. Amortization only earns the loan's own rate, and most sponsors discount at more than that, so saving the cash beats paying down principal. The advantage often disappears, however, if the IO payments come at the sacrifice of more aggressive loan terms: a maximum-leverage HUD execution sizes larger and prices lower than an agency interest-only quote, which more than offsets the cost of amortizing.</div>
