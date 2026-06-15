@@ -269,6 +269,9 @@
     .example-box { background: var(--card); border: 1.5px solid var(--ink); margin: 30px 0; }
     .example-box::before { content: none; }
     .example-label { display: block; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.07em; color: var(--ink); text-transform: uppercase; background: var(--marker-tint); border-bottom: 1.5px solid var(--marker); padding: 10px 20px; }
+    .example-math { font-family: var(--mono); font-size: 13.5px; color: var(--body-text); padding: 7px 20px; font-variant-numeric: tabular-nums; }
+    .example-math strong { color: var(--ink); font-weight: 500; }
+    .example-box .example-math:last-child { padding-bottom: 18px; }
     .example-box p { font-size: 15px; padding: 0 20px; margin: 16px 0; }
     .example-box p:last-child { padding-bottom: 18px; margin-bottom: 0; }
     .example-box p strong { color: var(--ink); }
@@ -403,9 +406,9 @@
        v1 body font->sans; border-radius and box-shadow dropped). */
     .callout-label { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
     .article { min-width: 0; }
-    .article h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.2vw, 33px); line-height: 1.18; color: var(--card); margin-bottom: 20px; }
+    .article h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.2vw, 33px); line-height: 1.18; color: var(--ink); margin-bottom: 20px; }
     .article h2 em { font-style: italic; color: var(--marker); }
-    .article h3 { font-family: var(--sans); font-weight: 600; font-size: 18px; color: var(--card); margin: 30px 0 12px; }
+    .article h3 { font-family: var(--sans); font-weight: 600; font-size: 18px; color: var(--ink); margin: 30px 0 12px; }
     .article p { font-size: 16.5px; color: var(--body-text); margin-bottom: 18px; overflow-wrap: break-word; }
     .article p strong { color: var(--ink); font-weight: 600; }
     .article ul { margin: 0 0 18px 0; padding-left: 0; list-style: none; }
@@ -440,12 +443,12 @@
     .stat .desc { font-size: 12.5px; color: var(--mid); margin-top: 2px; }
     .disclaimer { font-size: 11.5px; color: var(--mid); line-height: 1.7; padding-top: 24px; border-top: 1px solid var(--rule); max-width: 920px; }
     .faq { padding: 20px 0 60px; }
-    .faq h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.2vw, 33px); color: var(--card); margin-bottom: 26px; }
+    .faq h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.2vw, 33px); color: var(--ink); margin-bottom: 26px; }
     .faq h2 em { font-style: italic; color: var(--marker); }
     .faq-a { font-size: 15.5px; color: var(--body-text); }
     .faq-item { border-top: 1px solid var(--rule); padding: 22px 0; }
     .faq-item:last-child { border-bottom: 1px solid var(--rule); }
-    .faq-q { font-size: 17px; font-weight: 600; color: var(--card); margin-bottom: 10px; }
+    .faq-q { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
     .foot-brand { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); }
     .foot-brand span { color: var(--marker); }
     .foot-links { display: flex; flex-wrap: wrap; gap: 24px; list-style: none; align-items: center; }
@@ -466,7 +469,7 @@
     .loan-a .tag { color: var(--marker); }
     .loan-b .tag { color: var(--mid); }
     .loan-card { background: var(--card); border: 1px solid var(--rule); padding: 22px 20px; min-width: 0; }
-    .loan-card h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--card); margin-bottom: 4px; }
+    .loan-card h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; color: var(--ink); margin-bottom: 4px; }
     .loan-card .tag { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; margin-bottom: 18px; display: inline-block; }
     .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
     .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); transition: color 0.2s; }
@@ -475,9 +478,9 @@
     .npv-card.a { border-top: 2px solid var(--marker); }
     .npv-card.b { border-top: 2px solid var(--mid); }
     .npv-card .npv-name { font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); margin-bottom: 8px; font-weight: 600; }
-    .npv-card .npv-val { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--card); font-variant-numeric: tabular-nums; line-height: 1.1; }
+    .npv-card .npv-val { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; }
     .npv-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
-    .stat .num { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--card); }
+    .stat .num { font-family: var(--serif); font-size: 26px; font-weight: 700; color: var(--ink); }
     .res-card { background: var(--card); border: 1px solid var(--rule); padding: 18px 20px; }
     .res-card h5 { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
     .res-card.a h5 { color: var(--marker); }
@@ -486,22 +489,26 @@
     .res-line { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; font-size: 13.5px; }
     .res-line span:first-child { color: var(--mid); }
     .res-line span:last-child { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
-    .results h3.res-title { font-family: var(--serif); font-size: 22px; color: var(--card); font-weight: 700; margin-bottom: 18px; text-align: center; }
-    .side-card .sc-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--marker); font-weight: 600; margin-bottom: 18px; }
+    .results h3.res-title { font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 700; margin-bottom: 18px; text-align: center; }
+    .side-card .sc-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 18px; }
     .sec-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 14px; }
     .tool-head .sec-eyebrow { margin-bottom: 8px; }
     .sec-num { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--marker); display: inline-block; margin-bottom: 4px; }
     .shared-row { display: flex; gap: 18px; max-width: 480px; margin: 0 auto 24px; }
     .shared-row .field { flex: 1; margin-bottom: 0; }
     .shared-row .field label { text-align: center; }
-    .side-card { background: var(--card); border: 1px solid var(--rule); padding: 24px; margin-bottom: 22px; }
+    .side-card { background: var(--card); border: 1.5px solid var(--ink); padding: 24px; margin-bottom: 22px; }
     .side-cta { display: block; text-align: center; background: var(--marker); color: var(--ink); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px; margin-top: 4px; transition: background 0.2s; }
     .side-cta:hover { background: var(--marker); color: var(--ink); }
     .stat { margin-bottom: 18px; }
     .stat:last-child { margin-bottom: 0; }
     .sticky { position: sticky; top: 92px; }
     .tbl-wrap { overflow-x: auto; margin: 24px 0; }
-    .toc-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--marker); font-weight: 600; margin-bottom: 16px; }
+    .toc-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+    .toc { display: flex; flex-direction: column; }
+    .toc a { display: block; padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; color: var(--ink); text-decoration: none; line-height: 1.4; transition: color .15s; }
+    .toc a:last-child { border-bottom: none; padding-bottom: 0; }
+    .toc a:hover { color: var(--blue); }
     .tool { background: var(--tint); border: 1px solid var(--rule); padding: 36px; margin: 40px 0; scroll-margin-top: 90px; }
     .tool-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 22px; }
     .tool-head { margin-bottom: 28px; }
@@ -595,12 +602,11 @@
         <div class="sec-eyebrow">In a Vacuum</div>
         <h2>On Equal Terms, <em>Interest-Only Wins</em></h2>
         <p>We'll start by giving the interest-only argument its strongest case. Take two loans that are identical in every respect — same $40,000,000 amount, same 3.50% rate, same 30-year amortization, no MIP on either — and change only one thing: one pays principal and interest, the other is interest-only for the full term. Hold the asset 10 years, discount each at a 7% cost of capital, and the interest-only loan is worth more.</p>
-        <div class="example">
-          <div class="example-label">Equal terms, 7% discount rate — only the structure differs</div>
-          <p>Amortizing (P&amp;I): <span class="res">$8,637,544 NPV</span></p>
-          <p>Interest-only: <span class="res">$9,521,392 NPV</span></p>
-          <p style="margin-top:14px;">Interest-only advantage:</p>
-          <span class="big">+$883,848</span>
+        <div class="example-box">
+          <span class="example-label">Equal terms, 7% discount rate — only the structure differs</span>
+          <div class="example-math"><strong>Amortizing (P&amp;I):</strong> $8,637,544 NPV</div>
+          <div class="example-math"><strong>Interest-only:</strong> $9,521,392 NPV</div>
+          <div class="example-math"><strong>Interest-only advantage:</strong> +$883,848</div>
         </div>
         <p>This is the part the instinct gets right: a payment toward principal is a forced reinvestment at a known rate — an effective 3.56% in this example — so when you pay principal down, your money is only earning that 3.56%. If you can earn a higher rate elsewhere (your theoretical discount rate) than 3.56%, you're better off keeping the cash and putting it to work than retiring debt. That's what interest-only does: it nets you the spread between your discount rate and the effective note rate, here 3.44%. When your money is worth more than the loan costs, paying down principal early is the worse use of it. The two structures break even exactly at the loan rate; above it, interest-only is ahead.</p>
         <p>If the comparison were based on equal mortgage terms, every conversation about HUD versus an interest-only agency loan would end with the IO loan winning. But the HUD loan terms are usually differentiated enough from the agency option that the real question becomes whether HUD's better terms make up for the fact that it isn't interest-only.</p>
@@ -636,12 +642,11 @@
 
         <p>The way to settle it is to value each loan the way the borrower actually experiences it: the proceeds received at closing, the debt service paid each month, and the balance retired at exit. Discount each of those streams back at your own cost of capital, and you get the net present value of the financing — what each loan is worth, today, in a single number. We'll use 7% as the discount rate, a reasonable stand-in for what a dollar of the sponsor's capital earns elsewhere. The project is the same building either way, so the loan with the higher NPV is the one that leaves the borrower wealthier.</p>
 
-        <div class="example">
-          <div class="example-label">Net present value at a 7% discount rate</div>
-          <p>HUD loan (amortizing): <span class="res">$8,166,810 NPV</span></p>
-          <p>Agency loan (interest-only): <span class="res">$7,703,514 NPV</span></p>
-          <p style="margin-top:14px;">HUD advantage, in today's dollars:</p>
-          <span class="big">+$463,296</span>
+        <div class="example-box">
+          <span class="example-label">Net present value at a 7% discount rate</span>
+          <div class="example-math"><strong>HUD loan (amortizing):</strong> $8,166,810 NPV</div>
+          <div class="example-math"><strong>Agency loan (interest-only):</strong> $7,703,514 NPV</div>
+          <div class="example-math"><strong>HUD advantage, in today's dollars:</strong> +$463,296</div>
         </div>
 
         <p>Both numbers come out positive because, at a 7% opportunity cost, both loans are cheap money compared to paying all cash — you repay them in dollars you value less than the ones you received at closing. The HUD loan is simply worth more of it, by about $463,000 in present-value terms. The idea that the amortizing loan costs $5,900,000 more in payments is true, and it loses to the $2,500,000 more it advanced at closing and the $4,478,000 less it owes at exit.</p>
