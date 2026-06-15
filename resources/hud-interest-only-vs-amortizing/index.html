@@ -354,7 +354,8 @@
     .results-cta-link:hover { color: var(--blue); }
 
     /* Closing */
-    .closing { background: var(--blue-deep); color: #fff; padding: 52px 48px; margin-top: 90px; position: relative; }
+    .closing { margin-top: 90px; }
+    .closing-inner { background: var(--blue-deep); color: #fff; padding: 52px 48px; position: relative; }
     .closing::before { content: none; }
     .closing h2 { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 36px); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; color: #fff; }
     .closing h2 em { font-style: italic; color: #bcd7e4; }
@@ -364,7 +365,7 @@
     .btn-primary:hover { background: #e9f1f5; }
     .btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-size: 15px; font-weight: 600; padding: 12.5px 26px; text-decoration: none; transition: border-color .15s; }
     .btn-outline:hover { border-color: #fff; }
-    @media (max-width: 600px) { .closing { padding: 36px 24px; } }
+    @media (max-width: 600px) { .closing-inner { padding: 36px 24px; } }
 
     /* FOOTER */
     footer { border-top: 1px solid var(--rule); margin-top: 64px; padding: 36px 0 44px; }
@@ -417,15 +418,15 @@
     .article ul li strong { color: var(--ink); font-weight: 600; }
     .article-section { margin-bottom: 52px; scroll-margin-top: 90px; }
     .aside-note { font-size: 14px; color: var(--mid); font-style: italic; border-left: 2px solid var(--rule); padding: 4px 0 4px 16px; margin-top: 18px; line-height: 1.65; }
-    .author-badge { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; background: var(--card); border: 1.5px solid var(--ink); color: var(--ink); font-family: var(--serif); font-size: 19px; font-weight: 700; }
+    .author-badge { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; background: var(--card); border: 1.5px solid var(--ink); color: var(--ink); font-family: var(--serif); font-size: 16px; font-weight: 700; }
     svg.balchart { width: 100%; height: auto; display: block; }
     .example .big { font-family: var(--serif); font-size: 30px; color: var(--marker); font-weight: 700; display: block; margin-top: 6px; }
     .breakdown { margin-top: 20px; }
     .breakdown .res-line { font-size: 13.5px; padding: 0 4px; }
     .breakdown .res-line.total { border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 4px; }
-    .btn-primary, .btn-ghost { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 28px; transition: all 0.2s; }
-    .btn-ghost { border: 1px solid var(--rule); color: var(--ink); }
-    .btn-ghost:hover { border-color: var(--marker); color: var(--marker); }
+    .btn-primary, .btn-ghost { transition: all 0.2s; }
+    .btn-ghost { display: inline-block; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-size: 15px; font-weight: 600; padding: 12.5px 26px; text-decoration: none; }
+    .btn-ghost:hover { border-color: #fff; }
     .calc-btn { display: block; width: 100%; max-width: 360px; margin: 0 auto; background: var(--blue-deep); color: #fff; border: none; font-family: var(--sans); font-size: 15.5px; font-weight: 600; padding: 15px; cursor: pointer; transition: background 0.2s; }
     .calc-btn:hover { background: var(--blue); }
     .chart-wrap { margin-top: 24px; }
@@ -452,8 +453,8 @@
     .foot-brand { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--ink); }
     .foot-brand span { color: var(--marker); }
     .foot-links { display: flex; flex-wrap: wrap; gap: 24px; list-style: none; align-items: center; }
-    .foot-links a { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); }
-    .foot-links a:hover { color: var(--marker); }
+    .foot-links a { font-family: var(--mono); font-size: 12.5px; color: var(--mid); text-decoration: none; }
+    .foot-links a:hover { color: var(--blue); }
     .foot-tag { font-size: 13px; color: var(--mid); margin-top: 6px; }
     .foot-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; margin-bottom: 32px; }
     .field input.has-post { padding-right: 34px; }
@@ -518,6 +519,8 @@
     .tool-head h2 { margin-bottom: 8px; }
     .tool-head p { font-size: 14.5px; color: var(--mid); margin: 0; }
     .tool-note { font-size: 12px; color: var(--mid); margin-top: 20px; line-height: 1.6; }
+    .tool-note a { color: var(--marker); text-decoration: underline; text-decoration-color: var(--marker); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+    .tool-note a:hover { color: var(--blue); text-decoration-color: var(--blue); }
     .verdict .vbig { font-family: var(--serif); font-size: clamp(38px, 7vw, 54px); font-weight: 700; color: var(--marker); line-height: 1; margin-bottom: 6px; }
     .verdict { background: var(--marker-tint); border: 1px solid var(--rule); border-top: 3px solid var(--marker); padding: 26px 24px; text-align: center; }
     .verdict .vlabel { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--marker); margin-bottom: 12px; font-weight: 600; }
@@ -554,12 +557,7 @@
 <nav>
   <div class="nav-inner">
     <a href="https://roachlorenz.com/" class="nav-brand">Wim Roach <span>&amp;</span> Brian Lorenz</a>
-    <ul class="nav-links">
-      <li><a href="https://roachlorenz.com/#products">Programs</a></li>
-      <li><a href="https://roachlorenz.com/#resources">Resources</a></li>
-      <li><a href="https://roachlorenz.com/#team">Team</a></li>
-    </ul>
-    <a href="https://roachlorenz.com/#contact" class="nav-cta">Start a Deal</a>
+    <a href="https://roachlorenz.com/#resources" class="nav-back" aria-label="Back to all resources">All Resources</a>
   </div>
 </nav>
 
@@ -574,14 +572,14 @@
       <p class="cover-lede">Sponsors normally want interest-only mortgages because it minimizes debt service and preserves cash, and on identical terms that instinct is correct — interest-only does come out ahead. But identical terms aren't the choice a borrower faces. When you want maximum proceeds, the real decision is HUD versus agency, and the HUD loan wins that comparison — even though it amortizes — because the leverage can be higher and the interest rate lower by enough to more than cover the cost of paying down principal each month. We ran the net present value of each, and the math is below — with an interactive tool to run it on your own numbers.</p>
       <div class="cover-meta">
         <div class="author">
-          <div class="author-badge">B</div>
+          <div class="author-badge">BL</div>
           <div>
             <div class="author-name">Brian Lorenz</div>
             <div class="author-role">Vice President — Former Senior HUD Underwriter</div>
           </div>
         </div>
         <div class="author">
-          <div class="author-badge">W</div>
+          <div class="author-badge">WR</div>
           <div>
             <div class="author-name">Wim Roach</div>
             <div class="author-role">Vice President</div>
@@ -887,11 +885,13 @@
 <!-- ── CLOSING CTA ── -->
 <section class="closing">
   <div class="container">
-    <h2>Want the Model <em>Behind This Article?</em></h2>
-    <p>Every number on this page comes out of an Excel model we built — the full cash-flow build for both loans, the NPV comparison, and the sensitivity table. Want to run it on your own rates and proceeds? Reach out and we'll email it to you. And if you're weighing a HUD loan against an agency interest-only quote on a live deal, we'll size it both ways and walk through the trade-offs with you.</p>
-    <div class="closing-btns">
-      <a href="https://roachlorenz.com/#contact" class="btn-primary">Get the Excel Model</a>
-      <a href="https://roachlorenz.com/#products" class="btn-ghost">View Loan Programs</a>
+    <div class="closing-inner">
+      <h2>Want the Model <em>Behind This Article?</em></h2>
+      <p>Every number on this page comes out of an Excel model we built — the full cash-flow build for both loans, the NPV comparison, and the sensitivity table. Want to run it on your own rates and proceeds? Reach out and we'll email it to you. And if you're weighing a HUD loan against an agency interest-only quote on a live deal, we'll size it both ways and walk through the trade-offs with you.</p>
+      <div class="closing-btns">
+        <a href="https://roachlorenz.com/#contact" class="btn-primary">Get the Excel Model</a>
+        <a href="https://roachlorenz.com/#products" class="btn-ghost">View Loan Programs</a>
+      </div>
     </div>
   </div>
 </section>
