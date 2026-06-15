@@ -414,7 +414,7 @@
     .article ul li strong { color: var(--ink); font-weight: 600; }
     .article-section { margin-bottom: 52px; scroll-margin-top: 90px; }
     .aside-note { font-size: 14px; color: var(--mid); font-style: italic; border-left: 2px solid var(--rule); padding: 4px 0 4px 16px; margin-top: 18px; line-height: 1.65; }
-    .author-badge { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; background: var(--marker-tint); border: 1px solid var(--rule); color: var(--marker); font-family: var(--serif); font-size: 19px; font-weight: 700; }
+    .author-badge { width: 42px; height: 42px; flex: 0 0 42px; display: grid; place-items: center; background: var(--card); border: 1.5px solid var(--ink); color: var(--ink); font-family: var(--serif); font-size: 19px; font-weight: 700; }
     svg.balchart { width: 100%; height: auto; display: block; }
     .example .big { font-family: var(--serif); font-size: 30px; color: var(--marker); font-weight: 700; display: block; margin-top: 6px; }
     .breakdown { margin-top: 20px; }
@@ -435,7 +435,7 @@
     table.cmp td:first-child { color: var(--ink); font-weight: 500; }
     table.cmp tbody tr:last-child td { border-bottom: none; }
     .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
-    .cover-dates { font-size: 12.5px; color: var(--mid); }
+    .cover-dates { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--mid); }
     .cover-dates strong { color: var(--body-text); font-weight: 500; }
     .stat .desc { font-size: 12.5px; color: var(--mid); margin-top: 2px; }
     .disclaimer { font-size: 11.5px; color: var(--mid); line-height: 1.7; padding-top: 24px; border-top: 1px solid var(--rule); max-width: 920px; }
@@ -532,6 +532,10 @@
     @media (max-width: 600px) {
       .tool { padding: 22px 18px; }
     }
+  
+    /* C: in-article body links — orange text + orange underline */
+    .article-section a { color: var(--marker); text-decoration: underline; text-decoration-color: var(--marker); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+    .article-section a:hover { color: var(--blue); text-decoration-color: var(--blue); }
   </style>
 </head>
 <body>
