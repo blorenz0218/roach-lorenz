@@ -172,9 +172,10 @@
   .memo-head{display:flex;justify-content:space-between;align-items:baseline;padding:16px 22px;border-bottom:1.5px solid var(--ink)}
   .memo-head .t{font-family:var(--mono);font-size:12px;letter-spacing:0.07em;font-weight:500}
   .memo-head .ref{font-family:var(--mono);font-size:11.5px;color:var(--mid)}
-  .memo table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13.5px}
+  .memo table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
   .memo td{padding:13px 22px;border-bottom:1px solid var(--rule)}
-  .memo td:last-child{text-align:right;color:var(--body)}
+  .memo td:first-child{white-space:nowrap;width:1%}
+  .memo td:last-child{text-align:right;color:var(--body);white-space:nowrap}
   .memo tr.bind td{background:#fdf3e7;border-top:1.5px solid var(--marker);border-bottom:1.5px solid var(--marker);color:var(--ink);font-weight:500}
   .memo tr.bind td:first-child::before{content:"▸ ";color:var(--marker)}
   .memo .foot{padding:15px 22px;font-family:var(--sans);font-size:13.5px;color:var(--mid);line-height:1.55}
@@ -298,8 +299,7 @@
   .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:54px}
   .person{border:1.5px solid var(--ink);background:var(--card)}
   .person .top{display:grid;grid-template-columns:130px 1fr;gap:24px;padding:26px 28px;border-bottom:1px solid var(--rule)}
-  .headshot{width:130px;height:160px;background:linear-gradient(170deg,#dde7ea,#c5d4da);border:1px solid var(--rule);position:relative}
-  .headshot::after{content:"PHOTO";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:10.5px;color:var(--mid);letter-spacing:0.1em}
+  .headshot{width:130px;height:160px;object-fit:cover;display:block;border:1px solid var(--rule);background:#dde7ea}
   .person h3{font-family:var(--serif);font-size:23px;font-weight:600}
   .person .role{font-family:var(--mono);font-size:11.5px;color:var(--blue);letter-spacing:0.05em;margin:4px 0 14px}
   .person .pstats{font-family:var(--mono);font-size:12.5px;color:var(--mid);line-height:1.9}
@@ -307,7 +307,7 @@
   .person .bio{padding:22px 28px;font-size:15px;color:var(--body)}
   .person .pquote{padding:0 28px 24px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink)}
   .person .pattr{display:block;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:0.06em;color:var(--mid);margin-top:10px}
-  .person .mail{display:block;padding:14px 28px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:13px}
+  .person .mail{display:block;padding:14px 28px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:13px;text-decoration:underline;text-decoration-color:var(--marker);text-underline-offset:3px;text-decoration-thickness:1px}
 
   /* ================= contact ================= */
   .cta-band{background:var(--blue-deep);color:#fff;padding:84px 0}
@@ -320,7 +320,7 @@
   .cta-facts .row > :last-child{min-width:0;overflow-wrap:anywhere}
   form .frow input{min-width:0}
   .cta-facts .k{color:#8fb4c6;letter-spacing:0.04em}
-  .cta-facts a{color:#fff;border-bottom:1px solid var(--marker)}
+  .cta-facts a{color:#fff;text-decoration:underline;text-decoration-color:var(--marker);text-underline-offset:3px;text-decoration-thickness:1px}
   form .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
   form .frow.one{grid-template-columns:1fr}
   form input{width:100%;padding:13px 15px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.3);color:#fff;font-family:var(--sans);font-size:15px}
@@ -357,6 +357,7 @@
     .prog-grid{grid-template-columns:1fr}
     .team-grid{grid-template-columns:1fr}
     .feat-grid{grid-template-columns:1fr}
+    .memo td:last-child{white-space:normal}
     .res-row{grid-template-columns:1fr;gap:6px}
     .res-row .desc{grid-column:1}
     .res-head{flex-direction:column;align-items:flex-start;gap:14px}
@@ -409,7 +410,7 @@
         <tr><td>LTV test</td><td>87% of appraised value</td></tr>
         <tr><td>DSCR test</td><td>Debt service at 1.15x</td></tr>
         <tr><td>Statutory test</td><td>Per-unit dollar limits</td></tr>
-        <tr><td>Cost of refinance</td><td>Greater of refi cost or<br/>80% LTV</td></tr>
+        <tr><td>Cost of refinance</td><td>Greater of refi cost or 80% LTV</td></tr>
         <tr class="bind"><td colspan="2">The lowest test governs your loan</td></tr>
       </table>
       <div class="foot">Every HUD loan sizes to its binding constraint. We run this math on the first call — before you've spent a dollar on third parties. <a href="/resources/how-hud-sizes-a-223f-mortgage">See the full sizing walkthrough →</a></div>
@@ -749,7 +750,7 @@
       <div class="team-grid">
         <div class="person rv">
           <div class="top">
-            <div class="headshot"></div>
+            <img class="headshot" src="/assets/headshot-wim-roach.jpg" alt="Wim Roach, Vice President, HUD/FHA multifamily originations" width="130" height="160" loading="lazy"/>
             <div>
               <h3>Wim Roach</h3>
               <div class="role">VICE PRESIDENT</div>
@@ -763,7 +764,7 @@
 
         <div class="person rv">
           <div class="top">
-            <div class="headshot"></div>
+            <img class="headshot" src="/assets/headshot-brian-lorenz.jpg" alt="Brian Lorenz, Vice President, former Senior HUD Underwriter" width="130" height="160" loading="lazy"/>
             <div>
               <h3>Brian Lorenz</h3>
               <div class="role">VICE PRESIDENT</div>
