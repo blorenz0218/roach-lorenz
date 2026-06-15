@@ -297,17 +297,17 @@
 
   /* ================= team ================= */
   .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:54px}
-  .person{border:1.5px solid var(--ink);background:var(--card)}
-  .person .top{display:grid;grid-template-columns:130px 1fr;gap:24px;padding:26px 28px;border-bottom:1px solid var(--rule)}
-  .headshot{width:130px;height:160px;object-fit:cover;display:block;border:1px solid var(--rule);background:#dde7ea}
+  .person{border:1.5px solid var(--ink);background:var(--card);display:flex;flex-direction:column}
+  .person .top{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:28px 28px;border-bottom:1px solid var(--rule)}
+  .headshot{width:170px;height:210px;object-fit:cover;display:block;border:1px solid var(--rule);background:#dde7ea}
   .person h3{font-family:var(--serif);font-size:23px;font-weight:600}
   .person .role{font-family:var(--mono);font-size:11.5px;color:var(--blue);letter-spacing:0.05em;margin:4px 0 14px}
   .person .pstats{font-family:var(--mono);font-size:12.5px;color:var(--mid);line-height:1.9}
   .person .pstats b{color:var(--ink);font-weight:500}
   .person .bio{padding:22px 28px;font-size:15px;color:var(--body)}
-  .person .pquote{padding:0 28px 24px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink)}
+  .person .pquote{padding:0 28px 24px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink);margin-top:auto}
   .person .pattr{display:block;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:0.06em;color:var(--mid);margin-top:10px}
-  .person .mail{display:block;padding:14px 28px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:13px;text-decoration:underline;text-decoration-color:var(--marker);text-underline-offset:3px;text-decoration-thickness:1px}
+  .contact-row{display:flex;align-items:center;gap:18px;padding:14px 28px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:13px}.contact-row .mail{color:var(--ink);text-decoration:underline;text-decoration-color:var(--marker);text-underline-offset:3px;text-decoration-thickness:1px}.contact-row .li{display:inline-flex;align-items:center;color:var(--mid)}.contact-row .li:hover{color:var(--blue)}.contact-row .li svg{width:17px;height:17px;fill:currentColor}
 
   /* ================= contact ================= */
   .cta-band{background:var(--blue-deep);color:#fff;padding:84px 0}
@@ -750,30 +750,30 @@
       <div class="team-grid">
         <div class="person rv">
           <div class="top">
-            <img class="headshot" src="/assets/headshot-wim-roach.jpg" alt="Wim Roach, Vice President, HUD/FHA multifamily originations" width="130" height="160" loading="lazy"/>
+            <img class="headshot" src="/assets/headshot-wim-roach.jpg" alt="Wim Roach, Vice President, HUD/FHA multifamily originations" width="170" height="210" loading="lazy"/>
             <div>
               <h3>Wim Roach</h3>
               <div class="role">VICE PRESIDENT</div>
               <div class="pstats"><b>$1.5B+</b> CLOSED VOLUME<br/><b>11+</b> YEARS HUD/FHA</div>
             </div>
           </div>
-          <div class="bio">Wim has been originating HUD/FHA multifamily loans since 2014, building a track record of approximately $1.5 billion in closed transactions across the country. His relationships are built on a simple foundation: understanding borrower goals, taking the processing load off the borrower, and making sure his client gets the product they wanted.</div>
+          <div class="bio">Wim has been originating HUD/FHA multifamily loans since 2014, building a track record of approximately $1.5 billion in closed transactions across the country. He works across the full HUD product suite — 223(f) acquisitions and refinances, 221(d)(4) new construction, and the supplemental and refinance programs — for market-rate, affordable, and seniors housing sponsors. His relationships are built on a simple foundation: understanding borrower goals, taking the processing load off the borrower, and making sure his client gets the product they wanted.</div>
           <div class="pquote">"Wim made our HUD refinance easy compared to a FNMA loan we did earlier in the year."<span class="pattr">OWNER, BOZEMAN, MT · HUD 223(f) REFINANCE</span></div>
-          <a class="mail" href="mailto:&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a>
+          <div class="contact-row"><a class="mail" href="mailto:&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a><a class="li" href="https://www.linkedin.com/in/wim-roach-8341a785/" target="_blank" rel="noopener" aria-label="Wim Roach on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.67H5.67V18.3h2.67V9.67zM7 5.67a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.33 18.3v-4.74c0-2.4-1.28-3.52-3-3.52-1.38 0-2 .76-2.34 1.3v-1.11h-2.67v8.07h2.67v-4.5c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8v4.32h2.87z"/></svg></a></div>
         </div>
 
         <div class="person rv">
           <div class="top">
-            <img class="headshot" src="/assets/headshot-brian-lorenz.jpg" alt="Brian Lorenz, Vice President, former Senior HUD Underwriter" width="130" height="160" loading="lazy"/>
+            <img class="headshot" src="/assets/headshot-brian-lorenz.jpg" alt="Brian Lorenz, Vice President, former Senior HUD Underwriter" width="170" height="210" loading="lazy"/>
             <div>
               <h3>Brian Lorenz</h3>
               <div class="role">VICE PRESIDENT</div>
-              <div class="pstats"><b>~$500M</b> UNDERWRITTEN<br/><b>10+</b> YEARS HUD/FHA</div>
+              <div class="pstats"><b>FORMER</b> SENIOR HUD UNDERWRITER<br/><b>FORMER</b> AGENCY INTAKE LEAD</div>
             </div>
           </div>
           <div class="bio">Brian spent the early part of his career as a Senior Underwriter at a leading HUD/FHA multifamily lender, where he underwrote approximately $500 million in HUD/FHA loans — including some of HUD's most complicated pilot programs, such as RAD for PRAC sub-rehabs and LIHTC PILOTs. Later in his career, he also led Agency sizing and intake for a Northwest origination team, sizing every incoming deal through both HUD and FNMA to determine which execution was best. That experience — understanding exactly how HUD evaluates credit, market, and physical risk — is the foundation of how Wim and Brian structure every deal.</div>
           <div class="pquote">"Brian was so knowledgeable and helpful — he made the process really clean and quick for me and the other GPs."<span class="pattr">OWNER, SPOKANE, WA · HUD 223(f) REFINANCE</span></div>
-          <a class="mail" href="mailto:&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a>
+          <div class="contact-row"><a class="mail" href="mailto:&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a><a class="li" href="https://www.linkedin.com/in/lorenzbrian/" target="_blank" rel="noopener" aria-label="Brian Lorenz on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.67H5.67V18.3h2.67V9.67zM7 5.67a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.33 18.3v-4.74c0-2.4-1.28-3.52-3-3.52-1.38 0-2 .76-2.34 1.3v-1.11h-2.67v8.07h2.67v-4.5c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8v4.32h2.87z"/></svg></a></div>
         </div>
       </div>
     </div>
@@ -801,9 +801,6 @@
           <div class="frow">
             <input type="email" name="email" placeholder="Email" aria-label="Email"/>
             <input type="tel" name="phone" placeholder="Phone" aria-label="Phone"/>
-          </div>
-          <div class="frow one">
-            <input type="text" name="property-location" placeholder="Property location" aria-label="Property location"/>
           </div>
           <button class="btn" type="submit">Submit inquiry</button>
           <div class="fnote">Your information is confidential and will only be used to respond to your inquiry. We typically respond within one business day.</div>
