@@ -406,7 +406,7 @@
        v1 body font->sans; border-radius and box-shadow dropped). */
     .callout-label { font-size: 9px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
     .article { min-width: 0; }
-    .article h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.2vw, 33px); line-height: 1.18; color: var(--ink); margin-bottom: 20px; }
+    .article h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3.2vw, 33px); letter-spacing: -0.01em; line-height: 1.18; color: var(--ink); margin-bottom: 20px; }
     .article h2 em { font-style: italic; color: var(--marker); }
     .article h3 { font-family: var(--sans); font-weight: 600; font-size: 18px; color: var(--ink); margin: 30px 0 12px; }
     .article p { font-size: 16.5px; color: var(--body-text); margin-bottom: 18px; overflow-wrap: break-word; }
@@ -426,8 +426,8 @@
     .btn-primary, .btn-ghost { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px 28px; transition: all 0.2s; }
     .btn-ghost { border: 1px solid var(--rule); color: var(--ink); }
     .btn-ghost:hover { border-color: var(--marker); color: var(--marker); }
-    .calc-btn { display: block; width: 100%; max-width: 360px; margin: 0 auto; background: var(--marker); color: var(--ink); border: none; font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 15px; cursor: pointer; transition: background 0.2s; }
-    .calc-btn:hover { background: var(--marker); }
+    .calc-btn { display: block; width: 100%; max-width: 360px; margin: 0 auto; background: var(--blue-deep); color: #fff; border: none; font-family: var(--sans); font-size: 15.5px; font-weight: 600; padding: 15px; cursor: pointer; transition: background 0.2s; }
+    .calc-btn:hover { background: var(--blue); }
     .chart-wrap { margin-top: 24px; }
     .chart-wrap .clabel { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-align: center; margin-bottom: 12px; font-weight: 600; }
     .closing-btns { display: flex; flex-wrap: wrap; gap: 16px; }
@@ -443,7 +443,7 @@
     .stat .desc { font-size: 12.5px; color: var(--mid); margin-top: 2px; }
     .disclaimer { font-size: 11.5px; color: var(--mid); line-height: 1.7; padding-top: 24px; border-top: 1px solid var(--rule); max-width: 920px; }
     .faq { padding: 20px 0 60px; }
-    .faq h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(24px, 3.2vw, 33px); color: var(--ink); margin-bottom: 26px; }
+    .faq h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(24px, 3.2vw, 33px); letter-spacing: -0.01em; color: var(--ink); margin-bottom: 26px; }
     .faq h2 em { font-style: italic; color: var(--marker); }
     .faq-a { font-size: 15.5px; color: var(--body-text); }
     .faq-item { border-top: 1px solid var(--rule); padding: 22px 0; }
@@ -458,10 +458,13 @@
     .foot-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 28px; margin-bottom: 32px; }
     .field input.has-post { padding-right: 34px; }
     .field input.has-pre { padding-left: 26px; }
-    .input-wrap { position: relative; display: flex; align-items: center; }
-    .input-wrap .pre, .input-wrap .post { position: absolute; color: var(--mid); font-size: 14px; pointer-events: none; }
-    .input-wrap .pre { left: 12px; }
-    .input-wrap .post { right: 12px; }
+    .input-wrap { position: relative; display: flex; align-items: center; width: 100%; }
+    .input-wrap .pre, .input-wrap .post { position: absolute; color: var(--mid); font-family: var(--mono); font-size: 14px; pointer-events: none; }
+    .input-wrap .pre { left: 13px; }
+    .input-wrap .post { right: 13px; }
+    .field label { display: block; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 7px; text-align: left; }
+    .input-wrap input { width: 100%; padding: 12px 14px; background: var(--card); border: 1px solid #b6c5cb; color: var(--ink); font-family: var(--sans); font-size: 15px; font-variant-numeric: tabular-nums; border-radius: 0; }
+    .input-wrap input:focus { outline: 2px solid var(--marker); outline-offset: 0; border-color: transparent; }
     .layout { display: grid; grid-template-columns: 1fr 300px; gap: 64px; padding: 64px 0 40px; }
     .legend { display: flex; gap: 22px; justify-content: center; margin-top: 10px; font-size: 12px; color: var(--mid); }
     .legend span { display: inline-flex; align-items: center; gap: 7px; }
@@ -490,13 +493,13 @@
     .res-line span:first-child { color: var(--mid); }
     .res-line span:last-child { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
     .results h3.res-title { font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 700; margin-bottom: 18px; text-align: center; }
-    .side-card .sc-label { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 18px; }
+    .side-card .sc-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
     .sec-eyebrow { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid); margin-bottom: 14px; }
     .tool-head .sec-eyebrow { margin-bottom: 8px; }
     .sec-num { font-size: 12px; font-weight: 600; letter-spacing: 0.2em; color: var(--marker); display: inline-block; margin-bottom: 4px; }
     .shared-row { display: flex; gap: 18px; max-width: 480px; margin: 0 auto 24px; }
     .shared-row .field { flex: 1; margin-bottom: 0; }
-    .shared-row .field label { text-align: center; }
+    .shared-row .field label { text-align: left; }
     .side-card { background: var(--card); border: 1.5px solid var(--ink); padding: 24px; margin-bottom: 22px; }
     .side-cta { display: block; text-align: center; background: var(--marker); color: var(--ink); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px; margin-top: 4px; transition: background 0.2s; }
     .side-cta:hover { background: var(--marker); color: var(--ink); }
@@ -505,7 +508,7 @@
     .sticky { position: sticky; top: 92px; }
     .tbl-wrap { overflow-x: auto; margin: 24px 0; }
     .toc-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
-    .toc { display: flex; flex-direction: column; }
+    .toc { display: flex; flex-direction: column; background: var(--card); border: 1.5px solid var(--ink); padding: 24px; margin-bottom: 22px; }
     .toc a { display: block; padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; color: var(--ink); text-decoration: none; line-height: 1.4; transition: color .15s; }
     .toc a:last-child { border-bottom: none; padding-bottom: 0; }
     .toc a:hover { color: var(--blue); }
