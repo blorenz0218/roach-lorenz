@@ -106,6 +106,10 @@ Every page ships with:
 - Visible publish date
 - Five-question FAQ section targeting long-tail queries
 
+### Canonical URL requirements
+
+Canonical URLs for /resources/[slug] pages MUST include a trailing slash, matching the URL Netlify actually serves (e.g., https://roachlorenz.com/resources/hud-apartment-loans/). The homepage canonical is the bare domain with trailing slash (https://roachlorenz.com/). This applies to the <link rel='canonical'> tag, the og:url meta tag, and any self-referencing @id or url fields in JSON-LD schemas — all should match the trailing-slash form.
+
 ### Title tag requirements
 
 - Keep titles **60 characters or fewer** (Google truncates in SERPs beyond this)
@@ -157,7 +161,7 @@ Every new page, no exceptions:
 2. Verify `<title>` is ≤60 characters and `<meta name="description">` is 150–160 characters
 3. Verify og:image, twitter:image, and JSON-LD `image` all point to a real PNG that exists in `/assets/`
 4. Confirm `twitter:card` is set to `summary_large_image` (not `summary`)
-5. Confirm canonical URL matches the site pattern: `https://roachlorenz.com/resources/[folder-name]` with no trailing slash and no `.html` extension
+5. Confirm canonical URL matches the site pattern: `https://roachlorenz.com/resources/[folder-name]/` with a trailing slash and no `.html` extension — and that og:url and any self-referencing JSON-LD `@id`/`url` fields use the same trailing-slash form
 6. Confirm the hero entrance animation (fadeUp cascade on `.cover-series`, h1, `.cover-lede`, `.cover-meta`) is present in the page's `<style>` block
 7. Update `sitemap.xml` with the new URL
 8. Push all updated files to GitHub
@@ -174,3 +178,7 @@ Every new page, no exceptions:
 The `/resources/` folder is the source of truth for what's published. Each subfolder contains one white paper or article as `index.html`. To see what exists, look there directly rather than relying on a list in this file.
 
 The **241(a) Supplemental Loan white paper** (`resources/hud-241a-supplemental-loan/index.html`) is the canonical style reference — match its voice and structure for any new long-form content.
+
+## Change log
+
+- **2026-06-17:** Updated canonical URL standard for /resources/ pages from no-trailing-slash to with-trailing-slash. Reason: Netlify 301-redirects non-trailing URLs to trailing-slash form (because index.html lives inside directories), which created a canonical conflict — sitemap and canonical tags pointed to URLs that were themselves 301 redirects. Pages began falling into 'Crawled — currently not indexed' status. Fix aligned all canonicals and sitemap entries to the trailing-slash form the server actually serves.
