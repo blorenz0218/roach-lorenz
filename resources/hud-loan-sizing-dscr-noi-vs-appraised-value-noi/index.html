@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3Y2SPVQSK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H3Y2SPVQSK');
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HUD Multifamily Loan Sizing: DSCR NOI vs. Appraised-Value NOI</title>
+  <meta name="description" content="HUD builds two NOIs on the same deal — a Debt Service NOI that drives the DSCR test and a Market NOI that drives appraised value. How the two diverge, and how the gap moves loan proceeds, from a former HUD underwriter."/>
+  <meta name="keywords" content="HUD loan sizing, DSCR NOI, Market NOI, appraised-value NOI, debt service NOI, HUD multifamily underwriting, HUD minimum vacancy, gross rent potential, HUD rent roll underwriting, replacement reserve PCNA, HUD 223(f) NOI, FHA multifamily underwriting"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://roachlorenz.com/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://roachlorenz.com/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/"/>
+  <meta property="og:title" content="HUD Multifamily Loan Sizing: DSCR NOI vs. Appraised-Value NOI"/>
+  <meta property="og:description" content="HUD builds two NOIs on the same deal — a Debt Service NOI that drives the DSCR test and a Market NOI that drives appraised value. How the gap between them moves loan proceeds."/>
+  <meta property="og:site_name" content="Wim Roach &amp; Brian Lorenz"/>
+  <meta property="article:published_time" content="2026-06-26T00:00:00Z"/>
+  <meta property="article:modified_time" content="2026-06-26T00:00:00Z"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:image" content="https://roachlorenz.com/assets/og-hud-loan-sizing-noi.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="HUD Multifamily Loan Sizing: DSCR NOI vs. Appraised-Value NOI — Wim Roach &amp; Brian Lorenz"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="HUD Multifamily Loan Sizing: DSCR NOI vs. Appraised-Value NOI"/>
+  <meta name="twitter:description" content="HUD builds two NOIs on the same deal. How the Debt Service NOI and the Market NOI diverge — and how the gap moves loan proceeds."/>
+  <meta name="twitter:image" content="https://roachlorenz.com/assets/og-hud-loan-sizing-noi.png"/>
+
+  <!-- Article Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "HUD Multifamily Loan Sizing: DSCR NOI vs. Appraised-Value NOI",
+    "description": "HUD builds two NOIs on the same deal — a Debt Service NOI that drives the DSCR test and a Market NOI that drives appraised value. How the two diverge, and how the gap moves loan proceeds.",
+    "image": "https://roachlorenz.com/assets/og-hud-loan-sizing-noi.png",
+    "datePublished": "2026-06-26T00:00:00Z",
+    "dateModified": "2026-06-26T00:00:00Z",
+    "wordCount": "1100",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Brian Lorenz",
+        "jobTitle": "Vice President",
+        "worksFor": { "@type": "Organization", "name": "Centennial Mortgage, Inc.", "url": "https://roachlorenz.com" },
+        "description": "Former Senior HUD Underwriter with 10+ years in HUD/FHA multifamily mortgage origination and underwriting."
+      },
+      {
+        "@type": "Person",
+        "name": "Wim Roach",
+        "jobTitle": "Vice President",
+        "worksFor": { "@type": "Organization", "name": "Centennial Mortgage, Inc.", "url": "https://roachlorenz.com" }
+      }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Wim Roach & Brian Lorenz",
+      "url": "https://roachlorenz.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://roachlorenz.com/assets/logo.png"
+      }
+    },
+    "about": [
+      { "@type": "Thing", "name": "HUD Multifamily Loan Sizing" },
+      { "@type": "Thing", "name": "Debt Service NOI" },
+      { "@type": "Thing", "name": "Market NOI" },
+      { "@type": "Thing", "name": "Debt Service Coverage Ratio" },
+      { "@type": "Thing", "name": "HUD Minimum Vacancy" }
+    ],
+    "keywords": "HUD loan sizing, DSCR NOI, Market NOI, appraised-value NOI, debt service NOI, HUD multifamily underwriting, HUD minimum vacancy, gross rent potential, HUD rent roll underwriting, replacement reserve PCNA"
+  }
+  </script>
+
+  <!-- FAQPage Schema — must mirror the visible FAQ block exactly -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between the DSCR NOI and the Market NOI on a HUD multifamily loan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The DSCR NOI (also called the Debt Service NOI) is the figure HUD's underwriter builds to size the loan against the debt service coverage ratio. It is meant to mirror the property's reality within HUD's rules, using HUD's minimum vacancy and the replacement reserve set by the Property Capital Needs Assessment. The Market NOI is the figure the third-party appraiser develops from market rent and expense comparables. The Market NOI, when divided by the market capitalization rate, produces appraised value, which drives the LTV mortgage amount. The two NOIs usually land close but diverge on three lines: income, vacancy, and expenses."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does HUD underwrite multifamily income from the current rent roll or a trailing average?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For the DSCR NOI, HUD usually underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units — rather than capping it at the annualized trailing-three-month collections the way many other programs do. On a property with rising rents, or one still in lease-up, the current rent roll produces higher underwritten income than a backward-looking average because it reflects the rents the property is collecting now."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is HUD's minimum vacancy for a market-rate multifamily deal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties meeting the minimum set-aside requirements, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example."
+        }
+      }
+    ]
+  }
+  </script>
+
+</head>
+<style>
+    /* ============================================================
+       ROACH-LORENZ DESIGN SYSTEM v2 — "The Underwriter's Desk"
+       Canonical white paper stylesheet. Markup contract unchanged.
+       ============================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --paper: #f6f8f8;
+      --ink: #132b36;
+      --blue: #04567c;
+      --blue-deep: #003a55;
+      --mid: #5b7280;
+      --body-text: #33505d;
+      --rule: #cfd9dd;
+      --rule-strong: #132b36;
+      --marker: #e8821f;
+      --marker-tint: #fdf3e7;
+      --tint: #eef4f7;
+      --card: #ffffff;
+      --serif: 'Source Serif 4', Georgia, serif;
+      --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+      --mono: 'IBM Plex Mono', monospace;
+      /* legacy aliases — inline styles in older articles reference these */
+      --text-muted: #5b7280;
+      --text: #33505d;
+      --text-soft: #5b7280;
+      --navy: var(--ink);
+      --gold: var(--marker);
+      --gold-border: var(--rule);
+    }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 50; background: var(--paper); border-bottom: 2px solid var(--rule-strong); }
+    .nav-inner { max-width: 1140px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: baseline; justify-content: space-between; gap: 22px; }
+    .nav-brand { font-family: var(--serif); font-size: 18px; font-weight: 700; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
+    .nav-brand span { color: var(--blue); }
+    .nav-back { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; margin-left: auto; }
+    .nav-back:hover { color: var(--blue); }
+    .nav-back::before { content: "← "; color: var(--marker); }
+    .nav-cta { font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--marker); padding-bottom: 2px; }
+    .nav-cta:hover { color: var(--blue-deep); }
+    @media (max-width: 600px) {
+      .nav-inner { padding: 14px 20px; }
+      .nav-back { display: none; }
+    }
+
+    /* FLOATING CALCULATOR BUTTON */
+    .float-calc-btn { position: fixed; right: 26px; bottom: 26px; z-index: 60; display: flex; align-items: center; gap: 9px; background: var(--blue-deep); color: #fff; font-family: var(--sans); font-size: 14px; font-weight: 600; padding: 13px 20px; border: 1.5px solid var(--ink); box-shadow: 5px 5px 0 rgba(4,86,124,0.14); text-decoration: none; opacity: 0; pointer-events: none; transform: translateY(8px); transition: opacity .25s ease, transform .25s ease, background .15s; }
+    .float-calc-btn.visible { opacity: 1; pointer-events: auto; transform: none; }
+    .float-calc-btn:hover { background: var(--blue); }
+    .float-calc-btn svg { width: 16px; height: 16px; }
+    .float-calc-btn.past-calc { opacity: 0; pointer-events: none; }
+    @media (max-width: 600px) { .float-calc-btn { right: 16px; bottom: 16px; padding: 12px 16px; } }
+
+    /* PAGE WRAPPER */
+    .page-wrapper { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    @media (max-width: 600px) { .page-wrapper { padding: 0 20px; } }
+
+    /* COVER */
+    .cover { padding: 84px 0 56px; border-bottom: 2px solid var(--rule-strong); position: relative; }
+    .cover::before { content: none; }
+    .cover::after { content: none; }
+    .cover-inner { max-width: 60em; }
+    .cover-series { display: flex; align-items: center; gap: 11px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--blue); text-transform: uppercase; margin-bottom: 30px; }
+    .cover-series-dot { width: 10px; height: 10px; background: var(--marker); flex: none; border-radius: 0; }
+    .cover h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(36px, 4.6vw, 56px); line-height: 1.08; letter-spacing: -0.015em; color: var(--ink); }
+    .cover h1 em { font-style: italic; color: var(--blue); }
+    .cover-subtitle { font-size: 18px; color: var(--mid); margin-top: 16px; }
+    .cover-rule { width: 64px; height: 2px; background: var(--ink); margin: 30px 0; }
+    .cover-lede { font-size: 19px; line-height: 1.62; color: var(--body-text); max-width: 40em; }
+    .cover-meta { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; margin-top: 40px; padding-top: 26px; border-top: 1px solid var(--rule); }
+    .cover-authors { display: flex; gap: 26px; flex-wrap: wrap; }
+    .cover-author { display: flex; align-items: center; gap: 12px; }
+    .author-initial { width: 40px; height: 40px; display: grid; place-items: center; background: var(--card); border: 1.5px solid var(--ink); font-family: var(--serif); font-weight: 700; font-size: 16px; color: var(--ink); flex: none; }
+    .author-name { font-size: 14.5px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .author-role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em; color: var(--mid); }
+    .cover-divider { width: 1px; height: 34px; background: var(--rule); }
+    .cover-pub { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.05em; color: var(--mid); }
+    @media (max-width: 600px) { .cover { padding: 52px 0 40px; } .cover-divider { display: none; } }
+
+    /* LAYOUT */
+    .doc-layout { display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 64px; padding: 64px 0 0; }
+    @media (max-width: 820px) {
+      .doc-layout { grid-template-columns: 1fr; gap: 44px; padding-top: 44px; }
+      .doc-sidebar { order: -1; }
+    }
+    .doc-body { min-width: 0; }
+
+    /* SIDEBAR */
+    @media (min-width: 821px) {
+      .doc-sidebar { position: sticky; top: 86px; align-self: start; max-height: calc(100vh - 102px); overflow-y: auto; overscroll-behavior: contain; padding-right: 6px; scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+      .doc-sidebar::-webkit-scrollbar { width: 5px; }
+      .doc-sidebar::-webkit-scrollbar-thumb { background: var(--rule); }
+      .doc-sidebar::-webkit-scrollbar-track { background: transparent; }
+    }
+    .sidebar-box { background: var(--card); border: 1.5px solid var(--ink); padding: 20px 22px; margin-bottom: 24px; position: relative; }
+    .sidebar-box::before { content: none; }
+    .sidebar-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; color: var(--blue); text-transform: uppercase; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+    .toc-list { list-style: none; }
+    .toc-list li a { display: flex; gap: 11px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; color: var(--ink); text-decoration: none; line-height: 1.4; transition: color .15s; }
+    .toc-list li:last-child a { border-bottom: none; padding-bottom: 0; }
+    .toc-list li a:hover { color: var(--blue); }
+    .toc-num { font-family: var(--mono); font-size: 11px; color: var(--blue); flex: none; }
+    .sidebar-stat { padding: 9px 0; border-bottom: 1px solid var(--rule); }
+    .sidebar-stat:last-child { border-bottom: none; padding-bottom: 0; }
+    .sidebar-stat-val { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--ink); line-height: 1.2; font-variant-numeric: tabular-nums; }
+    .sidebar-stat-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--mid); text-transform: uppercase; margin-top: 2px; }
+    .sidebar-cta { display: block; text-align: center; background: var(--blue-deep); color: #fff; font-size: 14px; font-weight: 600; padding: 13px 16px; text-decoration: none; transition: background .15s; }
+    .sidebar-cta:hover { background: var(--blue); }
+
+    /* BODY COPY */
+    .intro-graf { font-size: 19px; line-height: 1.68; color: var(--body-text); margin-bottom: 30px; }
+    .intro-graf strong { color: var(--ink); font-weight: 600; }
+    .section-block { margin-bottom: 72px; }
+    .section-block:last-of-type { margin-bottom: 0; }
+    .section-header { margin-bottom: 24px; }
+    .section-number { font-family: var(--mono); font-size: 13px; color: var(--blue); }
+    .section-eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; color: var(--mid); text-transform: uppercase; margin-top: 4px; }
+    .section-title { font-family: var(--serif); font-size: clamp(25px, 3vw, 33px); font-weight: 600; letter-spacing: -0.01em; line-height: 1.18; color: var(--ink); margin-top: 8px; }
+    .section-title em { font-style: italic; color: var(--blue); }
+    p { font-size: 16.5px; line-height: 1.7; color: var(--body-text); margin-bottom: 18px; }
+    p:last-child { margin-bottom: 0; }
+    p strong { color: var(--ink); font-weight: 600; }
+
+    /* Callout / info box */
+    .callout { background: var(--tint); border-left: 3px solid var(--blue); padding: 20px 24px; margin: 28px 0; }
+    .callout p { font-size: 15.5px; margin-bottom: 12px; }
+    .callout p strong { color: var(--ink); }
+
+    /* Spec table */
+    .spec-table-wrap { overflow-x: auto; margin: 28px 0; }
+    .spec-table { width: 100%; border-collapse: collapse; }
+    .spec-table th { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.07em; color: var(--mid); font-weight: 500; text-transform: uppercase; text-align: left; padding: 10px 14px 10px 0; border-bottom: 1.5px solid var(--ink); }
+    .spec-table td { font-size: 14.5px; color: var(--body-text); padding: 13px 14px 13px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+    .spec-table tr:last-child td { border-bottom: 1px solid var(--rule); }
+    .spec-table tr:hover td { background: var(--card); }
+    .td-label { font-family: var(--mono); font-size: 12.5px; color: var(--mid); }
+    .td-val { color: var(--ink); font-weight: 500; }
+
+    /* Example box */
+    .example-box { background: var(--card); border: 1.5px solid var(--ink); margin: 30px 0; }
+    .example-box::before { content: none; }
+    .example-label { display: block; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.07em; color: var(--ink); text-transform: uppercase; background: var(--marker-tint); border-bottom: 1.5px solid var(--marker); padding: 10px 20px; }
+    .example-box p { font-size: 15px; padding: 0 20px; margin: 16px 0; }
+    .example-box p:last-child { padding-bottom: 18px; margin-bottom: 0; }
+    .example-box p strong { color: var(--ink); }
+    .example-math { font-family: var(--mono); font-size: 13.5px; color: var(--body-text); padding: 7px 20px; font-variant-numeric: tabular-nums; }
+    .example-math strong { color: var(--ink); font-weight: 500; }
+    .example-box .example-math:last-child { padding-bottom: 18px; }
+
+    /* Check list */
+    .check-list { list-style: none; margin: 24px 0; }
+    .check-list li { position: relative; padding-left: 26px; margin-bottom: 12px; font-size: 15.5px; line-height: 1.65; color: var(--body-text); }
+    .check-list li::before { content: "▸"; position: absolute; left: 0; color: var(--marker); font-family: var(--mono); }
+    .check-list li strong { color: var(--ink); font-weight: 600; }
+
+    /* ============================================================
+       CALCULATOR
+       ============================================================ */
+    .calculator-wrap { margin-top: 84px; }
+    .calc-header { max-width: 46em; }
+    .calc-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; color: var(--blue); text-transform: uppercase; margin-bottom: 16px; }
+    .calc-eyebrow::before { content: ""; width: 10px; height: 10px; background: var(--marker); }
+    .calc-header h2 { font-family: var(--serif); font-size: clamp(27px, 3.4vw, 38px); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; color: var(--ink); }
+    .calc-header h2 em { font-style: italic; color: var(--blue); }
+    .calc-lede { font-size: 17px; color: var(--body-text); margin-top: 14px; }
+    .calc-card { background: var(--card); border: 1.5px solid var(--ink); box-shadow: 8px 8px 0 rgba(4,86,124,0.10); margin-top: 34px; position: relative; }
+    .calc-card::before { content: none; }
+    .calc-body { padding: 32px 36px 36px; }
+    @media (max-width: 600px) { .calc-body { padding: 22px 18px 26px; } }
+    .calc-section-label { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; color: var(--blue); text-transform: uppercase; margin: 26px 0 16px; }
+    .calc-section-label::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+    .calc-section-label:first-child { margin-top: 0; }
+    .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media (max-width: 600px) { .calc-grid { grid-template-columns: 1fr; } }
+    .calc-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+    @media (max-width: 680px) { .calc-grid-3 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 460px) { .calc-grid-3 { grid-template-columns: 1fr; } }
+    .calc-field label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
+    .calc-field .field-note { font-size: 12px; color: var(--mid); margin-top: 6px; line-height: 1.5; }
+    .calc-field .field-note a { color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); }
+    .calc-field .field-note a:hover { color: var(--blue-deep); }
+    .calc-field input, .calc-field select { width: 100%; padding: 12px 14px; background: var(--card); border: 1px solid #b6c5cb; color: var(--ink); font-family: var(--sans); font-size: 15px; font-variant-numeric: tabular-nums; border-radius: 0; }
+    .calc-field input:focus, .calc-field select:focus { outline: 2px solid var(--marker); outline-offset: 0; border-color: transparent; }
+    .calc-field input::placeholder { color: #9fb0b8; }
+    .input-prefix-wrap { position: relative; }
+    .input-prefix { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); font-family: var(--mono); font-size: 14px; color: var(--mid); pointer-events: none; }
+    .input-prefix-wrap input { padding-left: 28px; }
+    .input-suffix-wrap { position: relative; }
+    .input-suffix { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-family: var(--mono); font-size: 14px; color: var(--mid); pointer-events: none; }
+    .input-suffix-wrap input { padding-right: 34px; }
+    .calc-divider { height: 1px; background: var(--rule); margin: 28px 0; }
+    .calc-submit-row { display: flex; justify-content: center; margin-top: 28px; }
+    .btn-calc { background: var(--blue-deep); color: #fff; font-family: var(--sans); font-size: 15.5px; font-weight: 600; padding: 15px 36px; border: none; cursor: pointer; transition: background .15s; }
+    .btn-calc:hover { background: var(--blue); }
+
+    /* Results */
+    .calc-results { display: none; }
+    .calc-results.visible { display: block; animation: fadeUp .45s ease both; }
+    .results-divider { height: 1.5px; background: var(--ink); margin: 32px 0 26px; }
+    .results-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; color: var(--blue); text-transform: uppercase; margin-bottom: 18px; }
+    .results-constraints { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; }
+    @media (max-width: 600px) { .results-constraints { grid-template-columns: 1fr 1fr; } }
+    .constraint-card { background: var(--paper); border: 1px solid var(--rule); padding: 16px 16px 14px; }
+    .constraint-card.binding { background: var(--marker-tint); border: 1.5px solid var(--marker); }
+    .constraint-card.binding::before { content: "▸ BINDING"; display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; color: var(--marker); margin-bottom: 7px; }
+    .constraint-name { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--mid); text-transform: uppercase; }
+    .constraint-amount { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--ink); margin: 7px 0 5px; font-variant-numeric: tabular-nums; }
+    .constraint-card.binding .constraint-amount { color: var(--ink); }
+    .constraint-detail { font-size: 12px; color: var(--mid); line-height: 1.5; }
+    .results-summary { margin-top: 28px; }
+    .summary-headline { font-family: var(--serif); font-size: 24px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .summary-headline span { color: var(--blue); }
+    .summary-explain { font-size: 15px; color: var(--body-text); margin-top: 10px; }
+    .results-flags { margin-top: 20px; }
+    .flag-item { display: flex; gap: 10px; align-items: baseline; font-size: 14px; color: var(--body-text); padding: 9px 0; border-bottom: 1px solid var(--rule); }
+    .flag-item:last-child { border-bottom: none; }
+    .flag-icon { color: var(--marker); flex: none; }
+    .results-disclaimer { font-size: 12px; color: var(--mid); line-height: 1.6; margin-top: 20px; }
+    .results-cta { margin-top: 26px; background: var(--tint); border-left: 3px solid var(--blue); padding: 18px 22px; }
+    .results-cta-text { font-size: 14.5px; color: var(--body-text); }
+    .results-cta-link { font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--marker); padding-bottom: 1px; }
+    .results-cta-link:hover { color: var(--blue); }
+
+    /* Closing */
+    .closing { background: var(--blue-deep); color: #fff; padding: 52px 48px; margin-top: 90px; position: relative; }
+    .closing::before { content: none; }
+    .closing h2 { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 36px); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; color: #fff; }
+    .closing h2 em { font-style: italic; color: #bcd7e4; }
+    .closing p { color: #b9d2df; max-width: 46em; margin-top: 16px; font-size: 16.5px; }
+    .closing-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 30px; }
+    .btn-primary { display: inline-block; background: #fff; color: var(--blue-deep); font-size: 15px; font-weight: 600; padding: 14px 28px; text-decoration: none; transition: background .15s; }
+    .btn-primary:hover { background: #e9f1f5; }
+    .btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-size: 15px; font-weight: 600; padding: 12.5px 26px; text-decoration: none; transition: border-color .15s; }
+    .btn-outline:hover { border-color: #fff; }
+    @media (max-width: 600px) { .closing { padding: 36px 24px; } }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--rule); margin-top: 64px; padding: 36px 0 44px; }
+    .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: baseline; gap: 30px; flex-wrap: wrap; }
+    .footer-brand { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); }
+    .footer-brand span { color: var(--blue); }
+    .footer-tagline { font-family: var(--mono); font-size: 12px; color: var(--mid); margin-top: 4px; }
+    .footer-links { display: flex; gap: 22px; list-style: none; }
+    .footer-links a { font-family: var(--mono); font-size: 12.5px; color: var(--mid); text-decoration: none; }
+    .footer-links a:hover { color: var(--blue); }
+    .footer-disclaimer { font-size: 12px; color: var(--mid); line-height: 1.6; margin-top: 22px; max-width: 80em; }
+    @media (max-width: 600px) { .footer-inner { padding: 0 20px; } .footer-top { flex-direction: column; gap: 16px; } }
+
+    /* PRINT */
+    @media print {
+      nav, .float-calc-btn, .calculator-wrap, .doc-sidebar, .closing-actions { display: none !important; }
+      body { background: #fff; color: #000; }
+      .doc-layout { display: block; }
+      :root { --paper: #fff; --card: #fff; }
+    }
+
+    /* Entrance animation */
+    .cover-series { animation: fadeUp .55s ease both; }
+    .cover-inner > h1 { animation: fadeUp .55s ease .08s both; }
+    .cover-lede { animation: fadeUp .55s ease .16s both; }
+    .cover-meta { animation: fadeUp .55s ease .24s both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cover-series, .cover-inner > h1, .cover-lede, .cover-meta, .calc-results.visible { animation: none; }
+    }
+  
+    /* PAGE-SPECIFIC SUPPLEMENT — review */
+    /* Uncovered-class rules carried from v1, translated to v2 tokens
+       (navy->ink/tint/paper, gold->marker/marker-tint/rule, v1 display font->serif,
+       v1 body font->sans; border-radius and box-shadow dropped). */
+    .faq-a { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--body-text); overflow-wrap: break-word; }
+    .faq-block { margin-top: 12px; }
+    .faq-item { border-bottom: 1px solid var(--rule); padding: 22px 0; }
+    .faq-item:first-child { padding-top: 8px; }
+    .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .faq-q { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 10px; }
+  
+    /* C: in-article body links — orange text + orange underline */
+    .section-block a { color: var(--marker); text-decoration: underline; text-decoration-color: var(--marker); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+    .section-block a:hover { color: var(--blue); text-decoration-color: var(--blue); }
+  </style><body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-brand" aria-label="Wim Roach &amp; Brian Lorenz — HUD/FHA Multifamily Origination">Wim Roach <span>&amp;</span> Brian Lorenz</a>
+    <a href="/index.html#resources" class="nav-back" aria-label="Back to all resources">All Resources</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<div class="page-wrapper">
+  <div class="cover">
+    <div class="cover-inner">
+      <div class="cover-series">
+        <div class="cover-series-dot"></div>
+        Wim Roach &amp; Brian Lorenz — HUD/FHA Practitioner Series
+      </div>
+      <h1>HUD Multifamily Loan Sizing: DSCR NOI vs. <em>Appraised-Value NOI</em></h1>
+      <div class="cover-subtitle">Why HUD Underwrites Two NOIs on One Deal — and What Each Means</div>
+      <div class="cover-rule"></div>
+      <p class="cover-lede">On every HUD multifamily deal the underwriter works with two NOIs, not one. They start from the same property and usually land close, but they're built to different standards and feed different parts of the loan sizing — and the space between them can be worth real proceeds.</p>
+      <div class="cover-meta">
+        <div class="cover-authors">
+          <div class="cover-author">
+            <div class="author-initial">WR</div>
+            <div>
+              <div class="author-name">Wim Roach</div>
+              <div class="author-role">Vice President, Centennial Mortgage</div>
+            </div>
+          </div>
+          <div class="cover-author">
+            <div class="author-initial">BL</div>
+            <div>
+              <div class="author-name">Brian Lorenz</div>
+              <div class="author-role">Vice President, Centennial Mortgage</div>
+            </div>
+          </div>
+        </div>
+        <div class="cover-divider"></div>
+        <div class="cover-pub">
+          <time datetime="2026-06-26">Published June 26, 2026</time><br/>
+          Wim Roach &amp; Brian Lorenz Practitioner Series
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOC LAYOUT -->
+  <div class="doc-layout">
+
+    <!-- BODY -->
+    <article class="doc-body">
+
+      <!-- INTRO -->
+      <p class="intro-graf">A HUD underwriter looks at a project's NOI from two angles: one NOI is used against HUD's debt service coverage ratio to determine the DSCR loan amount, and one is based on the appraiser's direct capitalization value (NOI divided by the market cap rate) — which determines the LTV loan amount. The two NOIs have different standards the underwriter must follow. The <strong>DSCR NOI</strong> is meant to mirror the property's reality while staying inside HUD's underwriting rules; the appraiser's <strong>Market NOI</strong> is what a hypothetical investor would expect the property to earn. The two usually are close, but they can differ on three lines — income, vacancy, and expenses — and having a lender know how to interpret the differences can produce materially more mortgage proceeds.</p>
+
+      <!-- SCOPE NOTE -->
+      <section class="section-block">
+        <p>Everything that follows describes the 223(f), where the loan is sized on both value and coverage — so the appraiser's Market NOI and the DSCR NOI each drive a separate loan amount. The other common programs only put a DSCR NOI in play: the <a href="/resources/how-hud-sizes-a-221d4-mortgage/">221(d)(4)</a> is sized to cost rather than to an appraised value, so the Market NOI doesn't drive its proceeds, and the <a href="/resources/hud-223a7-and-irr-loan-modification/">223(a)(7)</a> streamlined refinance uses no new appraisal at all.</p>
+      </section>
+
+      <!-- SECTION 1 — THE DSCR NOI -->
+      <section class="section-block" id="dscr-noi">
+        <div class="section-header">
+          <div class="section-number">01</div>
+          <div>
+            <div class="section-eyebrow">The DSCR NOI</div>
+            <h2 class="section-title">How HUD Builds the <em>DSCR NOI</em></h2>
+          </div>
+        </div>
+
+        <p>For the DSCR NOI, the underwriter starts from the property's current rent collection. Normally, the method is the latest rent roll's actual rent on occupied units plus the market rent on vacant units; that sum is the Gross Residential Rent Potential, and a vacancy factor comes off it. HUD's minimum vacancy depends on how much affordability the project carries — for a market-rate project it's 7%, including collection loss. Where the property's actual vacancy runs higher, the underwriter will normally use the actual rate. The underwritten vacancy is the greater of the minimum below and the property's own rate.</p>
+
+        <div class="spec-table-wrap">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>Minimum Vacancy &amp; Collection Loss</th>
+                <th>Property Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-val">3%</td>
+                <td>Properties with HAP contracts covering 90% or more of units</td>
+              </tr>
+              <tr>
+                <td class="td-val">5%</td>
+                <td>LIHTC properties meeting the minimum set-aside requirements, or with attainable tax-credit rents at least 10% below market</td>
+              </tr>
+              <tr>
+                <td class="td-val">7%</td>
+                <td>Market-rate properties, or other affordable projects not meeting the 3% or 5% rules</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout">
+          <p><strong>Pending change to watch.</strong> A draft HUD Mortgagee Letter circulated to lenders in spring 2026 included language that would let a market-rate property underwrite its DSCR vacancy at 5% — below the current 7% floor — where occupancy has held at that level for three years. The final language is not set and the change is not yet in effect. We're tracking it because, on a market-rate deal, moving the floor from 7% to 5% feeds straight into the DSCR NOI and the loan amount. <em>(Noted June 2026; we'll update when HUD finalizes.)</em></p>
+        </div>
+
+        <p>HUD letting the latest month's rent roll set income is different from many programs, including Fannie Mae and Freddie Mac, which require that the underwritten income not exceed the annualized trailing-three-month collections. On a project with rising rents, the trailing-3 pulls the underwritten Rent Potential down — a lower DSCR, and possibly lower proceeds.</p>
+
+        <div class="example-box">
+          <span class="example-label">Illustrative Example — Latest Rent Roll vs. Trailing-3</span>
+          <p>One unit's lease resets from $1,000 to $1,100 at the start of the most recent month. Compare how each method annualizes that unit:</p>
+          <div class="example-math">Latest rent roll: <strong>$1,100 &times; 12 = $13,200</strong></div>
+          <div class="example-math">Trailing-3: ($1,000 + $1,000 + $1,100) &times; 4 = <strong>$12,400</strong></div>
+          <div class="example-math">Difference, one unit: <strong>$800</strong></div>
+          <p>Extrapolated across a building stepping rents up lease by lease, the gap adds real Gross Rent Potential the trailing-3 would strip out.</p>
+        </div>
+
+        <p>The latest rent roll also gives a fairer read on where the project will be at closing and after. Most leases run twelve months, so a year out the income looks more like today's rent roll than the trailing-3. It also lets HUD better underwrite a project still in lease-up, where the trailing-3 understates the stabilized rent roll — HUD's stated basis is to underwrite to the revenue actually being collected. From there the DSCR NOI runs through HUD's DSCR coverage mortgage amount test; our <a href="/resources/how-hud-sizes-a-223f-mortgage/">223(f) loan sizing guide</a> walks the full set of sizing tests.</p>
+      </section>
+
+      <!-- SECTION 2 — THE MARKET NOI -->
+      <section class="section-block" id="market-noi">
+        <div class="section-header">
+          <div class="section-number">02</div>
+          <div>
+            <div class="section-eyebrow">The Market NOI</div>
+            <h2 class="section-title">Where the <em>Appraiser</em> Can Go Higher</h2>
+          </div>
+        </div>
+
+        <p>The appraiser builds the Market NOI a little differently. Income comes from comparable projects' rents compared against the property's actual, current rents. If the property runs very low vacancy with rents below market, the appraiser can set income above the figure used in the DSCR NOI analysis.</p>
+
+        <p>The appraiser can also use a vacancy below the DSCR table. Where the DSCR analysis is locked at 7% for a market-rate project, the appraiser might conclude the market's vacancy is 4% and underwrite to 4%. That vacancy difference alone can add millions in mortgage proceeds if the LTV is constraining the mortgage amount, because the Market NOI drives appraised value and the LTV ceiling moves with it.</p>
+      </section>
+
+      <!-- SECTION 3 — EXPENSES -->
+      <section class="section-block" id="expenses">
+        <div class="section-header">
+          <div class="section-number">03</div>
+          <div>
+            <div class="section-eyebrow">Expenses</div>
+            <h2 class="section-title">Where the <em>Expense Lines</em> Differ</h2>
+          </div>
+        </div>
+
+        <p>Expenses can vary between the two NOIs the same way. The DSCR side wants expenses that reflect the property's reality; the appraiser wants expenses that reflect the marketplace, and the two get reconciled where they differ. Easy examples are an above-market management fee paid to a related entity, or a property insurance premium that runs unusually low.</p>
+
+        <p>The most common difference is the annual deposit to replacement reserves. The appraiser often carries $250 per unit; while the DSCR NOI must use the figure the Property Capital Needs Assessment (PCNA) sets during underwriting. Larger gaps in the total expenses can come from the cost of operating under affordability restrictions and from real estate taxes under abatements, TIFs, and similar arrangements.</p>
+      </section>
+
+      <!-- SECTION 4 — WHAT THE GAP IS WORTH -->
+      <section class="section-block" id="proceeds">
+        <div class="section-header">
+          <div class="section-number">04</div>
+          <div>
+            <div class="section-eyebrow">The Proceeds Impact</div>
+            <h2 class="section-title">What a Small Gap <em>Is Worth</em></h2>
+          </div>
+        </div>
+
+        <p>The two NOIs can finish close and still produce very different loan amounts. Say the appraiser concludes the market's management fee is $10,000 below the property's actual. At a 5% cap rate, that's roughly $160,000 of additional value — and additional LTV-constrained proceeds — off a single expense line.</p>
+
+        <p>None of that is gaming the rules. It's building each NOI to the standard HUD assigns it: reality on the DSCR side, the market on the appraisal side. On the right deal, that reconciliation is the difference between an adequate loan and the largest one the property can defensibly support.</p>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section-block" id="faq">
+        <div class="section-header">
+          <div class="section-number">05</div>
+          <div>
+            <div class="section-eyebrow">FAQ</div>
+            <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+          </div>
+        </div>
+
+        <div class="faq-block">
+          <div class="faq-item">
+            <div class="faq-q">What is the difference between the DSCR NOI and the Market NOI on a HUD multifamily loan?</div>
+            <div class="faq-a">The DSCR NOI (also called the Debt Service NOI) is the figure HUD's underwriter builds to size the loan against the debt service coverage ratio. It is meant to mirror the property's reality within HUD's rules, using HUD's minimum vacancy and the replacement reserve set by the Property Capital Needs Assessment. The Market NOI is the figure the third-party appraiser develops from market rent and expense comparables. The Market NOI, when divided by the market capitalization rate, produces appraised value, which drives the LTV mortgage amount. The two NOIs usually land close but diverge on three lines: income, vacancy, and expenses.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Does HUD underwrite multifamily income from the current rent roll or a trailing average?</div>
+            <div class="faq-a">For the DSCR NOI, HUD usually underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units — rather than capping it at the annualized trailing-three-month collections the way many other programs do. On a property with rising rents, or one still in lease-up, the current rent roll produces higher underwritten income than a backward-looking average because it reflects the rents the property is collecting now.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What is HUD's minimum vacancy for a market-rate multifamily deal?</div>
+            <div class="faq-a">For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties meeting the minimum set-aside requirements, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLOSING -->
+      <div class="closing">
+        <h2>Working a Deal Where <em>Proceeds Are Tight?</em></h2>
+        <p>If you're sizing an acquisition or refinance and the loan amount is coming in below what the deal needs, the space between the DSCR NOI and the Market NOI is often where the room is. We underwrite both sides the way HUD and the appraiser actually build them, and we'll give you an honest read on where a deal's proceeds can move and where they can't. Send us the rent roll and trailing financials and we'll size it.</p>
+        <div class="closing-actions">
+          <a href="/index.html#contact" class="btn-primary">Talk to the Team</a>
+          <a href="/resources/how-hud-sizes-a-223f-mortgage/" class="btn-outline">223(f) Sizing Calculator</a>
+        </div>
+      </div>
+
+    </article><!-- /doc-body -->
+
+    <!-- SIDEBAR -->
+    <aside class="doc-sidebar">
+
+      <div class="sidebar-box">
+        <div class="sidebar-label">In This Guide</div>
+        <ul class="toc-list">
+          <li><a href="#dscr-noi"><span class="toc-num">01</span> How HUD Builds the DSCR NOI</a></li>
+          <li><a href="#market-noi"><span class="toc-num">02</span> Where the Appraiser Can Go Higher</a></li>
+          <li><a href="#expenses"><span class="toc-num">03</span> Where the Expense Lines Differ</a></li>
+          <li><a href="#proceeds"><span class="toc-num">04</span> What a Small Gap Is Worth</a></li>
+          <li><a href="#faq"><span class="toc-num">05</span> Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-label">At a Glance</div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">Two NOIs</div>
+          <div class="sidebar-stat-label">DSCR NOI and Market NOI, one deal</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">Rent Roll</div>
+          <div class="sidebar-stat-label">DSCR income basis — not a trailing average</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">7% / 5% / 3%</div>
+          <div class="sidebar-stat-label">Min DSCR vacancy — market / LIHTC / HAP</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">PCNA</div>
+          <div class="sidebar-stat-label">Sets the DSCR replacement reserve</div>
+        </div>
+      </div>
+
+      <div class="sidebar-box">
+        <div class="sidebar-label">About This Team</div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">$2B+</div>
+          <div class="sidebar-stat-label">Combined HUD/FHA closed volume</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">20+</div>
+          <div class="sidebar-stat-label">Years combined HUD/FHA experience</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="sidebar-stat-val">MAP</div>
+          <div class="sidebar-stat-label">Approved lender — all 50 states</div>
+        </div>
+      </div>
+
+      <a href="/index.html#contact" class="sidebar-cta">Start a Conversation</a>
+    </aside>
+
+  </div><!-- /doc-layout -->
+</div><!-- /page-wrapper -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">Wim Roach <span>&amp;</span> Brian Lorenz</div>
+        <div class="footer-tagline">HUD/FHA Multifamily Origination</div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/#programs">Programs</a></li>
+        <li><a href="/#process">Process</a></li>
+        <li><a href="/#resources">Resources</a></li>
+        <li><a href="/#team">Team</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="footer-disclaimer">&copy; 2026 Wim Roach &amp; Brian Lorenz. Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This white paper is for informational purposes only and does not constitute a commitment to lend or legal or financial advice. Wim Roach &amp; Brian Lorenz are loan originators with Centennial Mortgage, Inc.</p>
+  </div>
+</footer>
+
+</body>
+</html>

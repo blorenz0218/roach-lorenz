@@ -204,10 +204,13 @@
 
   /* ================= claim: comparison ================= */
   .compare{margin-top:18px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .compare table{width:100%;border-collapse:collapse;min-width:760px}
+  .compare table{width:100%;border-collapse:collapse;min-width:760px;table-layout:fixed}
   .compare th,.compare td{padding:16px 18px;text-align:left;border-bottom:1px solid var(--rule);font-size:14.5px;vertical-align:top}
   .compare thead th{font-family:var(--mono);font-size:12px;letter-spacing:0.07em;color:var(--mid);font-weight:500;border-bottom:1.5px solid var(--ink);padding-bottom:12px}
-  .compare tbody th{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--mid);font-weight:500;width:160px}
+  .compare tbody th{font-family:var(--mono);font-size:12.5px;letter-spacing:0.04em;color:var(--mid);font-weight:500}
+  .compare thead th:first-child,.compare tbody th{width:150px}
+  .compare th:not(:first-child),.compare td{width:auto}
+  .compare td,.compare th{word-wrap:break-word;overflow-wrap:break-word}
   .compare td.hud{background:#fff;border-left:1.5px solid var(--ink);border-right:1.5px solid var(--ink);font-weight:600;color:var(--ink)}
   .compare thead th.hud{border-left:1.5px solid var(--ink);border-right:1.5px solid var(--ink);border-top:1.5px solid var(--ink);background:#fff;color:var(--blue)}
   .compare tbody tr:last-child td.hud{border-bottom:1.5px solid var(--ink)}
@@ -741,8 +744,12 @@
           <span class="tag">HUD/FHA PRIMER</span><span class="res-title">Requesting Replacement Reserve Funds on a HUD/FHA Loan</span><span class="arrow">→</span>
           <span class="desc">How borrowers access and request HUD/FHA replacement reserve funds — the HUD-9250 process, eligible items, bid and documentation rules, and where to submit.</span>
         </a>
+        <a class="res-row" data-tag="223f" href="/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/">
+          <span class="tag">HUD 223(f)</span><span class="res-title">HUD Loan Sizing: DSCR NOI vs. Appraised-Value NOI</span><span class="arrow">→</span>
+          <span class="desc">Why HUD underwrites two NOIs on one deal — a Debt Service NOI that drives the DSCR test and a Market NOI that drives appraised value, and how the gap between them moves loan proceeds.</span>
+        </a>
       </div>
-      <button class="btn ghost loadmore" id="loadMore" type="button">Show all 15 resources</button>
+      <button class="btn ghost loadmore" id="loadMore" type="button">Show all 16 resources</button>
     </div>
   </section>
 
