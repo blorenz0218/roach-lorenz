@@ -460,7 +460,7 @@
           <span class="go">Read →</span>
         </a>
       </div>
-      <a class="browse-all" href="#resources">Browse all 14 resources →</a>
+      <a class="browse-all" href="#resources">Browse all 16 resources →</a>
     </div>
   </section>
 
@@ -850,6 +850,10 @@
   const pills = document.querySelectorAll('.pill');
   const rows = [...document.querySelectorAll('#resList .res-row')];
   const loadBtn = document.getElementById('loadMore');
+  // Keep resource counts in sync with the actual number of rows — no manual bumping when papers are added
+  const browseAll = document.querySelector('.browse-all');
+  if (browseAll) browseAll.textContent = 'Browse all ' + rows.length + ' resources →';
+  loadBtn.textContent = 'Show all ' + rows.length + ' resources';
   const INITIAL = 8;
   let expanded = false;
   let active = 'all';
