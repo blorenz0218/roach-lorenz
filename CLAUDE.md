@@ -1,11 +1,13 @@
 # roachlorenz.com
 
-Personal brand site for Brian Lorenz and Wim Roach, both VPs of Originations at Centennial Mortgage, Inc. Target audience is HUD/FHA multifamily mortgage prospects — property owners, developers, syndicators, and property management companies. Primary geography is Pacific Northwest and Mountain West with national reach. Goals are SEO/AEO visibility, trust-building for cold-call prospects, white paper distribution, and inbound lead generation. The brand operates independently of any specific lender.
+Personal brand site for Brian Lorenz and Wim Roach, both Vice Presidents at Centennial Mortgage, Inc. Target audience is HUD/FHA multifamily mortgage prospects — property owners, developers, syndicators, and property management companies. Primary geography is Pacific Northwest and Mountain West with national reach. Goals are SEO/AEO visibility, trust-building for cold-call prospects, white paper distribution, and inbound lead generation. The brand operates independently of any specific lender.
 
 ## Who we are
 
-- **Brian Lorenz** — VP, Originations. Former Senior HUD Underwriter at Colliers Mortgage with a 100% HUD Firm Commitment success rate (never had a deal rejected). Lives in Boise, ID.
-- **Wim Roach** — VP, Originations. Extensive borrower relationships and closed transaction volume.
+- **Brian Lorenz** — Vice President. Former Senior HUD Underwriter at Colliers Mortgage with a 100% HUD Firm Commitment success rate (never had a deal rejected). Lives in Boise, ID.
+- **Wim Roach** — Vice President. Extensive borrower relationships and closed transaction volume.
+
+The public-facing title is always **"Vice President"** — never a variant naming Originations — in page copy, author tags, and JSON-LD jobTitle alike.
 
 ## Loan programs featured
 
@@ -92,6 +94,8 @@ Brian supplies exact figures when they matter — do not calculate independently
 - MIP: 0.25% flat
 - Cost Not Attributable: 10% of appraised value
 
+Terminology: the canonical term for the debt-service-coverage-based NOI is **"DSCR NOI"** (not "Debt Service NOI"). Use it consistently in titles, body, and schema.
+
 Primary source documents: HUD MAP Guide, HUD Form HUD-92466M (Regulatory Agreement), Fannie Mae Form 6001.NR, Freddie Mac Seller/Servicer Guide.
 
 ## SEO standard for every page
@@ -106,6 +110,12 @@ Every page ships with:
 - Visible publish date
 - Five-question FAQ section targeting long-tail queries
 
+Homepage exemption: the homepage uses a ProfessionalService + Person `@graph` instead of Article and FAQPage schema — this is correct and audits should not flag it.
+
+### Program-number variants
+
+Every resource page should include the unpunctuated program-number variants (223f, 221d4, 241a, 223a7) at least once naturally in visible body or FAQ text alongside the punctuated forms — these variants carry real search volume. One natural mention is enough; do not keyword-stuff.
+
 ### Canonical URL requirements
 
 Canonical URLs for /resources/[slug] pages MUST include a trailing slash, matching the URL Netlify actually serves (e.g., https://roachlorenz.com/resources/hud-apartment-loans/). The homepage canonical is the bare domain with trailing slash (https://roachlorenz.com/). This applies to the <link rel='canonical'> tag, the og:url meta tag, and any self-referencing @id or url fields in JSON-LD schemas — all should match the trailing-slash form.
@@ -115,7 +125,7 @@ Canonical URLs for /resources/[slug] pages MUST include a trailing slash, matchi
 - Keep titles **60 characters or fewer** (Google truncates in SERPs beyond this)
 - Drop the "| Wim Roach & Brian Lorenz" author suffix on white papers — the domain already shows below each search result
 - Keep the author suffix only on the homepage title
-- Lead with the specific HUD program number when applicable (e.g., "HUD 241(a)...", "HUD 221(d)(4)...") — these are the primary search terms
+- Lead with the specific HUD program number when applicable (e.g., "HUD 241(a)...", "HUD 221(d)(4)...") — these are the primary search terms — unless GSC query data supports a different phrasing (e.g., "How HUD Sizes a 223(f)..." matches real query patterns)
 
 ### Meta description requirements
 
