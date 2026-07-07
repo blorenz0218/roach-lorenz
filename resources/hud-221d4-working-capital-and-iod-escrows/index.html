@@ -174,12 +174,15 @@
     .nav-brand span { color: var(--blue); }
     .nav-back { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; margin-left: auto; }
     .nav-back:hover { color: var(--blue); }
+    .nav-quarterly { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; color: var(--mid); text-decoration: none; margin-left: auto; }
+    .nav-quarterly:hover { color: var(--blue); }
+    .nav-quarterly + .nav-back { margin-left: 0; }
     .nav-back::before { content: "← "; color: var(--marker); }
     .nav-cta { font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--marker); padding-bottom: 2px; }
     .nav-cta:hover { color: var(--blue-deep); }
     @media (max-width: 600px) {
       .nav-inner { padding: 14px 20px; }
-      .nav-back { display: none; }
+      .nav-back, .nav-quarterly { display: none; }
     }
 
     /* FLOATING CALCULATOR BUTTON */
@@ -380,7 +383,7 @@
     .footer-brand { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); }
     .footer-brand span { color: var(--blue); }
     .footer-tagline { font-family: var(--mono); font-size: 12px; color: var(--mid); margin-top: 4px; }
-    .footer-links { display: flex; gap: 22px; list-style: none; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; list-style: none; }
     .footer-links a { font-family: var(--mono); font-size: 12.5px; color: var(--mid); text-decoration: none; }
     .footer-links a:hover { color: var(--blue); }
     .footer-disclaimer { font-size: 12px; color: var(--mid); line-height: 1.6; margin-top: 22px; max-width: 80em; }
@@ -426,6 +429,7 @@
 <nav>
   <div class="nav-inner">
     <a href="https://roachlorenz.com/" class="nav-brand">Wim Roach <span>&amp;</span> Brian Lorenz</a>
+    <a href="/newsletter/" class="nav-quarterly">Quarterly</a>
     <a href="https://roachlorenz.com/#resources" class="nav-back">All Resources</a>
   </div>
 </nav>
@@ -672,6 +676,7 @@
         <li><a href="/#process">Process</a></li>
         <li><a href="/#resources">Resources</a></li>
         <li><a href="/#team">Team</a></li>
+        <li><a href="/newsletter/">Quarterly</a></li>
         <li><a href="/#contact">Contact</a></li>
       </ul>
     </div>
