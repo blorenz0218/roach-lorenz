@@ -43,6 +43,37 @@ Secondary: 241(a) supplemental loans, 223(a)(7) refinance, BSPRA structuring.
 
 **Per-page supplements:** some articles use components the canonical stylesheet doesn't cover (charts, timelines, comparison widgets, calculators). Those carry a clearly-marked `/* PAGE-SPECIFIC SUPPLEMENT — review */` block at the end of their `<style>`, composed only from v2 tokens. When adding such a component, keep its old visual role (a highlighted box stays a highlighted box — `--marker-tint` with an ink border) and never put dark text on a dark background.
 
+### Site header and footer (standard)
+
+Two header patterns exist site-wide — do not invent others:
+
+- **Homepage**: wordmark left; its own section-anchor nav (Why HUD / Process / Programs / Resources / Team / Quarterly) + a "Get in Touch" button to `#contact`.
+- **Every interior page** (white papers, newsletter archive, issues): wordmark left; a right-justified cluster of Resources / Quarterly / Team links + a "Get in Touch" button.
+
+Shared link treatment on both: nav links are IBM Plex Mono, 11.5px, weight 500, uppercase, letter-spacing 0.08em, color `--mid` (hover `--blue`). The CTA is the blue-deep button component: sans 13px/600, white text on `--blue-deep`, `padding: 11px 22px`, hover `--blue`. On mobile the links hide; wordmark + button remain.
+
+Canonical interior header markup (a new page copies this block and the NAV CSS rules — `.nav-links` / `.nav-btn` — from any existing paper):
+
+```html
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">Wim Roach <span>&amp;</span> Brian Lorenz</a>
+    <ul class="nav-links">
+      <li><a href="/#resources">Resources</a></li>
+      <li><a href="/newsletter/">Quarterly</a></li>
+      <li><a href="/#team">Team</a></li>
+    </ul>
+    <a href="/#contact" class="nav-btn">Get in Touch</a>
+  </div>
+</nav>
+```
+
+(The newsletter template names the same button class `.nav-cta` — equivalent component, keep whichever the template you're copying uses.)
+
+Footer standard on every page: wordmark + tagline left; link list Programs · Process · Resources · Team · Quarterly · Contact (mono 12.5px, `flex-wrap: wrap`); MAP-lender disclaimer below. Homepage section anchors that exist: `#why-hud #process #programs #resources #team #contact` — there is no `#products`.
+
+Homepage deep-link note: sections carry `scroll-margin-top: 80px` and the homepage has a post-load re-anchor script for `/#section` links — the GSAP pinned timeline inserts a tall spacer after the browser's initial hash jump, which otherwise strands visitors above their target. Do not remove either when editing homepage styles/scripts.
+
 ### Hero entrance animation (required on white papers)
 
 Every white paper page includes a staggered fade-up entrance animation on the hero block. Four elements cascade in over 0.4 seconds when the page loads. Pure CSS, no JavaScript.
@@ -173,10 +204,11 @@ Every new page, no exceptions:
 4. Confirm `twitter:card` is set to `summary_large_image` (not `summary`)
 5. Confirm canonical URL matches the site pattern: `https://roachlorenz.com/resources/[folder-name]/` with a trailing slash and no `.html` extension — and that og:url and any self-referencing JSON-LD `@id`/`url` fields use the same trailing-slash form
 6. Confirm the hero entrance animation (fadeUp cascade on `.cover-series`, h1, `.cover-lede`, `.cover-meta`) is present in the page's `<style>` block
-7. Update `sitemap.xml` with the new URL
-8. Push all updated files to GitHub
-9. Google Search Console → URL Inspection → paste new URL → Request Indexing
-10. After deploy, test the social preview at linkedin.com/post-inspector
+7. Confirm the standard interior header (wordmark + Resources/Quarterly/Team + Get in Touch button) and standard footer are present — copy both from an existing paper
+8. Update `sitemap.xml` with the new URL
+9. Push all updated files to GitHub
+10. Google Search Console → URL Inspection → paste new URL → Request Indexing
+11. After deploy, test the social preview at linkedin.com/post-inspector
 
 ## Workflow split
 
@@ -191,4 +223,5 @@ The **241(a) Supplemental Loan white paper** (`resources/hud-241a-supplemental-l
 
 ## Change log
 
+- **2026-07-13:** Standardized site headers. Interior pages (papers + newsletter) now share one header: wordmark + right-justified Resources/Quarterly/Team links + Get in Touch button, replacing the old wordmark + "← All Resources" back-link pattern. Homepage keeps its section-anchor nav but adopts the mono-uppercase link treatment, and its CTA became the Get in Touch button. Also fixed `/#section` deep links from interior pages (GSAP pin-spacer shifted anchor targets after the initial jump; homepage now re-anchors post-load and sections have scroll-margin-top).
 - **2026-06-17:** Updated canonical URL standard for /resources/ pages from no-trailing-slash to with-trailing-slash. Reason: Netlify 301-redirects non-trailing URLs to trailing-slash form (because index.html lives inside directories), which created a canonical conflict — sitemap and canonical tags pointed to URLs that were themselves 301 redirects. Pages began falling into 'Crawled — currently not indexed' status. Fix aligned all canonicals and sitemap entries to the trailing-slash form the server actually serves.
