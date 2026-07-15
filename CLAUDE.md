@@ -139,7 +139,7 @@ Every page ships with:
 - Open Graph and Twitter Card tags
 - Semantic HTML: H1/H2 hierarchy, article wrapper, time element
 - Visible publish date
-- Five-question FAQ section targeting long-tail queries
+- FAQ section of at least five questions targeting long-tail queries
 
 Homepage exemption: the homepage uses a ProfessionalService + Person `@graph` instead of Article and FAQPage schema — this is correct and audits should not flag it.
 
