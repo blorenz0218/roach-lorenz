@@ -181,6 +181,13 @@
   .memo td:first-child{white-space:nowrap;width:1%}
   .memo td:last-child{text-align:right;color:var(--body);white-space:nowrap}
   .memo tr.bind td{background:#fdf3e7;border-top:1.5px solid var(--marker);border-bottom:1.5px solid var(--marker);color:var(--ink);font-weight:500}
+  .memo.stack .memo-head{display:block}
+  .memo.stack .memo-head .t{display:block;font-family:var(--serif);font-weight:600;font-size:21px;letter-spacing:-0.01em;line-height:1.2;text-transform:none}
+  .memo.stack .memo-head .ref{display:block;margin-top:6px;text-align:left}
+  .memo.stack td{padding:0 22px;height:58px;vertical-align:middle}
+  .memo.stack td:last-child{white-space:normal}
+  .memo.stack tr.bind td{height:auto;padding:14px 22px}
+  .memo-caption{font-family:var(--mono);font-size:11px;letter-spacing:0.03em;color:var(--mid);margin-top:20px;line-height:1.5}
   .memo tr.bind td:first-child::before{content:"▸ ";color:var(--marker)}
   .memo .foot{padding:15px 22px;font-family:var(--sans);font-size:13.5px;color:var(--mid);line-height:1.55}
   .memo .foot a{border-bottom:1px solid var(--blue)}
@@ -409,20 +416,24 @@
       </div>
     </div>
 
-    <aside class="memo rv" aria-label="How HUD sizes a 223(f) loan">
+    <div>
+    <aside class="memo stack rv" aria-label="Why HUD produces a higher IRR than agency financing">
       <div class="memo-head">
-        <span class="t">223(f) SIZING — THE FOUR TESTS</span>
-        <span class="ref">REFINANCE, MARKET RATE</span>
+        <span class="t">THE IRR DRIVERS — HUD VS. AGENCY</span>
+        <span class="ref">MARKET RATE &bull; CASH-OUT REFI</span>
       </div>
       <table>
-        <tr><td>LTV test</td><td>87% of appraised value</td></tr>
-        <tr><td>DSCR test</td><td>Debt service at 1.15x</td></tr>
-        <tr><td>Statutory test</td><td>Per-unit dollar limits</td></tr>
-        <tr><td>Cost of refinance</td><td>Greater of refi cost or 80% LTV</td></tr>
-        <tr class="bind"><td colspan="2">The lowest test governs your loan</td></tr>
+        <tr><td>Proceeds — LTV</td><td>80% vs. 75% LTV —<br/>6.7% more</td></tr>
+        <tr><td>Proceeds — DSCR</td><td>1.15x vs. 1.25x —<br/>8.75% more</td></tr>
+        <tr><td>Interest rate</td><td>Lower due to Ginnie Mae/HUD guarantee</td></tr>
+        <tr><td>Am &amp; Term</td><td>35-yr am, full 35-yr term vs.<br/>30-yr am, ~10-yr term</td></tr>
+        <tr><td>Exit</td><td>No balloon —<br/>nothing to refinance</td></tr>
+        <tr class="bind"><td colspan="2">With higher leverage, lower rates, and a longer term, HUD provides a higher IRR</td></tr>
       </table>
-      <div class="foot">Every HUD loan sizes to its binding constraint. We run this math on the first call — before you've spent a dollar on third parties. <a href="/resources/how-hud-sizes-a-223f-mortgage/">See the full sizing walkthrough →</a></div>
+      <div class="foot">The proceeds above come down to HUD's four sizing tests — the lowest one governs your loan. <a href="/resources/how-hud-sizes-a-223f-mortgage/">See how a 223(f) is sized →</a></div>
     </aside>
+    <p class="memo-caption">Agency terms shown are typical; executions vary by deal.</p>
+    </div>
   </section>
 
   <!-- ============ LEDGER ============ -->
