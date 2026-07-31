@@ -508,7 +508,10 @@
     .side-cta:hover { background: var(--blue); }
     .stat { margin-bottom: 18px; }
     .stat:last-child { margin-bottom: 0; }
-    .sticky { position: sticky; top: 92px; }
+    .sticky { position: sticky; top: 92px; max-height: calc(100vh - 108px); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+    .sticky::-webkit-scrollbar { width: 5px; }
+    .sticky::-webkit-scrollbar-thumb { background: var(--rule); }
+    .sticky::-webkit-scrollbar-track { background: transparent; }
     .tbl-wrap { overflow-x: auto; margin: 24px 0; }
     .toc-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-weight: 600; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
     .toc { display: flex; flex-direction: column; background: var(--card); border: 1.5px solid var(--ink); padding: 24px; margin-bottom: 22px; }
@@ -535,6 +538,7 @@
     }
     @media (max-width: 980px) {
       .layout { grid-template-columns: 1fr; gap: 0; }
+      .sticky { position: static; max-height: none; overflow: visible; }
     }
     @media (max-width: 680px) {
       .npv-pair { grid-template-columns: 1fr; }

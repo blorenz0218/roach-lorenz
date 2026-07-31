@@ -27,6 +27,8 @@ Secondary: 241(a) supplemental loans, 223(a)(7) refinance, BSPRA structuring.
 
 **Canonical stylesheet:** the entire `<style>` block in `resources/how-hud-sizes-a-223f-mortgage/index.html` is the single source of truth. A new resource page copies that block verbatim — do not retype or "improve" it. (The homepage carries its own copy of the same system inline.)
 
+**Canonical page-layout template:** the article body uses `.page-wrapper` › `.doc-layout` (grid) › `.doc-body` (article) + `.doc-sidebar` (sticky TOC/stat cards), with content sections as `.section-block` and the numbered two-column `.section-header`. Copy this structure for every new page. `.doc-sidebar` carries the required scroll containment — `max-height: calc(100vh - 102px); overflow-y: auto; overscroll-behavior: contain` — so a tall sidebar scrolls independently instead of overlapping the cards below it. **Do NOT copy the `hud-interest-only-vs-amortizing` layout** (`.container` / `.layout` / `.article` / `.sidebar` / `.sticky` / `.side-card`): it's a deprecated one-off kept only because of that page's interactive calculator, and its `.sticky` sidebar lacks the height cap (the exact source of the overlap bug). New pages must use the `.doc-layout` template above.
+
 **Fonts** — Source Serif 4 (display/serif headings), IBM Plex Sans (body/UI), IBM Plex Mono (data/labels). Canonical fonts `<link>` for every page:
 
 ```html
@@ -223,5 +225,6 @@ The **241(a) Supplemental Loan white paper** (`resources/hud-241a-supplemental-l
 
 ## Change log
 
+- **2026-07-31:** Documented the canonical page-layout template (`.doc-layout`/`.doc-sidebar`/`.section-block`) and flagged the `hud-interest-only-vs-amortizing` `.container`/`.layout`/`.sticky` layout as a deprecated do-not-copy exception. Also patched that page's `.sticky` sidebar to add the `max-height`/`overflow-y: auto` scroll containment (desktop-scoped; reset to static on mobile) — it was the last page still exhibiting the sidebar-overlap bug because it predates the `.doc-sidebar` fix.
 - **2026-07-13:** Standardized site headers. Interior pages (papers + newsletter) now share one header: wordmark + right-justified Resources/Quarterly/Team links + Get in Touch button, replacing the old wordmark + "← All Resources" back-link pattern. Homepage keeps its section-anchor nav but adopts the mono-uppercase link treatment, and its CTA became the Get in Touch button. Also fixed `/#section` deep links from interior pages (GSAP pin-spacer shifted anchor targets after the initial jump; homepage now re-anchors post-load and sections have scroll-margin-top).
 - **2026-06-17:** Updated canonical URL standard for /resources/ pages from no-trailing-slash to with-trailing-slash. Reason: Netlify 301-redirects non-trailing URLs to trailing-slash form (because index.html lives inside directories), which created a canonical conflict — sitemap and canonical tags pointed to URLs that were themselves 301 redirects. Pages began falling into 'Crawled — currently not indexed' status. Fix aligned all canonicals and sitemap entries to the trailing-slash form the server actually serves.
