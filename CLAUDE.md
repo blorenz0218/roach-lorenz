@@ -137,13 +137,39 @@ Every page ships with:
 
 - Article schema
 - FAQPage schema
-- HowTo schema where applicable
+- HowTo schema where applicable (see below — deliberate, and not expected to produce rich results)
 - Open Graph and Twitter Card tags
 - Semantic HTML: H1/H2 hierarchy, article wrapper, time element
 - Visible publish date
 - FAQ section of at least five questions targeting long-tail queries
 
 Homepage exemption: the homepage uses a ProfessionalService + Person `@graph` instead of Article and FAQPage schema — this is correct and audits should not flag it.
+
+### HowTo schema — deliberate, and not expected to produce rich results
+
+**Do not "fix" this.** Google deprecated HowTo rich results in 2023, so the HowTo blocks on this site produce **no visible SERP treatment by design**. They are deployed for AEO — giving ChatGPT, Perplexity, Google's AI surfaces and similar systems a clean structured statement of a procedure to lift when a user asks how to do the thing. An audit (human or plugin) that reports "HowTo schema present but not generating rich results" is describing expected behavior, not a defect. Likewise, absence of HowTo on the other pages is not a gap — see below.
+
+Ten pages carry a HowTo block:
+
+| Page | Steps |
+|---|---|
+| `hud-221d4-timeline` | 9 |
+| `requesting-hud-replacement-reserve-funds` | 6 |
+| `how-hud-sizes-a-223f-mortgage` | 6 |
+| `hud-223f-timeline` | 6 |
+| `hud-survey-requirements` | 6 |
+| `dscr-constrained-mortgage` | 5 |
+| `hud-cash-flow-distributions` | 5 |
+| `hud-apartment-loans` | 5 |
+| `how-hud-sizes-a-221d4-mortgage` | 4 |
+| `hud-221d4-working-capital-and-iod-escrows` | 3 |
+
+Rules when adding or editing one:
+
+- **Only where a real ordered procedure exists.** Comparison pieces, concept explainers, and case studies do not get one. Deliberately excluded: `hud-223a7-and-irr-loan-modification`, `hud-241a-supplemental-loan`, `hud-221d4-bspra`, `hud-interest-only-vs-amortizing`, `hud-prepayment-vs-yield-maintenance`, `hud-loan-sizing-dscr-noi-vs-appraised-value-noi`, `5-reasons-hud-deals-stall`, `montana-tax-law-hud-223f-deal-highlight`, `hud-223f-checklist`. A checklist is an `ItemList`, not a `HowTo`.
+- **Every step's numbers come from the page's visible copy — never computed independently.** This is what keeps schema and body from drifting apart.
+- **Every step carries a `url` anchoring to the section it was drawn from**, in the trailing-slash canonical form (`https://roachlorenz.com/resources/[slug]/#section-id`). Verify the anchor id actually exists on the page.
+- The block is head-only, sits after the FAQPage block, and changes nothing visible.
 
 ### Program-number variants
 
@@ -225,6 +251,7 @@ The **241(a) Supplemental Loan white paper** (`resources/hud-241a-supplemental-l
 
 ## Change log
 
+- **2026-08-07:** Published the DSCR-constrained mortgage white paper (`resources/dscr-constrained-mortgage/`, with an interactive DSCR calculator) and extended HowTo schema from 3 pages to 10. Added the "HowTo schema — deliberate, and not expected to produce rich results" section above, because Google deprecated HowTo rich results in 2023 and a future audit would otherwise flag the absence of rich results as a defect. The blocks exist for AEO only. That section also records which pages are deliberately excluded, so their absence isn't flagged as a gap either.
 - **2026-07-31:** Documented the canonical page-layout template (`.doc-layout`/`.doc-sidebar`/`.section-block`) and flagged the `hud-interest-only-vs-amortizing` `.container`/`.layout`/`.sticky` layout as a deprecated do-not-copy exception. Also patched that page's `.sticky` sidebar to add the `max-height`/`overflow-y: auto` scroll containment (desktop-scoped; reset to static on mobile) — it was the last page still exhibiting the sidebar-overlap bug because it predates the `.doc-sidebar` fix.
 - **2026-07-13:** Standardized site headers. Interior pages (papers + newsletter) now share one header: wordmark + right-justified Resources/Quarterly/Team links + Get in Touch button, replacing the old wordmark + "← All Resources" back-link pattern. Homepage keeps its section-anchor nav but adopts the mono-uppercase link treatment, and its CTA became the Get in Touch button. Also fixed `/#section` deep links from interior pages (GSAP pin-spacer shifted anchor targets after the initial jump; homepage now re-anchors post-load and sections have scroll-margin-top).
 - **2026-06-17:** Updated canonical URL standard for /resources/ pages from no-trailing-slash to with-trailing-slash. Reason: Netlify 301-redirects non-trailing URLs to trailing-slash form (because index.html lives inside directories), which created a canonical conflict — sitemap and canonical tags pointed to URLs that were themselves 301 redirects. Pages began falling into 'Crawled — currently not indexed' status. Fix aligned all canonicals and sitemap entries to the trailing-slash form the server actually serves.
