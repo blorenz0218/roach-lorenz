@@ -142,6 +142,82 @@
   }
   </script>
 
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How HUD Sizes a 223(f) Multifamily Mortgage",
+    "description": "HUD sizes a 223(f) loan by running four independent tests — LTV, DSCR, the statutory per-unit mortgage limit, and the cost-of-refinance criterion — and lending the lowest result.",
+    "image": "https://roachlorenz.com/assets/og-223f-sizing.png",
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Market NOI and DSCR NOI"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Third-party appraisal"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Interest rate and amortization term"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Unit count by bedroom size"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Total cost of the refinance transaction"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Separate Market NOI from DSCR NOI",
+        "text": "HUD uses two different NOI figures that feed different parts of the analysis. Market NOI is what the property stabilizes to at market occupancy with normalized operating expenses; the appraiser develops it, and dividing it by the cap rate derives the appraised value that drives the LTV test. DSCR NOI is the figure the coverage test runs against. Establish both before running any of the four tests.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/#two-nois"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Run the LTV test against appraised value",
+        "text": "HUD commissions an independent appraisal to establish market value, with the appraiser applying a market cap rate to stabilized Market NOI to help derive it. Apply the 87% LTV ceiling for market-rate properties, or 90% for affordable, to that appraised value.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/#ltv-test"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Run the DSCR test against DSCR NOI",
+        "text": "Multiply DSCR NOI by 87% for market-rate properties, or 90% for affordable, to get the maximum allowable annual debt service covering principal, interest, and MIP. Divide that figure by the annual loan constant to get the DSCR-constrained loan amount. The industry shorthand is 1.15x, but 1 divided by 0.87 is approximately 1.149, so sizing to 87% of NOI produces a slightly larger loan than a true 1.15x. This is the test where interest rate assumptions have their entire effect on sizing.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/#dscr-test"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Apply the statutory per-unit mortgage limit",
+        "text": "HUD publishes statutory per-unit mortgage limits by bedroom count that establish an absolute dollar ceiling independent of both value and income. The base limits are set by statute and adjusted upward by the High Cost Percentage factor, currently 270% uniformly across all markets. Multiply the adjusted per-unit limits by the unit count in each bedroom category.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/#statutory-test"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Run the cost-of-refinance criterion",
+        "text": "This criterion governs whether the refinance produces cash-out. It sizes the loan at the greater of 80% LTV or the total cost of the refinance transaction, where cost of refinance includes the existing debt payoff, any prepayment penalty, required repairs, replacement reserve escrows, and transaction costs. Where the loan exceeds that cost, the transaction is cash-out and the LTV is capped at 80%.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/#cost-of-refinance"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 6,
+        "name": "Take the lowest of the four results",
+        "text": "The actual loan amount is the lowest result across all four tests. In higher-rate environments, roughly 5.50% and above, the DSCR test typically produces the lowest number, and improving it means increasing DSCR NOI through rent increases, expense control, or lease-up rather than re-appraising. In lower-rate environments the LTV or statutory limit is more often the binding constraint.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/#binding-constraint"
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>

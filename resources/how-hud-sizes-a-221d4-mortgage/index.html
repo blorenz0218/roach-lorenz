@@ -152,6 +152,64 @@
   }
   </script>
 
+  <!-- HowTo Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How HUD Sizes a 221(d)(4) New Construction Mortgage",
+    "description": "HUD sizes a 221(d)(4) loan by running three independent tests — loan-to-cost, DSCR against projected stabilized income, and the statutory per-unit mortgage limit — and lending the lowest result.",
+    "image": "https://roachlorenz.com/assets/og-221d4-sizing.png",
+    "supply": [
+      {
+        "@type": "HowToSupply",
+        "name": "Total eligible development cost"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Appraiser’s projected stabilized NOI"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Interest rate and 40-year amortization term"
+      },
+      {
+        "@type": "HowToSupply",
+        "name": "Unit count by bedroom size"
+      }
+    ],
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Run the LTC test against total development cost",
+        "text": "Apply 87% for market-rate projects, or 90% for affordable, to total eligible development cost. Development cost is not just hardcosts — it is everything required to complete and close the HUD loan, including architect and engineering fees, city development fees, third-party report costs, legal fees, title and recording, survey, taxes and insurance during construction, lender and HUD fees, and construction period interest. BSPRA affects how builder and sponsor profit enters that cost basis.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-221d4-mortgage/#ltc-test"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Run the DSCR test against projected stabilized NOI",
+        "text": "Because there is no operating history on a new construction deal, HUD sizes the coverage test against the projected stabilized NOI developed by the third-party appraiser, underwritten at current market rents and current operating expenses rather than at projected future rents at the time the project leases up. Multiply that NOI by 87% for market-rate or 90% for affordable, then divide by the annual loan constant. The 221(d)(4) amortizes over 40 years rather than 35, producing a lower constant and more proceeds against the same coverage requirement.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-221d4-mortgage/#dscr-test"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Apply the statutory per-unit mortgage limit",
+        "text": "HUD publishes per-unit dollar limits by bedroom count that establish an absolute ceiling independent of both development cost and income. The base statutory limits for new construction are generally higher than the limits applying to refinance programs, reflecting the higher per-unit cost of delivering new construction. The High Cost Percentage factor adjusts the base limits upward.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-221d4-mortgage/#statutory-test"
+      },
+      {
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Take the lowest of the three results",
+        "text": "The actual loan amount is the lowest result across all three tests. On a normal construction deal the LTC test and the DSCR test are the ones that usually compete, with the statutory limit binding mainly on smaller-unit projects in high-cost markets.",
+        "url": "https://roachlorenz.com/resources/how-hud-sizes-a-221d4-mortgage/#binding-constraint"
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
