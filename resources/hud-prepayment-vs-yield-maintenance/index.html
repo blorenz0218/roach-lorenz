@@ -101,14 +101,6 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Is the HUD prepayment penalty worse than yield maintenance?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Under flat treasury assumptions, the comparison is year-dependent. Yield maintenance is cheaper than the standard HUD 10-9-8-7-6-5-4-3-2-1 step-down through roughly year 4 of the loan, HUD is cheaper through years 5 through 7 (though YM catches up in the last few months of each year, right before the next HUD step-down), year 8 is roughly a coin flip, and YM is cheaper again in years 9 and 10. The HUD-wins window in the middle is the same period in which sponsors most commonly evaluate a refinance or disposition. If treasuries rise after rate lock, YM floors at 1% of UPB and becomes the cheaper option throughout the loan. If treasuries fall, YM gets materially more expensive and HUD dominates years 1 through 8."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "What is the standard HUD prepayment penalty structure?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -117,26 +109,26 @@
       },
       {
         "@type": "Question",
-        "name": "How is Fannie Mae yield maintenance calculated?",
+        "name": "Is the HUD prepayment penalty worse than yield maintenance?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Fannie Mae yield maintenance is calculated as the outstanding unpaid balance multiplied by the difference between the note rate and the current reinvestment yield on a treasury of matching remaining term, multiplied by the present value annuity factor over the remaining yield maintenance period. The result is floored at 1% of the unpaid balance. The reinvestment yield is interpolated between two on-the-run treasury maturities bracketing the remaining YM period. When treasury yields are higher than the note rate, the calculation would produce a negative number, but the 1% floor prevents the penalty from going below that level."
+          "text": "Under flat treasury assumptions, the comparison is year-dependent. Yield maintenance is cheaper than the standard HUD 10-9-8-7-6-5-4-3-2-1 step-down through roughly year 4 of the loan, HUD is cheaper through years 5 through 7 (though YM catches up in the last few months of each year, right before the next HUD step-down), year 8 is roughly a coin flip, and YM is cheaper again in years 9 and 10. The HUD-wins window in the middle is the same period in which sponsors most commonly evaluate a refinance or disposition. If treasuries rise after rate lock, YM floors at 1% of UPB and becomes the cheaper option throughout the loan. If treasuries fall, YM gets materially more expensive and HUD dominates years 1 through 8."
         }
       },
       {
         "@type": "Question",
-        "name": "What happens to yield maintenance if treasury rates drop after closing?",
+        "name": "Does a HUD 223(f) loan have a prepayment penalty?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "If treasury rates fall after closing, the reinvestment yield used in the yield maintenance calculation drops, which widens the spread between the note rate and the reinvestment yield and increases the prepayment penalty substantially. On a 50-basis-point drop in treasuries, yield maintenance on a $25 million loan at 5.30% runs roughly 25% to 35% higher than it would under flat rates through the middle of the loan term. The HUD step-down prepayment penalty is unaffected by treasury movement — the penalty in each month is fixed at origination."
+          "text": "Yes. A 223(f) refinance carries the same call protection as the other HUD multifamily programs — most commonly the full 10-9-8-7-6-5-4-3-2-1 step-down, or a two-year lockout followed by an eight-year step-down. The penalty is a percentage of the outstanding balance that declines by 1% each year and disappears entirely after the tenth anniversary. The same alternatives are available on a 221(d)(4), and either can be negotiated in exchange for a higher rate."
         }
       },
       {
         "@type": "Question",
-        "name": "What happens to yield maintenance if treasury rates rise after closing?",
+        "name": "Can I negotiate a different HUD prepayment structure?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "If treasury rates rise enough that the reinvestment yield exceeds the note rate, the yield maintenance calculation would go to zero or negative, but Fannie Mae applies a 1% floor on the unpaid balance. So the minimum prepayment penalty on a FNMA yield maintenance loan is always at least 1% of the outstanding balance. In a rising-rate environment, yield maintenance is the cheaper form of call protection across the full prepayment window."
+          "text": "Yes. Alternative call protection schedules — including lockout-lockout-lockout-7-6-5-4-3-2-1, lockout-lockout-4-3-2-1, and 7-8-6-5-4-3-2-1, among others — are allowed. The rate-to-penalty tradeoff is real: a more borrower-favorable schedule generally comes with a higher interest rate. Current pricing on those tradeoffs moves with market conditions, so reach out and we'll quote them on current pricing."
         }
       },
       {
@@ -145,6 +137,38 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, under HUD's two streamlined refinance products — the 223(a)(7) streamlined refinance and the HUD Interest Rate Reduction (IRR) loan modification — an existing HUD borrower can refinance or recast into a lower interest rate and finance the prepayment penalty on the existing HUD loan into the new loan, without having to pay the prepayment penalty in cash. These products are available only when refinancing an existing HUD loan into another HUD loan; they cannot be used to exit HUD for a non-HUD lender."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Fannie Mae yield maintenance calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The reinvestment yield is interpolated between the two on-the-run treasury maturities bracketing the remaining yield maintenance period. For example, at 4.5 years remaining, the calculation interpolates between the 3-year and 5-year treasury yields. At 8 years remaining, it interpolates between the 7-year and 10-year. The reference is H.15 as published by the Federal Reserve — federalreserve.gov/releases/h15/."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to yield maintenance if rates go up a lot?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yield maintenance hits a 1% of UPB floor. Even if the reinvestment yield exceeds the note rate — which would mathematically produce a zero or negative YM — Fannie Mae applies the 1% floor so the borrower still pays something."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does the 10-year FNMA yield maintenance period end at 9.5 years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standard FNMA multifamily notes close the prepayment window 6 months before the stated maturity. This is to give the borrower time to refinance or sell before the hard loan term stop. Since HUD is fully amortizing at either 35 or 40 years with no shorter term, HUD loans with a standard 10-year step-down carry the 1% penalty through the final month of year 10, so HUD's prepayment window is 6 months longer than Fannie's. At the end of the prepayment period, that structural difference is why YM becomes cheaper."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between yield maintenance and defeasance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Economically, very little. Defeasance (used commonly on Freddie loans) requires the borrower to purchase a portfolio of treasuries whose cash flows match the remaining payments on the loan and substitute that portfolio as the collateral for the note. Yield maintenance (used on Fannie loans) requires a cash payment equal to the present value of the lender's lost interest income. The two prices track each other closely because they're both anchored to treasury yields over the remaining term. For purposes of comparing HUD against agency prepayment, we treat them as equivalent."
         }
       }
     ]
@@ -761,8 +785,18 @@
           </div>
 
           <div class="faq-item">
+            <p><span class="faq-q">What is the standard HUD prepayment penalty structure?</span>
+            Most HUD multifamily loans carry a two-year lockout plus eight-year step-down, or more commonly the full 10-9-8-7-6-5-4-3-2-1 step-down with no lockout. Under the full step-down, the prepayment penalty is 10% of the outstanding balance in year 1, 9% in year 2, and declines by 1% each year until it reaches 1% in year 10. After the tenth anniversary of the loan, there is no prepayment penalty. Alternative call protection structures — lockout-lockout-lockout-7-6-5-4-3-2-1, lockout-lockout-4-3-2-1, 7-8-6-5-4-3-2-1, and others — can be negotiated in exchange for a higher interest rate.</p>
+          </div>
+
+          <div class="faq-item">
             <p><span class="faq-q">Is the HUD prepayment penalty worse than yield maintenance?</span>
-            It depends on the year and the treasury environment. Under flat treasuries, YM is cheaper through year 4, HUD is cheaper through years 5 through 7 (though YM catches up in the last few months of each year right before the next HUD step-down), year 8 is roughly a coin flip, and YM is cheaper again in years 9 and 10. In a rising-rate environment, YM is cheaper throughout. In a falling-rate environment, HUD dominates years 1 through 8 by wide margins.</p>
+            Under flat treasury assumptions, the comparison is year-dependent. Yield maintenance is cheaper than the standard HUD 10-9-8-7-6-5-4-3-2-1 step-down through roughly year 4 of the loan, HUD is cheaper through years 5 through 7 (though YM catches up in the last few months of each year, right before the next HUD step-down), year 8 is roughly a coin flip, and YM is cheaper again in years 9 and 10. The HUD-wins window in the middle is the same period in which sponsors most commonly evaluate a refinance or disposition. If treasuries rise after rate lock, YM floors at 1% of UPB and becomes the cheaper option throughout the loan. If treasuries fall, YM gets materially more expensive and HUD dominates years 1 through 8.</p>
+          </div>
+
+          <div class="faq-item">
+            <p><span class="faq-q">Does a HUD 223(f) loan have a prepayment penalty?</span>
+            Yes. A 223(f) refinance carries the same call protection as the other HUD multifamily programs — most commonly the full 10-9-8-7-6-5-4-3-2-1 step-down, or a two-year lockout followed by an eight-year step-down. The penalty is a percentage of the outstanding balance that declines by 1% each year and disappears entirely after the tenth anniversary. The same alternatives are available on a 221(d)(4), and either can be negotiated in exchange for a higher rate.</p>
           </div>
 
           <div class="faq-item">
@@ -771,13 +805,18 @@
           </div>
 
           <div class="faq-item">
-            <p><span class="faq-q">What happens to yield maintenance if rates go up a lot?</span>
-            Yield maintenance hits a 1% of UPB floor. Even if the reinvestment yield exceeds the note rate — which would mathematically produce a zero or negative YM — Fannie Mae applies the 1% floor so the borrower still pays something.</p>
+            <p><span class="faq-q">Can a HUD prepayment penalty be waived or refinanced without paying cash?</span>
+            Yes, under HUD's two streamlined refinance products — the 223(a)(7) streamlined refinance and the HUD Interest Rate Reduction (IRR) loan modification — an existing HUD borrower can refinance or recast into a lower interest rate and finance the prepayment penalty on the existing HUD loan into the new loan, without having to pay the prepayment penalty in cash. These products are available only when refinancing an existing HUD loan into another HUD loan; they cannot be used to exit HUD for a non-HUD lender.</p>
           </div>
 
           <div class="faq-item">
-            <p><span class="faq-q">How is the reinvestment yield chosen in the YM calculation?</span>
+            <p><span class="faq-q">How is Fannie Mae yield maintenance calculated?</span>
             The reinvestment yield is interpolated between the two on-the-run treasury maturities bracketing the remaining yield maintenance period. For example, at 4.5 years remaining, the calculation interpolates between the 3-year and 5-year treasury yields. At 8 years remaining, it interpolates between the 7-year and 10-year. The reference is H.15 as published by the Federal Reserve — <a href="https://www.federalreserve.gov/releases/h15/" style="color:var(--gold);">federalreserve.gov/releases/h15/</a>.</p>
+          </div>
+
+          <div class="faq-item">
+            <p><span class="faq-q">What happens to yield maintenance if rates go up a lot?</span>
+            Yield maintenance hits a 1% of UPB floor. Even if the reinvestment yield exceeds the note rate — which would mathematically produce a zero or negative YM — Fannie Mae applies the 1% floor so the borrower still pays something.</p>
           </div>
 
           <div class="faq-item">
