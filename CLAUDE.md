@@ -145,6 +145,27 @@ Every page ships with:
 
 Homepage exemption: the homepage uses a ProfessionalService + Person `@graph` instead of Article and FAQPage schema — this is correct and audits should not flag it.
 
+### Schema integrity and internal link form
+
+Four rules, each written because the opposite was found on live pages.
+
+**FAQ schema must match the visible FAQ one-for-one.** Same questions, same order, same answer text. Two failure modes have already happened: FAQPage schema with no visible FAQ section at all (the 241(a) paper), and schema and visible FAQ drifting into two entirely different question sets (the prepayment paper, where 5 of 6 diverged). Google requires FAQ structured data to reflect visible content, and an answer engine cannot cite an answer that exists only in the head. An audit that checks "FAQPage present and parses" passes both defects — check parity, not presence.
+
+**No microdata. JSON-LD only.** Never put `itemscope`, `itemtype`, or `itemprop` on the `<article>` element or anywhere else. Eight pages carried a microdata Article alongside their JSON-LD Article, which hands Google two Article entities and lets it pick one we do not control; one of those pages carried a duplicate microdata FAQPage as well. Removed 2026-08-19. A schema audit scoped to `ld+json` blocks will not see microdata at all — it lives in the body, not the head.
+
+**Entity URLs — three fields, three different values.** Easily confused, and they have been:
+
+| Field | Value |
+|---|---|
+| `publisher` url | `https://roachlorenz.com/` — the site, trailing slash |
+| `worksFor` url | `https://centennialmortgage.com` — the authors' employer |
+| author `url` | `https://roachlorenz.com/#team` |
+| author `sameAs` | the LinkedIn profile — Brian Lorenz `https://www.linkedin.com/in/lorenzbrian/`, Wim Roach `https://www.linkedin.com/in/wim-roach-8341a785/` |
+
+The homepage `@graph` `@id` values (`#brian-lorenz`, `#wim-roach`) are node identifiers, not URLs, and correctly stay as they are.
+
+**Internal links are root-relative.** Every `<a>` href to an internal page uses `/resources/[slug]/`, never `https://roachlorenz.com/resources/[slug]/`. Canonical tags and every URL inside a schema block keep the absolute form. Mixed forms have twice caused an audit to undercount internal links, because the extraction filtered on `^https?:` and skipped the absolute ones.
+
 ### HowTo schema — deliberate, and not expected to produce rich results
 
 **Do not "fix" this.** Google deprecated HowTo rich results in 2023, so the HowTo blocks on this site produce **no visible SERP treatment by design**. They are deployed for AEO — giving ChatGPT, Perplexity, Google's AI surfaces and similar systems a clean structured statement of a procedure to lift when a user asks how to do the thing. An audit (human or plugin) that reports "HowTo schema present but not generating rich results" is describing expected behavior, not a defect. Likewise, absence of HowTo on the other pages is not a gap — see below.
@@ -233,10 +254,11 @@ Every new page, no exceptions:
 5. Confirm canonical URL matches the site pattern: `https://roachlorenz.com/resources/[folder-name]/` with a trailing slash and no `.html` extension — and that og:url and any self-referencing JSON-LD `@id`/`url` fields use the same trailing-slash form
 6. Confirm the hero entrance animation (fadeUp cascade on `.cover-series`, h1, `.cover-lede`, `.cover-meta`) is present in the page's `<style>` block
 7. Confirm the standard interior header (wordmark + Resources/Quarterly/Team + Get in Touch button) and standard footer are present — copy both from an existing paper
-8. Update `sitemap.xml` with the new URL
-9. Push all updated files to GitHub
-10. Google Search Console → URL Inspection → paste new URL → Request Indexing
-11. After deploy, test the social preview at linkedin.com/post-inspector
+8. Add at least one in-body contextual inbound link to the new page from an existing page — inside a sentence that already discusses the topic, not a related-articles block. Prefer a high-traffic source page. Pages discovered only through `sitemap.xml` tend to sit in "Crawled — currently not indexed": `hud-cash-flow-distributions` published 2026-07-31 and was still unindexed on 2026-08-19 with sitemap-only discovery
+9. Update `sitemap.xml` with the new URL
+10. Push all updated files to GitHub
+11. Google Search Console → URL Inspection → paste new URL → Request Indexing
+12. After deploy, test the social preview at linkedin.com/post-inspector
 
 ## Workflow split
 
@@ -251,6 +273,7 @@ The **241(a) Supplemental Loan white paper** (`resources/hud-241a-supplemental-l
 
 ## Change log
 
+- **2026-08-19:** Schema cleanup across the site. Reconciled the prepayment paper's FAQ, where the FAQPage block and the visible FAQ had drifted into two different six-question sets sharing only one question — now one set of nine, identical in both places. Removed duplicate microdata Article schema from 8 pages, including a duplicate microdata FAQPage on `hud-223f-timeline`; every page now carries exactly one Article entity, in JSON-LD. Normalized author `url` and `sameAs` across all 20 authored pages, replacing three inconsistent conventions and two dead `#brian-lorenz`/`#wim-roach` anchors. Added the "Schema integrity and internal link form" section above and the inbound-link step to the deployment checklist, so each of these is a rule an audit can enforce rather than something rediscovered later.
 - **2026-08-07:** Published the DSCR-constrained mortgage white paper (`resources/dscr-constrained-mortgage/`, with an interactive DSCR calculator) and extended HowTo schema from 3 pages to 10. Added the "HowTo schema — deliberate, and not expected to produce rich results" section above, because Google deprecated HowTo rich results in 2023 and a future audit would otherwise flag the absence of rich results as a defect. The blocks exist for AEO only. That section also records which pages are deliberately excluded, so their absence isn't flagged as a gap either.
 - **2026-07-31:** Documented the canonical page-layout template (`.doc-layout`/`.doc-sidebar`/`.section-block`) and flagged the `hud-interest-only-vs-amortizing` `.container`/`.layout`/`.sticky` layout as a deprecated do-not-copy exception. Also patched that page's `.sticky` sidebar to add the `max-height`/`overflow-y: auto` scroll containment (desktop-scoped; reset to static on mobile) — it was the last page still exhibiting the sidebar-overlap bug because it predates the `.doc-sidebar` fix.
 - **2026-07-13:** Standardized site headers. Interior pages (papers + newsletter) now share one header: wordmark + right-justified Resources/Quarterly/Team links + Get in Touch button, replacing the old wordmark + "← All Resources" back-link pattern. Homepage keeps its section-anchor nav but adopts the mono-uppercase link treatment, and its CTA became the Get in Touch button. Also fixed `/#section` deep links from interior pages (GSAP pin-spacer shifted anchor targets after the initial jump; homepage now re-anchors post-load and sections have scroll-margin-top).
