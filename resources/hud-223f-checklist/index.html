@@ -382,6 +382,7 @@
     .compare-table th { font-size: 9.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--marker); background: var(--card); padding: 12px 10px; text-align: left; border-bottom: 1.5px solid var(--marker); white-space: normal; }
     .compare-table th:first-child { color: var(--mid); }
     .compare-table td { padding: 11px 10px; border-bottom: 1px solid var(--rule); color: var(--body-text); font-weight: 300; line-height: 1.5; vertical-align: top; }
+    .compare-table th, .compare-table td { word-wrap: break-word; overflow-wrap: break-word; }
     .compare-table th:first-child, .compare-table td:first-child { width: 34%; }
     .compare-table tr:last-child td { border-bottom: none; }
     .compare-table tr:hover td { background: var(--rule); }
@@ -403,7 +404,7 @@
     .sidebar-card-title { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
     .sidebar-divider { height: 1px; background: var(--rule); margin: 10px 0; }
     .table-wrap { overflow-x: auto; margin: 28px 0; }
-    .td-cat { color: var(--ink); font-weight: 500; white-space: nowrap; }
+    .td-cat { color: var(--ink); font-weight: 500; }
     .td-check { color: var(--marker); font-size: 15px; font-weight: 700; }
     .td-hud { color: var(--marker); font-weight: 500; }
     .td-same { color: var(--mid); }
@@ -440,6 +441,9 @@
 /* PAGE-SPECIFIC SUPPLEMENT — review */
 /* Author + Quarterly subscribe card */
 .qcard-wrap { max-width: 1120px; width: 100%; min-width: 0; margin: 0 auto; padding: 56px 40px 88px; }
+/* This page nests the card inside .article-body, a two-track grid. Span both
+   tracks the same way .closing does, so the card is not confined to the text column. */
+.qcard-wrap { grid-column: 1 / -1; }
 .qcard {
   max-width: 820px;
   background: var(--card);
