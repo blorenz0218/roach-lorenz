@@ -850,7 +850,6 @@
             data-netlify-honeypot="bot-field"
             netlify
             data-form-id="inline"
-            onsubmit="return handleFhaSubmit(event, 'inline');"
           >
             <input type="hidden" name="form-name" value="fha-comparison-inline"/>
             <input type="hidden" name="source-page" value="hud-223a7-and-irr-loan-modification"/>
@@ -1088,9 +1087,10 @@
   /* AJAX form submission for the FHA # comparison forms.
      Submits to Netlify Forms in the background, then swaps the form for the success state.
      Falls back to the error message + email mailto if the request fails. */
-  function handleFhaSubmit(event, formId) {
+  function handleFhaSubmit(event) {
     event.preventDefault();
-    var form = event.target;
+    var form = event.currentTarget;
+    var formId = form.getAttribute('data-form-id');
     var submitBtn = form.querySelector('.fha-submit');
     var errorEl = document.querySelector('.fha-error[data-error-for="' + formId + '"]');
     var successEl = document.querySelector('.fha-success[data-success-for="' + formId + '"]');
@@ -1135,6 +1135,14 @@
     });
 
     return false;
+  }
+
+  /* Bound here rather than with an inline onsubmit attribute. Netlify's HTML
+     minifier re-quotes attributes and backslash-escapes inner quotes, which turned
+     the quoted argument into a SyntaxError and left the form doing a native POST. */
+  var fhaForms = document.querySelectorAll('form.fha-form');
+  for (var i = 0; i < fhaForms.length; i++) {
+    fhaForms[i].addEventListener('submit', handleFhaSubmit);
   }
 </script>
 
