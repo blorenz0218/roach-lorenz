@@ -494,7 +494,7 @@
     .legend-swatch { width: 18px; height: 3px; flex-shrink: 0; }
     .legend-swatch.ym { background: var(--blue); }
     .legend-swatch.ym-dash { background: transparent; border-top: 3px dashed var(--blue); height: 0; }
-    .next-steps { background: var(--tint); border: 1px solid var(--rule); padding: 40px; margin: 40px 0 0; position: relative; }
+    .next-steps { background: var(--tint); border: 1px solid var(--rule); padding: 40px; margin: 40px auto 0; position: relative; max-width: 1120px; }
     .next-steps::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--marker), transparent); }
     .next-steps h3 { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--ink); margin-bottom: 14px; line-height: 1.3; }
     .next-steps h3 em { color: var(--marker); font-style: italic; }
@@ -943,6 +943,55 @@
         </div>
 
         <!-- NEXT STEPS -->
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="doc-sidebar">
+
+        <div class="sidebar-box">
+          <div class="sidebar-label">In This Paper</div>
+          <ul class="toc-list">
+            <li><a href="#hud-step-down"><span class="toc-num">01</span>How the HUD Step-Down Works</a></li>
+            <li><a href="#yield-maintenance"><span class="toc-num">02</span>How Yield Maintenance Works</a></li>
+            <li><a href="#comparison"><span class="toc-num">03</span>What the Numbers Show</a></li>
+            <li><a href="#certainty"><span class="toc-num">04</span>The Certainty Argument</a></li>
+            <li><a href="#streamlined"><span class="toc-num">05</span>223(a)(7) &amp; IRR</a></li>
+            <li><a href="#faq"><span class="toc-num">?</span>FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-box">
+          <div class="sidebar-label">Reference Deal</div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-val">$25M</span>
+            <span class="sidebar-stat-label">Loan amount at origination</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-val">5.30%</span>
+            <span class="sidebar-stat-label">Note rate</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-val">35 yrs</span>
+            <span class="sidebar-stat-label">Amortization</span>
+          </div>
+          <div class="sidebar-stat">
+            <span class="sidebar-stat-val">9.5 yrs</span>
+            <span class="sidebar-stat-label">FNMA YM period (10-yr loan)</span>
+          </div>
+        </div>
+
+        <div class="sidebar-box">
+          <div class="sidebar-label">Have a Live Deal?</div>
+          <a href="/#contact" class="sidebar-cta">Run the Comparison →</a>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+</div>
+
 <section class="qcard-wrap" id="quarterly">
   <div class="qcard">
     <div class="qcard-eyebrow">Written By</div>
@@ -1012,54 +1061,6 @@
           <p>We're building an interactive version of this calculator — loan amount, rate, payoff year, treasury assumption, call protection structure. If you want a side-by-side on your specific loan before it's live on the site, send over the terms and we'll run the numbers and walk through them with you.</p>
           <a href="/#contact" class="next-steps-btn">Talk to the Team →</a>
         </div>
-
-      </article>
-
-      <!-- SIDEBAR -->
-      <aside class="doc-sidebar">
-
-        <div class="sidebar-box">
-          <div class="sidebar-label">In This Paper</div>
-          <ul class="toc-list">
-            <li><a href="#hud-step-down"><span class="toc-num">01</span>How the HUD Step-Down Works</a></li>
-            <li><a href="#yield-maintenance"><span class="toc-num">02</span>How Yield Maintenance Works</a></li>
-            <li><a href="#comparison"><span class="toc-num">03</span>What the Numbers Show</a></li>
-            <li><a href="#certainty"><span class="toc-num">04</span>The Certainty Argument</a></li>
-            <li><a href="#streamlined"><span class="toc-num">05</span>223(a)(7) &amp; IRR</a></li>
-            <li><a href="#faq"><span class="toc-num">?</span>FAQ</a></li>
-          </ul>
-        </div>
-
-        <div class="sidebar-box">
-          <div class="sidebar-label">Reference Deal</div>
-          <div class="sidebar-stat">
-            <span class="sidebar-stat-val">$25M</span>
-            <span class="sidebar-stat-label">Loan amount at origination</span>
-          </div>
-          <div class="sidebar-stat">
-            <span class="sidebar-stat-val">5.30%</span>
-            <span class="sidebar-stat-label">Note rate</span>
-          </div>
-          <div class="sidebar-stat">
-            <span class="sidebar-stat-val">35 yrs</span>
-            <span class="sidebar-stat-label">Amortization</span>
-          </div>
-          <div class="sidebar-stat">
-            <span class="sidebar-stat-val">9.5 yrs</span>
-            <span class="sidebar-stat-label">FNMA YM period (10-yr loan)</span>
-          </div>
-        </div>
-
-        <div class="sidebar-box">
-          <div class="sidebar-label">Have a Live Deal?</div>
-          <a href="/#contact" class="sidebar-cta">Run the Comparison →</a>
-        </div>
-
-      </aside>
-
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer>
