@@ -522,7 +522,7 @@
     .section-block a:hover { color: var(--blue); text-decoration-color: var(--blue); }
 /* PAGE-SPECIFIC SUPPLEMENT — review */
 /* Author + Quarterly subscribe card */
-.qcard-wrap { max-width: 1120px; margin: 0 auto; padding: 0 40px 88px; }
+.qcard-wrap { max-width: 1120px; width: 100%; min-width: 0; margin: 0 auto; padding: 56px 40px 88px; }
 .qcard {
   max-width: 820px;
   background: var(--card);
@@ -620,7 +620,7 @@
 .qcard-form-wrap.off { display: none; }
 
 @media (max-width: 768px) {
-  .qcard-wrap { padding: 0 24px 64px; }
+  .qcard-wrap { padding: 40px 24px 64px; }
   .qcard { padding: 30px 24px 0; }
   .qcard-sub { margin: 30px -24px 0; padding: 26px 24px 28px; }
   .qcard-authors { grid-template-columns: 1fr; gap: 26px; }
