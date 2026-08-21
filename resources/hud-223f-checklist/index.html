@@ -168,6 +168,13 @@
       .doc-sidebar::-webkit-scrollbar { width: 5px; }
       .doc-sidebar::-webkit-scrollbar-thumb { background: var(--rule); }
       .doc-sidebar::-webkit-scrollbar-track { background: transparent; }
+      /* This page's markup uses .article-sidebar; give it the same containment,
+         scoped to this block so it never applies below the 820px breakpoint where
+         the sidebar goes static and must render at full height. */
+      .article-sidebar { align-self: start; max-height: calc(100vh - 102px); overflow-y: auto; overscroll-behavior: contain; padding-right: 6px; scrollbar-width: thin; scrollbar-color: var(--rule) transparent; }
+      .article-sidebar::-webkit-scrollbar { width: 5px; }
+      .article-sidebar::-webkit-scrollbar-thumb { background: var(--rule); }
+      .article-sidebar::-webkit-scrollbar-track { background: transparent; }
     }
     .sidebar-box { background: var(--card); border: 1.5px solid var(--ink); padding: 20px 22px; margin-bottom: 24px; position: relative; }
     .sidebar-box::before { content: none; }
