@@ -961,8 +961,7 @@
       <p class="qcard-sub-copy">Four times a year we write up what is happening with the HUD program — Washington D.C. and Mortgagee Letter updates, what is happening in the larger Agency marketplace, and the underwriting details that moved real deals.</p>
 
       <form name="quarterly-subscribe" method="POST" data-netlify="true"
-            data-netlify-honeypot="bot-field" class="qcard-form"
-            onsubmit="return handleQuarterlySubmit(event)">
+            data-netlify-honeypot="bot-field" class="qcard-form">
         <input type="hidden" name="form-name" value="quarterly-subscribe"/>
         <input type="hidden" name="source-page" value=""/>
         <input type="hidden" name="source-location" value="article-end"/>
@@ -1080,7 +1079,7 @@
 <script>
 function handleQuarterlySubmit(e) {
   e.preventDefault();
-  var form = e.target;
+  var form = e.currentTarget;
   var btn  = form.querySelector('button[type="submit"]');
 
   // stamp the originating page at submit time
@@ -1111,6 +1110,14 @@ function handleQuarterlySubmit(e) {
   });
 
   return false;
+}
+
+/* Bound here rather than with an inline onsubmit attribute: Netlify's HTML
+   minifier backslash-escapes quotes inside attributes. Selects .qcard-form so
+   the hidden Netlify detection stub — same name, no class — is never bound. */
+var qcardForms = document.querySelectorAll('form.qcard-form');
+for (var qi = 0; qi < qcardForms.length; qi++) {
+  qcardForms[qi].addEventListener('submit', handleQuarterlySubmit);
 }
 </script>
 
