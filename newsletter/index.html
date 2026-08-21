@@ -13,7 +13,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The HUD Quarterly | Wim Roach &amp; Brian Lorenz</title>
-  <meta name="description" content="The HUD Quarterly is a quarterly read on HUD/FHA multifamily practice from Wim Roach and Brian Lorenz. Browse past issues on program changes, rates, and sizing."/>
+  <meta name="description" content="The HUD Quarterly from Wim Roach and Brian Lorenz — Washington D.C. and Mortgagee Letter updates, the Agency marketplace, and HUD/FHA underwriting detail."/>
   <meta name="keywords" content="The HUD Quarterly, HUD multifamily newsletter, HUD FHA quarterly update, HUD 223f, HUD 221d4, multifamily mortgage newsletter, Wim Roach, Brian Lorenz"/>
   <meta name="robots" content="index, follow"/>
 
@@ -24,7 +24,7 @@
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://roachlorenz.com/newsletter/"/>
   <meta property="og:title" content="The HUD Quarterly"/>
-  <meta property="og:description" content="A quarterly read on HUD/FHA multifamily practice from Wim Roach and Brian Lorenz. Browse past issues on program changes, rates, and sizing."/>
+  <meta property="og:description" content="Washington D.C. and Mortgagee Letter updates, the Agency marketplace, and the HUD/FHA underwriting details that moved real deals."/>
   <meta property="og:site_name" content="Wim Roach &amp; Brian Lorenz"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:image" content="https://roachlorenz.com/assets/og-hud-quarterly-2026-q2.png"/>
@@ -32,7 +32,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="The HUD Quarterly"/>
-  <meta name="twitter:description" content="A quarterly read on HUD/FHA multifamily practice from Wim Roach and Brian Lorenz. Browse past issues on program changes, rates, and sizing."/>
+  <meta name="twitter:description" content="Washington D.C. and Mortgagee Letter updates, the Agency marketplace, and the HUD/FHA underwriting details that moved real deals."/>
   <meta name="twitter:image" content="https://roachlorenz.com/assets/og-hud-quarterly-2026-q2.png"/>
 
   <!-- JSON-LD Structured Data -->
@@ -178,6 +178,64 @@
       .footer-inner { padding: 0 24px; }
       .footer-nav { gap: 18px; flex-wrap: wrap; }
     }
+
+/* PAGE-SPECIFIC SUPPLEMENT — review */
+/* Quarterly subscribe strip */
+.nlsub { background: var(--tint); border-bottom: 1px solid var(--rule); padding: 40px 0 42px; }
+.nlsub-inner {
+  max-width: 1120px; width: 100%; margin: 0 auto; padding: 0 40px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 44px; flex-wrap: wrap;
+}
+.nlsub-text { flex: 1 1 360px; min-width: 0; }
+.nlsub-label {
+  display: flex; align-items: center; gap: 9px;
+  font-family: var(--mono); font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue);
+  margin-bottom: 10px;
+}
+.nlsub-label::before { content: ''; width: 9px; height: 9px; background: var(--marker); flex-shrink: 0; }
+.nlsub-copy { font-size: 16px; line-height: 1.6; color: var(--body-text); max-width: 480px; }
+.nlsub-copy strong { color: var(--ink); font-weight: 600; }
+
+.nlsub-action { flex: 1 1 420px; min-width: 0; }
+.nlsub-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; }
+.nlsub-form input[type="email"] {
+  flex: 1 1 240px; min-width: 0;
+  font-family: var(--sans); font-size: 15px; color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  padding: 13px 15px; outline: none;
+  transition: border-color 0.2s;
+}
+.nlsub-form input[type="email"]:focus { border-color: var(--blue); }
+.nlsub-form input[type="email"]::placeholder { color: var(--mid); }
+.nlsub-form button {
+  font-family: var(--sans); font-size: 14.5px; font-weight: 600;
+  color: #fff; background: var(--blue-deep);
+  border: none; padding: 13px 26px; cursor: pointer;
+  transition: background 0.2s; white-space: nowrap;
+}
+.nlsub-form button:hover { background: var(--blue); }
+.nlsub-form button:disabled { background: var(--mid); cursor: default; }
+.nlsub-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.nlsub-fine { font-size: 12.5px; color: var(--mid); margin-top: 11px; }
+
+.nlsub-success { display: none; }
+.nlsub-success.on { display: block; }
+.nlsub-success p { font-size: 15.5px; line-height: 1.6; color: var(--body-text); }
+.nlsub-success strong { color: var(--ink); font-weight: 600; }
+.nlsub-form-wrap.off { display: none; }
+
+@media (max-width: 860px) {
+  .nlsub-inner { flex-direction: column; align-items: stretch; gap: 22px; }
+  .nlsub-copy { max-width: none; }
+}
+@media (max-width: 768px) {
+  .nlsub { padding: 32px 0 34px; }
+  .nlsub-inner { padding: 0 24px; }
+  .nlsub-form button { flex: 1 1 100%; }
+}
   </style>
 </head>
 <body>
@@ -200,9 +258,38 @@
   <div class="masthead-inner">
     <div class="masthead-eyebrow">The HUD Quarterly</div>
     <h1>Quarterly notes from Wim <em>&amp;</em> Brian</h1>
-    <p class="masthead-sub">A quarterly read on HUD/FHA multifamily practice — what changed in the programs, where rates and sizing landed, and the underwriting details that move real deals. Written from the underwriter's desk.</p>
+    <p class="masthead-sub">A quarterly read on HUD/FHA multifamily practice — Washington D.C. and Mortgagee Letter updates, what is happening in the larger Agency marketplace, and the underwriting details that moved real deals.</p>
   </div>
 </header>
+
+<!-- ── SUBSCRIBE STRIP ── -->
+<section class="nlsub">
+  <div class="nlsub-inner">
+    <div class="nlsub-text">
+      <div class="nlsub-label">Subscribe</div>
+      <p class="nlsub-copy">Written by <strong>Wim Roach</strong> and <strong>Brian Lorenz</strong>. Get each issue when it publishes.</p>
+    </div>
+
+    <div class="nlsub-action">
+      <div class="nlsub-form-wrap" id="nlsub-form-wrap">
+        <form name="quarterly-subscribe" method="POST" data-netlify="true"
+              data-netlify-honeypot="bot-field" class="nlsub-form">
+          <input type="hidden" name="form-name" value="quarterly-subscribe"/>
+          <input type="hidden" name="source-page" value=""/>
+          <input type="hidden" name="source-location" value="newsletter-index"/>
+          <div class="nlsub-hp"><label>Leave blank <input name="bot-field"/></label></div>
+          <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address"/>
+          <button type="submit">Get the next issue</button>
+        </form>
+        <p class="nlsub-fine">Unsubscribe any time.</p>
+      </div>
+
+      <div class="nlsub-success" id="nlsub-success">
+        <p><strong>You're on the list.</strong> The next issue goes out at the end of the quarter.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ── ISSUES ── -->
 <section class="issues">
@@ -239,6 +326,59 @@
     <p class="footer-disclaimer">Wim Roach &amp; Brian Lorenz are loan originators with Centennial Mortgage, Inc., an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This website is for informational purposes only and does not constitute a commitment to lend. This is the personal website of Wim Roach and Brian Lorenz, operating as originators under Centennial Mortgage, Inc.</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  var forms = document.querySelectorAll('form.nlsub-form');
+  for (var ni = 0; ni < forms.length; ni++) {
+    forms[ni].addEventListener('submit', handleNlsubSubmit);
+  }
+})();
+
+function handleNlsubSubmit(e) {
+  e.preventDefault();
+  var form = e.currentTarget;
+  var btn  = form.querySelector('button[type="submit"]');
+
+  form.querySelector('input[name="source-page"]').value = window.location.pathname;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(new FormData(form)).toString()
+  })
+  .then(function () {
+    document.getElementById('nlsub-form-wrap').classList.add('off');
+    document.getElementById('nlsub-success').classList.add('on');
+    if (typeof gtag === 'function') {
+      gtag('event', 'quarterly_subscribe', {
+        source_page: window.location.pathname,
+        source_location: 'newsletter-index'
+      });
+    }
+  })
+  .catch(function () {
+    btn.disabled = false;
+    btn.textContent = 'Get the next issue';
+    alert('Something went wrong. Email blorenz@centennialmortgage.com and we will add you directly.');
+  });
+}
+</script>
+
+<!-- Netlify build-time detection stub. Same form name as the article cards;
+     Netlify dedupes by name, so this registers nothing new. -->
+<div style="display:none;" aria-hidden="true">
+  <form name="quarterly-subscribe" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="quarterly-subscribe"/>
+    <input type="email" name="email"/>
+    <input type="text" name="source-page"/>
+    <input type="text" name="source-location"/>
+    <input type="text" name="bot-field"/>
+  </form>
+</div>
 
 </body>
 </html>
