@@ -239,6 +239,10 @@ Standard fixes applied to every white paper:
 - `overflow-wrap: break-word` on paragraphs
 - Responsive breakpoints for timeline and comparison table elements
 
+## Event handler binding — never inline
+
+Event handlers must be bound with `addEventListener` in a script block. Never use inline `onsubmit`/`onclick` attributes. Netlify's HTML minifier rewrites double-quoted attributes to single quotes and backslash-escapes inner quotes, which HTML attributes do not support — an inline handler with a quoted string argument fails to compile in production while working correctly in local preview. This silently broke the inline FHA comparison form from May to August 2026. When binding, select the live form by class rather than name, since Netlify detection stubs share the form name. Use `event.currentTarget`, not `event.target`, inside handlers.
+
 ## Page structure convention
 
 All resource/white paper pages are delivered as `index.html` inside a subfolder under `/resources/` (e.g., `resources/hud-223f-checklist/index.html`). This lets Netlify serve clean URLs without `.html` extensions.
