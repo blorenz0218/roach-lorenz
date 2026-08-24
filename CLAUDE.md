@@ -212,7 +212,7 @@ Canonical URLs for /resources/[slug] pages MUST include a trailing slash, matchi
 
 - Keep titles **60 characters or fewer** (Google truncates in SERPs beyond this)
 - Drop the "| Wim Roach & Brian Lorenz" author suffix on white papers — the domain already shows below each search result
-- Keep the author suffix only on the homepage title
+- Keep the author suffix on the homepage title and on hub pages (`/resources/`, `/newsletter/`) — the rule exists to protect white-paper title length for program numbers and searcher vocabulary, and neither constraint applies to a hub, so an audit should not flag it there. Everywhere else, drop it.
 - Lead with the specific HUD program number when applicable (e.g., "HUD 241(a)...", "HUD 221(d)(4)...") — these are the primary search terms — unless GSC query data supports a different phrasing (e.g., "How HUD Sizes a 223(f)..." matches real query patterns)
 
 ### Meta description requirements
