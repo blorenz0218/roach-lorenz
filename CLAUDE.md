@@ -299,10 +299,11 @@ Every new page, no exceptions:
 6. Confirm the hero entrance animation (fadeUp cascade on `.cover-series`, h1, `.cover-lede`, `.cover-meta`) is present in the page's `<style>` block
 7. Confirm the standard interior header (wordmark + Resources/Quarterly/Team + Get in Touch button) and standard footer are present — copy both from an existing paper
 8. Add at least one in-body contextual inbound link to the new page from an existing page — inside a sentence that already discusses the topic, not a related-articles block. Prefer a high-traffic source page. Pages discovered only through `sitemap.xml` tend to sit in "Crawled — currently not indexed": `hud-cash-flow-distributions` published 2026-07-31 and was still unindexed on 2026-08-19 with sitemap-only discovery
-9. Update `sitemap.xml` with the new URL
-10. Push all updated files to GitHub
-11. Google Search Console → URL Inspection → paste new URL → Request Indexing
-12. After deploy, test the social preview at linkedin.com/post-inspector
+9. Wire the page into the library — this is five edits, not one: add it to the correct stage group in `resources/index.html`, bump `numberOfItems` **and** extend `itemListElement` in that page's ItemList schema, update the hardcoded count in the homepage's `.browse-all` link (the JS that derived it was deleted with §7, so nothing counts it now), and add it to the continued-reading mapping on the pages where it is a genuine next read
+10. Update `sitemap.xml` with the new URL
+11. Push all updated files to GitHub
+12. Google Search Console → URL Inspection → paste new URL → Request Indexing
+13. After deploy, test the social preview at linkedin.com/post-inspector
 
 ## Workflow split
 

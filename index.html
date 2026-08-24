@@ -151,6 +151,7 @@
   nav.links a:hover{color:var(--blue)}
   nav.links a.cta{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0;text-transform:none;color:#fff;background:var(--blue-deep);padding:11px 22px}
   nav.links a.cta:hover{background:var(--blue);color:#fff}
+  nav.links .nav-div{flex:0 0 auto;width:1px;height:14px;margin:0 -16px;background:var(--rule)}
 
   /* ================= shared ================= */
   .seclabel{font-family:var(--mono);font-size:12.5px;letter-spacing:0.08em;color:var(--mid);display:flex;align-items:center;gap:14px;margin-bottom:34px}
@@ -208,9 +209,10 @@
   .feat .t{font-family:var(--serif);font-size:21px;font-weight:600;line-height:1.25;letter-spacing:-0.005em}
   .feat .d{font-size:14px;color:var(--body);line-height:1.55;flex:1}
   .feat .go{font-weight:600;font-size:14.5px;color:var(--blue)}
-  .stage-links{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:30px;padding-top:22px;border-top:1px solid var(--rule)}
-  .stage-links a{font-family:var(--mono);font-size:11.5px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);transition:color .15s}
-  .stage-links a:hover{color:var(--blue)}
+  .stage-links{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 32px;margin-top:30px;padding-top:22px;border-top:1px solid var(--rule)}
+  .stage-label{flex:0 0 100%;margin-bottom:-2px;font-family:var(--mono);font-size:10.5px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid)}
+  .stage-links a{font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:normal;text-transform:none;color:var(--blue);border-bottom:1px solid var(--rule);padding-bottom:2px;transition:color .15s,border-color .15s}
+  .stage-links a:hover{color:var(--marker);border-bottom-color:var(--marker)}
   .browse-all{display:inline-block;margin-top:34px;font-weight:600;font-size:15.5px;color:var(--ink);border-bottom:1.5px solid var(--marker);padding-bottom:2px}
   .browse-all:hover{color:var(--blue)}
 
@@ -362,7 +364,7 @@
     .addl summary .tag{grid-column:1 / -1}
     .addl .body{padding-left:0}
     .cta-grid{grid-template-columns:1fr;gap:44px}
-    nav.links a:not(.cta){display:none}
+    nav.links a:not(.cta), nav.links .nav-div{display:none}
     .tl-card{flex-basis:320px}
     .tl-line + .tl-card{margin-left:20px}
     .tl-track{padding-right:20px}
@@ -382,8 +384,9 @@
       <a href="#why-hud">Why HUD</a>
       <a href="#process">Process</a>
       <a href="#programs">Programs</a>
-      <a href="/resources/">Resources</a>
       <a href="#team">Team</a>
+      <span class="nav-div" aria-hidden="true"></span>
+      <a href="/resources/">Resources</a>
       <a href="/newsletter/">Quarterly</a>
       <a href="#contact" class="cta">Get in Touch</a>
     </nav>
@@ -480,13 +483,14 @@
         </a>
       </div>
       <div class="stage-links">
+        <div class="stage-label">Browse the library by stage</div>
         <a href="/resources/#considering">Considering HUD</a>
         <a href="/resources/#sizing">Sizing a HUD Loan</a>
         <a href="/resources/#closing">Getting to Closing</a>
         <a href="/resources/#after-closing">Life After Closing</a>
         <a href="/resources/#case-studies">Case Studies</a>
       </div>
-      <a class="browse-all" href="/resources/">Browse all resources →</a>
+      <a class="browse-all" href="/resources/">Browse all 19 resources →</a>
     </div>
   </section>
 
