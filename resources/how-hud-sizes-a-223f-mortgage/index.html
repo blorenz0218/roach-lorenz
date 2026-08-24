@@ -454,19 +454,6 @@
     .results-cta-link { font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--marker); padding-bottom: 1px; }
     .results-cta-link:hover { color: var(--blue); }
 
-    /* Closing */
-    .closing { background: var(--blue-deep); color: #fff; padding: 52px 48px; margin: 90px auto 0; position: relative; max-width: 1120px; }
-    .closing::before { content: none; }
-    .closing h2 { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 36px); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; color: #fff; }
-    .closing h2 em { font-style: italic; color: #bcd7e4; }
-    .closing p { color: #b9d2df; max-width: 46em; margin-top: 16px; font-size: 16.5px; }
-    .closing-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 30px; }
-    .btn-primary { display: inline-block; background: #fff; color: var(--blue-deep); font-size: 15px; font-weight: 600; padding: 14px 28px; text-decoration: none; transition: background .15s; }
-    .btn-primary:hover { background: #e9f1f5; }
-    .btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-size: 15px; font-weight: 600; padding: 12.5px 26px; text-decoration: none; transition: border-color .15s; }
-    .btn-outline:hover { border-color: #fff; }
-    @media (max-width: 600px) { .closing { padding: 36px 24px; } }
-
     /* FOOTER */
     footer { border-top: 1px solid var(--rule); margin-top: 64px; padding: 36px 0 44px; }
     .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
@@ -482,7 +469,7 @@
 
     /* PRINT */
     @media print {
-      nav, .float-calc-btn, .calculator-wrap, .doc-sidebar, .closing-actions { display: none !important; }
+      nav, .float-calc-btn, .calculator-wrap, .doc-sidebar { display: none !important; }
       body { background: #fff; color: #000; }
       .doc-layout { display: block; }
       :root { --paper: #fff; --card: #fff; }
@@ -614,6 +601,51 @@
 /* Card-width (not viewport) stacking for the author columns */
 .qcard { container-type: inline-size; }
 @container (max-width: 620px) { .qcard-authors { grid-template-columns: 1fr; } }
+
+/* PAGE-SPECIFIC SUPPLEMENT — review */
+/* Continued reading */
+.readnext { max-width: 1120px; width: 100%; min-width: 0; margin: 0 auto; padding: 0 40px 96px; }
+.readnext-inner { max-width: 860px; }
+.readnext-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue);
+  padding-bottom: 16px; border-bottom: 2px solid var(--rule-strong);
+}
+.readnext-eyebrow::before { content: ''; width: 10px; height: 10px; background: var(--marker); flex-shrink: 0; }
+.readnext-item {
+  display: grid; grid-template-columns: 152px 1fr; gap: 28px;
+  padding: 24px 0; border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+.readnext-tag {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid);
+  padding-top: 3px;
+}
+.readnext-title {
+  font-family: var(--serif); font-size: 19px; font-weight: 600;
+  line-height: 1.25; letter-spacing: -0.01em; color: var(--ink);
+  transition: color 0.2s;
+}
+.readnext-item:hover .readnext-title { color: var(--blue); }
+.readnext-desc { font-size: 15px; line-height: 1.6; color: var(--body-text); margin-top: 6px; }
+.readnext-all {
+  display: inline-block; margin-top: 26px;
+  font-family: var(--sans); font-size: 15px; font-weight: 600;
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1.5px solid var(--marker); padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.readnext-all:hover { color: var(--blue); }
+@media (max-width: 700px) {
+  .readnext-item { grid-template-columns: 1fr; gap: 0; padding: 20px 0; }
+  .readnext-tag { padding-top: 0; margin-bottom: 8px; font-size: 10.5px; }
+  .readnext-title { font-size: 18px; }
+}
+@media (max-width: 768px) {
+  .readnext { padding: 0 24px 64px; }
+}
   </style>
 </head>
 <body>
@@ -1149,15 +1181,37 @@
   </div>
 </section>
 
-      <div class="closing">
-        <h2>We Can Size Your Deal <em>the Right Way</em></h2>
-        <p>The numbers above give you a reasonable sense of which constraint is likely to bite and what range to plan around. It doesn't replace us doing a proper sizing — where we look at real financials, rent rolls, market data, etc. to get a real, thorough understanding of all these inputs.</p>
-        <p>If you have a deal you'd like to run through a more detailed preliminary analysis — with current rate guidance, market-specific HCP factors, and an honest read on deal structure — we're happy to spend 30 minutes on it.</p>
-        <div class="closing-actions">
-          <a href="/#contact" class="btn-primary">Talk to the Team</a>
-          <a href="/#programs" class="btn-outline">View Loan Programs</a>
+<section class="readnext">
+  <div class="readnext-inner">
+    <div class="readnext-eyebrow">Continue Reading</div>
+
+      <a class="readnext-item" href="/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/">
+        <div class="readnext-tag">NOI</div>
+        <div>
+          <div class="readnext-title">HUD Loan Sizing: DSCR NOI vs. Appraised-Value NOI</div>
+          <p class="readnext-desc">Why HUD underwrites two different NOIs on the same deal.</p>
         </div>
-      </div>
+      </a>
+
+      <a class="readnext-item" href="/resources/dscr-constrained-mortgage/">
+        <div class="readnext-tag">Loan Sizing</div>
+        <div>
+          <div class="readnext-title">How a DSCR-Constrained Mortgage Works</div>
+          <p class="readnext-desc">What actually drives the number when DSCR is the binding constraint.</p>
+        </div>
+      </a>
+
+      <a class="readnext-item" href="/resources/hud-223f-checklist/">
+        <div class="readnext-tag">HUD 223(f)</div>
+        <div>
+          <div class="readnext-title">HUD 223(f) Checklist: Documentation Compared to Fannie Mae &amp; Freddie Mac</div>
+          <p class="readnext-desc">What HUD requires at application, item by item against Fannie, Freddie, and life company.</p>
+        </div>
+      </a>
+
+    <a class="readnext-all" href="/resources/">Browse all resources &rarr;</a>
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer>

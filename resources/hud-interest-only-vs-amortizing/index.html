@@ -356,20 +356,6 @@
     .results-cta-link { font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--marker); padding-bottom: 1px; }
     .results-cta-link:hover { color: var(--blue); }
 
-    /* Closing */
-    .closing { margin-top: 90px; }
-    .closing-inner { background: var(--blue-deep); color: #fff; padding: 52px 48px; position: relative; }
-    .closing::before { content: none; }
-    .closing h2 { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 36px); font-weight: 600; letter-spacing: -0.01em; line-height: 1.15; color: #fff; }
-    .closing h2 em { font-style: italic; color: #bcd7e4; }
-    .closing p { color: #b9d2df; max-width: 46em; margin-top: 16px; font-size: 16.5px; }
-    .closing-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 30px; }
-    .btn-primary { display: inline-block; background: #fff; color: var(--blue-deep); font-size: 15px; font-weight: 600; padding: 14px 28px; text-decoration: none; transition: background .15s; }
-    .btn-primary:hover { background: #e9f1f5; }
-    .btn-outline { display: inline-block; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-size: 15px; font-weight: 600; padding: 12.5px 26px; text-decoration: none; transition: border-color .15s; }
-    .btn-outline:hover { border-color: #fff; }
-    @media (max-width: 600px) { .closing-inner { padding: 36px 24px; } }
-
     /* FOOTER */
     footer { border-top: 1px solid var(--rule); margin-top: 64px; padding: 36px 0 44px; }
     .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
@@ -385,7 +371,7 @@
 
     /* PRINT */
     @media print {
-      nav, .float-calc-btn, .calculator-wrap, .doc-sidebar, .closing-actions { display: none !important; }
+      nav, .float-calc-btn, .calculator-wrap, .doc-sidebar { display: none !important; }
       body { background: #fff; color: #000; }
       .doc-layout { display: block; }
       :root { --paper: #fff; --card: #fff; }
@@ -427,14 +413,10 @@
     .breakdown { margin-top: 20px; }
     .breakdown .res-line { font-size: 13.5px; padding: 0 4px; }
     .breakdown .res-line.total { border-top: 1px solid var(--rule); padding-top: 10px; margin-top: 4px; }
-    .btn-primary, .btn-ghost { transition: all 0.2s; }
-    .btn-ghost { display: inline-block; border: 1.5px solid rgba(255,255,255,0.5); color: #fff; font-size: 15px; font-weight: 600; padding: 12.5px 26px; text-decoration: none; }
-    .btn-ghost:hover { border-color: #fff; }
     .calc-btn { display: block; width: 100%; max-width: 360px; margin: 0 auto; background: var(--blue-deep); color: #fff; border: none; font-family: var(--sans); font-size: 15.5px; font-weight: 600; padding: 15px; cursor: pointer; transition: background 0.2s; }
     .calc-btn:hover { background: var(--blue); }
     .chart-wrap { margin-top: 24px; }
     .chart-wrap .clabel { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid); text-align: center; margin-bottom: 12px; font-weight: 600; }
-    .closing-btns { display: flex; flex-wrap: wrap; gap: 16px; }
     table.cmp { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 420px; }
     table.cmp th, table.cmp td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--rule); }
     table.cmp thead th { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--marker); font-weight: 600; }
@@ -666,6 +648,81 @@
 /* Card-width (not viewport) stacking for the author columns */
 .qcard { container-type: inline-size; }
 @container (max-width: 620px) { .qcard-authors { grid-template-columns: 1fr; } }
+
+/* PAGE-SPECIFIC SUPPLEMENT — review */
+/* Offer strip */
+.offer {
+  max-width: 1120px; width: 100%; min-width: 0; margin: 56px auto 0;
+  padding: 0 40px;
+}
+.offer-inner {
+  max-width: 860px;
+  background: var(--marker-tint);
+  border-left: 3px solid var(--marker);
+  padding: 22px 26px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.offer-text { flex: 1 1 380px; min-width: 0; font-size: 15.5px; line-height: 1.55; color: var(--body-text); }
+.offer-text strong { color: var(--ink); font-weight: 600; }
+.offer-action {
+  flex: 0 0 auto;
+  font-family: var(--sans); font-size: 14.5px; font-weight: 600;
+  color: #fff; background: var(--blue-deep);
+  padding: 11px 22px; text-decoration: none; white-space: nowrap;
+  transition: background 0.2s;
+}
+.offer-action:hover { background: var(--blue); }
+@media (max-width: 700px) {
+  .offer { padding: 0 24px; margin-top: 40px; }
+  .offer-inner { padding: 20px 20px 22px; }
+  .offer-action { flex: 1 1 100%; text-align: center; }
+}
+
+/* PAGE-SPECIFIC SUPPLEMENT — review */
+/* Continued reading */
+.readnext { max-width: 1120px; width: 100%; min-width: 0; margin: 0 auto; padding: 0 40px 96px; }
+.readnext-inner { max-width: 860px; }
+.readnext-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue);
+  padding-bottom: 16px; border-bottom: 2px solid var(--rule-strong);
+}
+.readnext-eyebrow::before { content: ''; width: 10px; height: 10px; background: var(--marker); flex-shrink: 0; }
+.readnext-item {
+  display: grid; grid-template-columns: 152px 1fr; gap: 28px;
+  padding: 24px 0; border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+.readnext-tag {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid);
+  padding-top: 3px;
+}
+.readnext-title {
+  font-family: var(--serif); font-size: 19px; font-weight: 600;
+  line-height: 1.25; letter-spacing: -0.01em; color: var(--ink);
+  transition: color 0.2s;
+}
+.readnext-item:hover .readnext-title { color: var(--blue); }
+.readnext-desc { font-size: 15px; line-height: 1.6; color: var(--body-text); margin-top: 6px; }
+.readnext-all {
+  display: inline-block; margin-top: 26px;
+  font-family: var(--sans); font-size: 15px; font-weight: 600;
+  color: var(--ink); text-decoration: none;
+  border-bottom: 1.5px solid var(--marker); padding-bottom: 2px;
+  transition: color 0.2s;
+}
+.readnext-all:hover { color: var(--blue); }
+@media (max-width: 700px) {
+  .readnext-item { grid-template-columns: 1fr; gap: 0; padding: 20px 0; }
+  .readnext-tag { padding-top: 0; margin-bottom: 8px; font-size: 10.5px; }
+  .readnext-title { font-size: 18px; }
+}
+@media (max-width: 768px) {
+  .readnext { padding: 0 24px 64px; }
+}
   </style>
 </head>
 <body>
@@ -1005,6 +1062,13 @@
 </div>
 
 <!-- ── CLOSING CTA ── -->
+<section class="offer">
+  <div class="offer-inner">
+    <p class="offer-text"><strong>Want the model behind this article?</strong> The full NPV comparison in Excel, set up so you can run your own deal through it. Email us and we will send it over.</p>
+    <a class="offer-action" href="mailto:&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;?subject=Interest-Only%20vs.%20Amortizing%20model">Request the model</a>
+  </div>
+</section>
+
 <section class="qcard-wrap" id="quarterly">
   <div class="qcard">
     <div class="qcard-eyebrow">Written By</div>
@@ -1067,16 +1131,35 @@
   </div>
 </section>
 
-<section class="closing">
-  <div class="container">
-    <div class="closing-inner">
-      <h2>Want the Model <em>Behind This Article?</em></h2>
-      <p>Every number on this page comes out of an Excel model we built — the full cash-flow build for both loans, the NPV comparison, and the sensitivity table. Want to run it on your own rates and proceeds? Reach out and we'll email it to you. And if you're weighing a HUD loan against an agency interest-only quote on a live deal, we'll size it both ways and walk through the trade-offs with you.</p>
-      <div class="closing-btns">
-        <a href="/#contact" class="btn-primary">Get the Excel Model</a>
-        <a href="/#programs" class="btn-ghost">View Loan Programs</a>
-      </div>
-    </div>
+<section class="readnext">
+  <div class="readnext-inner">
+    <div class="readnext-eyebrow">Continue Reading</div>
+
+      <a class="readnext-item" href="/resources/hud-prepayment-vs-yield-maintenance/">
+        <div class="readnext-tag">HUD vs. Agency</div>
+        <div>
+          <div class="readnext-title">Yield Maintenance vs. HUD Step-Down: Which Is Cheaper?</div>
+          <p class="readnext-desc">Whether HUD's step-down or Fannie's yield maintenance costs less to exit early.</p>
+        </div>
+      </a>
+
+      <a class="readnext-item" href="/resources/dscr-constrained-mortgage/">
+        <div class="readnext-tag">Loan Sizing</div>
+        <div>
+          <div class="readnext-title">How a DSCR-Constrained Mortgage Works</div>
+          <p class="readnext-desc">What actually drives the number when DSCR is the binding constraint.</p>
+        </div>
+      </a>
+
+      <a class="readnext-item" href="/resources/how-hud-sizes-a-223f-mortgage/">
+        <div class="readnext-tag">HUD 223(f)</div>
+        <div>
+          <div class="readnext-title">How HUD Sizes a 223(f) Multifamily Mortgage</div>
+          <p class="readnext-desc">The tests that set the loan amount, and which one usually binds.</p>
+        </div>
+      </a>
+
+    <a class="readnext-all" href="/resources/">Browse all resources &rarr;</a>
   </div>
 </section>
 
