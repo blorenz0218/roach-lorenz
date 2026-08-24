@@ -29,11 +29,27 @@ Secondary: 241(a) supplemental loans, 223(a)(7) refinance, BSPRA structuring.
 
 **Canonical page-layout template:** the article body uses `.page-wrapper` › `.doc-layout` (grid) › `.doc-body` (article) + `.doc-sidebar` (sticky TOC/stat cards), with content sections as `.section-block` and the numbered two-column `.section-header`. Copy this structure for every new page. `.doc-sidebar` carries the required scroll containment — `max-height: calc(100vh - 102px); overflow-y: auto; overscroll-behavior: contain` — so a tall sidebar scrolls independently instead of overlapping the cards below it. **Do NOT copy the `hud-interest-only-vs-amortizing` layout** (`.container` / `.layout` / `.article` / `.sidebar` / `.sticky` / `.side-card`): it's a deprecated one-off kept only because of that page's interactive calculator, and its `.sticky` sidebar lacks the height cap (the exact source of the overlap bug). New pages must use the `.doc-layout` template above.
 
-**Nothing below the article goes inside the layout grid.** The Quarterly card (`.qcard-wrap`) and the closing band (`.closing`) are siblings of `.page-wrapper` at body level — after it, never inside it. The grid holds the article and the sidebar and nothing else.
+**Nothing below the article goes inside the layout grid.** The Quarterly card (`.qcard-wrap`), the Continue Reading block (`.readnext`), and the offer strip (`.offer`) are siblings of `.page-wrapper` at body level — after it, never inside it. The grid holds the article and the sidebar and nothing else.
+
+**Standard page tail order**, on every resource page:
+
+```
+article (.page-wrapper) → [.offer, two pages only] → .qcard-wrap → .readnext → footer
+```
 
 This is not a style preference. For an in-flow grid item, `position: sticky` is constrained by the **grid container's content box**, not by the item's own grid area — so any row added below the article extends the sticky sidebar's travel over it. Put the card inside the grid and the sidebar will scroll down and paint on top of it. `grid-row`, `align-self`, and a taller `max-height` all leave the containing block unchanged and none of them help; `z-index` only decides which element wins the collision. The fix is always structural: move the element out of the grid. This happened on `hud-223f-checklist` (fixed 2026-08-21), where the card and band had been added as grid children and the sidebar overlapped the card by 444px.
 
-Two corollaries when a page's card sits at body level: `.closing` uses `margin: 90px auto 0; max-width: 1120px` (not `margin-top` plus `grid-column: 1 / -1`), and the grid gets no bottom padding — `.doc-layout` is `padding: 64px 0 0`, because `.qcard-wrap`'s own 56px top padding supplies the gap.
+One corollary when a page's card sits at body level: the grid gets no bottom padding — `.doc-layout` is `padding: 64px 0 0`, because `.qcard-wrap`'s own 56px top padding supplies the gap.
+
+### Below-article components
+
+**`.readnext` — Continue Reading.** Three curated article rows plus a `.readnext-all` link to `/resources/`. A body-level sibling of `.page-wrapper`, positioned after `.qcard-wrap`, never a grid child. Rows are `display: grid; grid-template-columns: 152px 1fr` — a mono uppercase tag column beside title and description — collapsing to a single column at `max-width: 700px`, where the tag stacks above the title. The tag, title, and description on every row are **copied verbatim from `resources/index.html`**, so the two surfaces never drift; do not retype or reword them. Recommendations are an editorial choice, not keyword similarity — avoid the failure mode where every page points at the same popular paper, and never let a page recommend itself. All 19 resource pages carry exactly one `.readnext`, 57 rows in total.
+
+**`.offer` — a real offer, not a CTA.** One line and one action on `--marker-tint` with a `3px solid var(--marker)` left border, sitting **above** `.qcard-wrap`; the page's `.readnext` still goes below the card. Use it only for something the reader cannot already reach by scrolling. Two pages qualify today: `hud-interest-only-vs-amortizing` (the emailed Excel model) and `hud-223a7-and-irr-loan-modification` (the FHA-number comparison, whose action anchors to `#fha-comparison` — the inline form higher up the same page, so "the form above" stays accurate). This is not a general-purpose CTA slot. A generic "Talk to the Team / View Loan Programs" pairing does not qualify.
+
+**The generic closing band is retired.** `.closing`, `.end-cta`, and `.next-steps` are gone from all 19 resource pages along with their CSS, and no new page gets one. The single exception is `newsletter/2026-q2`, which keeps its `.post-cta` deliberately — a newsletter issue is not a white paper, and continue-reading rows pointing at technical papers would be a category mismatch. Leave it alone.
+
+**`/resources/` is the canonical index.** Every "browse all" or "more resources" link points there. The homepage's old `§7 THE LIBRARY` section and its `id="resources"` anchor no longer exist, so **nothing should link to `/#resources`** — it resolves to the top of the homepage. Site pages are clean; five files under `/sizings/` still carry the dead anchor and are a separate cleanup.
 
 The one page not on this template is `resources/hud-223f-checklist`, which uses `.article-*` classes (`.article-body` / `.article-content` / `.article-sidebar`) instead. The card-and-band rule above still applies there and is already satisfied — the grid holds only the article and the sidebar. What differs is the sidebar: because it isn't `.doc-sidebar`, it can't inherit the standard containment, so it carries a page-local copy scoped inside that page's `@media (min-width: 821px)` block. The page also already contains the full standard `.doc-*` CSS as dead code, so converting the markup is mostly a rename and would retire this exception.
 
@@ -238,6 +254,22 @@ Every page must have a working og:image, or social preview cards (LinkedIn, iMes
 - Use `.png` (not `.jpg`) to match the existing file convention in `/assets/`
 - Verify the preview renders correctly at linkedin.com/post-inspector after deploy
 
+## Auditing — verify the check before trusting the result
+
+**Any CSS or markup scan must cover rules nested inside media queries and values inside JSON-LD, not just top-level selectors and `href` attributes.** A scan anchored to line-start selectors or to `href=` will silently miss both.
+
+Five defects hid behind narrow extraction in a single session on 2026-08-24, and in every case the measurement was broken rather than the thing being measured:
+
+| The check | What it reported | What was true |
+|---|---|---|
+| A `<script>`-block scan for JS touching the closing band | Matches on many pages | All were the word "closing" inside JSON-LD FAQ answer text. No JS referenced the band at all. |
+| An `href=` filter for `#resources` during a site-wide repoint | Site pages clean | Three pages kept `https://roachlorenz.com/#resources` in a BreadcrumbList `"item"` value — schema, not an `href`. |
+| `grep -c $'\r$'` to confirm line endings | Every line CRLF on every file | Zero CR bytes. The working tree is LF; the grep matched every line regardless. |
+| A regex for the twelve design tokens in `:root` | All twelve missing on all twenty pages | Every token defined on every page. The pattern was mangled by shell escaping. |
+| A selector scan for dead band CSS | All band CSS removed | `.closing` rules sat inside `@media (max-width: 600px)` on all 19 pages, and variants like `.next-steps h2` and `.end-cta-divider` sat outside the exact-match list. |
+
+The lesson is procedural, not topical: **run the check against a case whose answer you already know before trusting its output.** A grep that reports a clean result is indistinguishable from a grep that does not work. Two of the five above reported success, and three reported a uniform result across every file — uniformity across twenty files is itself a signal that the pattern, not the corpus, is the constant.
+
 ## Mobile overflow — recurring issue
 
 Standard fixes applied to every white paper:
@@ -285,6 +317,7 @@ The **241(a) Supplemental Loan white paper** (`resources/hud-241a-supplemental-l
 
 ## Change log
 
+- **2026-08-24:** Built the resources index and the continued-reading block, and retired the generic closing band. `ecaf748` replaced inconsistent per-element `scroll-margin-top` with one `html { scroll-padding-top: 86px }` on all 21 pages carrying in-page anchors, matching the sidebar's existing `top: 86px` so an anchored section aligns with the sidebar card, plus a 100px override below 480px where the nav CTA wraps to two lines and the header grows to ~95px. `06b69f5` published `/resources/` — all 19 papers grouped by stage, with ItemList schema and the lighter subscribe strip. `e408c66` deleted the homepage's `§7 THE LIBRARY`, now duplicated by that index, expanded `§2` to six cards with a 2-column tablet state, added a stage-link row, and repointed every `/#resources` reference site-wide — nav, footer, five closing-band buttons, one in-body link, and three BreadcrumbList nodes; the load-more JS it removed contained an unguarded `loadBtn.textContent` that would have thrown once the markup was gone, taking the comparison toggle, the GSAP timeline, and the deep-link re-anchor script with it. `530fc43` moved three passages of underwriting substance out of closing bands into article bodies before `cdf3450` deleted the bands themselves and replaced them with Continue Reading blocks. Two audit rules came out of the session: the below-article component rules above, and "Auditing — verify the check before trusting the result," written because five separate defects hid behind extraction patterns that did not work.
 - **2026-08-21:** Rolled the author + Quarterly subscribe card out to all 20 resource pages and the newsletter issues, moved the card and closing band out of the article column on the 17 standard pages, and converted the Quarterly form from an inline `onsubmit` to `addEventListener` site-wide. Two failure modes were diagnosed and are now written up as rules: the Netlify minifier corrupting inline handler attributes (see "Event handler binding — never inline"), which had silently broken the inline FHA form since May 2026; and the sticky-sidebar containing block (see "Nothing below the article goes inside the layout grid"), which made the sidebar on `hud-223f-checklist` paint over the card by 444px. That page also had its sidebar capped to the viewport, matching `.doc-sidebar`. Both were fixed by structure, not by patching symptoms — the earlier height cap and `grid-column` span each looked like fixes and were not.
 - **2026-08-19:** Schema cleanup across the site. Reconciled the prepayment paper's FAQ, where the FAQPage block and the visible FAQ had drifted into two different six-question sets sharing only one question — now one set of nine, identical in both places. Removed duplicate microdata Article schema from 8 pages, including a duplicate microdata FAQPage on `hud-223f-timeline`; every page now carries exactly one Article entity, in JSON-LD. Normalized author `url` and `sameAs` across all 20 authored pages, replacing three inconsistent conventions and two dead `#brian-lorenz`/`#wim-roach` anchors. Added the "Schema integrity and internal link form" section above and the inbound-link step to the deployment checklist, so each of these is a rule an audit can enforce rather than something rediscovered later.
 - **2026-08-07:** Published the DSCR-constrained mortgage white paper (`resources/dscr-constrained-mortgage/`, with an interactive DSCR calculator) and extended HowTo schema from 3 pages to 10. Added the "HowTo schema — deliberate, and not expected to produce rich results" section above, because Google deprecated HowTo rich results in 2023 and a future audit would otherwise flag the absence of rich results as a defect. The blocks exist for AEO only. That section also records which pages are deliberately excluded, so their absence isn't flagged as a gap either.
