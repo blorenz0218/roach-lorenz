@@ -158,7 +158,8 @@
        Canonical white paper stylesheet. Markup contract unchanged.
        ============================================================ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    @media (max-width: 480px) { html { scroll-padding-top: 100px; } }
     :root {
       --paper: #f6f8f8;
       --ink: #132b36;

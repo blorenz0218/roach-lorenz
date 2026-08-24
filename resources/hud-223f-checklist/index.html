@@ -76,7 +76,8 @@
        Canonical white paper stylesheet. Markup contract unchanged.
        ============================================================ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    @media (max-width: 480px) { html { scroll-padding-top: 100px; } }
     :root {
       --paper: #f6f8f8;
       --ink: #132b36;
@@ -372,7 +373,7 @@
     .article-hero::after { content: ''; position: absolute; top: 0; right: -60px; width: 440px; height: 440px; background: radial-gradient(circle, var(--marker-tint) 0%, transparent 65%); pointer-events: none; }
     .article-lede { font-size: clamp(15px, 2vw, 17px); font-weight: 300; line-height: 1.76; color: var(--body-text); max-width: 660px; margin-bottom: 36px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.3s; }
     .article-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; row-gap: 12px; }
-    .article-section { margin-bottom: 56px; scroll-margin-top: 84px; }
+    .article-section { margin-bottom: 56px; }
     .article-sidebar { min-width: 0; }
     .article-sidebar { position: sticky; top: 84px; }
     .article-tag { font-size: 10px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--marker); background: var(--marker-tint); border: 1px solid var(--rule); padding: 4px 10px; }

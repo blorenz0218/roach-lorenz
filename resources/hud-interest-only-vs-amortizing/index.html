@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Interest-Only vs. Amortizing Loans: The NPV Tradeoff</title>
   <meta name="description" content="How an interest-only Agency loan compares to a larger, more leveraged HUD loan with amortizing P&amp;I payments. NPV comparison, plus an interactive calculator."/>
-  <meta name="keywords" content="interest only vs amortizing, interest only vs P&I, does interest only improve IRR, NPV interest only vs amortizing, net present value multifamily loan, interest only multifamily loan, HUD amortizing loan, interest only loan returns, P&I vs interest only multifamily, HUD vs agency interest only, Brian Lorenz HUD underwriter"/>
+  <meta name="keywords" content="interest only vs amortizing, interest only vs P&amp;I, does interest only improve IRR, NPV interest only vs amortizing, net present value multifamily loan, interest only multifamily loan, HUD amortizing loan, interest only loan returns, P&amp;I vs interest only multifamily, HUD vs agency interest only, Brian Lorenz HUD underwriter"/>
   <meta name="robots" content="index, follow"/>
 
   <!-- Canonical -->
@@ -130,7 +130,8 @@
        Canonical white paper stylesheet. Markup contract unchanged.
        ============================================================ */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    @media (max-width: 480px) { html { scroll-padding-top: 100px; } }
     :root {
       --paper: #f6f8f8;
       --ink: #132b36;
@@ -418,7 +419,7 @@
     .article ul li { position: relative; padding-left: 24px; margin-bottom: 12px; font-size: 16.5px; color: var(--body-text); overflow-wrap: break-word; }
     .article ul li::before { content: "—"; position: absolute; left: 0; color: var(--marker); }
     .article ul li strong { color: var(--ink); font-weight: 600; }
-    .article-section { margin-bottom: 52px; scroll-margin-top: 90px; }
+    .article-section { margin-bottom: 52px; }
     .aside-note { font-size: 14px; color: var(--mid); font-style: italic; border-left: 2px solid var(--rule); padding: 4px 0 4px 16px; margin-top: 18px; line-height: 1.65; }
     .author-badge { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; background: var(--card); border: 1.5px solid var(--ink); color: var(--ink); font-family: var(--serif); font-size: 16px; font-weight: 700; }
     svg.balchart { width: 100%; height: auto; display: block; }
@@ -518,7 +519,7 @@
     .toc a { display: block; padding: 8px 0; border-bottom: 1px solid var(--rule); font-size: 13.5px; color: var(--ink); text-decoration: none; line-height: 1.4; transition: color .15s; }
     .toc a:last-child { border-bottom: none; padding-bottom: 0; }
     .toc a:hover { color: var(--blue); }
-    .tool { background: var(--tint); border: 1px solid var(--rule); padding: 36px; margin: 40px 0; scroll-margin-top: 90px; }
+    .tool { background: var(--tint); border: 1px solid var(--rule); padding: 36px; margin: 40px 0; }
     .tool-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 22px; }
     .tool-head { margin-bottom: 28px; }
     .tool-head h2 { margin-bottom: 8px; }
@@ -989,7 +990,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">Does a HUD loan size larger than an agency loan?</div>
-      <div class="faq-a">Usually yes — whether the binding constraint is LTV or DSCR. On a cash-out execution a HUD 223(f) reaches 80% LTV against 75% for a high-leverage agency loan. When debt service coverage is the constraint, HUD sizes to a 1.15 DSCR versus 1.25 for the agencies, supporting more loan on the same NOI. One common misconception: borrowers assume an agency interest-only loan is sized off the lower interest-only payment, but the agencies measure the 1.25 coverage on the amortizing P&I payment even when the loan is interest-only for its full term. The IO structure adds cash flow during the hold, not proceeds at closing.</div>
+      <div class="faq-a">Usually yes — whether the binding constraint is LTV or DSCR. On a cash-out execution a HUD 223(f) reaches 80% LTV against 75% for a high-leverage agency loan. When debt service coverage is the constraint, HUD sizes to a 1.15 DSCR versus 1.25 for the agencies, supporting more loan on the same NOI. One common misconception: borrowers assume an agency interest-only loan is sized off the lower interest-only payment, but the agencies measure the 1.25 coverage on the amortizing P&amp;I payment even when the loan is interest-only for its full term. The IO structure adds cash flow during the hold, not proceeds at closing.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Do Fannie Mae and Freddie Mac offer full-term interest-only at maximum leverage?</div>
