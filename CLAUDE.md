@@ -43,6 +43,21 @@ One corollary when a page's card sits at body level: the grid gets no bottom pad
 
 **The homepage nav has under 3px of slack at its own breakpoint.** It fits on one line at 981px — the narrowest width `@media (max-width:980px)` still shows it — with almost nothing to spare. Adding any nav item, however short, wraps it to two lines, and a wrapped header measures **90.88px** against `scroll-padding-top: 86px`, which puts anchored sections under the nav. Before adding a nav item, measure the wrap band and either widen the 980px breakpoint or raise `scroll-padding-top` to match. The divider between the anchor group and the destination group carries `margin: 0 -16px` for the same reason: a flex child adds a full gap in addition to its own width, so an unmargined 1px divider costs 31px and on its own re-created the wrap between 981 and 1000px.
 
+**Two nav breakpoints, both derived by bisection rather than chosen.**
+
+| | Breakpoint | Nav contents | Measured wrap threshold | Headroom |
+|---|---|---|---|---|
+| Homepage | **980px** | 6 links + divider + CTA | 978px | ~2px |
+| All 22 interior pages | **720px** | 3 links + CTA | 699px | ~21px |
+
+The hub pages (`/resources/`, `/newsletter/`, `newsletter/2026-q2`) carry a smaller wordmark and a smaller CTA than the papers, so their own threshold sits below 699px — but 720 serves both, which is why all 22 share one value.
+
+**One value cannot serve both.** A single breakpoint would have to clear the homepage's 978px, which would strip working navigation from all 22 interior pages across the entire 699–980px tablet range. Two measured values beat one arbitrary one.
+
+This fixed a live defect. The papers hid their nav at 600px but wrapped at 699, so between **601 and 698px** they rendered a two-line 90.88px header with anchored sections landing underneath it against `scroll-padding-top: 86px`. That was live on all 19 papers until `0c714c6` (2026-08-25).
+
+**The mechanism, for future changes:** the header height jumps **69.44px → 90.88px** the moment a link label wraps to a second line — `nav.links` is `flex-wrap: nowrap`, so it compresses until an individual label breaks rather than the flex line wrapping. That height jump is the signal to bisect on. Adding or renaming a nav item on either nav size requires re-measuring the threshold and moving the breakpoint to match; do not assume the existing value still clears.
+
 ### Homepage section order — two positions are deliberate
 
 Current order, verified against `index.html`:
