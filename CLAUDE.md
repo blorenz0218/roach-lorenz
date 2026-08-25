@@ -304,6 +304,14 @@ Standard fixes applied to every white paper:
 
 **So a mobile audit must measure element widths against the viewport, not look for visible overflow.** Compare each candidate's `getBoundingClientRect().width` and `.right` to `innerWidth`; checking `document.documentElement.scrollWidth > clientWidth` will report no problem on a page that has one.
 
+**`overflow-x: hidden` is not a free safety net — it breaks `position: sticky`.** Setting it on `html` or `body` computes that element's `overflow-y` from `visible` to `auto` (CSS Overflow §3: when one axis is not `visible`, the other resolves to `auto`). That makes the element a scroll container, and a sticky descendant then sticks within *its* scrollport rather than the viewport's. `body` never scrolls internally — its `scrollHeight` equals its `clientHeight`, because `html` is the document scroller — so a sticky header inside it has zero scroll range and simply travels with the page.
+
+The homepage carried `html,body{overflow-x:hidden}` until 2026-08-24, which defeated its sticky header for that entire period. Fixed by scoping the declaration to `html` alone; `body` returns to `overflow-y: visible` and the header's nearest scrolling ancestor becomes `html`, the document scroller. The 19 resource papers were never affected — they set no `overflow-x` at all, which is why their headers always stuck.
+
+**If a page needs `overflow-x: hidden`, something is overflowing and should be fixed at the source.** Removing it from the homepage only became safe after the `.person .top` fix in `8fe298d` — before that it was masking 180px of horizontal overflow at 375px, and removing it would have produced a real horizontal scrollbar. Check what a page is actually hiding before removing it, and prefer containing the offending element (`overflow-x: auto` on a wrapper, as `.compare` and `#tlViewport` already do) over clipping at the root.
+
+One consequence worth knowing: `.cta-facts .row` sits at exactly 311.2px against a 311px content width at 375px, with no slack. It fits today, but with `body`'s clipping gone a future copy edit there produces a **visible horizontal scrollbar** rather than silent clipping. That is the better failure mode — the bug announces itself — but it is a change in behaviour.
+
 `.person .top` on the homepage sat at `grid-template-columns: 170px 1fr` at every width from launch until 2026-08-25. At 375px the team card measured **523px against a 311px content width** — clipped by 180px, invisible in every screenshot, and found only by measuring. Fixed with `@media (max-width:600px){ .person .top{grid-template-columns:1fr} }`; the threshold is 554px, where the card's 523px min-content floor plus the wrap's 32px padding exceeds the viewport.
 
 ## Event handler binding — never inline
