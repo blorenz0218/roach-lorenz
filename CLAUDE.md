@@ -280,10 +280,35 @@ Standard fixes applied to every white paper:
 - `overflow-x: hidden` on html and body
 - `overflow-wrap: break-word` on paragraphs
 - Responsive breakpoints for timeline and comparison table elements
+- A mobile override on any `grid-template-columns` with a fixed px track — see below
+
+**`overflow-x: hidden` hides this class of bug rather than preventing it.** Because it is set globally on html and body, a fixed-px grid column with no mobile override does not announce itself: the element simply extends past the viewport and is clipped, and the page still looks fine. Nothing scrolls sideways, no scrollbar appears, and `scrollWidth === clientWidth` reports clean.
+
+**So a mobile audit must measure element widths against the viewport, not look for visible overflow.** Compare each candidate's `getBoundingClientRect().width` and `.right` to `innerWidth`; checking `document.documentElement.scrollWidth > clientWidth` will report no problem on a page that has one.
+
+`.person .top` on the homepage sat at `grid-template-columns: 170px 1fr` at every width from launch until 2026-08-25. At 375px the team card measured **523px against a 311px content width** — clipped by 180px, invisible in every screenshot, and found only by measuring. Fixed with `@media (max-width:600px){ .person .top{grid-template-columns:1fr} }`; the threshold is 554px, where the card's 523px min-content floor plus the wrap's 32px padding exceeds the viewport.
 
 ## Event handler binding — never inline
 
 Event handlers must be bound with `addEventListener` in a script block. Never use inline `onsubmit`/`onclick` attributes. Netlify's HTML minifier rewrites double-quoted attributes to single quotes and backslash-escapes inner quotes, which HTML attributes do not support — an inline handler with a quoted string argument fails to compile in production while working correctly in local preview. This silently broke the inline FHA comparison form from May to August 2026. When binding, select the live form by class rather than name, since Netlify detection stubs share the form name. Use `event.currentTarget`, not `event.target`, inside handlers.
+
+### Form architecture
+
+**Two Netlify forms, not one.** `quarterly-subscribe` takes every newsletter signup site-wide. `fha-comparison-inline` is separate and lives only on `hud-223a7-and-irr-loan-modification`, which therefore carries four `<form>` elements — a live form and a detection stub for each. Do not assume every subscribe-shaped form posts to `quarterly-subscribe`.
+
+`quarterly-subscribe` appears on **23 deployed pages**, each with one live form and one hidden detection stub sharing the name. A 24th copy lives in `quarterly-card-component.html`, which is gitignored and not deployed — exclude it from any count.
+
+Signups are told apart by a hidden `source-location` input, five values:
+
+| Value | Where |
+|---|---|
+| `article-end` | The author + Quarterly card, on 20 pages — the 19 resource papers and `newsletter/2026-q2` |
+| `resources-index` | `/resources/` |
+| `newsletter-index` | `/newsletter/` |
+| `homepage` | `/` — the `.nlsub` strip above the contact band |
+| `inline-after-hybrid` | The FHA comparison form on `hud-223a7-and-irr-loan-modification`, which posts to `fha-comparison-inline` |
+
+The value appears twice per page — once in the hidden input and once in the `gtag('event', 'quarterly_subscribe', …)` call. Change both together. The homepage also carries an unrelated Netlify form named `contact`; it coexists with `quarterly-subscribe` without collision because the two have different `name` and `form-name` values.
 
 ## Page structure convention
 
