@@ -271,9 +271,11 @@
     .nav-btn:hover { background: var(--blue); }
     .nav-cta { font-size: 14px; font-weight: 600; color: var(--blue); text-decoration: none; border-bottom: 2px solid var(--marker); padding-bottom: 2px; }
     .nav-cta:hover { color: var(--blue-deep); }
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+    }
     @media (max-width: 600px) {
       .nav-inner { padding: 14px 20px; }
-      .nav-links { display: none; }
     }
 
     /* FLOATING CALCULATOR BUTTON */
