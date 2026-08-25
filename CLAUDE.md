@@ -43,6 +43,24 @@ One corollary when a page's card sits at body level: the grid gets no bottom pad
 
 **The homepage nav has under 3px of slack at its own breakpoint.** It fits on one line at 981px — the narrowest width `@media (max-width:980px)` still shows it — with almost nothing to spare. Adding any nav item, however short, wraps it to two lines, and a wrapped header measures **90.88px** against `scroll-padding-top: 86px`, which puts anchored sections under the nav. Before adding a nav item, measure the wrap band and either widen the 980px breakpoint or raise `scroll-padding-top` to match. The divider between the anchor group and the destination group carries `margin: 0 -16px` for the same reason: a flex child adds a full gap in addition to its own width, so an unmargined 1px divider costs 31px and on its own re-created the wrap between 981 and 1000px.
 
+### Homepage section order — two positions are deliberate
+
+Current order, verified against `index.html`:
+
+```
+hero → §1 TRACK RECORD → §2 PROOF OF WORK → §3 THE TEAM → §4 THE CASE FOR HUD
+→ §5 LOAN PROGRAMS → §6 THE LIFE OF A HUD DEAL → [pull quote] → §7 WHY WIM & BRIAN
+→ .nlsub Quarterly strip → contact
+```
+
+Section numbers live only in the `.seclabel` divs, so reordering means renumbering by hand. `§1`–`§7` must stay contiguous.
+
+**`THE TEAM` at §3, not near the end.** This is the counterintuitive one and it is not an accident. GSC shows 217 of 218 homepage impressions coming from queries Google anonymized, at an 11% CTR from position 4.86 — the signature of low-volume name searches. GA4 showed roughly a quarter of users site-wide reaching a 90% scroll event, on pages shorter than this one. The visitors most likely to arrive want the bios, and at §7 most of them never got there. Moving it up trades narrative build for the persona actually in the data. Do not "restore" it to the end for storytelling reasons without new data.
+
+**`LOAN PROGRAMS` at §5, directly after the case for HUD.** The reader's questions run: who are you, is HUD right for me, what can I get, what does it take, why you. Programs previously sat last, after both the process and the differentiator, which answered "what can I get" only once the reader had stopped asking.
+
+**The header nav's anchor group is kept in document order.** `Team · Why HUD · Programs · Process`, then the divider, then the two off-page destinations. Moving a section therefore requires reordering the nav to match — this was missed once already when `LOAN PROGRAMS` moved to §5 and the nav still listed Process before Programs. Note the nav has under 3px of slack at 981px (above), so any nav change needs the wrap band re-measured.
+
 ### Below-article components
 
 **`.readnext` — Continue Reading.** Three curated article rows plus a `.readnext-all` link to `/resources/`. A body-level sibling of `.page-wrapper`, positioned after `.qcard-wrap`, never a grid child. Rows are `display: grid; grid-template-columns: 152px 1fr` — a mono uppercase tag column beside title and description — collapsing to a single column at `max-width: 700px`, where the tag stacks above the title. The tag, title, and description on every row are **copied verbatim from `resources/index.html`**, so the two surfaces never drift; do not retype or reword them. Recommendations are an editorial choice, not keyword similarity — avoid the failure mode where every page points at the same popular paper, and never let a page recommend itself. All 19 resource pages carry exactly one `.readnext`, 57 rows in total.
