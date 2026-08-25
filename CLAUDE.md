@@ -288,6 +288,8 @@ Five defects hid behind narrow extraction in a single session on 2026-08-24, and
 | A regex for the twelve design tokens in `:root` | All twelve missing on all twenty pages | Every token defined on every page. The pattern was mangled by shell escaping. |
 | A selector scan for dead band CSS | All band CSS removed | `.closing` rules sat inside `@media (max-width: 600px)` on all 19 pages, and variants like `.next-steps h2` and `.end-cta-divider` sat outside the exact-match list. |
 
+**A grep for a CSS declaration must match multi-line rule blocks, not only selector-and-declaration-on-one-line.** A pattern like `^\s*body\s*\{[^}]*overflow` finds nothing when the block is written across lines with the declaration on its own — which is how the three hub pages are formatted. On 2026-08-24 that produced a wrong diagnosis: the search returned empty, and instead of being treated as a failed search the absence was explained by an invented mechanism ("Chrome propagates the root's overflow to `body`"). The rule that actually existed was four lines below the selector. Match the declaration anywhere, then walk back to find its selector.
+
 The lesson is procedural, not topical: **run the check against a case whose answer you already know before trusting its output.** A grep that reports a clean result is indistinguishable from a grep that does not work. Two of the five above reported success, and three reported a uniform result across every file — uniformity across twenty files is itself a signal that the pattern, not the corpus, is the constant.
 
 ## Mobile overflow — recurring issue
@@ -306,7 +308,13 @@ Standard fixes applied to every white paper:
 
 **`overflow-x: hidden` is not a free safety net — it breaks `position: sticky`.** Setting it on `html` or `body` computes that element's `overflow-y` from `visible` to `auto` (CSS Overflow §3: when one axis is not `visible`, the other resolves to `auto`). That makes the element a scroll container, and a sticky descendant then sticks within *its* scrollport rather than the viewport's. `body` never scrolls internally — its `scrollHeight` equals its `clientHeight`, because `html` is the document scroller — so a sticky header inside it has zero scroll range and simply travels with the page.
 
-The homepage carried `html,body{overflow-x:hidden}` until 2026-08-24, which defeated its sticky header for that entire period. Fixed by scoping the declaration to `html` alone; `body` returns to `overflow-y: visible` and the header's nearest scrolling ancestor becomes `html`, the document scroller. The 19 resource papers were never affected — they set no `overflow-x` at all, which is why their headers always stuck.
+**The rule is not "never use it" — it is "only where something genuinely overflows, and never on `body`."** As of 2026-08-24 the site settled into three states, each measured rather than assumed:
+
+| Pages | Before | After | Why |
+|---|---|---|---|
+| Homepage | on `html` **and** `body` | `html` only | `body`'s broke the sticky header. `html`'s is retained because the page genuinely overflows: `#tlViewport` clips a 2545px GSAP track and `.compare` holds a 760px table |
+| `/resources/`, `/newsletter/`, `newsletter/2026-q2` | on `html` **and** `body` | **neither** | Nothing overflows on any of the three at 1280, 900, or 375. Both declarations removed |
+| The 19 resource papers | never had it | unchanged | Which is why their headers always stuck |
 
 **If a page needs `overflow-x: hidden`, something is overflowing and should be fixed at the source.** Removing it from the homepage only became safe after the `.person .top` fix in `8fe298d` — before that it was masking 180px of horizontal overflow at 375px, and removing it would have produced a real horizontal scrollbar. Check what a page is actually hiding before removing it, and prefer containing the offending element (`overflow-x: auto` on a wrapper, as `.compare` and `#tlViewport` already do) over clipping at the root.
 
