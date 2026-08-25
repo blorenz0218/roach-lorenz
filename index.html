@@ -124,6 +124,8 @@
     --blue-deep:#003a55;
     --mid:#5b7280;
     --body:#33505d;
+    --body-text:#33505d;
+    --tint:#eef4f7;
     --rule:#cfd9dd;
     --rule-strong:#132b36;
     --marker:#e8821f;
@@ -309,7 +311,7 @@
   .person .bio{padding:22px 28px;font-size:15px;color:var(--body)}
   .person .pquote{padding:0 28px 24px;font-family:var(--serif);font-style:italic;font-size:16.5px;color:var(--ink);margin-top:auto}
   .person .pattr{display:block;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:0.06em;color:var(--mid);margin-top:10px}
-  .contact-row{display:flex;align-items:center;gap:18px;padding:14px 28px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:13px}.contact-row .mail{color:var(--ink);text-decoration:underline;text-decoration-color:var(--marker);text-underline-offset:3px;text-decoration-thickness:1px}.contact-row .li{display:inline-flex;align-items:center;color:var(--mid)}.contact-row .li:hover{color:var(--blue)}.contact-row .li svg{width:17px;height:17px;fill:currentColor}
+  .contact-row{display:flex;align-items:center;gap:18px;padding:14px 0 0;font-family:var(--mono);font-size:13px}.contact-row .mail{color:var(--ink);text-decoration:underline;text-decoration-color:var(--marker);text-underline-offset:3px;text-decoration-thickness:1px}.contact-row .li{display:inline-flex;align-items:center;color:var(--mid)}.contact-row .li:hover{color:var(--blue)}.contact-row .li svg{width:17px;height:17px;fill:currentColor}
 
   /* ================= contact ================= */
   .cta-band{background:var(--blue-deep);color:#fff;padding:84px 0}
@@ -373,6 +375,39 @@
   @media (max-width:768px){
     .feat-grid{grid-template-columns:1fr}
   }
+
+  @media (max-width:600px){
+    .person .top{grid-template-columns:1fr}
+  }
+
+  /* ================= quarterly strip ================= */
+  .nlsub { background: var(--tint); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 40px 0 42px; }
+  .nlsub-inner { max-width: 1120px; width: 100%; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 44px; flex-wrap: wrap; }
+  .nlsub-text { flex: 1 1 440px; min-width: 0; }
+  .nlsub-label { display: flex; align-items: center; gap: 9px; font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+  .nlsub-label::before { content: ''; width: 9px; height: 9px; background: var(--marker); flex-shrink: 0; }
+  .nlsub-head { font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.15; color: var(--ink); margin-bottom: 11px; }
+  .nlsub-copy { font-size: 15.5px; line-height: 1.62; color: var(--body-text); max-width: 520px; }
+  .nlsub-copy strong { color: var(--ink); font-weight: 600; }
+  .nlsub-action { flex: 1 1 380px; min-width: 0; }
+  .nlsub-form { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; }
+  .nlsub-form input[type="email"] { flex: 1 1 240px; min-width: 0; font-family: var(--sans); font-size: 15px; color: var(--ink); background: var(--card); border: 1px solid var(--rule); padding: 13px 15px; outline: none; transition: border-color 0.2s; }
+  .nlsub-form input[type="email"]:focus { border-color: var(--blue); }
+  .nlsub-form input[type="email"]::placeholder { color: var(--mid); }
+  .nlsub-form button { font-family: var(--sans); font-size: 14.5px; font-weight: 600; color: #fff; background: var(--blue-deep); border: none; padding: 13px 26px; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+  .nlsub-form button:hover { background: var(--blue); }
+  .nlsub-form button:disabled { background: var(--mid); cursor: default; }
+  .nlsub-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .nlsub-fine { font-size: 12.5px; color: var(--mid); margin-top: 11px; }
+  .nlsub-fine a { color: var(--blue); text-decoration: underline; text-decoration-color: var(--marker); text-underline-offset: 2px; }
+  .nlsub-fine a:hover { color: var(--marker); }
+  .nlsub-success { display: none; }
+  .nlsub-success.on { display: block; }
+  .nlsub-success p { font-size: 15.5px; line-height: 1.6; color: var(--body-text); }
+  .nlsub-success strong { color: var(--ink); font-weight: 600; }
+  .nlsub-form-wrap.off { display: none; }
+  @media (max-width: 860px) { .nlsub-inner { flex-direction: column; align-items: stretch; gap: 22px; } .nlsub-copy { max-width: none; } }
+  @media (max-width: 768px) { .nlsub { padding: 32px 0 34px; } .nlsub-inner { padding: 0 24px; } .nlsub-form button { flex: 1 1 100%; } }
 </style>
 </head>
 <body>
@@ -397,7 +432,7 @@
   <!-- ============ HERO ============ -->
   <section class="wrap hero">
     <div>
-      <div class="kick">HUD/FHA MULTIFAMILY · NATIONWIDE · CENTENNIAL MORTGAGE</div>
+      <div class="kick">DIRECT HUD/FHA LENDER · NATIONWIDE · CENTENNIAL MORTGAGE</div>
       <h1>We've sat on <em>both sides</em> of the HUD desk.</h1>
       <p class="lede">Wim Roach and Brian Lorenz combine longstanding industry relationships with actual underwriting expertise — so your deal is structured right the first time, and closes with fewer surprises.</p>
       <div class="btnrow">
@@ -433,7 +468,7 @@
       <div class="ledger-grid">
         <div class="ledger-cell rv"><div class="n num">$2B<sup>+</sup></div><div class="l">COMBINED HUD/FHA VOLUME</div></div>
         <div class="ledger-cell rv"><div class="n num">20<sup>+</sup></div><div class="l">YEARS COMBINED IN HUD/FHA</div></div>
-        <div class="ledger-cell rv"><div class="n num">HUD/FHA</div><div class="l">DIRECT MAP LENDER — NATIONWIDE</div></div>
+        <div class="ledger-cell rv"><div class="n num">DIRECT</div><div class="l">HUD/FHA MAP LENDER — NATIONWIDE</div></div>
       </div>
     </div>
   </section>
@@ -509,11 +544,11 @@
               <h3>Wim Roach</h3>
               <div class="role">VICE PRESIDENT</div>
               <div class="pstats"><b>$1.5B+</b> CLOSED VOLUME<br/><b>11+</b> YEARS HUD/FHA</div>
+              <div class="contact-row"><a class="mail" href="mailto:&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a><a class="li" href="https://www.linkedin.com/in/wim-roach-8341a785/" target="_blank" rel="noopener" aria-label="Wim Roach on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.67H5.67V18.3h2.67V9.67zM7 5.67a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.33 18.3v-4.74c0-2.4-1.28-3.52-3-3.52-1.38 0-2 .76-2.34 1.3v-1.11h-2.67v8.07h2.67v-4.5c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8v4.32h2.87z"/></svg></a></div>
             </div>
           </div>
           <div class="bio">Wim has been originating HUD/FHA multifamily loans since 2014, building a track record of approximately $1.5 billion in closed transactions across the country. He works across the full HUD product suite — 223(f) acquisitions and refinances, 221(d)(4) new construction, and the supplemental and refinance programs — for market-rate, affordable, and seniors housing sponsors. His relationships are built on a simple foundation: understanding borrower goals, taking the processing load off the borrower, and making sure his client gets the product they wanted.</div>
           <div class="pquote">"Wim made our HUD refinance easy compared to a FNMA loan we did earlier in the year."<span class="pattr">OWNER, BOZEMAN, MT · HUD 223(f) REFINANCE</span></div>
-          <div class="contact-row"><a class="mail" href="mailto:&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#119;&#114;&#111;&#97;&#99;&#104;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a><a class="li" href="https://www.linkedin.com/in/wim-roach-8341a785/" target="_blank" rel="noopener" aria-label="Wim Roach on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.67H5.67V18.3h2.67V9.67zM7 5.67a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.33 18.3v-4.74c0-2.4-1.28-3.52-3-3.52-1.38 0-2 .76-2.34 1.3v-1.11h-2.67v8.07h2.67v-4.5c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8v4.32h2.87z"/></svg></a></div>
         </div>
 
         <div class="person rv">
@@ -523,11 +558,11 @@
               <h3>Brian Lorenz</h3>
               <div class="role">VICE PRESIDENT</div>
               <div class="pstats"><b>FORMER</b> SENIOR HUD UNDERWRITER<br/><b>FORMER</b> AGENCY INTAKE LEAD</div>
+              <div class="contact-row"><a class="mail" href="mailto:&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a><a class="li" href="https://www.linkedin.com/in/lorenzbrian/" target="_blank" rel="noopener" aria-label="Brian Lorenz on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.67H5.67V18.3h2.67V9.67zM7 5.67a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.33 18.3v-4.74c0-2.4-1.28-3.52-3-3.52-1.38 0-2 .76-2.34 1.3v-1.11h-2.67v8.07h2.67v-4.5c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8v4.32h2.87z"/></svg></a></div>
             </div>
           </div>
           <div class="bio">Brian spent the early part of his career as a Senior Underwriter at a leading HUD/FHA multifamily lender, where he underwrote approximately $500 million in HUD/FHA loans — including some of HUD's most complicated pilot programs, such as RAD for PRAC sub-rehabs and LIHTC PILOTs. In that role, every deal he submitted to HUD received a Firm Commitment. Later in his career, he also led Agency sizing and intake for a Northwest origination team, sizing every incoming deal through both HUD and FNMA to determine which execution was best. That experience — understanding exactly how HUD evaluates credit, market, and physical risk — is the foundation of how Wim and Brian structure every deal.</div>
           <div class="pquote">"Brian was so knowledgeable and helpful — he made the process really clean and quick for me and the other GPs."<span class="pattr">OWNER, SPOKANE, WA · HUD 223(f) REFINANCE</span></div>
-          <div class="contact-row"><a class="mail" href="mailto:&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;">&#98;&#108;&#111;&#114;&#101;&#110;&#122;&#64;&#99;&#101;&#110;&#116;&#101;&#110;&#110;&#105;&#97;&#108;&#109;&#111;&#114;&#116;&#103;&#97;&#103;&#101;&#46;&#99;&#111;&#109;</a><a class="li" href="https://www.linkedin.com/in/lorenzbrian/" target="_blank" rel="noopener" aria-label="Brian Lorenz on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 9.67H5.67V18.3h2.67V9.67zM7 5.67a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1zM18.33 18.3v-4.74c0-2.4-1.28-3.52-3-3.52-1.38 0-2 .76-2.34 1.3v-1.11h-2.67v8.07h2.67v-4.5c0-.24.02-.48.09-.65.19-.48.63-.97 1.36-.97.96 0 1.35.73 1.35 1.8v4.32h2.87z"/></svg></a></div>
         </div>
       </div>
     </div>
@@ -730,6 +765,34 @@
     </div>
   </section>
 
+  <!-- ============ QUARTERLY ============ -->
+  <section class="nlsub">
+    <div class="nlsub-inner">
+      <div class="nlsub-text">
+        <div class="nlsub-label">Newsletter</div>
+        <div class="nlsub-head">The HUD Quarterly</div>
+        <p class="nlsub-copy">Our white papers cover how the programs work. The Quarterly covers what is changing — Washington D.C. and Mortgagee Letter updates, what is happening in the larger Agency marketplace, and the underwriting details that moved real deals. Four times a year, from <strong>Wim Roach</strong> and <strong>Brian Lorenz</strong>.</p>
+      </div>
+      <div class="nlsub-action">
+        <div class="nlsub-form-wrap" id="nlsub-form-wrap">
+          <form name="quarterly-subscribe" method="POST" data-netlify="true"
+                data-netlify-honeypot="bot-field" class="nlsub-form">
+            <input type="hidden" name="form-name" value="quarterly-subscribe"/>
+            <input type="hidden" name="source-page" value=""/>
+            <input type="hidden" name="source-location" value="homepage"/>
+            <div class="nlsub-hp"><label>Leave blank <input name="bot-field"/></label></div>
+            <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address"/>
+            <button type="submit">Get the next issue</button>
+          </form>
+          <p class="nlsub-fine">Unsubscribe any time. <a href="/newsletter/">Browse past issues</a> to see what you’d be getting.</p>
+        </div>
+        <div class="nlsub-success" id="nlsub-success">
+          <p><strong>You’re on the list.</strong> The next issue goes out at the end of the quarter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ CONTACT ============ -->
   <section class="cta-band" id="contact">
     <div class="wrap">
@@ -751,7 +814,7 @@
           </div>
           <div class="frow">
             <input type="email" name="email" placeholder="Email" aria-label="Email"/>
-            <input type="tel" name="phone" placeholder="Phone" aria-label="Phone"/>
+            <input type="tel" name="phone" placeholder="Phone (optional)" aria-label="Phone (optional)"/>
           </div>
           <button class="btn" type="submit">Submit inquiry</button>
           <div class="fnote">Your information is confidential and will only be used to respond to your inquiry. We typically respond within one business day.</div>
@@ -825,6 +888,56 @@
       if (target) setTimeout(() => target.scrollIntoView({ behavior: 'instant', block: 'start' }), 100);
     });
   }
+
+  // Quarterly subscribe
+  (function () {
+    var forms = document.querySelectorAll('form.nlsub-form');
+    for (var ni = 0; ni < forms.length; ni++) {
+      forms[ni].addEventListener('submit', handleNlsubSubmit);
+    }
+  })();
+
+  function handleNlsubSubmit(e) {
+    e.preventDefault();
+    var form = e.currentTarget;
+    var btn  = form.querySelector('button[type="submit"]');
+
+    form.querySelector('input[name="source-page"]').value = window.location.pathname;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending\u2026';
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(function () {
+      document.getElementById('nlsub-form-wrap').classList.add('off');
+      document.getElementById('nlsub-success').classList.add('on');
+      if (typeof gtag === 'function') {
+        gtag('event', 'quarterly_subscribe', {
+          source_page: window.location.pathname,
+          source_location: 'homepage'
+        });
+      }
+    })
+    .catch(function () {
+      btn.disabled = false;
+      btn.textContent = 'Get the next issue';
+      alert('Something went wrong. Email blorenz@centennialmortgage.com and we will add you directly.');
+    });
+  }
 </script>
+<div style="display:none;" aria-hidden="true">
+  <form name="quarterly-subscribe" netlify netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="quarterly-subscribe"/>
+    <input type="email" name="email"/>
+    <input type="text" name="source-page"/>
+    <input type="text" name="source-location"/>
+    <input type="text" name="bot-field"/>
+  </form>
+</div>
+
 </body>
 </html>
