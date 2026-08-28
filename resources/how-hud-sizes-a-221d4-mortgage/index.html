@@ -106,18 +106,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How does HUD size a 221(d)(4) new construction loan?",
+        "name": "How does 221(d)(4) loan sizing differ from 223(f) sizing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "HUD sizes a 221(d)(4) new construction loan using three independent tests — LTC (loan-to-cost), DSCR, and HUD statutory per-unit limits — and the actual loan amount is the lowest result across all three. The LTC test is based on 87% of total development cost (83% for market-rate deals without BSPRA). The DSCR test converts projected stabilized NOI at 1.15x minimum coverage into a maximum loan amount using a 40-year amortization and the note rate. The statutory test applies per-unit dollar limits adjusted by the High Cost Percentage factor. Unlike the 223(f) refinance program, there is no appraised value test — the 221(d)(4) is a cost-based program."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the maximum LTC on a HUD 221(d)(4) loan?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The HUD 221(d)(4) maximum LTC is 87% of total development cost for market-rate new construction projects that qualify for BSPRA. For affordable housing projects the LTC ceiling is 90%. The LTC calculation includes land at its appraised fair market value — so if a developer acquired the land years ago at below-market pricing, the appreciated land value is captured in the LTC base, potentially increasing loan proceeds."
+          "text": "The 221(d)(4) is cost-based; the 223(f) is value-based. A 223(f) runs an LTV test against an appraisal of an existing property, plus a cost-of-refinance criterion. A 221(d)(4) has neither — it runs an LTC test against total development cost, and there is no refinance to cost out. The 221(d)(4) also amortizes over 40 years rather than 35, which produces a lower loan constant and lets the same NOI support a larger loan. And because there's no operating history, the DSCR test runs on the appraiser's projected stabilized NOI at current rents and expenses rather than on actual results."
         }
       },
       {
@@ -125,31 +117,31 @@
         "name": "What is BSPRA and how does it affect 221(d)(4) loan sizing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BSPRA stands for Builder's and Sponsor's Profit and Risk Allowance. It is an addition to the development cost base equal to 10% of total development costs excluding land. BSPRA is available when the developer also serves as the general contractor or provides the construction financing. Because BSPRA increases total development cost — which is what the LTC percentage is applied to — it can meaningfully increase loan proceeds on a new construction deal. On a $28 million project, BSPRA can add $2–3 million to the indicated loan amount."
+          "text": "BSPRA — the Builder's and Sponsor's Profit and Risk Allowance — is a 10% addition to the development cost base excluding land, available when the developer is related to the general contractor. Because the LTC percentage is applied to total development cost, adding BSPRA raises the base that 87% is calculated against, which raises the LTC-constrained loan amount."
         }
       },
       {
         "@type": "Question",
-        "name": "What NOI does HUD use to size a 221(d)(4) DSCR test?",
+        "name": "How does construction period interest factor into the sizing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For a 221(d)(4) new construction loan, HUD uses the projected stabilized NOI from the third-party appraisal, developed using today's current rents and expenses — not projected rents at the time of lease-up. HUD applies the same Debt Service NOI concept as in 223(f) underwriting: a minimum 7% vacancy assumption for market-rate deals and actual replacement reserve deposits per the Property Capital Needs Assessment. This means the DSCR-constrained loan is based on what the property can support at current market rents at stabilization, not on optimistic lease-up projections."
+          "text": "Construction interest is a variable cost inside the LTC calculation, estimated as roughly half the loan balance multiplied by the interest rate over the construction term. The half-balance convention reflects the draw structure — draws fund progressively, so the average outstanding balance across the term is about 50% of the final loan amount. Because that cost scales with both the loan amount and the rate, it creates a second rate-sensitive term in the LTC test: higher rates increase the construction interest escrow, which increases total development cost, which increases the LTC-constrained mortgage amount."
         }
       },
       {
         "@type": "Question",
-        "name": "How does 221(d)(4) loan sizing differ from 223(f) loan sizing?",
+        "name": "Does HUD require a third-party appraisal on a new construction deal if there's no appraised value test?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The primary structural difference is that 221(d)(4) sizing is cost-based rather than value-based. The 223(f) uses an LTV test against an independent appraisal of the existing property. The 221(d)(4) has no LTV test — it uses an LTC test against total development cost. There is also no cost-of-refinance criterion in a 221(d)(4). The 221(d)(4) uses a 40-year amortization versus 35 years for the 223(f), which makes the loan constant slightly lower and allows the DSCR test to support a larger loan at the same NOI and rate. The 221(d)(4) also includes BSPRA as a potential cost addition that has no analog in the 223(f) program."
+          "text": "Yes. HUD commissions an independent appraisal on every 221(d)(4). The appraiser establishes the project's NOI, which feeds the DSCR test, and provides the appraised land value used in the LTC and statutory calculations. The appraisal doesn't set a ceiling on proceeds the way an LTV test would, but it's a required third-party report and its outputs run through the sizing."
         }
       },
       {
         "@type": "Question",
-        "name": "Does interest rate affect how much a HUD 221(d)(4) loan sizes?",
+        "name": "Is the 221(d)(4) available for affordable housing with tax credits?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Rate sensitivity in a 221(d)(4) operates through two channels, not one. First, the DSCR test is rate-sensitive in the same way as the 223(f) — a higher rate produces a higher loan constant, which means a smaller DSCR-constrained loan for the same NOI. Second, construction interest is a variable cost that scales with the loan amount — it is a percentage of the loan (half the balance at the note rate for the construction term) and therefore increases loan proceeds requirements as rates rise. This second channel actually makes the LTC constraint more costly at higher rates."
+          "text": "Yes, and it's commonly used in LIHTC transactions. Affordable deals qualify for the 90% LTC ceiling and the 1.11x minimum DSCR rather than 87% and 1.15x. The interaction between the 221(d)(4) and a tax credit equity structure brings its own HUD requirements around equity pay-in timing and credit enhancer approvals, which are beyond the scope of this article — reach out if you're working on a tax credit deal."
         }
       }
     ]
@@ -1083,21 +1075,27 @@
       <!-- FAQ SECTION -->
       <div class="section-block" id="faq" style="margin-top: 0;">
         <div class="section-header">
-          <div class="section-number" style="font-size:32px;">?</div>
+          <div class="section-number">06</div>
           <div class="section-header-text">
             <div class="section-eyebrow">Frequently Asked</div>
             <h2 class="section-title">Common Questions About <em>221(d)(4) Sizing</em></h2>
           </div>
         </div>
 
+        <p><strong>How does 221(d)(4) loan sizing differ from 223(f) sizing?</strong><br/>
+        The 221(d)(4) is cost-based; the <a href="/resources/how-hud-sizes-a-223f-mortgage/">223(f)</a> is value-based. A 223(f) runs an LTV test against an appraisal of an existing property, plus a cost-of-refinance criterion. A 221(d)(4) has neither — it runs an LTC test against total development cost, and there is no refinance to cost out. The 221(d)(4) also amortizes over 40 years rather than 35, which produces a lower loan constant and lets the same NOI support a larger loan. And because there's no operating history, the DSCR test runs on the appraiser's projected stabilized NOI at current rents and expenses rather than on actual results.</p>
+
+        <p><strong>What is BSPRA and how does it affect 221(d)(4) loan sizing?</strong><br/>
+        BSPRA — the Builder's and Sponsor's Profit and Risk Allowance — is a 10% addition to the development cost base excluding land, available when the developer is related to the general contractor. Because the LTC percentage is applied to total development cost, adding BSPRA raises the base that 87% is calculated against, which raises the LTC-constrained loan amount.</p>
+
+        <p><strong>How does construction period interest factor into the sizing?</strong><br/>
+        Construction interest is a variable cost inside the LTC calculation, estimated as roughly half the loan balance multiplied by the interest rate over the construction term. The half-balance convention reflects the draw structure — draws fund progressively, so the average outstanding balance across the term is about 50% of the final loan amount. Because that cost scales with both the loan amount and the rate, it creates a second rate-sensitive term in the LTC test: higher rates increase the construction interest escrow, which increases total development cost, which increases the LTC-constrained mortgage amount.</p>
+
         <p><strong>Does HUD require a third-party appraisal on a new construction deal if there's no appraised value test?</strong><br/>
-        Yes. HUD still commissions an independent appraisal on every 221(d)(4). The appraiser establishes the projected stabilized value of the completed project — which feeds the DSCR test through the appraiser's NOI estimate — and also provides the appraised land value used in the LTC and statutory calculations. The appraisal doesn't set a ceiling on loan proceeds, but it's a required third-party report and its inputs are central to the sizing.</p>
+        Yes. HUD commissions an independent appraisal on every 221(d)(4). The appraiser establishes the project's NOI, which feeds the DSCR test, and provides the appraised land value used in the LTC and statutory calculations. The appraisal doesn't set a ceiling on proceeds the way an LTV test would, but it's a required third-party report and its outputs run through the sizing.</p>
 
         <p><strong>Is the 221(d)(4) available for affordable housing with tax credits?</strong><br/>
-        Yes, and it's commonly used in LIHTC transactions. Affordable deals qualify for the higher 90% LTC ceiling and the 1.11x minimum DSCR. The interaction between the 221(d)(4) and the LIHTC equity structure involves a separate set of HUD requirements around equity pay-in timing and credit enhancer approvals, which are beyond the scope of this article — contact us if you're working on a tax credit deal.</p>
-
-        <p><strong>How does construction period interest get factored into the loan sizing?</strong><br/>
-        Construction interest is treated as a variable cost in the LTC calculation — it's calculated as approximately half the loan balance multiplied by the interest rate, for the duration of the construction term. The "half the balance" assumption reflects the draw structure: draws happen progressively over the construction period, so the average outstanding balance over the term is roughly 50% of the final loan amount. The sizing tool uses this convention, which is standard in HUD underwriting. Because construction interest scales with both the loan amount and the rate, it creates a second rate-sensitive term in the LTC constraint — higher rates increase the construction interest escrow, which increases total development cost, which will increase the LTC constrained mortgage amount.</p>
+        Yes, and it's commonly used in LIHTC transactions. Affordable deals qualify for the 90% LTC ceiling and the 1.11x minimum DSCR rather than 87% and 1.15x. The interaction between the 221(d)(4) and a tax credit equity structure brings its own HUD requirements around equity pay-in timing and credit enhancer approvals, which are beyond the scope of this article — reach out if you're working on a tax credit deal.</p>
       </div>
 
       <!-- CLOSING -->
@@ -1115,6 +1113,7 @@
           <li><a href="#statutory-test"><span class="toc-num">04</span> The Statutory Limit</a></li>
           <li><a href="#binding-constraint"><span class="toc-num">05</span> Which Test Bites — and When</a></li>
           <li><a href="#sizing-tool"><span class="toc-num">→</span> Interactive Sizing Tool</a></li>
+          <li><a href="#faq"><span class="toc-num">06</span> Frequently Asked Questions</a></li>
         </ul>
       </div>
 
