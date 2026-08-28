@@ -188,6 +188,8 @@ Brian supplies exact figures when they matter — do not calculate independently
 
 Terminology: the canonical term for the debt-service-coverage-based NOI is **"DSCR NOI"** (not "Debt Service NOI"). Use it consistently in titles, body, and schema.
 
+**HUD's numbers are published by program; the agencies' are not. Do not hedge HUD's.** The LTV/LTC and coverage figures above are HUD's own criteria — 87%/90% is Criterion 3, 1.15x/1.11x is Criterion 5 — published in MAP Guide Appendix 3 and reset by ML 2025-03. "Rent advantage" is HUD/LIHTC vocabulary out of the Guide. Fannie's leverage and coverage are the opposite case: they are not in the Selling and Servicing Guide at all, they come from Form 4660, and they tier by market, product, and sponsor — which is why the 223(f) sizing page labels its agency column "FNMA / Freddie (Typical)" and footnotes it (`108a7e6`), while HUD's column is stated flat. An audit that proposes qualifying HUD's figures as "typical" has the distinction backwards. `dscr-constrained-mortgage` states these as Criterion 3 and Criterion 5 correctly and is **not** an agency-framing target — struck 2026-08-28 after being raised in error, on the assumption that numbers near a comparison table were agency numbers.
+
 Primary source documents: HUD MAP Guide, HUD Form HUD-92466M (Regulatory Agreement), Fannie Mae Form 6001.NR, Freddie Mac Seller/Servicer Guide.
 
 ## SEO standard for every page
