@@ -12,7 +12,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>How HUD Sizes a 223(f) Multifamily Mortgage</title>
-  <meta name="description" content="How HUD 223(f) loan proceeds are determined: LTV, DSCR, statutory limits, and the cost-of-refinance floor. Includes an interactive sizing calculator."/>
+  <meta name="description" content="How HUD sizes a 223(f): the four tests — LTV, DSCR, statutory limits, and cost of refinance — and which one binds. Includes an interactive sizing calculator."/>
   <meta name="author" content="Brian Lorenz and Wim Roach"/>
   <meta name="robots" content="index, follow"/>
   <meta name="keywords" content="HUD 223f loan sizing, HUD 223(f) loan amount, HUD multifamily DSCR, HUD LTV 223f, HUD mortgage sizing calculator, FHA 223f loan proceeds, MAP lender multifamily, HUD NOI underwriting, Centennial Mortgage HUD, Brian Lorenz HUD underwriter"/>
@@ -20,7 +20,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="How HUD Sizes a 223(f) Multifamily Mortgage"/>
-  <meta property="og:description" content="How HUD 223(f) loan proceeds are determined: LTV, DSCR, statutory limits, and the cost-of-refinance floor. Includes an interactive sizing calculator."/>
+  <meta property="og:description" content="How HUD sizes a 223(f): the four tests — LTV, DSCR, statutory limits, and cost of refinance — and which one binds. Includes an interactive sizing calculator."/>
   <meta property="og:type" content="article"/>
   <meta property="og:url" content="https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/"/>
   <meta property="og:image" content="https://roachlorenz.com/assets/og-223f-sizing.png"/>
@@ -43,7 +43,7 @@
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="How HUD Sizes a 223(f) Multifamily Mortgage"/>
-  <meta name="twitter:description" content="How HUD 223(f) loan proceeds are determined: LTV, DSCR, statutory limits, and the cost-of-refinance floor. Includes an interactive sizing calculator."/>
+  <meta name="twitter:description" content="How HUD sizes a 223(f): the four tests — LTV, DSCR, statutory limits, and cost of refinance — and which one binds. Includes an interactive sizing calculator."/>
   <meta name="twitter:image" content="https://roachlorenz.com/assets/og-223f-sizing.png"/>
 
   <!-- Article Schema -->
@@ -56,7 +56,7 @@
       "@id": "https://roachlorenz.com/resources/how-hud-sizes-a-223f-mortgage/"
     },
     "headline": "How HUD Sizes a 223(f) Multifamily Mortgage",
-    "description": "How HUD 223(f) loan proceeds are determined: LTV, DSCR, statutory limits, and the cost-of-refinance floor. Includes an interactive sizing calculator.",
+    "description": "How HUD sizes a 223(f): the four tests — LTV, DSCR, statutory limits, and cost of refinance — and which one binds. Includes an interactive sizing calculator.",
     "image": "https://roachlorenz.com/assets/og-223f-sizing.png",
     "datePublished": "2026-04-01T00:00:00Z",
     "dateModified": "2026-05-05T00:00:00Z",
@@ -107,7 +107,7 @@
         "name": "How does HUD size a 223(f) loan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "HUD sizes a 223(f) loan using multiple independent tests — LTV, DSCR, statutory per-unit limits, and a cost-of-refinance floor — and the actual loan amount is the lowest result across all of them. The LTV test is based on 87% of appraised value. The DSCR test converts NOI at 1.15x minimum coverage into maximum allowable debt service, then back-solves for loan amount using the note rate and amortization term. The statutory test applies per-unit dollar limits adjusted for local market factors. The cost-of-refinance floor requires the loan to be at least the greater of 80% LTV or the total cost of the transaction."
+          "text": "HUD runs four independent tests and the loan is the lowest result across all four: an LTV test against appraised value, a DSCR test, the statutory per-unit mortgage limit, and the cost-of-refinance criterion. Market-rate deals cap at 87% LTV against a 1.15x minimum DSCR. No single test sets the number — whichever produces the smallest loan amount binds."
         }
       },
       {
@@ -115,7 +115,7 @@
         "name": "What is the maximum LTV on a HUD 223(f) loan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The HUD 223(f) maximum LTV is 87% for market-rate acquisitions and refinances. For cash-out refinances, the maximum drops to 80% LTV. These limits compare favorably to Fannie Mae and Freddie Mac, which typically cap out at 75% LTV for similar assets."
+          "text": "87% of appraised value for market-rate acquisitions and refinances. On a refinance that produces cash-out, the ceiling drops to 80%. Fannie Mae and Freddie Mac are typically capped at 75% on comparable deals. LTV is only one of four tests, so a deal that clears 87% can still size lower on DSCR."
         }
       },
       {
@@ -123,7 +123,7 @@
         "name": "What DSCR does HUD require for a 223(f) loan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "HUD requires a minimum DSCR of 1.15x for market-rate properties under the 223(f) program. HUD uses a Debt Service NOI for DSCR calculation — not the market NOI used for valuation. The Debt Service NOI applies a vacancy assumption of at least 7% and uses actual, audited operating expenses rather than normalized or pro-forma figures."
+          "text": "1.15x is the industry shorthand. HUD sizes the DSCR-constrained loan by multiplying Debt Service NOI by 87% to arrive at maximum annual debt service, covering P&I and MIP — and 1 divided by 0.87 is approximately 1.149, so the two describe the same calculation. HUD also requires a 7% vacancy assumption on market-rate deals even where actual vacancy is lower."
         }
       },
       {
@@ -131,7 +131,7 @@
         "name": "What is the difference between Market NOI and Debt Service NOI in HUD underwriting?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "HUD uses two separate NOI figures. Market NOI is used for the appraisal and determines value — and therefore the LTV test. Debt Service NOI is a more conservative figure used for the DSCR test; it applies a minimum 7% vacancy and uses actual operating expenses rather than normalized ones. The gap between these two figures is often where deals run into DSCR constraints."
+          "text": "HUD underwrites two NOIs on the same deal. Market NOI is what the property stabilizes to at market occupancy with normalized expenses; divided by the cap rate it produces appraised value, which drives the LTV test. Debt Service NOI — also called DSCR NOI — is the more conservative figure HUD derives from actual operating history and the appraiser's NOI, applying a 7% vacancy floor and the replacement reserve amount from the Property Capital Needs Assessment rather than the appraiser's $250 per unit. It feeds the DSCR test and is almost always lower."
         }
       },
       {
@@ -139,7 +139,7 @@
         "name": "Does the interest rate affect how much a HUD 223(f) loan sizes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes — rate sensitivity lives entirely in the DSCR test. Once HUD converts NOI to a maximum debt service figure (NOI divided by 1.15), that dollar amount is converted to a loan amount using standard mortgage math — based on the note rate and 35-year amortization. A higher rate produces a higher payment per dollar borrowed, which means a smaller loan for the same debt service budget. In high-rate environments, the LTV test often produces more proceeds than the DSCR test, making LTV the binding constraint."
+          "text": "Only through the DSCR test — the LTV and statutory tests are rate-independent. HUD converts the debt service budget into a loan amount by dividing by an annual loan constant built from three components: the interest rate, the 0.25% MIP, and the amortization rate. At 5.00% on a 35-year term that constant is approximately 6.306%."
         }
       }
     ]
@@ -648,6 +648,11 @@
 @media (max-width: 768px) {
   .readnext { padding: 0 24px 64px; }
 }
+
+/* PAGE-SPECIFIC SUPPLEMENT — review */
+/* FAQ section — rules carried from hud-cash-flow-distributions */
+.faq-block .section-block p { font-size: 14px; }
+.faq-q { font-weight: 500; color: var(--ink); display: block; margin-top: 8px; margin-bottom: 4px; }
   </style>
 </head>
 <body>
@@ -1063,6 +1068,31 @@
         </div><!-- /calc-card -->
       </div><!-- /calculator-wrap -->
 
+      <div class="section-block faq-block" id="faq">
+        <div class="section-header">
+          <div class="section-number">08</div>
+          <div class="section-header-text">
+            <div class="section-eyebrow">Frequently Asked</div>
+            <h2 class="section-title">Common Questions About <em>223(f) Loan Sizing</em></h2>
+          </div>
+        </div>
+
+        <p><span class="faq-q">How does HUD size a 223(f) loan?</span>
+        HUD runs four independent tests and the loan is the lowest result across all four: an LTV test against appraised value, a DSCR test, the statutory per-unit mortgage limit, and the cost-of-refinance criterion. Market-rate deals cap at 87% LTV against a 1.15x minimum DSCR. No single test sets the number — whichever produces the smallest loan amount binds.</p>
+
+        <p><span class="faq-q">What is the maximum LTV on a HUD 223(f) loan?</span>
+        87% of appraised value for market-rate acquisitions and refinances. On a refinance that produces cash-out, the ceiling drops to 80%. Fannie Mae and Freddie Mac are typically capped at 75% on comparable deals. LTV is only one of four tests, so a deal that clears 87% can still size lower on DSCR.</p>
+
+        <p><span class="faq-q">What DSCR does HUD require for a 223(f) loan?</span>
+        1.15x is the industry shorthand. HUD sizes the DSCR-constrained loan by multiplying Debt Service NOI by 87% to arrive at maximum annual debt service, covering P&amp;I and MIP — and 1 divided by 0.87 is approximately 1.149, so the two describe the same calculation. HUD also requires a 7% vacancy assumption on market-rate deals even where actual vacancy is lower.</p>
+
+        <p><span class="faq-q">What is the difference between Market NOI and Debt Service NOI in HUD underwriting?</span>
+        HUD underwrites two NOIs on the same deal. Market NOI is what the property stabilizes to at market occupancy with normalized expenses; divided by the cap rate it produces appraised value, which drives the LTV test. Debt Service NOI — also called DSCR NOI — is the more conservative figure HUD derives from actual operating history and the appraiser's NOI, applying a 7% vacancy floor and the replacement reserve amount from the Property Capital Needs Assessment rather than the appraiser's $250 per unit. It feeds the DSCR test and is almost always lower.</p>
+
+        <p><span class="faq-q">Does the interest rate affect how much a HUD 223(f) loan sizes?</span>
+        Only through the DSCR test — the LTV and statutory tests are rate-independent. HUD converts the debt service budget into a loan amount by dividing by an annual loan constant built from three components: the interest rate, the 0.25% MIP, and the amortization rate. At 5.00% on a 35-year term that constant is approximately 6.306%.</p>
+      </div>
+
       <!-- CLOSING -->
 
     </article><!-- /doc-body -->
@@ -1080,6 +1110,7 @@
           <li><a href="#cost-of-refinance"><span class="toc-num">06</span> The Cost-of-Refinance Criterion</a></li>
           <li><a href="#binding-constraint"><span class="toc-num">07</span> Which Test Bites — and When</a></li>
           <li><a href="#sizing-tool"><span class="toc-num">→</span> Interactive Sizing Tool</a></li>
+          <li><a href="#faq"><span class="toc-num">08</span> Frequently Asked Questions</a></li>
         </ul>
       </div>
 
