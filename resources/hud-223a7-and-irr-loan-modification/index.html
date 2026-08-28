@@ -107,34 +107,18 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is a HUD 223(a)(7) refinance?",
+        "name": "Can I do a 223(a)(7) on a 221(d)(4) loan, or only on a 223(f)?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The HUD 223(a)(7) is a streamlined refinance available only to existing HUD-insured multifamily mortgages. It is a cash-flow refinance — meaning no cash-out — and is designed to reduce the borrower's debt service by lowering the interest rate, extending the term back to the original term length, or both. The maximum loan amount is the original loan amount of the existing HUD mortgage, and that headroom can be used to absorb financing costs and a portion of the prepayment penalty into the new mortgage rather than paying for them in cash."
+          "text": "Yes. The 223(a)(7) is available on any existing HUD-insured multifamily mortgage — including a 221(d)(4) construction loan that has converted to permanent, and including a loan that is itself already a 223(a)(7). The mechanics are the same regardless of which program originated the loan."
         }
       },
       {
         "@type": "Question",
-        "name": "What is a HUD IRR (Interest Rate Reduction) loan modification?",
+        "name": "Can I do a 223(a)(7) or IRR with a different lender than my current one?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The HUD Interest Rate Reduction, or IRR, is a loan modification rather than a refinance. It recasts the existing HUD mortgage with a new lower interest rate. The unpaid principal balance and the remaining term stay the same — the only thing that changes is the rate. Because it is a recast and not a refinance, it is faster than a 223(a)(7), requires only minimal third-party reports (a cheap update to the HUD Environmental forms), and has minimal closing costs. It also can only be done with the existing HUD lender."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is the difference between a HUD 223(a)(7) and an IRR?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Both lower the interest rate on an existing HUD mortgage with no cash out. The IRR is a recast of the existing note — same balance, same remaining term, lower rate — and can only be done with the existing lender. The 223(a)(7) is a full refinance that can extend the term back to the original term length, allow the loan amount to step up to the original loan balance, and roll financing costs and prepayment penalty into the new mortgage. The 223(a)(7) generally produces a lower interest rate and lower monthly payment, but takes longer to close, costs more, and requires a Property Capital Needs Assessment."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is the prepayment penalty paid in a HUD 223(a)(7) or IRR?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Both are designed to pay the prepayment penalty without requiring cash from the borrower. In an IRR, the entire prepayment penalty is absorbed into a slightly higher interest rate — the rate is set above market by the amount needed to generate enough excess interest income for the GNMA mortgage-backed security investor to be made whole on the prepayment. In a 223(a)(7), part of the prepayment penalty can be paid by increasing the loan amount (up to the original loan balance), and any remainder is absorbed into a slightly elevated interest rate the same way the IRR does it. Because the 223(a)(7) typically absorbs a smaller portion of the penalty into rate, its final rate is usually lower than the IRR's."
+          "text": "For an IRR, no — it's a modification of the existing note, so it has to be done by the lender currently servicing your HUD mortgage. For a 223(a)(7), yes: it's a refinance, and any HUD-approved MAP lender can originate it. If you aren't happy with your current lender's service, the 223(a)(7) is your route to a different shop."
         }
       },
       {
@@ -142,7 +126,31 @@
         "name": "What is a Hybrid 223(a)(7)?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A Hybrid 223(a)(7) is a 223(a)(7) refinance where the loan amount is intentionally capped at just enough to cover financing costs — without using the remaining headroom to pay down the prepayment penalty. The full prepayment penalty is instead absorbed into the interest rate. The result is a 223(a)(7) with a higher rate than a fully maximized 223(a)(7), but a longer term (the original loan's term) and a smaller debt liability on the borrower's balance sheet. On 10-year hold NPV analysis, the Hybrid frequently outperforms both the IRR and the fully maximized 223(a)(7) because the lower exit liability more than offsets the slightly higher rate."
+          "text": "A Hybrid 223(a)(7) is a 223(a)(7) sized to cover only financing costs, leaving the remaining headroom unused rather than applying it to the prepayment penalty. The full penalty is absorbed into the interest rate instead. The result is a higher rate than a fully maximized 223(a)(7), but the original loan's term and a smaller debt liability on the balance sheet. On a 10-year hold, the Hybrid frequently produces the best NPV of the three structures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a 223(a)(7) take to close versus an IRR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An IRR generally closes in around 60 days. A 223(a)(7) generally takes around four months from engagement to closing, driven mostly by HUD's review timeline and PCNA delivery. The Hybrid follows the same timeline as a standard 223(a)(7) — it's structured the same way, just sized smaller."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens to my existing prepayment penalty when I do an IRR or 223(a)(7)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The existing prepayment penalty is paid off at closing. In an IRR, the entire penalty is absorbed into a slightly elevated interest rate. In a 223(a)(7), part of the penalty is funded by increasing the loan amount up to the original loan balance, and any remainder is absorbed into rate. The borrower doesn't write a check for the penalty in either case. Both structures then reset the prepayment penalty schedule on the new loan, generally back to a fresh 10-year 10-9-8-7-6-5-4-3-2-1 step-down."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I take cash out with a 223(a)(7) or IRR?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Both are explicitly cash-flow refinances. Their entire purpose is to reduce debt service and increase the borrower's cash flow — not to monetize equity. If you want to pull equity out of a HUD-financed asset, you would need a regular 223(f) cash-out refinance, which is a different program with different mechanics and a different sizing analysis."
         }
       }
     ]
@@ -725,7 +733,7 @@
 
         <p>The IRR is a recast of the existing HUD mortgage. The mortgage note is amended to a new lower interest rate, but the unpaid principal balance and the remaining term don't change. You're not refinancing the loan — you're modifying it. The only economic levers that move are the interest rate and the resetting of the prepayment penalty.</p>
 
-        <p>HUD mortgages have a prepayment penalty that's typically structured as a <strong>10-9-8-7-6-5-4-3-2-1 dropdown</strong>: 10% of the unpaid balance in Year 1, 9% in Year 2, declining one percentage point per year, with no penalty after Year 10. Recasting the existing note changes the cash flow going to the GNMA mortgage-backed security investor, so the prepayment penalty is owed at the IRR closing.</p>
+        <p>HUD mortgages have a prepayment penalty that's typically structured as a <strong>10-9-8-7-6-5-4-3-2-1 step-down</strong>: 10% of the unpaid balance in Year 1, 9% in Year 2, declining one percentage point per year, with no penalty after Year 10. Recasting the existing note changes the cash flow going to the GNMA mortgage-backed security investor, so the prepayment penalty is owed at the IRR closing.</p>
 
         <p>In our example, the unpaid balance at the start of Year 6 is $47,290,127. The Year 5 prepayment penalty is 5%, which works out to $2,364,506. The current rate is 5.50% and the market rate is 3.30%.</p>
 
@@ -968,27 +976,30 @@
       <!-- SECTION 6: FAQ -->
       <div class="section-block" id="faq">
         <div class="section-header">
-          <div class="section-number" style="font-size:32px;">?</div>
+          <div class="section-number">06</div>
           <div class="section-header-text">
             <div class="section-eyebrow">Frequently Asked</div>
             <h2 class="section-title">Common Questions About <em>HUD Rate Reductions</em></h2>
           </div>
         </div>
 
-        <p><strong>Can I do a 223(a)(7) or IRR with a different lender than my current one?</strong><br/>
-        For an IRR, no — it's a modification of the existing note, so it has to be done by the lender currently servicing your HUD mortgage. For a 223(a)(7), yes — it's a refinance, and any HUD-approved MAP lender can originate it. If you're not happy with your current lender's service or pricing, the 223(a)(7) is your route to a different shop.</p>
+        <p><strong>Can I do a 223(a)(7) on a 221(d)(4) loan, or only on a 223(f)?</strong><br/>
+        Yes. The 223(a)(7) is available on any existing HUD-insured multifamily mortgage — including a 221(d)(4) construction loan that has converted to permanent, and including a loan that is itself already a 223(a)(7). The mechanics are the same regardless of which program originated the loan.</p>
 
-        <p><strong>Can I take cash out with a 223(a)(7) or IRR?</strong><br/>
-        No. Both are explicitly cash-flow refinances. Their entire purpose is to reduce debt service and increase the borrower's cash flow — not to monetize equity. If you want to pull equity out of a HUD-financed asset, you would need a regular 223(f) cash-out refinance, which is a different program with different mechanics and a different sizing analysis.</p>
+        <p><strong>Can I do a 223(a)(7) or IRR with a different lender than my current one?</strong><br/>
+        For an IRR, no — it's a modification of the existing note, so it has to be done by the lender currently servicing your HUD mortgage. For a 223(a)(7), yes: it's a refinance, and any HUD-approved MAP lender can originate it. If you aren't happy with your current lender's service, the 223(a)(7) is your route to a different shop.</p>
+
+        <p><strong>What is a Hybrid 223(a)(7)?</strong><br/>
+        A Hybrid 223(a)(7) is a 223(a)(7) sized to cover only financing costs, leaving the remaining headroom unused rather than applying it to the prepayment penalty. The full penalty is absorbed into the interest rate instead. The result is a higher rate than a fully maximized 223(a)(7), but the original loan's term and a smaller debt liability on the balance sheet. On a 10-year hold, the Hybrid frequently produces the best NPV of the three structures.</p>
 
         <p><strong>How long does a 223(a)(7) take to close versus an IRR?</strong><br/>
-        An IRR generally closes in around 60 days. A 223(a)(7) generally takes around four months from engagement to closing — driven mostly by HUD's review timeline and the PCNA delivery. The Hybrid 223(a)(7) follows the same timeline as a standard 223(a)(7) — it's structured the same way, just with a smaller loan amount.</p>
+        An IRR generally closes in around 60 days. A 223(a)(7) generally takes around four months from engagement to closing, driven mostly by HUD's review timeline and PCNA delivery. The Hybrid follows the same timeline as a standard 223(a)(7) — it's structured the same way, just sized smaller.</p>
 
         <p><strong>What happens to my existing prepayment penalty when I do an IRR or 223(a)(7)?</strong><br/>
-        The existing prepayment penalty is paid off at closing. In an IRR, the entire penalty is absorbed into a slightly elevated interest rate. In a 223(a)(7), part of the penalty is funded by increasing the loan amount up to the original loan balance, and any remainder is absorbed into rate. The borrower doesn't write a check for the penalty in either case. Both structures then reset the prepayment penalty schedule on the new loan, generally back to a fresh 10-year 10-9-8-7-6-5-4-3-2-1 dropdown.</p>
+        The existing prepayment penalty is paid off at closing. In an IRR, the entire penalty is absorbed into a slightly elevated interest rate. In a 223(a)(7), part of the penalty is funded by increasing the loan amount up to the original loan balance, and any remainder is absorbed into rate. The borrower doesn't write a check for the penalty in either case. Both structures then reset the prepayment penalty schedule on the new loan, generally back to a fresh 10-year 10-9-8-7-6-5-4-3-2-1 step-down.</p>
 
-        <p><strong>Can I do a 223(a)(7) on a 221(d)(4) loan, or only on a 223(f)?</strong><br/>
-        Yes — the 223(a)(7) is available on any existing HUD-insured multifamily mortgage, including 221(d)(4) construction loans that have converted to permanent or even an already done 223(a)(7). The mechanics are the same.</p>
+        <p><strong>Can I take cash out with a 223(a)(7) or IRR?</strong><br/>
+        No. Both are explicitly cash-flow refinances. Their entire purpose is to reduce debt service and increase the borrower's cash flow — not to monetize equity. If you want to pull equity out of a HUD-financed asset, you would need a regular <a href="/resources/how-hud-sizes-a-223f-mortgage/">223(f) cash-out refinance</a>, which is a different program with different mechanics and a different sizing analysis.</p>
       </div>
 
       <!-- END CTA -->
@@ -1005,7 +1016,7 @@
           <li><a href="#comparison"><span class="toc-num">03</span><span>IRR vs. 223(a)(7): Side by Side</span></a></li>
           <li><a href="#hybrid"><span class="toc-num">04</span><span>The Hybrid 223(a)(7)</span></a></li>
           <li><a href="#which"><span class="toc-num">05</span><span>When to Use Which</span></a></li>
-          <li><a href="#faq"><span class="toc-num">?</span><span>Frequently Asked</span></a></li>
+          <li><a href="#faq"><span class="toc-num">06</span><span>Frequently Asked Questions</span></a></li>
         </ul>
       </div>
 
