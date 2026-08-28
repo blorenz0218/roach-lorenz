@@ -54,7 +54,7 @@
     "description": "HUD builds two NOIs on the same deal. How the DSCR NOI and appraised-value NOI differ, which one sizes your loan, and why — from a former HUD underwriter.",
     "image": "https://roachlorenz.com/assets/og-hud-loan-sizing-noi.png",
     "datePublished": "2026-06-26T00:00:00Z",
-    "dateModified": "2026-06-26T00:00:00Z",
+    "dateModified": "2026-08-28T00:00:00Z",
     "wordCount": "1100",
     "author": [
       {
@@ -114,7 +114,7 @@
         "name": "Does HUD underwrite multifamily income from the current rent roll or a trailing average?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For the DSCR NOI, HUD usually underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units — rather than capping it at the annualized trailing-three-month collections the way many other programs do. On a property with rising rents, or one still in lease-up, the current rent roll produces higher underwritten income than a backward-looking average because it reflects the rents the property is collecting now."
+          "text": "For the DSCR NOI, HUD underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units. Fannie Mae builds gross potential rent the same way, so the difference between the two programs is not the rent basis. It is what comes off it. Fannie deducts the greater of 5% of gross potential rent or the gap between gross potential rent and annualized trailing-three-month collections, and applies that deduction to the cash flow driving both its coverage test and its value conclusion. HUD's 7% minimum applies only to the DSCR NOI; the appraiser building the Market NOI is not bound by it."
         }
       },
       {
@@ -122,7 +122,7 @@
         "name": "What is HUD's minimum vacancy for a market-rate multifamily deal?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties meeting the minimum set-aside requirements, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example."
+          "text": "For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties that meet the minimum set-aside requirements and have attainable tax-credit rents at least 10% below market, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example."
         }
       }
     ]
@@ -611,6 +611,7 @@
         <div class="cover-divider"></div>
         <div class="cover-pub">
           <time datetime="2026-06-26">Published June 26, 2026</time><br/>
+          Last updated August 2026<br/>
           Wim Roach &amp; Brian Lorenz Practitioner Series
         </div>
       </div>
@@ -658,7 +659,7 @@
               </tr>
               <tr>
                 <td class="td-val">5%</td>
-                <td>LIHTC properties meeting the minimum set-aside requirements, or with attainable tax-credit rents at least 10% below market</td>
+                <td>LIHTC properties meeting the minimum set-aside requirements and with attainable tax-credit rents at least 10% below market</td>
               </tr>
               <tr>
                 <td class="td-val">7%</td>
@@ -672,18 +673,9 @@
           <p><strong>Pending change to watch.</strong> A draft HUD Mortgagee Letter circulated to lenders in spring 2026 included language that would let a market-rate property underwrite its DSCR vacancy at 5% — below the current 7% floor — where occupancy has held at that level for three years. The final language is not set and the change is not yet in effect. We're tracking it because, on a market-rate deal, moving the floor from 7% to 5% feeds straight into the DSCR NOI and the loan amount. <em>(Noted June 2026; we'll update when HUD finalizes.)</em></p>
         </div>
 
-        <p>HUD letting the latest month's rent roll set income is different from many programs, including Fannie Mae and Freddie Mac, which require that the underwritten income not exceed the annualized trailing-three-month collections. On a project with rising rents, the trailing-3 pulls the underwritten Rent Potential down — a lower DSCR, and possibly lower proceeds.</p>
+        <p>HUD's 7% floor applies only to the DSCR NOI. Fannie's equivalent — the greater of 5% of gross potential rent or the gap between gross potential rent and annualized trailing-three-month collections — sits inside the underwritten net cash flow that drives both its coverage test and its value conclusion. On a clean market-rate property Fannie's 5% is the lower number, so on coverage alone Fannie underwrites less vacancy than HUD does. The difference is that HUD stops there. The appraiser building the Market NOI is not bound by the floor and can carry the market's actual vacancy into value, which is what moves an LTV-constrained loan.</p>
 
-        <div class="example-box">
-          <span class="example-label">Illustrative Example — Latest Rent Roll vs. Trailing-3</span>
-          <p>One unit's lease resets from $1,000 to $1,100 at the start of the most recent month. Compare how each method annualizes that unit:</p>
-          <div class="example-math">Latest rent roll: <strong>$1,100 &times; 12 = $13,200</strong></div>
-          <div class="example-math">Trailing-3: ($1,000 + $1,000 + $1,100) &times; 4 = <strong>$12,400</strong></div>
-          <div class="example-math">Difference, one unit: <strong>$800</strong></div>
-          <p>Extrapolated across a building stepping rents up lease by lease, the gap adds real Gross Rent Potential the trailing-3 would strip out.</p>
-        </div>
-
-        <p>The latest rent roll also gives a fairer read on where the project will be at closing and after. Most leases run twelve months, so a year out the income looks more like today's rent roll than the trailing-3. It also lets HUD better underwrite a project still in lease-up, where the trailing-3 understates the stabilized rent roll — HUD's stated basis is to underwrite to the revenue actually being collected. From there the DSCR NOI runs through HUD's DSCR coverage mortgage amount test; our <a href="/resources/how-hud-sizes-a-223f-mortgage/">223(f) loan sizing guide</a> walks the full set of sizing tests.</p>
+        <p>Two other places the rent roll basis matters. Fannie's treatment of declining collections is formulaic: the underwriter tests the trailing three months against the trailing six and twelve and marks income down when the decline exceeds two percent. HUD has no equivalent formula, which is not the same as no exposure. If rents or collections are trending down, HUD can question whether the current rent roll represents sustainable income and require the Rent Potential be underwritten lower, and the MAP Guide separately permits a vacancy rate above the minimum where the property's actual loss rate supports one. What you can compute in advance on a Fannie deal, you have to defend on a HUD deal. And on a property still leasing up, HUD will underwrite to the revenue actually being collected once the project holds programmatic coverage for three consecutive months, where Fannie requires stabilized occupancy and caps net rental income at the best single month inside the trailing three. From there the DSCR NOI runs through HUD's DSCR coverage mortgage amount test; our <a href="/resources/how-hud-sizes-a-223f-mortgage/">223(f) loan sizing guide</a> walks the full set of sizing tests.</p>
       </section>
 
       <!-- SECTION 2 — THE MARKET NOI -->
@@ -748,11 +740,11 @@
           </div>
           <div class="faq-item">
             <div class="faq-q">Does HUD underwrite multifamily income from the current rent roll or a trailing average?</div>
-            <div class="faq-a">For the DSCR NOI, HUD usually underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units — rather than capping it at the annualized trailing-three-month collections the way many other programs do. On a property with rising rents, or one still in lease-up, the current rent roll produces higher underwritten income than a backward-looking average because it reflects the rents the property is collecting now.</div>
+            <div class="faq-a">For the DSCR NOI, HUD underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units. Fannie Mae builds gross potential rent the same way, so the difference between the two programs is not the rent basis. It is what comes off it. Fannie deducts the greater of 5% of gross potential rent or the gap between gross potential rent and annualized trailing-three-month collections, and applies that deduction to the cash flow driving both its coverage test and its value conclusion. HUD's 7% minimum applies only to the DSCR NOI; the appraiser building the Market NOI is not bound by it.</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">What is HUD's minimum vacancy for a market-rate multifamily deal?</div>
-            <div class="faq-a">For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties meeting the minimum set-aside requirements, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example.</div>
+            <div class="faq-a">For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties that meet the minimum set-aside requirements and have attainable tax-credit rents at least 10% below market, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example.</div>
           </div>
         </div>
       </section>
