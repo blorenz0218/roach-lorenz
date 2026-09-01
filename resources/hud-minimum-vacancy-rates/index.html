@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3Y2SPVQSK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,53 +9,57 @@
     gtag('js', new Date());
     gtag('config', 'G-H3Y2SPVQSK');
   </script>
-
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HUD Loan Sizing: DSCR NOI vs. Appraised Value NOI</title>
-  <meta name="description" content="HUD builds two NOIs on the same deal. How the DSCR NOI and appraised-value NOI differ, which one sizes your loan, and why — from a former HUD underwriter."/>
-  <meta name="keywords" content="HUD loan sizing, DSCR NOI, Market NOI, appraised-value NOI, debt service NOI, HUD multifamily underwriting, HUD minimum vacancy, gross rent potential, HUD rent roll underwriting, replacement reserve PCNA, HUD 223(f) NOI, FHA multifamily underwriting"/>
+  <title>HUD Multifamily Minimum Vacancy: The 7%, 5%, and 3% Floors</title>
+  <meta name="description" content="HUD’s 7% minimum vacancy binds the DSCR loan amount, not the appraisal. What the floor covers, why concessions sit outside it, and where it stops applying."/>
+  <meta name="author" content="Brian Lorenz and Wim Roach"/>
   <meta name="robots" content="index, follow"/>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://roachlorenz.com/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/"/>
+  <meta name="keywords" content="HUD minimum vacancy, HUD 7% vacancy, HUD multifamily vacancy rate, maximum underwritten occupancy HUD, HUD vacancy and collection loss, HUD 223f vacancy, HUD 221d4 vacancy, LIHTC vacancy rate HUD, HUD bad debt underwriting, MAP Guide vacancy"/>
+  <link rel="canonical" href="https://roachlorenz.com/resources/hud-minimum-vacancy-rates/"/>
 
   <!-- Open Graph -->
+  <meta property="og:title" content="HUD Multifamily Minimum Vacancy: The 7%, 5%, and 3% Floors"/>
+  <meta property="og:description" content="HUD’s 7% minimum vacancy binds the DSCR loan amount, not the appraisal. What the floor covers, why concessions sit outside it, and where it stops applying."/>
   <meta property="og:type" content="article"/>
-  <meta property="og:url" content="https://roachlorenz.com/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/"/>
-  <meta property="og:title" content="HUD Loan Sizing: DSCR NOI vs. Appraised Value NOI"/>
-  <meta property="og:description" content="HUD builds two NOIs on the same deal. How the DSCR NOI and appraised-value NOI differ, which one sizes your loan, and why — from a former HUD underwriter."/>
-  <meta property="og:site_name" content="Wim Roach &amp; Brian Lorenz"/>
-  <meta property="article:published_time" content="2026-06-26T00:00:00Z"/>
-  <meta property="article:modified_time" content="2026-06-26T00:00:00Z"/>
-  <meta property="og:locale" content="en_US"/>
-  <meta property="og:image" content="https://roachlorenz.com/assets/og-hud-loan-sizing-noi.png"/>
+  <meta property="og:url" content="https://roachlorenz.com/resources/hud-minimum-vacancy-rates/"/>
+  <meta property="og:image" content="https://roachlorenz.com/assets/og-hud-minimum-vacancy-rates.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-  <meta property="og:image:alt" content="HUD Multifamily Loan Sizing: DSCR NOI vs. Appraised-Value NOI — Wim Roach &amp; Brian Lorenz"/>
+  <meta property="og:image:alt" content="HUD Minimum Vacancy Rates — Wim Roach &amp; Brian Lorenz"/>
+  <meta property="og:site_name" content="Wim Roach & Brian Lorenz"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="article:published_time" content="2026-09-01T00:00:00Z"/>
+  <meta property="article:modified_time" content="2026-09-01T00:00:00Z"/>
+  <meta property="article:author" content="Brian Lorenz"/>
+  <meta property="article:author" content="Wim Roach"/>
+  <meta property="article:section" content="HUD/FHA Multifamily Financing"/>
+  <meta property="article:tag" content="HUD Minimum Vacancy"/>
+  <meta property="article:tag" content="Vacancy and Collection Loss"/>
+  <meta property="article:tag" content="HUD Underwriting"/>
+  <meta property="article:tag" content="Multifamily Mortgage"/>
 
-  <!-- Twitter Card -->
+  <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="HUD Loan Sizing: DSCR NOI vs. Appraised Value NOI"/>
-  <meta name="twitter:description" content="HUD builds two NOIs on the same deal. How the DSCR NOI and appraised-value NOI differ, which one sizes your loan, and why — from a former HUD underwriter."/>
-  <meta name="twitter:image" content="https://roachlorenz.com/assets/og-hud-loan-sizing-noi.png"/>
+  <meta name="twitter:title" content="HUD Multifamily Minimum Vacancy: The 7%, 5%, and 3% Floors"/>
+  <meta name="twitter:description" content="HUD’s 7% minimum vacancy binds the DSCR loan amount, not the appraisal. What the floor covers, why concessions sit outside it, and where it stops applying."/>
+  <meta name="twitter:image" content="https://roachlorenz.com/assets/og-hud-minimum-vacancy-rates.png"/>
 
   <!-- Article Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "HUD Loan Sizing: DSCR NOI vs. Appraised Value NOI",
-    "description": "HUD builds two NOIs on the same deal. How the DSCR NOI and appraised-value NOI differ, which one sizes your loan, and why — from a former HUD underwriter.",
-    "image": "https://roachlorenz.com/assets/og-hud-loan-sizing-noi.png",
-    "datePublished": "2026-06-26T00:00:00Z",
-    "dateModified": "2026-08-28T00:00:00Z",
-    "wordCount": "1100",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://roachlorenz.com/resources/hud-minimum-vacancy-rates/"
+    },
+    "headline": "HUD Multifamily Minimum Vacancy: The 7%, 5%, and 3% Floors",
+    "description": "HUD's 7% minimum vacancy binds the DSCR loan amount, not the appraisal. What the floor covers, why concessions sit outside it, and where it stops applying.",
+    "image": "https://roachlorenz.com/assets/og-hud-minimum-vacancy-rates.png",
+    "datePublished": "2026-09-01T00:00:00Z",
+    "dateModified": "2026-09-01T00:00:00Z",
+    "wordCount": "2950",
     "author": [
       {
         "@type": "Person",
@@ -79,23 +83,19 @@
       "@type": "Organization",
       "name": "Wim Roach & Brian Lorenz",
       "url": "https://roachlorenz.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://roachlorenz.com/assets/logo.png"
-      }
+      "logo": { "@type": "ImageObject", "url": "https://roachlorenz.com/assets/logo.png" }
     },
     "about": [
-      { "@type": "Thing", "name": "HUD Multifamily Loan Sizing" },
-      { "@type": "Thing", "name": "Debt Service NOI" },
-      { "@type": "Thing", "name": "Market NOI" },
+      { "@type": "Thing", "name": "HUD Minimum Vacancy and Collection Loss" },
+      { "@type": "Thing", "name": "HUD Multifamily Underwriting" },
       { "@type": "Thing", "name": "Debt Service Coverage Ratio" },
-      { "@type": "Thing", "name": "HUD Minimum Vacancy" }
+      { "@type": "Thing", "name": "HUD MAP Lender" }
     ],
-    "keywords": "HUD loan sizing, DSCR NOI, Market NOI, appraised-value NOI, debt service NOI, HUD multifamily underwriting, HUD minimum vacancy, gross rent potential, HUD rent roll underwriting, replacement reserve PCNA"
+    "keywords": "HUD minimum vacancy, 7% vacancy, vacancy and collection loss, maximum underwritten occupancy, HUD 223f, HUD 221d4, LIHTC vacancy, bad debt, MAP Guide, Centennial Mortgage"
   }
   </script>
 
-  <!-- FAQPage Schema — must mirror the visible FAQ block exactly -->
+  <!-- FAQ Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -103,34 +103,61 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the difference between the DSCR NOI and the Market NOI on a HUD multifamily loan?",
+        "name": "What is the minimum vacancy rate for a HUD multifamily loan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The DSCR NOI (also called the Debt Service NOI) is the figure HUD's underwriter builds to size the loan against the debt service coverage ratio. It is meant to mirror the property's reality within HUD's rules, using HUD's minimum vacancy and the replacement reserve set by the Property Capital Needs Assessment. The Market NOI is the figure the third-party appraiser develops from market rent and expense comparables. The Market NOI, when divided by the market capitalization rate, produces appraised value, which drives the LTV mortgage amount. The two NOIs usually land close but diverge on three lines: income, vacancy, and expenses."
+          "text": "HUD applies a minimum vacancy and collection loss rate of 7% to market-rate properties, 5% to LIHTC properties that meet the minimum set-aside requirements and have attainable tax credit rents at least 10% below market, and 3% to properties with HAP contracts covering 90% or more of units. Those minimums bind the DSCR NOI, which is the figure used to size the loan against the debt service coverage test. The appraiser’s NOI, which drives appraised value and the loan-to-value test, is not bound by them. The rate is a floor rather than a target — where a property’s own vacancy and bad debt run higher, HUD underwrites the higher figure. These levels have been in place since the current MAP Guide. Mortgagee Letter 2025-03 changed HUD’s DSCR and loan-to-value criteria in January 2025 but made no change to the vacancy factors."
         }
       },
       {
         "@type": "Question",
-        "name": "Does HUD underwrite multifamily income from the current rent roll or a trailing average?",
+        "name": "What is the maximum underwritten occupancy for a HUD multifamily loan?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For the DSCR NOI, HUD underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units. Fannie Mae builds gross potential rent the same way, so the difference between the two programs is not the rent basis. It is what comes off it. Fannie deducts the greater of 5% of gross potential rent or the gap between gross potential rent and annualized trailing-three-month collections, and applies that deduction to the cash flow driving both its coverage test and its value conclusion. HUD's 7% minimum applies only to the DSCR NOI; the appraiser building the Market NOI is not bound by it."
+          "text": "For the DSCR loan criterion, 93% for market-rate properties, 95% for LIHTC properties with a 10% rent advantage, and 97% for properties with HAP contracts on 90% or more of units. These are the same requirements as the 7%, 5%, and 3% minimum vacancy rates, stated from the other direction — HUD’s Chapter 7 uses the occupancy framing and Appendix 3 uses the vacancy framing. For the Loan to Value NOI, the occupancy is determined by the Appraiser and can be above the stated maximums."
         }
       },
       {
         "@type": "Question",
-        "name": "What is HUD's minimum vacancy for a market-rate multifamily deal?",
+        "name": "Does HUD’s 7% vacancy include bad debt?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties that meet the minimum set-aside requirements and have attainable tax-credit rents at least 10% below market, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example."
+          "text": "Yes. HUD’s line item is the minimum vacancy and collection loss rate, and bad debt is the collection loss component. A property running 4% physical vacancy with 3% bad debt is at 7% economic loss and the floor is no longer doing any work. Sponsors who compare their physical occupancy against the 7% and conclude they are comfortably below it are usually leaving bad debt out of the comparison."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are rent concessions part of HUD’s 7% minimum vacancy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Concessions are deducted separately, on top of the underwritten vacancy. A market-rate property with 4% vacancy, 1% bad debt, and 4% in concessions underwrites at the 7% floor and then takes the concessions as an additional deduction. How much of the concession figure carries forward depends on whether it burns off — a lease-up incentive that has stopped is a different question from a month free offered on every renewal — and that judgment is worth working through before an application goes in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the appraiser have to use HUD’s 7% vacancy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. HUD’s minimum governs the DSCR NOI, the figure used to size the loan against the debt service coverage test. The appraiser selects whatever vacancy and bad debt factor the property and its market support, developed from the property’s own history, the rent comparables, and market conditions. HUD directs that the estimate be based on actual occupancy without regard to the programmatic constraints applied to the debt service loan amount, so the appraiser is free to conclude above or below the 7% depending on what the evidence shows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What occupancy does a property need to qualify for a HUD 223(f)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A property generally needs to be running an average physical occupancy of at least 85% and holding there through closing. That is an eligibility standard, separate from the underwritten DSCR vacancy floor — the 85% determines whether the property is a candidate, while the 7% determines what comes off the Rent Potential. How much operating history HUD wants behind that average depends on the property, and recently constructed properties coming out of lease-up are evaluated differently."
         }
       }
     ]
   }
   </script>
 
-</head>
-<style>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
     /* ============================================================
        ROACH-LORENZ DESIGN SYSTEM v2 — "The Underwriter's Desk"
        Canonical white paper stylesheet. Markup contract unchanged.
@@ -395,17 +422,6 @@
       .cover-series, .cover-inner > h1, .cover-lede, .cover-meta, .calc-results.visible { animation: none; }
     }
   
-    /* PAGE-SPECIFIC SUPPLEMENT — review */
-    /* Uncovered-class rules carried from v1, translated to v2 tokens
-       (navy->ink/tint/paper, gold->marker/marker-tint/rule, v1 display font->serif,
-       v1 body font->sans; border-radius and box-shadow dropped). */
-    .faq-a { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--body-text); overflow-wrap: break-word; }
-    .faq-block { margin-top: 12px; }
-    .faq-item { border-bottom: 1px solid var(--rule); padding: 22px 0; }
-    .faq-item:first-child { padding-top: 8px; }
-    .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .faq-q { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 10px; }
-  
     /* C: in-article body links — orange text + orange underline */
     .section-block a { color: var(--marker); text-decoration: underline; text-decoration-color: var(--marker); text-underline-offset: 2px; text-decoration-thickness: 1px; }
     .section-block a:hover { color: var(--blue); text-decoration-color: var(--blue); }
@@ -564,12 +580,24 @@
 @media (max-width: 768px) {
   .readnext { padding: 0 24px 64px; }
 }
-  </style><body>
+
+/* PAGE-SPECIFIC SUPPLEMENT — review */
+/* FAQ section — rules carried from hud-cash-flow-distributions */
+/* Section subheading — new component, first used on this page */
+.sub-head { font-family: var(--serif); font-size: 19px; font-weight: 600; color: var(--ink);
+  letter-spacing: -0.01em; line-height: 1.3; margin: 34px 0 10px; }
+/* Table footnote — rule carried from dscr-constrained-mortgage */
+.table-note { font-size: 12.5px; color: var(--mid); line-height: 1.6; margin: -16px 0 28px; }
+.faq-block .section-block p { font-size: 14px; }
+.faq-q { font-weight: 500; color: var(--ink); display: block; margin-top: 8px; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
 
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="/" class="nav-brand" aria-label="Wim Roach &amp; Brian Lorenz — HUD/FHA Multifamily Origination">Wim Roach <span>&amp;</span> Brian Lorenz</a>
+    <a href="/" class="nav-brand" aria-label="Wim Roach & Brian Lorenz — HUD/FHA Multifamily Origination">Wim Roach <span>&</span> Brian Lorenz</a>
     <ul class="nav-links">
       <li><a href="/resources/">Resources</a></li>
       <li><a href="/newsletter/">Quarterly</a></li>
@@ -587,203 +615,235 @@
         <div class="cover-series-dot"></div>
         Wim Roach &amp; Brian Lorenz — HUD/FHA Practitioner Series
       </div>
-      <h1>HUD Loan Sizing: DSCR NOI vs. <em>Appraised Value NOI</em></h1>
-      <div class="cover-subtitle">Why HUD Underwrites Two NOIs on One Deal — and What Each Means</div>
+      <h1>HUD <em>Minimum Vacancy Rates</em></h1>
+      <div class="cover-subtitle">The 7%, 5%, and 3% Floors, and Where They Stop Applying</div>
       <div class="cover-rule"></div>
-      <p class="cover-lede">On every HUD multifamily deal the underwriter works with two NOIs, not one. They start from the same property and usually land close, but they're built to different standards and feed different parts of the loan sizing — and the space between them can be worth real proceeds.</p>
+      <p class="cover-lede">Sponsors comparing HUD against the agencies usually bring up the programs&rsquo; different vacancy rates. HUD underwrites a minimum of 7% on a market-rate property where Fannie Mae&rsquo;s floor is 5%, which reads as HUD being the more conservative execution. That comparison misses that HUD builds two separate net operating incomes on a deal, and the floor binds only one of them. This paper covers what the 7% includes, why concessions sit outside it, where it stops applying, and how it compares to Fannie once coverage and amortization are in the picture.</p>
       <div class="cover-meta">
         <div class="cover-authors">
           <div class="cover-author">
-            <div class="author-initial">WR</div>
-            <div>
-              <div class="author-name">Wim Roach</div>
-              <div class="author-role">Vice President, Centennial Mortgage</div>
+            <div class="author-initial">B</div>
+            <div class="author-info">
+              <div class="author-name">Brian Lorenz</div>
+              <div class="author-role">Vice President — Former Senior HUD Underwriter</div>
             </div>
           </div>
           <div class="cover-author">
-            <div class="author-initial">BL</div>
-            <div>
-              <div class="author-name">Brian Lorenz</div>
-              <div class="author-role">Vice President, Centennial Mortgage</div>
+            <div class="author-initial">W</div>
+            <div class="author-info">
+              <div class="author-name">Wim Roach</div>
+              <div class="author-role">Vice President</div>
             </div>
           </div>
         </div>
         <div class="cover-divider"></div>
         <div class="cover-pub">
-          <time datetime="2026-06-26">Published June 26, 2026</time><br/>
-          Last updated August 2026<br/>
-          Wim Roach &amp; Brian Lorenz Practitioner Series
+          <div>Centennial Mortgage, Inc.</div>
+          <div>Published September 2026</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- DOC LAYOUT -->
   <div class="doc-layout">
 
-    <!-- BODY -->
+    <!-- MAIN BODY -->
     <article class="doc-body">
+<p class="intro-graf">HUD sets a minimum vacancy and collection loss rate for the Debt Service Constrained (DSCR) NOI underwriting of every multifamily loan it insures. On a market-rate property the rate is 7%. Properties that meet the LIHTC minimum set-aside requirements with attainable tax credit rents at least 10% below market underwrite at 5%, and properties with Housing Assistance Payments contracts covering 90% or more of units underwrite at 3%. The rate is a floor, meaning where a property&rsquo;s own vacancy and bad debt run higher, HUD underwrites the higher figure.</p>
 
-      <!-- INTRO -->
-      <p class="intro-graf">A HUD underwriter looks at a project's NOI from two angles: one NOI is used against HUD's debt service coverage ratio to determine the DSCR loan amount, and one is based on the appraiser's direct capitalization value (NOI divided by the market cap rate) — which determines the LTV loan amount. The two NOIs have different standards the underwriter must follow. The <strong>DSCR NOI</strong> is meant to mirror the property's reality while staying inside HUD's underwriting rules; the appraiser's <strong>Market NOI</strong> is what a hypothetical investor would expect the property to earn. The two usually are close, but they can differ on three lines — income, vacancy, and expenses — and having a lender know how to interpret the differences can produce materially more mortgage proceeds.</p>
+<!-- SECTION 1 -->
+<div class="section-block" id="the-floors">
+<div class="section-header">
+<div class="section-number">01</div>
+<div class="section-header-text">
+<div class="section-eyebrow">The Requirement</div>
+<h2 class="section-title">The Floors &mdash; <em>7%, 5%, and 3%</em></h2>
+</div>
+</div>
 
-      <!-- SCOPE NOTE -->
-      <section class="section-block">
-        <p>Everything that follows describes the 223(f), where the loan is sized on both value and coverage — so the appraiser's Market NOI and the DSCR NOI each drive a separate loan amount. The other common programs only put a DSCR NOI in play: the <a href="/resources/how-hud-sizes-a-221d4-mortgage/">221(d)(4)</a> is sized to cost rather than to an appraised value, so the Market NOI doesn't drive its proceeds, and the <a href="/resources/hud-223a7-and-irr-loan-modification/">223(a)(7)</a> streamlined refinance uses no new appraisal at all.</p>
-      </section>
+<p>This HUD required vacancy floor, however, only applies to one particular NOI underwriting. HUD sizes a loan against two separate net operating incomes. The DSCR NOI, which the underwriter builds to test debt service coverage, is bound by the minimum. The Market NOI, which the appraiser builds and which drives appraised value and the loan-to-value test, is not &mdash; the appraiser sets whatever vacancy and bad debt factor the property and its market support. A sponsor comparing HUD&rsquo;s 7% against Fannie&rsquo;s 5% and concluding HUD is the more conservative execution is comparing one of HUD&rsquo;s two numbers against Fannie&rsquo;s only one. Our paper on <a href="/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/">DSCR NOI versus appraised value NOI</a> works through what the difference between the two NOIs means on a deal where LTV or DSCR rates determine the loan amount.</p>
 
-      <!-- SECTION 1 — THE DSCR NOI -->
-      <section class="section-block" id="dscr-noi">
-        <div class="section-header">
-          <div class="section-number">01</div>
-          <div>
-            <div class="section-eyebrow">The DSCR NOI</div>
-            <h2 class="section-title">How HUD Builds the <em>DSCR NOI</em></h2>
-          </div>
-        </div>
+<p>The floors apply across the new construction and substantial rehabilitation programs &mdash; 220, 221(d)(4), 231, and 241(a) &mdash; and to 223(f) acquisitions and refinances. Section 232 healthcare properties are underwritten under a separate set of standards and are outside the scope of this paper.</p>
 
-        <p>For the DSCR NOI, the underwriter starts from the property's current rent collection. Normally, the method is the latest rent roll's actual rent on occupied units plus the market rent on vacant units; that sum is the Gross Residential Rent Potential, and a vacancy factor comes off it. HUD's <a href="/resources/hud-minimum-vacancy-rates/">minimum vacancy</a> depends on how much affordability the project carries — for a market-rate project it's 7%, including collection loss. Where the property's actual vacancy runs higher, the underwriter will normally use the actual rate. The underwritten vacancy is the greater of the minimum below and the property's own rate.</p>
+<div class="spec-table-wrap">
+<table class="spec-table">
+<thead>
+<tr>
+<th>Minimum Vacancy &amp; Collection Loss for DSCR Loan Amount</th>
+<th>Property Type</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="td-val">3%</td><td>Properties with HAP contracts covering 90% or more of units</td></tr>
+<tr><td class="td-val">5%</td><td>Properties meeting at least the minimum LIHTC set-aside requirements and with attainable tax credit rents at least 10% below market</td></tr>
+<tr><td class="td-val">7%</td><td>Market-rate properties, and LIHTC properties with units set aside but without a 10% rent advantage</td></tr>
+</tbody>
+</table>
+</div>
 
-        <div class="spec-table-wrap">
-          <table class="spec-table">
-            <thead>
-              <tr>
-                <th>Minimum Vacancy &amp; Collection Loss</th>
-                <th>Property Type</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="td-val">3%</td>
-                <td>Properties with HAP contracts covering 90% or more of units</td>
-              </tr>
-              <tr>
-                <td class="td-val">5%</td>
-                <td>LIHTC properties meeting the minimum set-aside requirements and with attainable tax-credit rents at least 10% below market</td>
-              </tr>
-              <tr>
-                <td class="td-val">7%</td>
-                <td>Market-rate properties, or other affordable projects not meeting the 3% or 5% rules</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<p>The 5% tier is the one sponsors most often get wrong, because both conditions have to be met. A LIHTC property that clears the set-aside test but whose restricted rents sit at or near market rents does not qualify for 5% &mdash; meaning it will underwrite at 7%, the same as a market-rate deal. The rent advantage is part of earning the lower vacancy rate, not the set-aside by itself.</p>
 
-        <div class="callout">
-          <p><strong>Worth watching.</strong> HUD has signaled interest in lowering the market-rate floor below 7% for properties with a sustained occupancy record. Nothing has been issued and nothing has changed. We will update this paper if it does. <em>(Noted August 2026.)</em></p>
-        </div>
+<p>The 223(a)(7) streamlined refinance does not use these tiers at all. HUD underwrites a 223(a)(7) at the property&rsquo;s actual occupancy. There is no new appraisal on a 223(a)(7) and no programmatic DSCR vacancy floor applied to it, which means a well-occupied property refinancing under a 223(a)(7) is not carrying the 7% haircut that the same property would carry under 223(f).</p>
 
-        <p>HUD's 7% floor applies only to the DSCR NOI. Fannie's equivalent — the greater of 5% of gross potential rent or the gap between gross potential rent and annualized trailing-three-month collections — sits inside the underwritten net cash flow that drives both its coverage test and its value conclusion. On a clean market-rate property Fannie's 5% is the lower number, so on coverage alone Fannie underwrites less vacancy than HUD does. The difference is that Fannie's floor travels into value and HUD's does not.</p>
+<p>Again, these are minimums, not fixed assumptions. HUD&rsquo;s guidance is explicit that underwritten vacancy and collection loss may be set above the minimums where the appraised or actual loss rates at the property support a higher figure. A property running 9% economic vacancy will most likely underwrite to a 9%. The floor only does work on properties performing better than it.</p>
 
-        <p>Two other differences worth knowing. Fannie's treatment of declining collections is formulaic: the underwriter tests the trailing three months against the trailing six and twelve and marks income down when the decline exceeds two percent. HUD has no equivalent formula, which is not the same as no exposure: if collections are trending down, HUD can question whether the current rent roll represents sustainable income and require the Rent Potential be underwritten lower. What you can compute in advance on a Fannie deal, you have to defend on a HUD deal. And on a property still leasing up, HUD will underwrite to the revenue actually being collected once the project holds programmatic coverage for three consecutive months, where Fannie requires stabilized occupancy. From there the DSCR NOI runs through HUD's DSCR coverage mortgage amount test; our <a href="/resources/how-hud-sizes-a-223f-mortgage/">223(f) loan sizing guide</a> walks the full set of sizing tests.</p>
-      </section>
+<div class="callout">
+<p><strong>Worth watching.</strong> HUD has signaled interest in lowering the market-rate floor below 7% for properties with a sustained occupancy record. Nothing has been issued and nothing has changed. We will update this paper if it does. <em>(Noted September 2026.)</em></p>
+</div>
+</div><!-- /section 01 -->
 
-      <!-- SECTION 2 — THE MARKET NOI -->
-      <section class="section-block" id="market-noi">
-        <div class="section-header">
-          <div class="section-number">02</div>
-          <div>
-            <div class="section-eyebrow">The Market NOI</div>
-            <h2 class="section-title">Where the <em>Appraiser</em> Can Go Higher</h2>
-          </div>
-        </div>
+<!-- SECTION 2 -->
+<div class="section-block" id="whats-included">
+<div class="section-header">
+<div class="section-number">02</div>
+<div class="section-header-text">
+<div class="section-eyebrow">What Sits Inside the Number</div>
+<h2 class="section-title">Vacancy and Bad Debt Together &mdash; <em>and Why Concessions Aren&rsquo;t</em></h2>
+</div>
+</div>
 
-        <p>The appraiser builds the Market NOI a little differently. Income comes from comparable projects' rents compared against the property's actual, current rents. If the property runs very low vacancy with rents below market, the appraiser can set income above the figure used in the DSCR NOI analysis.</p>
+<p>Physical vacancy and bad debt are two components of one number. HUD&rsquo;s line item is the minimum vacancy and collection loss rate, and bad debt is the collection loss. A property running 4% physical vacancy with 1% bad debt is at 5% economic loss, which sits under the 7% floor, so the floor governs and the property underwrites at 7% for the DSCR loan amount.</p>
 
-        <p>The appraiser can also use <a href="/resources/hud-minimum-vacancy-rates/">a vacancy below the DSCR table</a>. Where the DSCR analysis is locked at 7% for a market-rate project, the appraiser might conclude the market's vacancy is 4% and underwrite to 4%. That vacancy difference alone can add millions in mortgage proceeds if the LTV is constraining the mortgage amount, because the Market NOI drives appraised value and the LTV ceiling moves with it.</p>
-      </section>
+<p>A common clarification is that concessions are not in that number. HUD requires that concessions come off separately, on top of the underwritten vacancy. Take that same property and add 4% in concessions, and the deduction from Gross Residential Rent Potential is 7% plus 4%, not 7%. On $1,000,000 of Rent Potential the sponsor expecting their 5% economic loss to govern is looking at $950,000 of effective gross income. The underwritten figure is $890,000. At a 6.00% rate on 35-year amortization, that $60,000 gap is roughly $735,000 of loan proceeds.</p>
 
-      <!-- SECTION 3 — EXPENSES -->
-      <section class="section-block" id="expenses">
-        <div class="section-header">
-          <div class="section-number">03</div>
-          <div>
-            <div class="section-eyebrow">Expenses</div>
-            <h2 class="section-title">Where the <em>Expense Lines</em> Differ</h2>
-          </div>
-        </div>
+<p>How concessions get underwritten on top of the programmatic vacancy rate is a judgement to the underwriter and HUD. One of the most important aspects in underwriting concessions is whether and when they burn off. A lease-up incentive that ran for two quarters and has stopped is a different underwriting question from one month free offered on every renewal in a soft submarket. The first can support carrying a reduced concession figure forward or none at all; the second might get underwritten at what the property is actually giving away, because it doesn&rsquo;t look like the concessions are going to stop. Often these two situations are analyzed via the burn-off schedule, and how much of it the underwriter is willing to credit depends on how well the pattern is documented.</p>
 
-        <p>Expenses can vary between the two NOIs the same way. The DSCR side wants expenses that reflect the property's reality; the appraiser wants expenses that reflect the marketplace, and the two get reconciled where they differ. Easy examples are an above-market management fee paid to a related entity, or a property insurance premium that runs unusually low.</p>
+<p>Which is why a concession schedule is worth asking for even though it isn&rsquo;t on the formal checklist &mdash; what was offered, to how many units, and over what period. A lot of lenders work to shorten the document request, and there is a case for that, but a shorter list is only better if what came off it wasn&rsquo;t going to help you. The argument for a reduced concession figure has to be built from the leasing history rather than asserted, and the schedule is what builds it. Our <a href="/resources/hud-223f-checklist/">223(f) document checklist</a> covers what HUD actually requires.</p>
+</div><!-- /section 02 -->
 
-        <p>The most common difference is the annual deposit to replacement reserves. The appraiser often carries $250 per unit; while the DSCR NOI must use the figure the Property Capital Needs Assessment (PCNA) sets during underwriting. Larger gaps in the total expenses can come from the cost of operating under affordability restrictions and from real estate taxes under abatements, TIFs, and similar arrangements.</p>
-      </section>
+<!-- SECTION 3 -->
+<div class="section-block" id="where-it-stops">
+<div class="section-header">
+<div class="section-number">03</div>
+<div class="section-header-text">
+<div class="section-eyebrow">Scope of the Floor</div>
+<h2 class="section-title">Where the Floor <em>Stops</em></h2>
+</div>
+</div>
 
-      <!-- SECTION 4 — WHAT THE GAP IS WORTH -->
-      <section class="section-block" id="proceeds">
-        <div class="section-header">
-          <div class="section-number">04</div>
-          <div>
-            <div class="section-eyebrow">The Proceeds Impact</div>
-            <h2 class="section-title">What a Small Gap <em>Is Worth</em></h2>
-          </div>
-        </div>
+<p>As stated earlier, HUD&rsquo;s minimum vacancy only governs the DSCR NOI, which is the figure the underwriter builds to size the loan against the debt service coverage test. It does not govern the appraiser&rsquo;s NOI &mdash; which determines the loan to value (LTV) test mortgage amount. Our papers on <a href="/resources/how-hud-sizes-a-223f-mortgage/">how HUD sizes a 223(f) mortgage</a> and <a href="/resources/how-hud-sizes-a-221d4-mortgage/">how HUD sizes a 221(d)(4) mortgage</a> walk through the full set of sizing tests.</p>
 
-        <p>The two NOIs can finish close and still produce very different loan amounts. Say the appraiser concludes the market's management fee is $10,000 below the property's actual. At a 5% cap rate, that's roughly $160,000 of additional value — and additional LTV-constrained proceeds — off a single expense line.</p>
+<p>The appraiser establishes a vacancy and bad debt factor from the property&rsquo;s own history, the rent comparables, and long-term occupancy expectations in the market. HUD&rsquo;s direction to the appraiser is that the occupancy estimate be based on the property&rsquo;s actual occupancy without regard to HUD&rsquo;s DSCR vacancy floors, and that the appraised vacancy factor reflect long-term occupancy rates expected to continue. This means that a market-rate property can be appraised at 5% while the same property underwrites at 7% for the DSCR NOI.</p>
 
-        <p>None of that is gaming the rules. It's building each NOI to the standard HUD assigns it: reality on the DSCR side, the market on the appraisal side. On the right deal, that reconciliation is the difference between an adequate loan and the largest one the property can defensibly support.</p>
-      </section>
+<p>That gap is critical when the LTV test is determining the loan amount. The appraiser&rsquo;s vacancy feeds the Market NOI, the Market NOI divided by the market cap rate produces appraised value, and the LTV ceiling is a percentage of that value. If the deal is debt-service-constrained, a lower appraisal vacancy moves the appraisal but does nothing to the loan amount.</p>
 
-      <!-- FAQ -->
-      <section class="section-block" id="faq">
-        <div class="section-header">
-          <div class="section-number">05</div>
-          <div>
-            <div class="section-eyebrow">FAQ</div>
-            <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
-          </div>
-        </div>
+<p>The appraiser is not required to use 7%, but is not prohibited from using it either. HUD permits the appraiser to use the programmatic minimums to develop market value where the appraiser considers it appropriate, and the latitude runs in both directions &mdash; the appraiser can conclude a factor below 7% where the property and the market support it, and can conclude one above 7% where they do not. What we see in practice on market-rate properties in healthy markets is 5%, but sometimes they could go lower.</p>
 
-        <div class="faq-block">
-          <div class="faq-item">
-            <div class="faq-q">What is the difference between the DSCR NOI and the Market NOI on a HUD multifamily loan?</div>
-            <div class="faq-a">The DSCR NOI (also called the Debt Service NOI) is the figure HUD's underwriter builds to size the loan against the debt service coverage ratio. It is meant to mirror the property's reality within HUD's rules, using HUD's minimum vacancy and the replacement reserve set by the Property Capital Needs Assessment. The Market NOI is the figure the third-party appraiser develops from market rent and expense comparables. The Market NOI, when divided by the market capitalization rate, produces appraised value, which drives the LTV mortgage amount. The two NOIs usually land close but diverge on three lines: income, vacancy, and expenses.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">Does HUD underwrite multifamily income from the current rent roll or a trailing average?</div>
-            <div class="faq-a">For the DSCR NOI, HUD underwrites income from the current rent roll — actual rent on occupied units plus market rent on vacant units. Fannie Mae builds gross potential rent the same way, so the difference between the two programs is not the rent basis. It is what comes off it. Fannie deducts the greater of 5% of gross potential rent or the gap between gross potential rent and annualized trailing-three-month collections, and applies that deduction to the cash flow driving both its coverage test and its value conclusion. HUD's 7% minimum applies only to the DSCR NOI; the appraiser building the Market NOI is not bound by it.</div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q">What is HUD's minimum vacancy for a market-rate multifamily deal?</div>
-            <div class="faq-a">For the DSCR NOI on a market-rate property, HUD applies a minimum vacancy and collection-loss factor of 7%, even when actual vacancy is lower. Affordable properties carry lower floors: 5% for LIHTC properties that meet the minimum set-aside requirements and have attainable tax-credit rents at least 10% below market, and 3% for properties with HAP contracts covering at least 90% of units. Where actual vacancy is higher than the floor, HUD uses the actual rate. The appraiser developing the Market NOI is not bound by these floors and can use the actual market vacancy, which is often lower — 4% against a 7% floor, for example.</div>
-          </div>
-        </div>
-      </section>
+<p>When the appraiser does conclude above 7%, the DSCR underwriting usually moves with it. The floor is a minimum, not a fixed assumption, so a property whose appraised loss rate supports 9% is probably being underwritten at 9% on both sides. The separation between the two numbers only exists on properties performing better than the floor.</p>
 
-      <!-- CLOSING -->
+<p>Commercial space is underwritten on its own occupancy limits, separate from the residential floors. On a 223(f), underwritten commercial physical occupancy is the lesser of 90%, the property&rsquo;s actual commercial occupancy, or what the market indicates. On new construction the ceiling is the lesser of 80% or the market. The appraiser has to note the actual market-derived commercial vacancy in the report, and the appraised value of the commercial component has to assume the lesser of what the market shows or the program&rsquo;s limit. A property with meaningful retail is running two vacancy analyses, and the commercial one is the more conservative of the two.</p>
+</div><!-- /section 03 -->
 
+<!-- SECTION 4 -->
+<div class="section-block" id="vs-fannie">
+<div class="section-header">
+<div class="section-number">04</div>
+<div class="section-header-text">
+<div class="section-eyebrow">Agency Comparison</div>
+<h2 class="section-title">How HUD&rsquo;s Floor Compares to <em>Fannie&rsquo;s</em></h2>
+</div>
+</div>
+
+<p>Both HUD and Fannie Mae impose a minimum loss deduction that applies whether or not the property has actually lost that much income. The two are built differently, and on a well-run market-rate property Fannie&rsquo;s is the lower number &mdash; on the DSCR mortgage test. Everything in this section compares HUD&rsquo;s DSCR NOI against Fannie&rsquo;s single underwritten cash flow. The appraised value side of a HUD deal is not bound by the 7% at all, which is what the second of the two differences below turns on.</p>
+
+<p>HUD&rsquo;s is a flat floor by property type: 7% market rate, 5% for LIHTC properties with a 10% rent advantage, 3% for properties with HAP contracts on 90% or more of units. Fannie&rsquo;s is a greater-of test. Physical vacancy, concessions, and bad debt together must equal the greater of 5% of gross potential rent, or the difference between gross potential rent and the property&rsquo;s annualized trailing three-month net rental collections.</p>
+
+<p>Vacancy is one input, and it is worth putting next to the others. HUD&rsquo;s coverage requirement on a market-rate deal is 1.15 against a 35-year amortization, reset by Mortgagee Letter 2025-03. Fannie&rsquo;s is set by Form 4660 rather than by program and tiers by market, product, and sponsor, but 1.25 against a 30-year amortization is normal on a conventional deal. Those two differences run the other way, and they run harder than the vacancy does. HUD&rsquo;s 7% vacancy produces less net operating income than Fannie&rsquo;s 5%, and the HUD loan still sizes larger on the coverage test, because 1.15 against a 35-year amortization more than offsets two points of vacancy. How much larger depends on where the two executions are priced and on the property&rsquo;s expense load. Our paper on <a href="/resources/dscr-constrained-mortgage/">how a DSCR-constrained mortgage works</a> walks through the mechanics.</p>
+
+<p>Two structural differences follow from the way the floors themselves are built.</p>
+
+<h3 class="sub-head">Concessions sit inside Fannie&rsquo;s floor and outside HUD&rsquo;s</h3>
+
+<p>Fannie&rsquo;s minimum covers vacancy, concessions, and bad debt as one combined deduction, so a property giving away 4% in concessions has already consumed most of its 5% floor. HUD deducts concessions separately, on top of the 7%. The property that gave away 4% takes 7% plus 4%.</p>
+
+<p>On paper that favors Fannie. In practice it rarely does, because the two conditions don&rsquo;t normally co-occur. A property offering heavy concessions is usually offering them because they are experiencing high vacancy &mdash; a stabilized asset holding sub-5% vacancy and bad debt is not typically a property that needs to give away a month of free rent. And once concessions are running heavy enough to matter, the property&rsquo;s trailing three-month collections have fallen behind its gross potential rent, which means Fannie&rsquo;s floor is no longer 5%. The greater-of test has switched over to the collections gap, and that gap is capturing the concessions anyway. Fannie&rsquo;s structural advantage on this line is mostly theoretical.</p>
+
+<h3 class="sub-head">Fannie&rsquo;s floor reaches the value conclusion; HUD&rsquo;s does not</h3>
+
+<p>Fannie&rsquo;s deduction sits inside the underwritten net cash flow, and that single cash flow drives both the coverage test and the value used for sizing. HUD&rsquo;s 7% binds only the DSCR NOI. The appraiser builds the Market NOI on a market-supported factor, and on a 223(f) where LTV is the binding test, that is the number setting the loan. A property that appraises at 5% and underwrites at 7% for coverage is getting the benefit of the lower rate on the test that controls &mdash; an outcome Fannie&rsquo;s structure does not produce, because there is only one cash flow.</p>
+
+<div class="spec-table-wrap">
+<table class="spec-table">
+<thead>
+<tr>
+<th>Parameter</th>
+<th>HUD (market rate)</th>
+<th>Fannie Mae (conventional)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td class="td-label">Minimum loss deduction</td><td class="td-val">7% of Rent Potential</td><td>Greater of 5% of GPR or the annualized trailing three-month collections gap</td></tr>
+<tr><td class="td-label">Physical vacancy</td><td class="td-val">Included</td><td>Included</td></tr>
+<tr><td class="td-label">Bad debt</td><td class="td-val">Included</td><td>Included</td></tr>
+<tr><td class="td-label">Concessions</td><td class="td-val">Deducted separately, on top</td><td>Included</td></tr>
+<tr><td class="td-label">Applies to the value conclusion</td><td class="td-val">No</td><td>Yes</td></tr>
+<tr><td class="td-label">Floor moves with performance</td><td class="td-val">No &mdash; flat by property type</td><td>Yes &mdash; rises when trailing collections lag</td></tr>
+</tbody>
+</table>
+</div>
+<p class="table-note">Fannie Mae terms are typical of high leverage transactions. Some strong borrowers and/or markets may be different.</p>
+
+<p>The affordable tiers converge more than the market-rate ones. HUD&rsquo;s 3% for HAP properties is a flat rate based on the Section 8 contract. Fannie permits an affordable property to underwrite below 5%, to no less than 3%, but conditions it &mdash; the property has to sit in a qualifying market, restricted rents generally have to run at least 10% below comparable market rents, and the economic vacancy has to be supported by current data plus three years of history showing no less than the actual rate. Same floor, reached by demonstration rather than by category. HUD would also make us underwrite above 3% if the project wasn&rsquo;t performing at that economic vacancy historically.</p>
+
+<p>One more difference worth knowing on a property whose collections are slipping. Fannie&rsquo;s greater-of test rises automatically when trailing collections fall behind gross potential rent, so a property with a collections problem sees its minimum deduction climb on its own. HUD&rsquo;s floor does not move that way, however, HUD can question whether the current rent roll represents sustainable income if they see collections falling and can underwrite the Rent Potential lower, and the MAP Guide separately permits a vacancy rate above the minimum where the property&rsquo;s history supports one.</p>
+</div><!-- /section 04 -->
+
+<!-- FAQ -->
+<div class="section-block faq-block" id="faq">
+<div class="section-header">
+<div class="section-number">05</div>
+<div class="section-header-text">
+<div class="section-eyebrow">Frequently Asked</div>
+<h2 class="section-title">Common Questions About <em>HUD Vacancy Underwriting</em></h2>
+</div>
+</div>
+
+<p><span class="faq-q">What is the minimum vacancy rate for a HUD multifamily loan?</span>
+HUD applies a minimum vacancy and collection loss rate of 7% to market-rate properties, 5% to LIHTC properties that meet the minimum set-aside requirements and have attainable tax credit rents at least 10% below market, and 3% to properties with HAP contracts covering 90% or more of units. Those minimums bind the DSCR NOI, which is the figure used to size the loan against the debt service coverage test. The appraiser&rsquo;s NOI, which drives appraised value and the loan-to-value test, is not bound by them. The rate is a floor rather than a target &mdash; where a property&rsquo;s own vacancy and bad debt run higher, HUD underwrites the higher figure. These levels have been in place since the current MAP Guide. Mortgagee Letter 2025-03 changed HUD&rsquo;s DSCR and loan-to-value criteria in January 2025 but made no change to the vacancy factors.</p>
+
+<p><span class="faq-q">What is the maximum underwritten occupancy for a HUD multifamily loan?</span>
+For the DSCR loan criterion, 93% for market-rate properties, 95% for LIHTC properties with a 10% rent advantage, and 97% for properties with HAP contracts on 90% or more of units. These are the same requirements as the 7%, 5%, and 3% minimum vacancy rates, stated from the other direction &mdash; HUD&rsquo;s Chapter 7 uses the occupancy framing and Appendix 3 uses the vacancy framing. For the Loan to Value NOI, the occupancy is determined by the Appraiser and can be above the stated maximums.</p>
+
+<p><span class="faq-q">Does HUD&rsquo;s 7% vacancy include bad debt?</span>
+Yes. HUD&rsquo;s line item is the minimum vacancy and collection loss rate, and bad debt is the collection loss component. A property running 4% physical vacancy with 3% bad debt is at 7% economic loss and the floor is no longer doing any work. Sponsors who compare their physical occupancy against the 7% and conclude they are comfortably below it are usually leaving bad debt out of the comparison.</p>
+
+<p><span class="faq-q">Are rent concessions part of HUD&rsquo;s 7% minimum vacancy?</span>
+No. Concessions are deducted separately, on top of the underwritten vacancy. A market-rate property with 4% vacancy, 1% bad debt, and 4% in concessions underwrites at the 7% floor and then takes the concessions as an additional deduction. How much of the concession figure carries forward depends on whether it burns off &mdash; a lease-up incentive that has stopped is a different question from a month free offered on every renewal &mdash; and that judgment is worth working through before an application goes in.</p>
+
+<p><span class="faq-q">Does the appraiser have to use HUD&rsquo;s 7% vacancy?</span>
+No. HUD&rsquo;s minimum governs the DSCR NOI, the figure used to size the loan against the debt service coverage test. The appraiser selects whatever vacancy and bad debt factor the property and its market support, developed from the property&rsquo;s own history, the rent comparables, and market conditions. HUD directs that the estimate be based on actual occupancy without regard to the programmatic constraints applied to the debt service loan amount, so the appraiser is free to conclude above or below the 7% depending on what the evidence shows.</p>
+
+<p><span class="faq-q">What occupancy does a property need to qualify for a HUD 223(f)?</span>
+A property generally needs to be running an average physical occupancy of at least 85% and holding there through closing. That is an eligibility standard, separate from the underwritten DSCR vacancy floor &mdash; the 85% determines whether the property is a candidate, while the 7% determines what comes off the Rent Potential. How much operating history HUD wants behind that average depends on the property, and recently constructed properties coming out of lease-up are evaluated differently.</p>
+</div><!-- /faq -->
     </article><!-- /doc-body -->
 
     <!-- SIDEBAR -->
     <aside class="doc-sidebar">
-
       <div class="sidebar-box">
-        <div class="sidebar-label">In This Guide</div>
+        <div class="sidebar-label">In This Article</div>
         <ul class="toc-list">
-          <li><a href="#dscr-noi"><span class="toc-num">01</span> How HUD Builds the DSCR NOI</a></li>
-          <li><a href="#market-noi"><span class="toc-num">02</span> Where the Appraiser Can Go Higher</a></li>
-          <li><a href="#expenses"><span class="toc-num">03</span> Where the Expense Lines Differ</a></li>
-          <li><a href="#proceeds"><span class="toc-num">04</span> What a Small Gap Is Worth</a></li>
+          <li><a href="#the-floors"><span class="toc-num">01</span> The Floors</a></li>
+          <li><a href="#whats-included"><span class="toc-num">02</span> Vacancy, Bad Debt, and Concessions</a></li>
+          <li><a href="#where-it-stops"><span class="toc-num">03</span> Where the Floor Stops</a></li>
+          <li><a href="#vs-fannie"><span class="toc-num">04</span> Compared to Fannie Mae</a></li>
           <li><a href="#faq"><span class="toc-num">05</span> Frequently Asked Questions</a></li>
         </ul>
       </div>
 
       <div class="sidebar-box">
-        <div class="sidebar-label">At a Glance</div>
+        <div class="sidebar-label">Minimum Vacancy At a Glance</div>
         <div class="sidebar-stat">
-          <div class="sidebar-stat-val">Two NOIs</div>
-          <div class="sidebar-stat-label">DSCR NOI and Market NOI, one deal</div>
+          <div class="sidebar-stat-val">7%</div>
+          <div class="sidebar-stat-label">Market-rate floor — vacancy and bad debt combined</div>
         </div>
         <div class="sidebar-stat">
-          <div class="sidebar-stat-val">Rent Roll</div>
-          <div class="sidebar-stat-label">DSCR income basis — not a trailing average</div>
+          <div class="sidebar-stat-val">5% / 3%</div>
+          <div class="sidebar-stat-label">LIHTC with a 10% rent advantage / HAP on 90%+ of units</div>
         </div>
         <div class="sidebar-stat">
-          <div class="sidebar-stat-val">7% / 5% / 3%</div>
-          <div class="sidebar-stat-label">Min DSCR vacancy — market / LIHTC / HAP</div>
-        </div>
-        <div class="sidebar-stat">
-          <div class="sidebar-stat-val">PCNA</div>
-          <div class="sidebar-stat-label">Sets the DSCR replacement reserve</div>
+          <div class="sidebar-stat-val">DSCR only</div>
+          <div class="sidebar-stat-label">The floor binds the DSCR NOI — not the appraiser&rsquo;s</div>
         </div>
       </div>
 
@@ -803,7 +863,7 @@
         </div>
       </div>
 
-      <a href="/#contact" class="sidebar-cta">Start a Conversation</a>
+      <a href="/#contact" class="sidebar-cta">Discuss Your Project →</a>
     </aside>
 
   </div><!-- /doc-layout -->
@@ -875,19 +935,11 @@
   <div class="readnext-inner">
     <div class="readnext-eyebrow">Continue Reading</div>
 
-      <a class="readnext-item" href="/resources/dscr-constrained-mortgage/">
-        <div class="readnext-tag">Loan Sizing</div>
+      <a class="readnext-item" href="/resources/hud-loan-sizing-dscr-noi-vs-appraised-value-noi/">
+        <div class="readnext-tag">NOI</div>
         <div>
-          <div class="readnext-title">How a DSCR-Constrained Mortgage Works</div>
-          <p class="readnext-desc">What actually drives the number when DSCR is the binding constraint.</p>
-        </div>
-      </a>
-
-      <a class="readnext-item" href="/resources/how-hud-sizes-a-223f-mortgage/">
-        <div class="readnext-tag">HUD 223(f)</div>
-        <div>
-          <div class="readnext-title">How HUD Sizes a 223(f) Multifamily Mortgage</div>
-          <p class="readnext-desc">The tests that set the loan amount, and which one usually binds.</p>
+          <div class="readnext-title">HUD Loan Sizing: DSCR NOI vs. Appraised-Value NOI</div>
+          <p class="readnext-desc">Why HUD underwrites two different NOIs on the same deal.</p>
         </div>
       </a>
 
@@ -896,6 +948,14 @@
         <div>
           <div class="readnext-title">How We Added $4M to a HUD 223(f) by Reading the Tax Code</div>
           <p class="readnext-desc">What reading a state tax bill was worth on one deal: $4M in additional proceeds.</p>
+        </div>
+      </a>
+
+      <a class="readnext-item" href="/resources/how-hud-sizes-a-223f-mortgage/">
+        <div class="readnext-tag">HUD 223(f)</div>
+        <div>
+          <div class="readnext-title">How HUD Sizes a 223(f) Multifamily Mortgage</div>
+          <p class="readnext-desc">The tests that set the loan amount, and which one usually binds.</p>
         </div>
       </a>
 
@@ -908,7 +968,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-brand">Wim Roach <span>&amp;</span> Brian Lorenz</div>
+        <div class="footer-brand">Wim Roach <span>&</span> Brian Lorenz</div>
         <div class="footer-tagline">HUD/FHA Multifamily Origination</div>
       </div>
       <ul class="footer-links">
@@ -920,9 +980,11 @@
         <li><a href="/#contact">Contact</a></li>
       </ul>
     </div>
-    <p class="footer-disclaimer">&copy; 2026 Wim Roach &amp; Brian Lorenz. Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This white paper is for informational purposes only and does not constitute a commitment to lend or legal or financial advice. Wim Roach &amp; Brian Lorenz are loan originators with Centennial Mortgage, Inc.</p>
+    <p class="footer-disclaimer">Centennial Mortgage, Inc. is an approved HUD/FHA Multifamily Accelerated Processing (MAP) lender. All loan programs subject to HUD/FHA guidelines, approval, and availability. This article and sizing tool are for informational and illustrative purposes only. All tool outputs are preliminary estimates based on user-entered assumptions and do not constitute a commitment to lend, a loan application, or underwriting analysis. Statutory limits, HCP factors, DSCR requirements, and LTV ceilings are subject to HUD guidelines and individual transaction review. Contact Wim Roach &amp; Brian Lorenz directly for current rate guidance and deal-specific analysis. Wim Roach &amp; Brian Lorenz are loan originators with Centennial Mortgage, Inc.</p>
   </div>
 </footer>
+
+
 
 <script>
 function handleQuarterlySubmit(e) {
