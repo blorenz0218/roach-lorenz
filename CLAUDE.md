@@ -4,10 +4,12 @@ Personal brand site for Brian Lorenz and Wim Roach, both Vice Presidents at Cent
 
 ## Who we are
 
-- **Brian Lorenz** — Vice President. Former Senior HUD Underwriter at Colliers Mortgage with a 100% HUD Firm Commitment success rate (never had a deal rejected). Lives in Boise, ID.
+- **Brian Lorenz** — Vice President. Former Senior HUD Underwriter at Colliers Mortgage; in that role, every deal he submitted to HUD received a Firm Commitment. Lives in Boise, ID.
 - **Wim Roach** — Vice President. Extensive borrower relationships and closed transaction volume.
 
 The public-facing title is always **"Vice President"** — never a variant naming Originations — in page copy, author tags, and JSON-LD jobTitle alike.
+
+**The Firm Commitment claim is scoped to Brian's underwriting tenure.** Canonical phrasing: *"In that role, every deal he submitted to HUD received a Firm Commitment"* — "that role" being Senior HUD Underwriter at Colliers Mortgage. It does not extend to origination. Never use the unscoped forms ("never had a deal rejected", "100% Firm Commitment success rate"); the unscoped version was removed from `hud-apartment-loans` and from this file on 2026-09-16. As of that date it appears on the homepage Team bio and `hud-apartment-loans` §06.
 
 ## Loan programs featured
 
