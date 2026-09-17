@@ -110,7 +110,7 @@ The one page not on this template is `resources/hud-223f-checklist`, which uses 
 
 Two header patterns exist site-wide — do not invent others:
 
-- **Homepage**: wordmark left; its own section-anchor nav (Why HUD / Process / Programs / Resources / Team / Quarterly) + a "Get in Touch" button to `#contact`.
+- **Homepage**: wordmark left; its own nav, in document order — the anchor group Team / Why HUD / Programs / Process, then a `<span class="nav-div">` divider, then the two off-page destinations Resources / Quarterly — plus a "Get in Touch" button to `#contact`. The homepage nav is bare `<a>` elements inside `<nav class="links">`, not the `<ul><li>` structure shown in the interior markup block below. See the anchor-group rule above: moving a homepage section means reordering this nav to match.
 - **Every interior page** (white papers, newsletter archive, issues): wordmark left; a right-justified cluster of Resources / Quarterly / Team links + a "Get in Touch" button.
 
 Shared link treatment on both: nav links are IBM Plex Mono, 11.5px, weight 500, uppercase, letter-spacing 0.08em, color `--mid` (hover `--blue`). The CTA is the blue-deep button component: sans 13px/600, white text on `--blue-deep`, `padding: 11px 22px`, hover `--blue`. On mobile the links hide; wordmark + button remain.
@@ -122,7 +122,7 @@ Canonical interior header markup (a new page copies this block and the NAV CSS r
   <div class="nav-inner">
     <a href="/" class="nav-brand">Wim Roach <span>&amp;</span> Brian Lorenz</a>
     <ul class="nav-links">
-      <li><a href="/#resources">Resources</a></li>
+      <li><a href="/resources/">Resources</a></li>
       <li><a href="/newsletter/">Quarterly</a></li>
       <li><a href="/#team">Team</a></li>
     </ul>
