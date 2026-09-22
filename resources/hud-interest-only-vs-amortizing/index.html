@@ -1405,10 +1405,13 @@
     drawChart(sA, sB, hold);
     var res = document.getElementById("results");
     res.classList.add("show");
-    if (typeof gtag === "function"){ gtag('event', 'tool_calculate', {tool: 'io_vs_amortizing'}); }
   }
 
-  document.getElementById("calcBtn").addEventListener("click", calculate);
+  // tool_calculate fires on real clicks only; the load call below populates the defaults without an event
+  document.getElementById("calcBtn").addEventListener("click", function(){
+    calculate();
+    if (typeof gtag === "function"){ gtag('event', 'tool_calculate', {tool: 'io_vs_amortizing'}); }
+  });
   // Run once on load with the worked-example defaults
   window.addEventListener("load", calculate);
 </script>
@@ -1418,6 +1421,10 @@ function handleQuarterlySubmit(e) {
   e.preventDefault();
   var form = e.currentTarget;
   var btn  = form.querySelector('button[type="submit"]');
+
+  /* Honeypot check (client-side belt-and-suspenders alongside Netlify's server-side check) */
+  var honey = form.querySelector('[name="bot-field"]');
+  if (honey && honey.value) { return false; }
 
   // stamp the originating page at submit time
   form.querySelector('input[name="source-page"]').value = window.location.pathname;
@@ -1430,7 +1437,8 @@ function handleQuarterlySubmit(e) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(new FormData(form)).toString()
   })
-  .then(function () {
+  .then(function (response) {
+    if (!response.ok) { throw new Error('Network response was not ok'); }
     document.getElementById('qcard-form-wrap').classList.add('off');
     document.getElementById('qcard-success').classList.add('on');
     if (typeof gtag === 'function') {

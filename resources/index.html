@@ -570,6 +570,10 @@ function handleNlsubSubmit(e) {
   var form = e.currentTarget;
   var btn  = form.querySelector('button[type="submit"]');
 
+  /* Honeypot check (client-side belt-and-suspenders alongside Netlify's server-side check) */
+  var honey = form.querySelector('[name="bot-field"]');
+  if (honey && honey.value) { return false; }
+
   form.querySelector('input[name="source-page"]').value = window.location.pathname;
 
   btn.disabled = true;
@@ -580,7 +584,8 @@ function handleNlsubSubmit(e) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(new FormData(form)).toString()
   })
-  .then(function () {
+  .then(function (response) {
+    if (!response.ok) { throw new Error('Network response was not ok'); }
     document.getElementById('nlsub-form-wrap').classList.add('off');
     document.getElementById('nlsub-success').classList.add('on');
     if (typeof gtag === 'function') {

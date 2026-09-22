@@ -351,13 +351,13 @@ Event handlers must be bound with `addEventListener` in a script block. Never us
 
 **Two Netlify forms, not one.** `quarterly-subscribe` takes every newsletter signup site-wide. `fha-comparison-inline` is separate and lives only on `hud-223a7-and-irr-loan-modification`, which therefore carries four `<form>` elements — a live form and a detection stub for each. Do not assume every subscribe-shaped form posts to `quarterly-subscribe`.
 
-`quarterly-subscribe` appears on **23 deployed pages**, each with one live form and one hidden detection stub sharing the name. A 24th copy lives in `quarterly-card-component.html`, which is gitignored and not deployed — exclude it from any count.
+`quarterly-subscribe` appears on **26 deployed pages**, each with one live form and one hidden detection stub sharing the name. A 27th copy lives in `quarterly-card-component.html`, which is gitignored and not deployed — exclude it from any count.
 
 Signups are told apart by a hidden `source-location` input, five values:
 
 | Value | Where |
 |---|---|
-| `article-end` | The author + Quarterly card, on 20 pages — the 19 resource papers and `newsletter/2026-q2` |
+| `article-end` | The author + Quarterly card, on 23 pages — the 22 resource papers and `newsletter/2026-q2` |
 | `resources-index` | `/resources/` |
 | `newsletter-index` | `/newsletter/` |
 | `homepage` | `/` — the `.nlsub` strip above the contact band |
