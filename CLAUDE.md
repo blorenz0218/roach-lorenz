@@ -84,7 +84,7 @@ Section numbers live only in the `.seclabel` divs, so reordering means renumberi
 
 **`.offer` — a real offer, not a CTA.** One line and one action on `--marker-tint` with a `3px solid var(--marker)` left border, sitting **above** `.qcard-wrap`; the page's `.readnext` still goes below the card. Use it only for something the reader cannot already reach by scrolling. Two pages qualify today: `hud-interest-only-vs-amortizing` (the emailed Excel model) and `hud-223a7-and-irr-loan-modification` (the FHA-number comparison, whose action anchors to `#fha-comparison` — the inline form higher up the same page, so "the form above" stays accurate). This is not a general-purpose CTA slot. A generic "Talk to the Team / View Loan Programs" pairing does not qualify.
 
-**The generic closing band is retired.** `.closing`, `.end-cta`, and `.next-steps` are gone from all 19 resource pages along with their CSS, and no new page gets one. The single exception is `newsletter/2026-q2`, which keeps its `.post-cta` deliberately — a newsletter issue is not a white paper, and continue-reading rows pointing at technical papers would be a category mismatch. Leave it alone.
+**The generic closing band is retired.** `.closing`, `.end-cta`, and `.next-steps` are gone from all 19 resource pages along with their CSS, and no new page gets one. The single exception is the newsletter issues (`newsletter/2026-q2`, `newsletter/2026-q3`), which keep their `.post-cta` deliberately — a newsletter issue is not a white paper, and continue-reading rows pointing at technical papers would be a category mismatch. Leave them alone, and build each new issue the same way.
 
 **`/resources/` is the canonical index.** Every "browse all" or "more resources" link points there. The homepage's old `§7 THE LIBRARY` section and its `id="resources"` anchor no longer exist, so **nothing should link to `/#resources`** — it resolves to the top of the homepage. Site pages are clean; five files under `/sizings/` still carry the dead anchor and are a separate cleanup.
 
@@ -351,13 +351,13 @@ Event handlers must be bound with `addEventListener` in a script block. Never us
 
 **Two Netlify forms, not one.** `quarterly-subscribe` takes every newsletter signup site-wide. `fha-comparison-inline` is separate and lives only on `hud-223a7-and-irr-loan-modification`, which therefore carries four `<form>` elements — a live form and a detection stub for each. Do not assume every subscribe-shaped form posts to `quarterly-subscribe`.
 
-`quarterly-subscribe` appears on **26 deployed pages**, each with one live form and one hidden detection stub sharing the name. A 27th copy lives in `quarterly-card-component.html`, which is gitignored and not deployed — exclude it from any count.
+`quarterly-subscribe` appears on **27 deployed pages**, each with one live form and one hidden detection stub sharing the name. A 28th copy lives in `quarterly-card-component.html`, which is gitignored and not deployed — exclude it from any count.
 
 Signups are told apart by a hidden `source-location` input, five values:
 
 | Value | Where |
 |---|---|
-| `article-end` | The author + Quarterly card, on 23 pages — the 22 resource papers and `newsletter/2026-q2` |
+| `article-end` | The author + Quarterly card, on 24 pages — the 22 resource papers and the two newsletter issues (`newsletter/2026-q2`, `newsletter/2026-q3`) |
 | `resources-index` | `/resources/` |
 | `newsletter-index` | `/newsletter/` |
 | `homepage` | `/` — the `.nlsub` strip above the contact band |
