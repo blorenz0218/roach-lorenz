@@ -206,7 +206,7 @@ Every page ships with:
 - Visible publish date
 - FAQ section of at least five questions targeting long-tail queries
 
-Homepage exemption: the homepage uses a ProfessionalService + Person `@graph` instead of Article and FAQPage schema — this is correct and audits should not flag it.
+Homepage exemption: the homepage uses a ProfessionalService + Person + WebSite `@graph` instead of Article and FAQPage schema (the WebSite node, `@id` `https://roachlorenz.com/#website`, carries the site name "Wim Roach & Brian Lorenz" and the alternate names "Roach Lorenz" and "roachlorenz.com") — this is correct and audits should not flag it.
 
 ### Schema integrity and internal link form
 
@@ -378,14 +378,15 @@ Every new page, no exceptions:
 3. Verify og:image, twitter:image, and JSON-LD `image` all point to a real PNG that exists in `/assets/`
 4. Confirm `twitter:card` is set to `summary_large_image` (not `summary`)
 5. Confirm canonical URL matches the site pattern: `https://roachlorenz.com/resources/[folder-name]/` with a trailing slash and no `.html` extension — and that og:url and any self-referencing JSON-LD `@id`/`url` fields use the same trailing-slash form
-6. Confirm the hero entrance animation (fadeUp cascade on `.cover-series`, h1, `.cover-lede`, `.cover-meta`) is present in the page's `<style>` block
-7. Confirm the standard interior header (wordmark + Resources/Quarterly/Team + Get in Touch button) and standard footer are present — copy both from an existing paper
-8. Add at least one in-body contextual inbound link to the new page from an existing page — inside a sentence that already discusses the topic, not a related-articles block. Prefer a high-traffic source page. Pages discovered only through `sitemap.xml` tend to sit in "Crawled — currently not indexed": `hud-cash-flow-distributions` published 2026-07-31 and was still unindexed on 2026-08-19 with sitemap-only discovery
-9. Wire the page into the library — this is five edits, not one: add it to the correct stage group in `resources/index.html`, bump `numberOfItems` **and** extend `itemListElement` in that page's ItemList schema, update the hardcoded count in the homepage's `.browse-all` link (the JS that derived it was deleted with §7, so nothing counts it now), and add it to the continued-reading mapping on the pages where it is a genuine next read
-10. Update `sitemap.xml` with the new URL, and bump `<lastmod>` on `/resources/` and `/` to the same date — step 9 edits both. Set `lastmod` from a page's last meaningful content change, never from its last commit date: site-wide script or CSS commits touch every file and would stamp all URLs with one date
-11. Push all updated files to GitHub
-12. Google Search Console → URL Inspection → paste new URL → Request Indexing
-13. After deploy, test the social preview at linkedin.com/post-inspector
+6. Add the four icon tags directly after the canonical link: `<link rel="icon" href="/favicon.ico" sizes="48x48"/>`, `<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96"/>`, `<link rel="icon" href="/assets/favicon-192.png" type="image/png" sizes="192x192"/>`, `<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>`. `favicon.ico` lives at the repo root (browsers request `/favicon.ico` by default); the PNGs live in `/assets/`
+7. Confirm the hero entrance animation (fadeUp cascade on `.cover-series`, h1, `.cover-lede`, `.cover-meta`) is present in the page's `<style>` block
+8. Confirm the standard interior header (wordmark + Resources/Quarterly/Team + Get in Touch button) and standard footer are present — copy both from an existing paper
+9. Add at least one in-body contextual inbound link to the new page from an existing page — inside a sentence that already discusses the topic, not a related-articles block. Prefer a high-traffic source page. Pages discovered only through `sitemap.xml` tend to sit in "Crawled — currently not indexed": `hud-cash-flow-distributions` published 2026-07-31 and was still unindexed on 2026-08-19 with sitemap-only discovery
+10. Wire the page into the library — this is five edits, not one: add it to the correct stage group in `resources/index.html`, bump `numberOfItems` **and** extend `itemListElement` in that page's ItemList schema, update the hardcoded count in the homepage's `.browse-all` link (the JS that derived it was deleted with §7, so nothing counts it now), and add it to the continued-reading mapping on the pages where it is a genuine next read
+11. Update `sitemap.xml` with the new URL, and bump `<lastmod>` on `/resources/` and `/` to the same date — step 10 edits both. Set `lastmod` from a page's last meaningful content change, never from its last commit date: site-wide script or CSS commits touch every file and would stamp all URLs with one date
+12. Push all updated files to GitHub
+13. Google Search Console → URL Inspection → paste new URL → Request Indexing
+14. After deploy, test the social preview at linkedin.com/post-inspector
 
 ## Workflow split
 
