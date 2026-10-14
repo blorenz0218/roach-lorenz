@@ -227,6 +227,8 @@ Four rules, each written because the opposite was found on live pages.
 
 The homepage `@graph` `@id` values (`#brian-lorenz`, `#wim-roach`) are node identifiers, not URLs, and correctly stay as they are.
 
+**Site name — "Roach & Lorenz".** The site name is "Roach & Lorenz" in three places: the homepage WebSite node `name`, `og:site_name` on every page, and Article `publisher.name` on every page (plus the `publisher` string on the newsletter issues' Periodical). "Wim Roach & Brian Lorenz" is the visible wordmark and the WebSite `alternateName`; the homepage ProfessionalService name, the nav/footer wordmarks, their aria-labels, and the `<title>` suffixes keep the full names. **JSON-LD strings use a literal `&`, never `&amp;`** — a `<script type="application/ld+json">` block is not HTML-decoded, so `&amp;` reaches Google as the five characters `&amp;`. Eight publisher names and one ItemList name carried that defect until 2026-10-14. HTML attributes and text (including `og:site_name`) still escape it as `&amp;`.
+
 **Internal links are root-relative.** Every `<a>` href to an internal page uses `/resources/[slug]/`, never `https://roachlorenz.com/resources/[slug]/`. Canonical tags and every URL inside a schema block keep the absolute form. Mixed forms have twice caused an audit to undercount internal links, because the extraction filtered on `^https?:` and skipped the absolute ones.
 
 ### HowTo schema — deliberate, and not expected to produce rich results
