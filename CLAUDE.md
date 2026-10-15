@@ -88,7 +88,7 @@ Section numbers live only in the `.seclabel` divs, so reordering means renumberi
 
 **`/resources/` is the canonical index.** Every "browse all" or "more resources" link points there. The homepage's old `§7 THE LIBRARY` section and its `id="resources"` anchor no longer exist, so **nothing should link to `/#resources`** — it resolves to the top of the homepage. Site pages are clean; five files under `/sizings/` still carry the dead anchor and are a separate cleanup.
 
-The one page not on this template is `resources/hud-223f-checklist`, which uses `.article-*` classes (`.article-body` / `.article-content` / `.article-sidebar`) instead. The card-and-band rule above still applies there and is already satisfied — the grid holds only the article and the sidebar. What differs is the sidebar: because it isn't `.doc-sidebar`, it can't inherit the standard containment, so it carries a page-local copy scoped inside that page's `@media (min-width: 821px)` block. The page also already contains the full standard `.doc-*` CSS as dead code, so converting the markup is mostly a rename and would retire this exception.
+`resources/hud-223f-checklist` was the last paper on the old `.article-*` template (`.article-body` / `.article-content` / `.article-sidebar`); it was converted to `.doc-layout` on 2026-10-15, so every paper except `hud-interest-only-vs-amortizing` (see above) now uses this structure. Its remaining components — the five-column comparison table, the dash item list, the callout label and the sidebar author rows — live in a page-specific supplement.
 
 **Fonts** — Source Serif 4 (display/serif headings), IBM Plex Sans (body/UI), IBM Plex Mono (data/labels). Canonical fonts `<link>` for every page:
 
@@ -155,9 +155,7 @@ Add this block at the end of the page's `<style>` section:
 }
 ```
 
-This targets the `cover` hero template (the canonical template used on 8 of 9 pages). `.cover-subtitle` and `.cover-rule` are intentionally left unanimated to keep the cascade to 4 elements.
-
-The `hud-223f-checklist` page uses a different hero template (`.article-*` classes instead of `.cover-*`) and has its own version of the same animation. Don't try to unify the templates — just make sure any new paper uses the `cover` template and gets the animation above.
+This targets the `cover` hero template, which every paper now uses. `.cover-subtitle` and `.cover-rule` are intentionally left unanimated to keep the cascade to 4 elements.
 
 ## Writing voice (critical)
 
@@ -430,7 +428,7 @@ Margins are 0.6in top and sides and 0.95in bottom, which keeps the footer clear 
 
 **4. Noindex.** `_headers` sends `X-Robots-Tag: noindex` on `/assets/pdf/*`, so the PDFs never compete with their HTML papers in search. It was the first `_headers` file in the repo; add any future header rules there.
 
-**Rule: any content edit to a paper that has a PDF must be followed by re-running `node scripts/build-pdf.mjs <slug>` and committing the new PDF in the same commit.** Otherwise the download silently serves stale copy. Update the "Current as of" month on the cover when you rebuild after a content change. Papers with a PDF today: all 22 papers on the standard `.doc-layout` template (the template block is byte-identical on every one). Not yet: `hud-223f-checklist` (`.article-*` template) and `hud-interest-only-vs-amortizing` (deprecated layout with a calculator) — each needs its own print rules. Each cover's "Current as of" month is the paper's `dateModified` month (`datePublished` where there is none), not the build month. Download filenames are `Roach-Lorenz-` plus the paper's `<title>`, hyphenated, with program numbers unpunctuated (223f, 221d4, 223a7, 241a).
+**Rule: any content edit to a paper that has a PDF must be followed by re-running `node scripts/build-pdf.mjs <slug>` and committing the new PDF in the same commit.** Otherwise the download silently serves stale copy. Update the "Current as of" month on the cover when you rebuild after a content change. Papers with a PDF today: all 23 papers on the standard `.doc-layout` template (the template block is byte-identical on every one). Not yet: `hud-interest-only-vs-amortizing` (deprecated layout; its NPV calculator is the substance of the page, so its PDF needs a decision on what replaces the calculator in print). Each cover's "Current as of" month is the paper's `dateModified` month (`datePublished` where there is none), not the build month. Download filenames are `Roach-Lorenz-` plus the paper's `<title>`, hyphenated, with program numbers unpunctuated (223f, 221d4, 223a7, 241a).
 
 ## Workflow split
 
