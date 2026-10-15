@@ -443,6 +443,43 @@ The `/resources/` folder is the source of truth for what's published. Each subfo
 
 The **241(a) Supplemental Loan white paper** (`resources/hud-241a-supplemental-loan/index.html`) is the canonical style reference — match its voice and structure for any new long-form content.
 
+## Open items
+
+Last verified against the files on 2026-10-15. None of these is scheduled; each needs a decision or a pass of its own. Re-verify before acting — the list goes stale as pages change.
+
+**Verified present**
+
+- **Stale counts in this file.** The nav breakpoint table above still says "All 22 interior pages" and "all 22 share one value"; there are now 24 papers plus 4 hub/issue pages.
+- **Meta descriptions outside 150–160 characters:** `newsletter/2026-q2` 178, `newsletter/2026-q3` 148, `hud-221d4-timeline` 149, `hud-223f-checklist` 148, `hud-apartment-loans` 145.
+- **No visible FAQ and no FAQPage schema:** `5-reasons-hud-deals-stall`, `hud-221d4-bspra`, `hud-223f-checklist`. `hud-loan-sizing-dscr-noi-vs-appraised-value-noi` has only 3 FAQs (the standard is at least 5).
+- **FAQ schema/visible parity gap:** `requesting-hud-replacement-reserve-funds` — two schema questions aren't in the visible FAQ and one answer differs.
+- **HowTo steps without a `url` anchor:** `hud-apartment-loans` (5 of 5), `hud-221d4-timeline` (9 of 9), `hud-221d4-working-capital-and-iod-escrows` (3 of 3). The HowTo rule above requires one on every step.
+- **`hud-223f-timeline` HowTo states a 120-day market-study shelf life** that its visible copy doesn't mention (the HowTo rule says step numbers come from visible copy).
+- **223(f) figure statements that disagree across pages** (from the 2026-10-12 hub audit; Brian decides which is right):
+  - timeline: homepage §5/§6 "~5 months" vs "5–6 months" everywhere else; `5-reasons` measures "from application to closing", every other page "from engagement to closing";
+  - stabilization: "one month" (Q2 issue, eligibility, timeline) vs "three consecutive months" (NOI page);
+  - three-year-rule citation: "Notice H 2020-03" (eligibility) vs "Mortgagee Letter 2020-03" (cash-flow);
+  - number of 223(f) sizing tests: four (sizing page, apartment-loans, homepage, MIP) vs five (`dscr-constrained-mortgage`, which counts the amount requested);
+  - agency close time: "three to four months" (checklist), "90 days" (timeline), "60 to 90 days" (apartment-loans FAQ).
+- **"Debt Service NOI" instead of the canonical "DSCR NOI":** 21 on `how-hud-sizes-a-223f-mortgage`, 7 on `how-hud-sizes-a-221d4-mortgage`, 5 on the NOI page.
+- **No unpunctuated program number (223f/221d4/241a/223a7) in visible text** on 9 of 24 papers: `5-reasons-hud-deals-stall`, `hud-apartment-loans`, `hud-cash-flow-distributions`, `hud-interest-only-vs-amortizing`, `hud-loan-sizing-dscr-noi-vs-appraised-value-noi`, `hud-minimum-vacancy-rates`, `hud-prepayment-vs-yield-maintenance`, `hud-survey-requirements`, `requesting-hud-replacement-reserve-funds`.
+- **No `dateModified`:** `5-reasons-hud-deals-stall`, `hud-223f-checklist`.
+- **`hud-interest-only-vs-amortizing`:** still on the deprecated layout; `table.cmp` has a `min-width` and no scroll wrapper, so the page measures 643px wide at a 375px viewport.
+- **`hud-prepayment-vs-yield-maintenance`:** an inline `margin-top: 12px !important` that does nothing.
+- **NOI page:** six `.example-box` CSS rules with no matching markup.
+- **`hud-apartment-loans` FAQ schema** uses single quotes ('HUD multifamily loan', 'bad-boy') where the visible FAQ uses double quotes.
+- **Four `/sizings/` files still link to `/#resources`** (`lib/chassis-template.html`, `samples/arc-apartment-homes.html`, `samples/sonoran-vista-PREVIEW-STALE.html`, `web/publisher-test.html`). `_redirects` returns 404 for `/sizings/*`, so none is served.
+
+**Flagged by an automated parity check, not yet confirmed by hand.** The extraction may be misreading these pages' FAQ markup; compare schema and visible FAQ directly before changing anything: `hud-221d4-timeline` (reported earlier as 6 schema questions vs 5 visible), `hud-221d4-working-capital-and-iod-escrows`, `hud-223f-timeline`, `hud-interest-only-vs-amortizing`, `hud-apartment-loans`, `hud-223a7-and-irr-loan-modification`, `hud-prepayment-vs-yield-maintenance`.
+
+**Carried from the original handoff, not re-checked:** opening-sentence keyword placement; `.cta-facts .row` at 311.2px against a 311px content width (see Mobile overflow); mobile nav; a `_redirects` rule.
+
+**Copy that is Claude's wording, not Brian's:** the `/resources/` index card descriptions for `hud-minimum-vacancy-rates`, `hud-multifamily-property-eligibility`, `hud-multifamily-mip`, `hud-223f-loan-terms` and `hud-build-to-rent-financing`, and the print-only "Interactive tool" note on `hud-interest-only-vs-amortizing`.
+
+**Outside the repo:** the Netlify form-notification subject ("Website Inquiry Submission") is set in the Netlify dashboard, not in code.
+
+**Post-deploy checks (Brian's):** Download PDF buttons save under the intended filenames and `/assets/pdf/*` returns `X-Robots-Tag: noindex`; the converted `hud-223f-checklist` and the favicon look right in a real browser; the hover state on the homepage §5 "HUD Section 223(f)" heading; GSC indexing for `hud-223f-loan-terms` and `hud-build-to-rent-financing`.
+
 ## Change log
 
 - **2026-08-24:** Built the resources index and the continued-reading block, and retired the generic closing band. `ecaf748` replaced inconsistent per-element `scroll-margin-top` with one `html { scroll-padding-top: 86px }` on all 21 pages carrying in-page anchors, matching the sidebar's existing `top: 86px` so an anchored section aligns with the sidebar card, plus a 100px override below 480px where the nav CTA wraps to two lines and the header grows to ~95px. `06b69f5` published `/resources/` — all 19 papers grouped by stage, with ItemList schema and the lighter subscribe strip. `e408c66` deleted the homepage's `§7 THE LIBRARY`, now duplicated by that index, expanded `§2` to six cards with a 2-column tablet state, added a stage-link row, and repointed every `/#resources` reference site-wide — nav, footer, five closing-band buttons, one in-body link, and three BreadcrumbList nodes; the load-more JS it removed contained an unguarded `loadBtn.textContent` that would have thrown once the markup was gone, taking the comparison toggle, the GSAP timeline, and the deep-link re-anchor script with it. `530fc43` moved three passages of underwriting substance out of closing bands into article bodies before `cdf3450` deleted the bands themselves and replaced them with Continue Reading blocks. Two audit rules came out of the session: the below-article component rules above, and "Auditing — verify the check before trusting the result," written because five separate defects hid behind extraction patterns that did not work.
