@@ -728,6 +728,8 @@
   tr, th, td { break-inside: avoid; }
   h1, h2, h3, h4, .section-header, .sub-head, .faq-q { break-after: avoid; }
   .section-header, .callout, .cover-meta { break-inside: avoid; }
+  .print-keep { break-inside: avoid; }
+  .print-nowrap { white-space: nowrap; }
   p, li { orphans: 3; widows: 3; }
   footer { margin-top: 24px; padding: 20px 0 0; }
   .footer-inner { max-width: none; padding: 0; }
@@ -737,6 +739,40 @@
   .cover-print-note { margin-top: 6px; }
   .cover-print-url { margin-top: 2px; white-space: nowrap; }
   .cover-print-url a { color: var(--mid); }
+  /* Print type scale (pt) — tighter than screen for a shorter PDF */
+  .cover { padding: 0 0 14pt; }
+  .cover-series { font-size: 8pt; gap: 8px; margin-bottom: 14pt; }
+  .cover h1 { font-size: 26pt; }
+  .cover-subtitle { font-size: 12pt; margin-top: 6pt; }
+  .cover-rule { margin: 14pt 0; }
+  .cover-lede { font-size: 12pt; line-height: 1.45; }
+  .cover-meta { margin-top: 16pt; padding-top: 12pt; }
+  .cover-pub { font-size: 8.5pt; margin-top: 10pt; }
+  .author-name { font-size: 10pt; }
+  .author-role { font-size: 8pt; }
+  .doc-layout { padding: 16pt 0 0; }
+  .section-block { margin-bottom: 20pt; }
+  .section-header { margin-bottom: 8pt; }
+  .section-number, .section-eyebrow { font-size: 8pt; }
+  .section-eyebrow { margin-top: 1pt; }
+  .section-title { font-size: 17pt; line-height: 1.2; margin-top: 3pt; }
+  .sub-head { font-size: 13pt; margin: 14pt 0 5pt; }
+  .faq-q { font-size: 11.5pt; margin-top: 11pt; margin-bottom: 3pt; }
+  p, .body-list li { font-size: 10.5pt; line-height: 1.5; }
+  p { margin-bottom: 7pt; }
+  .body-list { margin: 0 0 9pt 0; padding-left: 16pt; }
+  .body-list li { margin-bottom: 4pt; }
+  .callout { padding: 9pt 12pt; margin: 12pt 0; }
+  .callout p { font-size: 10pt; line-height: 1.45; margin-bottom: 4pt; }
+  .spec-table-wrap { margin: 10pt 0; }
+  .spec-table th { font-size: 8pt; padding: 5pt 8pt 5pt 0; }
+  .spec-table td { font-size: 9.5pt; line-height: 1.4; padding: 5pt 8pt 5pt 0; }
+  .td-src { font-size: 8pt; }
+  .table-note { font-size: 8.5pt; margin: -4pt 0 10pt; }
+  footer { margin-top: 14pt; padding: 10pt 0 0; }
+  .footer-brand { font-size: 12pt; }
+  .footer-tagline { font-size: 8pt; }
+  .footer-disclaimer { font-size: 8pt; line-height: 1.45; margin-top: 8pt; }
 }
   </style>
 </head>
@@ -897,10 +933,10 @@
 </div>
 
 <p>The Fair Housing Act’s design and construction requirements apply to “covered multifamily dwellings” &mdash; every unit in a building of four or more units with an elevator, and the ground-floor units in a non-elevator building of four or more units. A detached home, a duplex, or a triplex is not a covered multifamily dwelling regardless of whether it sits on a property HUD treats as “multifamily.” The mortgagee letter applies that rule to BTR but keeps two traditional Fair Housing “multifamily” requirements.</p>
-<div class="spec-table-wrap">
+<div class="spec-table-wrap print-keep">
 <table class="spec-table">
 <thead>
-<tr><th>Fair Housing Accessibility Guidelines requirement</th><th>BTR homes under ML 2026-12</th></tr>
+<tr><th>Fair Housing Accessibility Guidelines requirement</th><th class="print-nowrap">BTR homes under ML 2026-12</th></tr>
 </thead>
 <tbody>
 <tr><td>1. Accessible building entrance on an accessible route</td><td>Exempt</td></tr>

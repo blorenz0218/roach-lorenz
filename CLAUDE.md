@@ -396,6 +396,24 @@ A paper can ship a downloadable PDF built from its own HTML. `hud-build-to-rent-
 
 **1. Print stylesheet.** The block marked `/* PRINT / PDF TEMPLATE */` at the end of the BTR page's `<style>` is the template — copy it whole. In print it hides the nav, sidebar, Quarterly card, Continue Reading, `.offer`, buttons, the floating calculator button, the Download PDF link, and the footer link list. It keeps the cover, body, tables, FAQ, and footer wordmark plus MAP-lender disclaimer. Table rows don't split across pages and `thead` repeats; headings, `.section-header`, `.sub-head` and `.faq-q` don't end a page; the entrance animation is forced off so the cover never prints at opacity 0. It also adds `.print-only` (hidden on screen) and the `.pdf-link` styles. Letter width puts the page under the 720px breakpoint, so mobile layout rules apply in print; the template accounts for that. The page's existing small canonical `@media print` block stays as it is.
 
+**Print type scale — the standard for paper PDFs.** Set inside the print block, in points. It took the BTR paper from 11 pages to 7 and fits the "In summary" callout under the cover.
+
+| Element | Print size |
+|---|---|
+| Body paragraphs, list items, FAQ answers | 10.5pt, line-height 1.5 |
+| Cover lede | 12pt, line-height 1.45 |
+| Cover title (h1) | 26pt |
+| Section titles (h2) | 17pt |
+| Subheads (`.sub-head`) | 13pt |
+| FAQ questions (`.faq-q`) | 11.5pt |
+| Section numbers and eyebrows | 8pt |
+| Table cells / header labels | 9.5pt / 8pt, cell padding 5pt |
+| "In summary" callout | 10pt, padding 9pt 12pt |
+| Cover byline (name / role) | 10pt / 8pt |
+| Site footer wordmark / disclaimer | 12pt / 8pt |
+
+Heading, paragraph, list and section spacing are reduced in proportion (paragraphs 7pt apart, sections 20pt). Two print-only utilities: `.print-keep` on a table wrapper keeps a short table on one page (the BTR Fair Housing table uses it), and `.print-nowrap` on a header cell stops it wrapping (used so "BTR homes under ML 2026-12" never breaks inside the ML number). Use `.print-keep` only on tables short enough to fit a page.
+
 **2. Cover markup.** In `.cover-pub`, the publish date sits in a `.cover-date-row` with the Download PDF link (`.pdf-link`, mono uppercase like the nav links, a generic inline-SVG document icon reading "PDF" — not Adobe's mark). The link uses `download="Roach-Lorenz-…pdf"` and binds nothing; GA4 enhanced measurement already records `.pdf` clicks as `file_download`. Below it, a `.print-only .cover-print-note` line reads "Current as of [Month Year]. Latest version: roachlorenz.com/resources/[slug]/" with a root-relative link.
 
 **3. Build script.** `node scripts/build-pdf.mjs <slug>` serves the repo root on a throwaway localhost port, renders `/resources/<slug>/` with print media at US Letter, and writes `assets/pdf/<slug>.pdf`. It blocks GA4 requests (no analytics hits from a build), and rewrites every root-relative `href` to `https://roachlorenz.com/…` before printing so links in the PDF work away from localhost. It launches the installed Chrome (`channel: 'chrome'`) and falls back to Playwright's Chromium. Playwright is a **dev dependency of `scripts/package.json`**, deliberately outside the repo root: a root `package.json` would make Netlify install it on every deploy. First run: `cd scripts && npm install`. `scripts/node_modules/` and the lockfile are gitignored.
