@@ -390,6 +390,30 @@ Every new page, no exceptions:
 13. Google Search Console → URL Inspection → paste new URL → Request Indexing
 14. After deploy, test the social preview at linkedin.com/post-inspector
 
+## Paper PDFs
+
+A paper can ship a downloadable PDF built from its own HTML. `hud-build-to-rent-financing` is the first and is the **template**: copy its pieces to any other paper that gets one.
+
+**1. Print stylesheet.** The block marked `/* PRINT / PDF TEMPLATE */` at the end of the BTR page's `<style>` is the template — copy it whole. In print it hides the nav, sidebar, Quarterly card, Continue Reading, `.offer`, buttons, the floating calculator button, the Download PDF link, and the footer link list. It keeps the cover, body, tables, FAQ, and footer wordmark plus MAP-lender disclaimer. Table rows don't split across pages and `thead` repeats; headings, `.section-header`, `.sub-head` and `.faq-q` don't end a page; the entrance animation is forced off so the cover never prints at opacity 0. It also adds `.print-only` (hidden on screen) and the `.pdf-link` styles. Letter width puts the page under the 720px breakpoint, so mobile layout rules apply in print; the template accounts for that. The page's existing small canonical `@media print` block stays as it is.
+
+**2. Cover markup.** In `.cover-pub`, the publish date sits in a `.cover-date-row` with the Download PDF link (`.pdf-link`, mono uppercase like the nav links, a generic inline-SVG document icon reading "PDF" — not Adobe's mark). The link uses `download="Roach-Lorenz-…pdf"` and binds nothing; GA4 enhanced measurement already records `.pdf` clicks as `file_download`. Below it, a `.print-only .cover-print-note` line reads "Current as of [Month Year]. Latest version: roachlorenz.com/resources/[slug]/" with a root-relative link.
+
+**3. Build script.** `node scripts/build-pdf.mjs <slug>` serves the repo root on a throwaway localhost port, renders `/resources/<slug>/` with print media at US Letter, and writes `assets/pdf/<slug>.pdf`. It blocks GA4 requests (no analytics hits from a build), and rewrites every root-relative `href` to `https://roachlorenz.com/…` before printing so links in the PDF work away from localhost. It launches the installed Chrome (`channel: 'chrome'`) and falls back to Playwright's Chromium. Playwright is a **dev dependency of `scripts/package.json`**, deliberately outside the repo root: a root `package.json` would make Netlify install it on every deploy. First run: `cd scripts && npm install`. `scripts/node_modules/` and the lockfile are gitignored.
+
+**Footer.** Every PDF page carries a three-line footer from Playwright's `footerTemplate`, mono at 8.5px in `--mid` (`#5b7280`). Header/footer templates can't load web fonts, so IBM Plex Mono falls back to Consolas/Courier New:
+
+```
+Wim Roach · 509-528-6691 · wroach@centennialmortgage.com
+Brian Lorenz · 541-760-4377 · blorenz@centennialmortgage.com
+Centennial Mortgage, Inc. · roachlorenz.com · Page X of Y
+```
+
+Margins are 0.6in top and sides and 0.95in bottom, which keeps the footer clear of body text. Change contact details in the script, then rebuild every PDF.
+
+**4. Noindex.** `_headers` sends `X-Robots-Tag: noindex` on `/assets/pdf/*`, so the PDFs never compete with their HTML papers in search. It was the first `_headers` file in the repo; add any future header rules there.
+
+**Rule: any content edit to a paper that has a PDF must be followed by re-running `node scripts/build-pdf.mjs <slug>` and committing the new PDF in the same commit.** Otherwise the download silently serves stale copy. Update the "Current as of" month on the cover when you rebuild after a content change. Papers with a PDF today: `hud-build-to-rent-financing`.
+
 ## Workflow split
 
 - **Claude project chat (claude.ai)** = iterative page building and white paper drafting. Back-and-forth content work.

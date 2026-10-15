@@ -1,0 +1,12 @@
+{
+  "name": "roachlorenz-scripts",
+  "private": true,
+  "description": "Local build tools for roachlorenz.com. Not part of the Netlify build; lives outside the repo root so Netlify never installs it.",
+  "type": "module",
+  "scripts": {
+    "build-pdf": "node build-pdf.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.64.1"
+  }
+}

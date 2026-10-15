@@ -704,6 +704,40 @@
   .hub-table th.th-src, .hub-table td.td-src { width: 20%; }
 }
 .spec-table td.td-val { min-width: 150px; }
+
+/* PRINT / PDF TEMPLATE — copy this whole block to any paper that gets a PDF.
+   scripts/build-pdf.mjs renders the page with print media; see CLAUDE.md "Paper PDFs". */
+.print-only { display: none; }
+.cover-date-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.pdf-link { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.pdf-link:hover { color: var(--blue); }
+.pdf-link svg { width: 14px; height: 17px; flex: none; }
+@media print {
+  nav, .doc-sidebar, .qcard-wrap, .readnext, .offer, .float-calc-btn, .calculator-wrap, button, .nav-btn, .pdf-link, .footer-links { display: none !important; }
+  .print-only { display: block !important; }
+  html { scroll-padding-top: 0; }
+  body { background: #fff; }
+  .cover-series, .cover-inner > h1, .cover-lede, .cover-meta { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .page-wrapper { max-width: none; padding: 0; }
+  .cover { padding: 0 0 28px; }
+  .doc-layout { display: block; padding: 32px 0 0; }
+  .section-block { margin-bottom: 40px; }
+  .spec-table-wrap { overflow: visible; }
+  .spec-table tr:hover td { background: none; }
+  thead { display: table-header-group; }
+  tr, th, td { break-inside: avoid; }
+  h1, h2, h3, h4, .section-header, .sub-head, .faq-q { break-after: avoid; }
+  .section-header, .callout, .cover-meta { break-inside: avoid; }
+  p, li { orphans: 3; widows: 3; }
+  footer { margin-top: 24px; padding: 20px 0 0; }
+  .footer-inner { max-width: none; padding: 0; }
+  .cover-meta { display: block; }
+  .cover-divider { display: none; }
+  .cover-pub { margin-top: 18px; }
+  .cover-print-note { margin-top: 6px; }
+  .cover-print-url { margin-top: 2px; white-space: nowrap; }
+  .cover-print-url a { color: var(--mid); }
+}
   </style>
 </head>
 <body>
@@ -753,7 +787,9 @@
         <div class="cover-divider"></div>
         <div class="cover-pub">
           <div>Centennial Mortgage, Inc.</div>
-          <div><time datetime="2026-10-14">Published October 2026</time></div>
+          <div class="cover-date-row"><time datetime="2026-10-14">Published October 2026</time><a class="pdf-link" href="/assets/pdf/hud-build-to-rent-financing.pdf" download="Roach-Lorenz-HUD-Build-to-Rent-ML-2026-12.pdf"><svg viewBox="0 0 14 17" aria-hidden="true" focusable="false"><path d="M1 0.75h8l4 4v11.5H1z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="miter"/><path d="M9 0.75v4h4" fill="none" stroke="currentColor" stroke-width="1.2"/><text x="7" y="13.2" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4.2" font-weight="600" fill="currentColor">PDF</text></svg>Download PDF</a></div>
+          <div class="print-only cover-print-note">Current as of October 2026.</div>
+          <div class="print-only cover-print-url">Latest version: <a href="/resources/hud-build-to-rent-financing/">roachlorenz.com/resources/hud-build-to-rent-financing/</a></div>
         </div>
       </div>
     </div>
